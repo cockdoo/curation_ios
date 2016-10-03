@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tD6-Nx-5uH">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="yDA-2l-xyd">
+            <objects>
+                <navigationController id="tD6-Nx-5uH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="73z-Pq-cyY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hFF-Y9-jnG" kind="relationship" relationship="rootViewController" id="eki-rT-qc9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQ0-NO-9C7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="-27"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="7y5-Sd-g6B">
+            <objects>
+                <viewController id="hFF-Y9-jnG" customClass="TutorialViewController" customModule="Curation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZLt-D7-dTN"/>
+                        <viewControllerLayoutGuide type="bottom" id="rNV-8G-G8b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HmS-AL-Pyl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd6-Bj-oqc">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="didTouchedStartButton:" destination="hFF-Y9-jnG" eventType="touchUpInside" id="ynt-wX-Yua"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yd6-Bj-oqc" firstAttribute="centerX" secondItem="HmS-AL-Pyl" secondAttribute="centerX" id="7dU-lr-MoQ"/>
+                            <constraint firstItem="yd6-Bj-oqc" firstAttribute="centerY" secondItem="HmS-AL-Pyl" secondAttribute="centerY" id="89w-2U-RcO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SoW-eN-LUd"/>
+                    <connections>
+                        <outlet property="startButton" destination="yd6-Bj-oqc" id="ifG-71-EVN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aTl-EE-yh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1318" y="-27"/>
+        </scene>
+    </scenes>
+</document>
