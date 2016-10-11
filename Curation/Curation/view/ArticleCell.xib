@@ -9,12 +9,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ArticleCell" customModule="Curation" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y0e-gj-vrf"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHP-y6-FtG">
-                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
+                <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7x-5X-9wd">
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルタイトルタイトルタイトルタイトルタイトル" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHP-y6-FtG">
+                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -22,12 +25,16 @@
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="q7x-5X-9wd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="59V-PU-d5N"/>
+                <constraint firstAttribute="bottom" secondItem="q7x-5X-9wd" secondAttribute="bottom" id="85c-qX-eSO"/>
                 <constraint firstItem="Y0e-gj-vrf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8gB-Wg-DKB"/>
+                <constraint firstItem="q7x-5X-9wd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Rof-ql-bVb"/>
                 <constraint firstAttribute="trailing" secondItem="GHP-y6-FtG" secondAttribute="trailing" constant="16" id="Tpv-9Q-UnT"/>
                 <constraint firstItem="Y0e-gj-vrf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Y9z-Wa-XeH"/>
-                <constraint firstAttribute="bottom" secondItem="GHP-y6-FtG" secondAttribute="bottom" constant="12" id="YQb-uM-6Dj"/>
+                <constraint firstAttribute="bottom" secondItem="GHP-y6-FtG" secondAttribute="bottom" constant="16" id="YQb-uM-6Dj"/>
                 <constraint firstAttribute="trailing" secondItem="r1m-M2-Yiw" secondAttribute="trailing" id="Zai-1a-dLs"/>
                 <constraint firstAttribute="bottom" secondItem="Y0e-gj-vrf" secondAttribute="bottom" id="b8v-Ec-cvT"/>
+                <constraint firstAttribute="trailing" secondItem="q7x-5X-9wd" secondAttribute="trailing" id="dfc-ad-W9I"/>
                 <constraint firstAttribute="bottom" secondItem="r1m-M2-Yiw" secondAttribute="bottom" id="j6b-CK-U4U"/>
                 <constraint firstItem="r1m-M2-Yiw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="p46-qp-PqX"/>
                 <constraint firstItem="r1m-M2-Yiw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pZR-GL-4PQ"/>

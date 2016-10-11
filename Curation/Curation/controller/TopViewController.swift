@@ -18,7 +18,7 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
     //Table
     @IBOutlet weak var articlesTable: UITableView!
     let cellIdentifer = "ArticleCell"
-    let cellHeight: CGFloat = 210
+    let cellHeight: CGFloat = 240
     
     //Article
     var articles = [AnyObject]()

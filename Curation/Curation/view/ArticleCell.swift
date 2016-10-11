@@ -15,7 +15,12 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var cellButton: UIButton!
     
     func setUpCell(title: String, imageUrl: String) {
-        titleLabel.text = title
+        //行間を調整
+        let attributedText = NSMutableAttributedString(string: title)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.3
+        attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
+        titleLabel.attributedText = attributedText
         
         let url: NSURL = NSURL(string: imageUrl)!
         //非同期で読み込む
@@ -26,9 +31,5 @@ class ArticleCell: UITableViewCell {
     func getHttp(res:NSURLResponse?, data:NSData?, error:NSError?) {
         let img: UIImage = UIImage(data: data!)!
         thumbView.image = img
-        
-        let overlay = UIView.init(frame: CGRectMake(0, 0, self.frame.width, self.frame.height))
-        overlay.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.3)
-        thumbView.addSubview(overlay)
     }
 }
