@@ -21,7 +21,6 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1m-M2-Yiw"/>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -32,19 +31,14 @@
                 <constraint firstAttribute="trailing" secondItem="GHP-y6-FtG" secondAttribute="trailing" constant="16" id="Tpv-9Q-UnT"/>
                 <constraint firstItem="Y0e-gj-vrf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Y9z-Wa-XeH"/>
                 <constraint firstAttribute="bottom" secondItem="GHP-y6-FtG" secondAttribute="bottom" constant="16" id="YQb-uM-6Dj"/>
-                <constraint firstAttribute="trailing" secondItem="r1m-M2-Yiw" secondAttribute="trailing" id="Zai-1a-dLs"/>
                 <constraint firstAttribute="bottom" secondItem="Y0e-gj-vrf" secondAttribute="bottom" id="b8v-Ec-cvT"/>
                 <constraint firstAttribute="trailing" secondItem="q7x-5X-9wd" secondAttribute="trailing" id="dfc-ad-W9I"/>
-                <constraint firstAttribute="bottom" secondItem="r1m-M2-Yiw" secondAttribute="bottom" id="j6b-CK-U4U"/>
-                <constraint firstItem="r1m-M2-Yiw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="p46-qp-PqX"/>
-                <constraint firstItem="r1m-M2-Yiw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pZR-GL-4PQ"/>
                 <constraint firstItem="GHP-y6-FtG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="wR0-TD-hys"/>
                 <constraint firstAttribute="trailing" secondItem="Y0e-gj-vrf" secondAttribute="trailing" id="xu6-hE-fbe"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="cellButton" destination="r1m-M2-Yiw" id="j0D-bW-Eyb"/>
                 <outlet property="thumbView" destination="Y0e-gj-vrf" id="xRV-ba-IHM"/>
                 <outlet property="titleLabel" destination="GHP-y6-FtG" id="wfg-mo-wJE"/>
             </connections>

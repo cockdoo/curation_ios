@@ -79,6 +79,7 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
     
     func locationManager(didUpdatingLocation message: String) {
         print("位置情報取得できた")
+        apiManager.getArticles(appDelegate.LManager.lat, lng: appDelegate.LManager.lng, length: Config().boundForGetArticles)
     }
     
     func apiManager(didGetArticles articles: [AnyObject]) {
@@ -99,11 +100,6 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
         return cellHeight
     }
     
-    //Cellが選択された際に呼び出される.
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Num: \(indexPath.row)")
-    }
-    
     // セルの行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
@@ -117,8 +113,21 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
         
         let cell: ArticleCell = articlesTable.dequeueReusableCellWithIdentifier(cellIdentifer) as! ArticleCell
         
-        cell.setUpCell(title, imageUrl: imageUrl)
-        
+        cell.setUpCell(title, imageUrl: imageUrl, index: indexPath.row)
         return cell
+    }
+    
+    //Cellが選択された際に呼び出される.
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("Index: \(indexPath.row)")
+        
+        appDelegate.global.selectedArticle = articles[indexPath.row]
+        transitionToArticleView()
+    }
+    
+    func transitionToArticleView() {
+        let storyboard = UIStoryboard(name: "Article", bundle: nil)
+        let nextView: UIViewController! = storyboard.instantiateInitialViewController()
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
 }

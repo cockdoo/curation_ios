@@ -9,19 +9,10 @@
 import UIKit
 //import SVProgressHUD
 
-public class Global: NSObject {
-    /*
-    //ローディング画面を表示
-    func showLoadingView(view: UIView, messege: String) {
-        blackBgView = BlackBgView.init(frame: view.frame)
-        view.addSubview(blackBgView)
-        SVProgressHUD.showWithStatus(messege)
-    }
+class Global: NSObject {
+    var selectedArticle: AnyObject!
     
-    //ローディング画面を削除
-    func removeLoadingView() {
-        blackBgView.removeFromSuperview()
-        SVProgressHUD.dismiss()
+    override init() {
+        super.init()
     }
-    */
 }

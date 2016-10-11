@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var DBManager: DatabaseManager!
     var LManager: LocationManager!
+    var global: Global!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -58,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func createGlobalClass() {
         LManager = LocationManager.init()
         DBManager = DatabaseManager.init()
+        global = Global.init()
     }
     
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
