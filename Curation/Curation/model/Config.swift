@@ -17,6 +17,9 @@ public class Config {
     
     //アプリ起動時に位置情報を取得するインターバル（秒）
     let timeIntervalUpdatingLocation: NSTimeInterval = 60
+    
+    //記事を取得する中心点からの範囲（m）
+    let boundForGetArticles: Int = 99999999
 }
 
 

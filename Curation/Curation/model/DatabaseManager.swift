@@ -213,6 +213,27 @@ class DatabaseManager: NSObject {
         }
 //        print("【保存】地名：\(cityName) 頻度：\(frequency)")
     }
+    
+    //上位の地域の情報を取得
+    func getFourLivingArea() -> [AnyObject] {
+        
+        let myRealm = try! Realm()
+        let tableContents = myRealm.objects(CityFrequency_Table)
+        
+        var livingAreas = NSMutableArray()
+        
+        for row in tableContents {
+            let livingArea = [
+                "cityName": row.cityName,
+                "subLocality": row.subLocality,
+                "lat": row.lat,
+                "lng": row.lng,
+                ]
+            livingAreas.addObject(livingArea)
+        }
+        return (livingAreas as? [AnyObject])!
+        
+    }
 }
 
 

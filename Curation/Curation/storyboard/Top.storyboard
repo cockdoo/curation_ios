@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BmR-OP-XZa">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BmR-OP-XZa">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="bNs-ty-tsg">
             <objects>
                 <navigationController id="BmR-OP-XZa" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6xO-Mg-1D8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6xO-Mg-1D8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -30,15 +31,31 @@
                         <viewControllerLayoutGuide type="bottom" id="1eV-KX-WIT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="s4O-XJ-5Jd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YKy-bu-HlK">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YKy-bu-HlK" secondAttribute="trailing" id="XmG-6u-Epb"/>
+                            <constraint firstItem="YKy-bu-HlK" firstAttribute="leading" secondItem="s4O-XJ-5Jd" secondAttribute="leading" id="biG-SP-ewv"/>
+                            <constraint firstItem="YKy-bu-HlK" firstAttribute="top" secondItem="i0Z-oK-Eu8" secondAttribute="bottom" constant="50" id="rSJ-XL-fwU"/>
+                            <constraint firstItem="1eV-KX-WIT" firstAttribute="top" secondItem="YKy-bu-HlK" secondAttribute="bottom" id="y3J-h8-ZPF"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="s55-iK-0Mw"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="articlesTable" destination="YKy-bu-HlK" id="zIl-26-ysy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxZ-Dn-Gxn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="491" y="401"/>
+            <point key="canvasLocation" x="536.79999999999995" y="400.74962518740631"/>
         </scene>
     </scenes>
 </document>

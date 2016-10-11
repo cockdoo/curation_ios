@@ -1,0 +1,89 @@
+//
+//  DisasterInformationManager.swift
+//  Mybousainote
+//
+//  Created by menteadmin on 2016/05/02.
+//  Copyright © 2016年 TaigaSano. All rights reserved.
+//
+
+import UIKit
+import AFNetworking
+
+@objc protocol APIManagerDelegate {
+    optional func apiManager(didGetArticles articles: [AnyObject])
+}
+
+class APIManager: NSObject {
+    
+    var delegate: APIManagerDelegate!
+    
+    override init() {
+        super.init()
+    }
+
+    //避難施設情報を取得
+    func getArticles(lat: Double, lng: Double, length: Int) {
+        print("記事を取得")
+        //リクエスト
+        let manager:AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
+
+        let serializer:AFHTTPResponseSerializer = AFHTTPResponseSerializer()
+        manager.responseSerializer = serializer
+        
+        let url = "http://taigasano.com/curation/api/?lat=\(lat)&lng=\(lng)&length=\(length)"
+        print("url: \(url)")
+        let encodeURL: String! = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        
+        manager.GET(encodeURL, parameters: nil,
+            success: {(operation: AFHTTPRequestOperation!, responsobject: AnyObject!) in
+                print("取得に成功")
+                
+                let json = (try? NSJSONSerialization.JSONObjectWithData(responsobject as! NSData, options: .MutableContainers)) as? NSArray
+                
+                //デリゲートメソッドを呼ぶ
+                if json != nil {
+                    self.delegate.apiManager!(didGetArticles: json as! [AnyObject])
+                }
+            },
+            failure: {(operation: AFHTTPRequestOperation?, error: NSError!) in
+                print("エラー！")
+                print(operation?.responseObject)
+                print(operation?.responseString)
+            }
+        )
+    }
+    
+    //指定したIDの避難施設情報を取得
+    func getFacilityDataFromId(id: Int) {
+        print("ID:\(id) の避難施設情報を取得")
+        
+        //リクエスト
+        let manager:AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
+        
+        let serializer:AFHTTPResponseSerializer = AFHTTPResponseSerializer()
+        manager.responseSerializer = serializer
+        
+        let url = "http://taigasano.com/mybousainote/api/facilities/get-from-id.php?id=\(id)"
+        
+        print(url)
+        let encodeURL: String! = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        
+        manager.GET(encodeURL, parameters: nil,
+                    success: {(operation: AFHTTPRequestOperation!, responsobject: AnyObject!) in
+                        print("取得に成功")
+                        
+                        let json = (try? NSJSONSerialization.JSONObjectWithData(responsobject as! NSData, options: .MutableContainers))
+                        
+                        //デリゲートメソッドを呼ぶ
+                        if json != nil {
+                            
+                        }
+            },
+                    failure: {(operation: AFHTTPRequestOperation?, error: NSError!) in
+                        print("エラー！")
+                        print(operation?.responseObject)
+                        print(operation?.responseString)
+            }
+        )
+    }
+}

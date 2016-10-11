@@ -16,6 +16,9 @@
 		78676D251DA2678900136530 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78676D241DA2678900136530 /* Top.storyboard */; };
 		78676D271DA267BD00136530 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78676D261DA267BD00136530 /* TopViewController.swift */; };
 		78676D291DA267FD00136530 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78676D281DA267FD00136530 /* Tutorial.storyboard */; };
+		78B921321DAC90CC00BD0C22 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B921311DAC90CC00BD0C22 /* APIManager.swift */; };
+		78B921341DAC9A1D00BD0C22 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B921331DAC9A1D00BD0C22 /* ArticleCell.swift */; };
+		78B921361DAC9A2E00BD0C22 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B921351DAC9A2E00BD0C22 /* ArticleCell.xib */; };
 		78C1BF0C1D92B41E003E9E88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1BF0B1D92B41E003E9E88 /* AppDelegate.swift */; };
 		78C1BF131D92B41E003E9E88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C1BF121D92B41E003E9E88 /* Assets.xcassets */; };
 		78C1BF161D92B41E003E9E88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C1BF141D92B41E003E9E88 /* LaunchScreen.storyboard */; };
@@ -50,6 +53,9 @@
 		78676D241DA2678900136530 /* Top.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
 		78676D261DA267BD00136530 /* TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		78676D281DA267FD00136530 /* Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		78B921311DAC90CC00BD0C22 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		78B921331DAC9A1D00BD0C22 /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleCell.swift; path = view/ArticleCell.swift; sourceTree = "<group>"; };
+		78B921351DAC9A2E00BD0C22 /* ArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleCell.xib; path = view/ArticleCell.xib; sourceTree = "<group>"; };
 		78C1BF081D92B41E003E9E88 /* Curation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C1BF0B1D92B41E003E9E88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78C1BF121D92B41E003E9E88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 		78676D161DA2628F00136530 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				78B921311DAC90CC00BD0C22 /* APIManager.swift */,
 				78676D201DA2640C00136530 /* LocationManager.swift */,
 				78676D221DA2644400136530 /* DatabaseManager.swift */,
 				78676D1C1DA262F200136530 /* Global.swift */,
@@ -105,6 +112,8 @@
 		78676D171DA2629500136530 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				78B921331DAC9A1D00BD0C22 /* ArticleCell.swift */,
+				78B921351DAC9A2E00BD0C22 /* ArticleCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -270,6 +279,7 @@
 				TargetAttributes = {
 					78C1BF071D92B41E003E9E88 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -278,10 +288,14 @@
 					};
 					78C1BF1B1D92B41E003E9E88 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = T66965A94D;
+						LastSwiftMigration = 0800;
 						TestTargetID = 78C1BF071D92B41E003E9E88;
 					};
 					78C1BF261D92B41E003E9E88 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = T66965A94D;
+						LastSwiftMigration = 0800;
 						TestTargetID = 78C1BF071D92B41E003E9E88;
 					};
 				};
@@ -314,6 +328,7 @@
 				78C1BF161D92B41E003E9E88 /* LaunchScreen.storyboard in Resources */,
 				78C1BF131D92B41E003E9E88 /* Assets.xcassets in Resources */,
 				78676D291DA267FD00136530 /* Tutorial.storyboard in Resources */,
+				78B921361DAC9A2E00BD0C22 /* ArticleCell.xib in Resources */,
 				78676D251DA2678900136530 /* Top.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,7 +407,9 @@
 				78676D1F1DA2639A00136530 /* TutorialViewController.swift in Sources */,
 				78C1BF0C1D92B41E003E9E88 /* AppDelegate.swift in Sources */,
 				78676D1B1DA262CE00136530 /* Config.swift in Sources */,
+				78B921341DAC9A1D00BD0C22 /* ArticleCell.swift in Sources */,
 				78676D231DA2644400136530 /* DatabaseManager.swift in Sources */,
+				78B921321DAC90CC00BD0C22 /* APIManager.swift in Sources */,
 				78676D271DA267BD00136530 /* TopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,10 +545,13 @@
 			baseConfigurationReference = 529BB2881D0155ECB57616A9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Curation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TaigaSano.Curation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -540,10 +560,13 @@
 			baseConfigurationReference = E48D6EE84C5E34E9D5A5AB4D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Curation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TaigaSano.Curation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -551,10 +574,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T66965A94D;
 				INFOPLIST_FILE = CurationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TaigaSano.CurationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Curation.app/Curation";
 			};
 			name = Debug;
@@ -563,10 +588,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T66965A94D;
 				INFOPLIST_FILE = CurationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TaigaSano.CurationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Curation.app/Curation";
 			};
 			name = Release;
@@ -574,10 +601,12 @@
 		78C1BF371D92B41E003E9E88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = T66965A94D;
 				INFOPLIST_FILE = CurationUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TaigaSano.CurationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Curation;
 			};
 			name = Debug;
@@ -585,10 +614,12 @@
 		78C1BF381D92B41E003E9E88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = T66965A94D;
 				INFOPLIST_FILE = CurationUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TaigaSano.CurationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Curation;
 			};
 			name = Release;

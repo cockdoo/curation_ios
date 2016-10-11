@@ -10,9 +10,9 @@ import UIKit
 import CoreLocation
 
 @objc protocol LocationManagerDelegate {
-    optional func DeniedAuthorization()
-    optional func acceptAuthorization()
-    optional func didUpdatingLocation()
+    optional func locationManager(deniedAuthorization message: String)
+    optional func locationManager(acceptAuthorization message: String)
+    optional func locationManager(didUpdatingLocation message: String)
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
@@ -79,7 +79,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             ud.synchronize()
             
             if  isTopView == false {
-                self.delegate.DeniedAuthorization!()
+                self.delegate.locationManager!(deniedAuthorization: "")
             }
             
         case .AuthorizedAlways:
@@ -88,7 +88,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             ud.synchronize()
             
             if isTopView == false {
-                self.delegate.acceptAuthorization!()
+                self.delegate.locationManager!(acceptAuthorization: "")
             }
             
         case .AuthorizedWhenInUse:
@@ -123,7 +123,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                     let aroowInsertTimer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "arrowInsertData", userInfo: nil, repeats: false)
                     
                     //Topviewcontorollerに緯度経度を取得したことを知らせる
-                    self.delegate.didUpdatingLocation!()
+                    self.delegate.locationManager!(didUpdatingLocation: "")
                 }
             }
         }

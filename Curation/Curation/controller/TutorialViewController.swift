@@ -37,11 +37,12 @@ class TutorialViewController: UIViewController, LocationManagerDelegate {
         return UIStatusBarStyle.LightContent
     }
     
-    func acceptAuthorization() {
+    func locationManager(acceptAuthorization message: String) {
         transitionToTopView()
     }
     
-    func DeniedAuthorization() {
+    
+    func locationManager(deniedAuthorization message: String) {
         transitionToTopView()
     }
     
