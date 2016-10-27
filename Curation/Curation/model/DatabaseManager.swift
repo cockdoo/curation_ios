@@ -11,14 +11,14 @@ import RealmSwift
 
 //一時的に緯度経度だけ保存しておくテーブル
 class Location_Table: Object {
-    dynamic var createdDate: NSDate = NSDate()
+    dynamic var createdDate: Date = Date()
     dynamic var lat: Double = 0
     dynamic var lng: Double = 0
 }
 
 //緯度経度を地名と合わせた一定期間保存しておくテーブル
 class CityName_Table: Object {
-    dynamic var createdDate: NSDate = NSDate()
+    dynamic var createdDate: Date = Date()
     dynamic var lat: Double = 0
     dynamic var lng: Double = 0
     dynamic var locality: String = ""
@@ -41,19 +41,19 @@ protocol DatabaseManagerDelegate {
 }
 
 class DatabaseManager: NSObject {
-    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var delegate: DatabaseManagerDelegate!
     
     override init() {
         super.init()
-        showTableContent(Location_Table)
-        showTableContent(CityName_Table)
-        showTableContent(CityFrequency_Table)
+        showTableContent(Location_Table.self)
+        showTableContent(CityName_Table.self)
+        showTableContent(CityFrequency_Table.self)
     }
     
     //指定したテーブルの中身を表示
-    func showTableContent(tableObject: Object.Type) {
+    func showTableContent(_ tableObject: Object.Type) {
         let myRealm = try! Realm()
         let tableContents = myRealm.objects(tableObject)
         print("----- ▼ テーブルの中身 -----")
@@ -62,7 +62,7 @@ class DatabaseManager: NSObject {
     }
     
     //指定したテーブルを削除
-    func deleteTable(tableObject: Object.Type) {
+    func deleteTable(_ tableObject: Object.Type) {
         let myRealm = try! Realm()
         let table = myRealm.objects(tableObject)
         try! myRealm.write {
@@ -79,10 +79,10 @@ class DatabaseManager: NSObject {
     }
     
     //取得した位置情報をDBに保存する
-    func insertLocationTable(lat: Double, lng: Double) {
+    func insertLocationTable(_ lat: Double, lng: Double) {
         let myLocations = Location_Table()
         
-        myLocations.createdDate = NSDate()
+        myLocations.createdDate = Date()
         myLocations.lat = lat
         myLocations.lng = lng
         
@@ -99,8 +99,8 @@ class DatabaseManager: NSObject {
         print("古い履歴を削除")
         let myRealm = try! Realm()
         
-        let pastDate = NSDate(timeInterval: -60*60*24*(Config().timeIntervalHoldData), sinceDate: NSDate())
-        let rows = myRealm.objects(CityName_Table).filter("createdDate <= %@", pastDate)
+        let pastDate = Date(timeInterval: -60*60*24*(Config().timeIntervalHoldData), since: Date())
+        let rows = myRealm.objects(CityName_Table.self).filter("createdDate <= %@", pastDate)
     
         try! myRealm.write {
             myRealm.delete(rows)
@@ -113,7 +113,7 @@ class DatabaseManager: NSObject {
     func addCityName() {
         //位置情報履歴を取得
         let myRealm = try! Realm()
-        let rows = myRealm.objects(Location_Table)
+        let rows = myRealm.objects(Location_Table.self)
         
         for row in rows {
             let lat = row.lat
@@ -121,17 +121,17 @@ class DatabaseManager: NSObject {
             appDelegate.LManager.revGeocoding(lat, lng: lng)
         }
         //中身を削除
-        deleteTable(Location_Table)
+        deleteTable(Location_Table.self)
     }
     
     
-    var timer: NSTimer!
+    var timer: Timer!
     
     //地名を取得したとき、テーブルに保存する
-    func insertCityNameTable(cityName: String, locality: String, subLocality: String, lat: Double, lng: Double) {
+    func insertCityNameTable(_ cityName: String, locality: String, subLocality: String, lat: Double, lng: Double) {
         let cityNames = CityName_Table()
     
-        cityNames.createdDate = NSDate()
+        cityNames.createdDate = Date()
         cityNames.lat = lat
         cityNames.lng = lng
         cityNames.locality = locality
@@ -146,7 +146,7 @@ class DatabaseManager: NSObject {
         if timer != nil {
             timer.invalidate()
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "finishInsertCityName", userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(DatabaseManager.finishInsertCityName), userInfo: nil, repeats: false)
     }
     
     //地名取得＆保存完了
@@ -162,11 +162,11 @@ class DatabaseManager: NSObject {
         print("頻度を更新")
         
         //既存のテーブルを削除
-        deleteTable(CityFrequency_Table)
+        deleteTable(CityFrequency_Table.self)
         
         //位置情報履歴を取得
         let myRealm = try! Realm()
-        let rows = myRealm.objects(CityName_Table)
+        let rows = myRealm.objects(CityName_Table.self)
         
         for row in rows {
             let lat = row.lat
@@ -182,11 +182,11 @@ class DatabaseManager: NSObject {
     }
     
     //地名と頻度をテーブルに保存
-    func insertFrequencyTable(cityName: String, locality: String, subLocality: String, lat: Double, lng: Double) {
+    func insertFrequencyTable(_ cityName: String, locality: String, subLocality: String, lat: Double, lng: Double) {
         let myRealm = try! Realm()
         
         //指定した地名がある場合は頻度を取り出す
-        let rows = myRealm.objects(CityFrequency_Table).filter("cityName = '\(cityName)'")
+        let rows = myRealm.objects(CityFrequency_Table.self).filter("cityName = '\(cityName)'")
         
         var frequency = 0
         
@@ -218,9 +218,9 @@ class DatabaseManager: NSObject {
     func getFourLivingArea() -> [AnyObject] {
         
         let myRealm = try! Realm()
-        let tableContents = myRealm.objects(CityFrequency_Table)
+        let tableContents = myRealm.objects(CityFrequency_Table.self)
         
-        var livingAreas = NSMutableArray()
+        let livingAreas = NSMutableArray()
         
         for row in tableContents {
             let livingArea = [
@@ -228,11 +228,10 @@ class DatabaseManager: NSObject {
                 "subLocality": row.subLocality,
                 "lat": row.lat,
                 "lng": row.lng,
-                ]
-            livingAreas.addObject(livingArea)
+                ] as [String : Any]
+            livingAreas.add(livingArea)
         }
-        return (livingAreas as? [AnyObject])!
-        
+        return (livingAreas as [AnyObject])
     }
 }
 

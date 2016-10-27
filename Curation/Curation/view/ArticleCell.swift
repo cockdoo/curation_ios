@@ -13,7 +13,7 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var thumbView: UIImageView!
     
-    func setUpCell(title: String, imageUrl: String, index: Int) {
+    func setUpCell(_ title: String, imageUrl: String, index: Int) {
         //テキスト反映&行間調整
         let attributedText = NSMutableAttributedString(string: title)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -22,13 +22,11 @@ class ArticleCell: UITableViewCell {
         titleLabel.attributedText = attributedText
         
         //画像を非同期で読み込む
-        let url: NSURL = NSURL(string: imageUrl)!
-        let req: NSURLRequest = NSURLRequest(URL: url)
-        NSURLConnection.sendAsynchronousRequest(req, queue: NSOperationQueue.mainQueue(), completionHandler: self.getHttp)
-    }
-    
-    func getHttp(res:NSURLResponse?, data:NSData?, error:NSError?) {
-        let img: UIImage = UIImage(data: data!)!
-        thumbView.image = img
+        let url: URL = URL(string: imageUrl)!
+        let req: URLRequest = URLRequest(url: url)
+        NSURLConnection.sendAsynchronousRequest(req, queue:OperationQueue.main) {(res, data, err) in
+            let img: UIImage = UIImage(data: data!)!
+            self.thumbView.image = img
+        }
     }
 }

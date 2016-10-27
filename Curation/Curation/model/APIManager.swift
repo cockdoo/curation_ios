@@ -10,7 +10,7 @@ import UIKit
 import AFNetworking
 
 @objc protocol APIManagerDelegate {
-    optional func apiManager(didGetArticles articles: [AnyObject])
+    @objc optional func apiManager(didGetArticles articles: [AnyObject])
 }
 
 class APIManager: NSObject {
@@ -22,7 +22,7 @@ class APIManager: NSObject {
     }
 
     //避難施設情報を取得
-    func getArticles(lat: Double, lng: Double, length: Int) {
+    func getArticles(_ lat: Double, lng: Double, length: Int) {
         print("記事を取得")
         //リクエスト
         let manager:AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
@@ -32,20 +32,20 @@ class APIManager: NSObject {
         
         let url = "http://taigasano.com/curation/api/?lat=\(lat)&lng=\(lng)&length=\(length)"
         print("url: \(url)")
-        let encodeURL: String! = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let encodeURL: String! = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
-        manager.GET(encodeURL, parameters: nil,
-            success: {(operation: AFHTTPRequestOperation!, responsobject: AnyObject!) in
+        manager.get(encodeURL, parameters: nil,
+            success: {(operation: AFHTTPRequestOperation!, responsobject: Any!) in
                 print("取得に成功")
                 
-                let json = (try? NSJSONSerialization.JSONObjectWithData(responsobject as! NSData, options: .MutableContainers)) as? NSArray
+                let json = (try? JSONSerialization.jsonObject(with: responsobject as! Data, options: .mutableContainers)) as? NSArray
                 
                 //デリゲートメソッドを呼ぶ
                 if json != nil {
                     self.delegate.apiManager!(didGetArticles: json as! [AnyObject])
                 }
             },
-            failure: {(operation: AFHTTPRequestOperation?, error: NSError!) in
+            failure: {(operation: AFHTTPRequestOperation?, error: Error!) in
                 print("エラー！")
                 print(operation?.responseObject)
                 print(operation?.responseString)
@@ -54,7 +54,7 @@ class APIManager: NSObject {
     }
     
     //指定したIDの避難施設情報を取得
-    func getFacilityDataFromId(id: Int) {
+    func getFacilityDataFromId(_ id: Int) {
         print("ID:\(id) の避難施設情報を取得")
         
         //リクエスト
@@ -66,20 +66,20 @@ class APIManager: NSObject {
         let url = "http://taigasano.com/mybousainote/api/facilities/get-from-id.php?id=\(id)"
         
         print(url)
-        let encodeURL: String! = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let encodeURL: String! = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
-        manager.GET(encodeURL, parameters: nil,
-                    success: {(operation: AFHTTPRequestOperation!, responsobject: AnyObject!) in
+        manager.get(encodeURL, parameters: nil,
+                    success: {(operation: AFHTTPRequestOperation!, responsobject: Any!) in
                         print("取得に成功")
                         
-                        let json = (try? NSJSONSerialization.JSONObjectWithData(responsobject as! NSData, options: .MutableContainers))
+                        let json = (try? JSONSerialization.jsonObject(with: responsobject as! Data, options: .mutableContainers))
                         
                         //デリゲートメソッドを呼ぶ
                         if json != nil {
                             
                         }
             },
-                    failure: {(operation: AFHTTPRequestOperation?, error: NSError!) in
+                    failure: {(operation: AFHTTPRequestOperation?, error: Error!) in
                         print("エラー！")
                         print(operation?.responseObject)
                         print(operation?.responseString)

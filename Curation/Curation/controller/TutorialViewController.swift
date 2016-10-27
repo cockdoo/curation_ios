@@ -9,7 +9,7 @@
 import UIKit
 
 class TutorialViewController: UIViewController, LocationManagerDelegate {
-    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     @IBOutlet weak var startButton: UIButton!
     
@@ -22,10 +22,10 @@ class TutorialViewController: UIViewController, LocationManagerDelegate {
         appDelegate.LManager.delegate = self
         
         startButton.layer.cornerRadius = 4
-        startButton.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
+        startButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
     }
     
-    @IBAction func didTouchedStartButton(sender: AnyObject) {
+    @IBAction func didTouchedStartButton(_ sender: AnyObject) {
         print("スタート！")
         
         //位置情報許可の申請
@@ -33,8 +33,8 @@ class TutorialViewController: UIViewController, LocationManagerDelegate {
     }
     
     //ステータスバーを白くする
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     func locationManager(acceptAuthorization message: String) {
@@ -46,7 +46,7 @@ class TutorialViewController: UIViewController, LocationManagerDelegate {
         transitionToTopView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         trackingScreen()
     }
     
@@ -59,15 +59,15 @@ class TutorialViewController: UIViewController, LocationManagerDelegate {
     
     //トップ画面へ遷移
     func transitionToTopView() {
-        let ud = NSUserDefaults.standardUserDefaults()
-        ud.setObject(false, forKey: "FIRST_LAUNCH")
+        let ud = UserDefaults.standard
+        ud.set(false, forKey: "FIRST_LAUNCH")
         ud.synchronize()
         
         print("トップ画面へ遷移")
         let storyboard = UIStoryboard(name: "Top", bundle: nil)
         let modalView: UIViewController! = storyboard.instantiateInitialViewController()
 //        self.navigationController?.pushViewController(nextView, animated: true)
-        self.presentViewController(modalView, animated: true, completion: nil)
+        self.present(modalView, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

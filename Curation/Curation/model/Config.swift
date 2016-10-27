@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Config {
+open class Config {
     //Google API key
     let googleAPIKey: String = "AIzaSyCxr-PIiE4MHC9ecytrq2hPbYVodrVU25k"
     
@@ -16,7 +16,7 @@ public class Config {
     let timeIntervalHoldData: Double = 30
     
     //アプリ起動時に位置情報を取得するインターバル（秒）
-    let timeIntervalUpdatingLocation: NSTimeInterval = 60
+    let timeIntervalUpdatingLocation: TimeInterval = 60
     
     //記事を取得する中心点からの範囲（m）
     let boundForGetArticles: Int = 99999999

@@ -11,8 +11,8 @@ import UIKit
 class TopViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     //Commons
-    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    let ud = NSUserDefaults.standardUserDefaults()
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let ud = UserDefaults.standard
     let apiManager = APIManager()
     
     //Table
@@ -48,7 +48,7 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
         articlesTable.dataSource = self
         articlesTable.delegate = self
         let nib = UINib(nibName: cellIdentifer, bundle: nil)
-        articlesTable.registerNib(nib, forCellReuseIdentifier: cellIdentifer)
+        articlesTable.register(nib, forCellReuseIdentifier: cellIdentifer)
         
         //データベースを更新する
         appDelegate.DBManager.addCityName()
@@ -61,15 +61,15 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
     
     //位置情報が許可されてない場合アラートを表示する
     func checkLocationAuthorize() {
-        if ud.boolForKey("LOCATION_AUTHORIZED") == false {
-            let alert: UIAlertController = UIAlertController(title: "位置情報サービスが無効です", message: "設定 > プライバシー > 位置情報サービス から\"My防災ノート\"による位置情報の利用を許可してください", preferredStyle:  UIAlertControllerStyle.Alert)
-            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{
+        if ud.bool(forKey: "LOCATION_AUTHORIZED") == false {
+            let alert: UIAlertController = UIAlertController(title: "位置情報サービスが無効です", message: "設定 > プライバシー > 位置情報サービス から\"My防災ノート\"による位置情報の利用を許可してください", preferredStyle:  UIAlertControllerStyle.alert)
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
                 // ボタンが押された時の処理を書く（クロージャ実装）
                 (action: UIAlertAction!) -> Void in
                 print("OK")
             })
             alert.addAction(defaultAction)
-            presentViewController(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
         }
     }
     
@@ -96,32 +96,32 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
     //MARK: - TABLE
     
     //セルの高さ
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
     }
     
     // セルの行数
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
     }
     
     // セルの内容を変更
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let article = articles[indexPath.row] as AnyObject
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let article = articles[(indexPath as NSIndexPath).row] as AnyObject
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
         
-        let cell: ArticleCell = articlesTable.dequeueReusableCellWithIdentifier(cellIdentifer) as! ArticleCell
+        let cell: ArticleCell = articlesTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! ArticleCell
         
-        cell.setUpCell(title, imageUrl: imageUrl, index: indexPath.row)
+        cell.setUpCell(title, imageUrl: imageUrl, index: (indexPath as NSIndexPath).row)
         return cell
     }
     
     //Cellが選択された際に呼び出される.
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Index: \(indexPath.row)")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Index: \((indexPath as NSIndexPath).row)")
         
-        appDelegate.global.selectedArticle = articles[indexPath.row]
+        appDelegate.global.selectedArticle = articles[(indexPath as NSIndexPath).row]
         transitionToArticleView()
     }
     
