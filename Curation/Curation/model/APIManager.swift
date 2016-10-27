@@ -21,14 +21,23 @@ class APIManager: NSObject {
         super.init()
     }
 
-    func getArticles(_ lat: Double, lng: Double, num: Int) {
+    func getArticles(_ locations: [AnyObject], num: Int) {
         print("記事を取得")
         //リクエスト
         let manager:AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
         let serializer:AFHTTPResponseSerializer = AFHTTPResponseSerializer()
         manager.responseSerializer = serializer
         
-        let url = "http://taigasano.com/curation/api/?lat=\(lat)&lng=\(lng)&num=\(num)"
+        var latText = ""
+        var lngText = ""
+        for location in locations {
+            latText = latText + (location["lat"] as! String) + ","
+            lngText = latText + (location["lng"] as! String) + ","
+        }
+        latText = latText.substring(to: latText.index(latText.startIndex, offsetBy: latText.characters.count-1))
+        lngText = lngText.substring(to: lngText.index(lngText.startIndex, offsetBy: lngText.characters.count-1))
+        
+        let url = "http://taigasano.com/curation/api/?lat=\(latText)&lng=\(lngText)&num=\(num)"
         print("url: \(url)")
         let encodeURL: String! = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         

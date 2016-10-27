@@ -88,7 +88,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             ud.synchronize()
             
             if isTopView == false {
-                self.delegate.locationManager!(acceptAuthorization: "")
+//                self.delegate.locationManager!(acceptAuthorization: "")
             }
             
         case .authorizedWhenInUse:

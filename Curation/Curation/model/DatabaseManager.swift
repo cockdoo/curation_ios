@@ -215,7 +215,7 @@ class DatabaseManager: NSObject {
     }
     
     //上位の地域の情報を取得
-    func getFourLivingArea() -> [AnyObject] {
+    func getLivingAreaList() -> [AnyObject] {
         
         let myRealm = try! Realm()
         let tableContents = myRealm.objects(CityFrequency_Table.self)

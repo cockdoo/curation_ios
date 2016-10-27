@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -27,9 +27,7 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
         super.viewDidLoad()
          
         initialize()
-        
-        //とりあえず取得
-        apiManager.getArticles(32.0, lng: 131.0, num: Config().numberForGetArticles)
+        getArticles()
     }
     
     func initialize() {
@@ -59,6 +57,19 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
         checkLocationAuthorize()
     }
     
+    func getArticles() {
+        let livingAreaList = appDelegate.DBManager.getLivingAreaList()
+        var locations = [AnyObject]()
+        for area in livingAreaList {
+            let location = [
+                "lat": "\(area["lat"] as! Double)",
+                "lng": "\(area["lng"] as! Double)"
+            ]
+            locations.append(location as AnyObject)
+        }
+        apiManager.getArticles(locations, num: Config().numberForGetArticles)
+    }
+    
     //位置情報が許可されてない場合アラートを表示する
     func checkLocationAuthorize() {
         if ud.bool(forKey: "LOCATION_AUTHORIZED") == false {
@@ -79,20 +90,16 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
     
     func locationManager(didUpdatingLocation message: String) {
         print("位置情報取得できた")
-        apiManager.getArticles(appDelegate.LManager.lat, lng: appDelegate.LManager.lng, num: Config().numberForGetArticles)
+//        apiManager.getArticles(appDelegate.LManager.lat, lng: appDelegate.LManager.lng, num: Config().numberForGetArticles)
     }
     
     //記事を取得できたときに呼ばれる
     func apiManager(didGetArticles articles: [AnyObject]) {
         print(articles)
-        for article in articles {
-            self.articles.append(article)
-        }
-//        self.articles = articles
+        self.articles = articles
         articlesTable.reloadData()
     }
 
-    
     
     //MARK: - TABLE
     
