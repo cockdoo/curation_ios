@@ -29,7 +29,7 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
         initialize()
         
         //とりあえず取得
-        apiManager.getArticles(32.0, lng: 131.0, length: Config().boundForGetArticles)
+        apiManager.getArticles(32.0, lng: 131.0, num: Config().numberForGetArticles)
     }
     
     func initialize() {
@@ -79,9 +79,10 @@ class TopViewController: UIViewController, LocationManagerDelegate, DatabaseMana
     
     func locationManager(didUpdatingLocation message: String) {
         print("位置情報取得できた")
-        apiManager.getArticles(appDelegate.LManager.lat, lng: appDelegate.LManager.lng, length: Config().boundForGetArticles)
+        apiManager.getArticles(appDelegate.LManager.lat, lng: appDelegate.LManager.lng, num: Config().numberForGetArticles)
     }
     
+    //記事を取得できたときに呼ばれる
     func apiManager(didGetArticles articles: [AnyObject]) {
         print(articles)
         for article in articles {

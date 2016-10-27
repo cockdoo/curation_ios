@@ -21,16 +21,14 @@ class APIManager: NSObject {
         super.init()
     }
 
-    //避難施設情報を取得
-    func getArticles(_ lat: Double, lng: Double, length: Int) {
+    func getArticles(_ lat: Double, lng: Double, num: Int) {
         print("記事を取得")
         //リクエスト
         let manager:AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
-
         let serializer:AFHTTPResponseSerializer = AFHTTPResponseSerializer()
         manager.responseSerializer = serializer
         
-        let url = "http://taigasano.com/curation/api/?lat=\(lat)&lng=\(lng)&length=\(length)"
+        let url = "http://taigasano.com/curation/api/?lat=\(lat)&lng=\(lng)&num=\(num)"
         print("url: \(url)")
         let encodeURL: String! = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
@@ -39,6 +37,9 @@ class APIManager: NSObject {
                 print("取得に成功")
                 
                 let json = (try? JSONSerialization.jsonObject(with: responsobject as! Data, options: .mutableContainers)) as? NSArray
+                
+                print("JSON")
+                print(json)
                 
                 //デリゲートメソッドを呼ぶ
                 if json != nil {
@@ -52,6 +53,12 @@ class APIManager: NSObject {
             }
         )
     }
+    
+    //同じURLのものがある場合は削除する
+    func getUniqueArticles() {
+        
+    }
+    
     
     //指定したIDの避難施設情報を取得
     func getFacilityDataFromId(_ id: Int) {
