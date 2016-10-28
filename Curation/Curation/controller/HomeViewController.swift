@@ -97,7 +97,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     //記事を取得できたときに呼ばれる
     func apiManager(didGetArticles articles: [AnyObject]) {
-        print(articles)
+//        print(articles)
         self.articles = articles
         articlesTable.reloadData()
     }

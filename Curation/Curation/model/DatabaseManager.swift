@@ -36,6 +36,20 @@ class CityFrequency_Table: Object {
     dynamic var lng: Double = 0
 }
 
+//お気に入りの記事のテーブル
+class Favorite_Table: Object {
+    dynamic var createdDate: Date = Date()
+    dynamic var id: String = ""
+    dynamic var url: String = ""
+    dynamic var lat: Double = 0
+    dynamic var lng: Double = 0
+    dynamic var date: String = ""
+    dynamic var media: String = ""
+    dynamic var tag: String = ""
+    dynamic var title: String = ""
+    dynamic var imageUrl: String = ""
+}
+
 protocol DatabaseManagerDelegate {
     func databaseManager(didRefreshData message: String)
 }
@@ -47,9 +61,10 @@ class DatabaseManager: NSObject {
     
     override init() {
         super.init()
-        showTableContent(Location_Table.self)
-        showTableContent(CityName_Table.self)
-        showTableContent(CityFrequency_Table.self)
+//        showTableContent(Location_Table.self)
+//        showTableContent(CityName_Table.self)
+//        showTableContent(CityFrequency_Table.self)
+        showTableContent(Favorite_Table.self)
     }
     
     //指定したテーブルの中身を表示
@@ -107,8 +122,6 @@ class DatabaseManager: NSObject {
         }
     }
     
-    
-    
     //緯度経度データに地名を付与して別テーブルに保存
     func addCityName() {
         //位置情報履歴を取得
@@ -124,9 +137,7 @@ class DatabaseManager: NSObject {
         deleteTable(Location_Table.self)
     }
     
-    
     var timer: Timer!
-    
     //地名を取得したとき、テーブルに保存する
     func insertCityNameTable(_ cityName: String, locality: String, subLocality: String, lat: Double, lng: Double) {
         let cityNames = CityName_Table()
@@ -142,7 +153,6 @@ class DatabaseManager: NSObject {
         try! myRealm.write {
             myRealm.add(cityNames)
         }
-        
         if timer != nil {
             timer.invalidate()
         }
@@ -238,6 +248,59 @@ class DatabaseManager: NSObject {
         else {
             return (livingAreas as [AnyObject])
         }
+    }
+    
+    //MARK: - Favorite
+    
+    //お気に入りに追加
+    func insertFavoriteTable(_ abject: AnyObject) {
+        let myRealm = try! Realm()
+        
+        //市町名と頻度をテーブルに保存
+        let myFavorite = Favorite_Table()
+        myFavorite.createdDate = Date()
+        myFavorite.id = abject["id"] as! String
+        myFavorite.lat = Double(abject["lat"] as! String)!
+        myFavorite.lng = Double(abject["lng"] as! String)!
+        myFavorite.title = abject["title"] as! String
+        myFavorite.imageUrl = abject["imageUrl"] as! String
+        myFavorite.tag = abject["tag"] as! String
+        myFavorite.date = abject["date"] as! String
+        myFavorite.media = abject["media"] as! String
+        
+        try! myRealm.write {
+            myRealm.add(myFavorite)
+        }
+    }
+    
+    //お気に入りから削除
+    func removeFromFavoriteTable(_ id: String) {
+        let myRealm = try! Realm()
+        let rows = myRealm.objects(Favorite_Table.self).filter("id = %@", id)
+        try! myRealm.write {
+            myRealm.delete(rows)
+        }
+    }
+    
+    //指定したIDのお気に入りを取得
+    func getArticleFromFavoriteTable(_ id: String) -> [String: Any] {
+        let myRealm = try! Realm()
+        let rows = myRealm.objects(Favorite_Table.self).filter("id = %@", id)
+        var article = [String: Any]()
+        for row in rows {
+            article = [
+                "createdDate": row.createdDate,
+                "id": row.id,
+                "lat": row.lat,
+                "lng": row.lng,
+                "title": row.title,
+                "imageUrl": row.imageUrl,
+                "tag": row.tag,
+                "date": row.date,
+                "media": row.media
+                ]
+        }
+        return article
     }
 }
 
