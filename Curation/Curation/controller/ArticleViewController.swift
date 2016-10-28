@@ -23,6 +23,11 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        refresh()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refresh()
     }
     
     func initialize() {
@@ -31,9 +36,12 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         let url = URL(string : article?["url"] as! String)
         let urlRequest = URLRequest(url: url!)
         webView.loadRequest(urlRequest)
-        
+    }
+    
+    func refresh() {
+        let article = appDelegate.global.selectedArticle
         let id = article?["id"] as! String
-        if appDelegate.DBManager.getArticleFromFavoriteTable(id)["id"] != nil {
+        if appDelegate.DBManager.getFavoriteArticleFromId(id)["id"] != nil {
             isFavorite = true
         }else {
             isFavorite = false

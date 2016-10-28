@@ -253,20 +253,21 @@ class DatabaseManager: NSObject {
     //MARK: - Favorite
     
     //お気に入りに追加
-    func insertFavoriteTable(_ abject: AnyObject) {
+    func insertFavoriteTable(_ obj: AnyObject) {
         let myRealm = try! Realm()
         
         //市町名と頻度をテーブルに保存
         let myFavorite = Favorite_Table()
         myFavorite.createdDate = Date()
-        myFavorite.id = abject["id"] as! String
-        myFavorite.lat = Double(abject["lat"] as! String)!
-        myFavorite.lng = Double(abject["lng"] as! String)!
-        myFavorite.title = abject["title"] as! String
-        myFavorite.imageUrl = abject["imageUrl"] as! String
-        myFavorite.tag = abject["tag"] as! String
-        myFavorite.date = abject["date"] as! String
-        myFavorite.media = abject["media"] as! String
+        myFavorite.id = obj["id"] as! String
+        myFavorite.lat = Double(obj["lat"] as! String)!
+        myFavorite.lng = Double(obj["lng"] as! String)!
+        myFavorite.url = obj["url"] as! String
+        myFavorite.title = obj["title"] as! String
+        myFavorite.imageUrl = obj["imageUrl"] as! String
+        myFavorite.tag = obj["tag"] as! String
+        myFavorite.date = obj["date"] as! String
+        myFavorite.media = obj["media"] as! String
         
         try! myRealm.write {
             myRealm.add(myFavorite)
@@ -282,8 +283,32 @@ class DatabaseManager: NSObject {
         }
     }
     
+    //お気に入り一覧を取得
+    func getFavoriteArticles() -> [AnyObject] {
+        let myRealm = try! Realm()
+        let rows = myRealm.objects(Favorite_Table.self).sorted(byProperty: "createdDate", ascending: true)
+        
+        var articles = [AnyObject]()
+        for row in rows {
+            let article = [
+                "createdDate": row.createdDate,
+                "id": row.id,
+                "lat": row.lat,
+                "lng": row.lng,
+                "url": row.url,
+                "title": row.title,
+                "imageUrl": row.imageUrl,
+                "tag": row.tag,
+                "date": row.date,
+                "media": row.media
+            ] as AnyObject
+            articles.append(article)
+        }
+        return articles
+    }
+    
     //指定したIDのお気に入りを取得
-    func getArticleFromFavoriteTable(_ id: String) -> [String: Any] {
+    func getFavoriteArticleFromId(_ id: String) -> [String: Any] {
         let myRealm = try! Realm()
         let rows = myRealm.objects(Favorite_Table.self).filter("id = %@", id)
         var article = [String: Any]()
@@ -293,6 +318,7 @@ class DatabaseManager: NSObject {
                 "id": row.id,
                 "lat": row.lat,
                 "lng": row.lng,
+                "url": row.url,
                 "title": row.title,
                 "imageUrl": row.imageUrl,
                 "tag": row.tag,
