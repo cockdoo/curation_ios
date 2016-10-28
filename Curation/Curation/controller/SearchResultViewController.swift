@@ -1,5 +1,5 @@
 //
-//  FavoriteViewController.swift
+//  SerchResultViewController.swift
 //  Curation
 //
 //  Created by menteadmin on 2016/10/28.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //Table
-    @IBOutlet weak var favoritesTable: UITableView!
-    let cellIdentifer = "FavoriteCell"
-    let cellHeight: CGFloat = 130
+    @IBOutlet weak var articlesTable: UITableView!
+    let cellIdentifer = "ArticleCell"
+    let cellHeight: CGFloat = 240
     
     //Article
     var articles = [AnyObject]()
@@ -24,28 +24,18 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-        refreshEveryViewWillApper()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        refreshEveryViewWillApper()
     }
     
     func initialize() {
-        //ナビゲーションバーを隠す
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
         //テーブルの設定
-        favoritesTable.dataSource = self
-        favoritesTable.delegate = self
+        articlesTable.delegate = self
+        articlesTable.dataSource = self
         let nib = UINib(nibName: cellIdentifer, bundle: nil)
-        favoritesTable.register(nib, forCellReuseIdentifier: cellIdentifer)
-    }
-    
-    func refreshEveryViewWillApper() {
-        //お気に入り一覧を取得
-        articles = appDelegate.DBManager.getFavoriteArticles()
-        favoritesTable.reloadData()
+        articlesTable.register(nib, forCellReuseIdentifier: cellIdentifer)
+        
+        articles = appDelegate.global.searchResultArticles
+        articlesTable.reloadData()
+        print(articles)
     }
     
     //MARK: - TABLE
@@ -65,9 +55,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         let article = articles[(indexPath as NSIndexPath).row] as AnyObject
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
-        
-        let cell: FavoriteCell = favoritesTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! FavoriteCell
-        
+        let cell: ArticleCell = articlesTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! ArticleCell
         cell.setUpCell(title, imageUrl: imageUrl, index: (indexPath as NSIndexPath).row)
         return cell
     }
@@ -84,5 +72,9 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         let storyboard = UIStoryboard(name: "Article", bundle: nil)
         let nextView: UIViewController! = storyboard.instantiateInitialViewController()
         self.navigationController?.pushViewController(nextView, animated: true)
+    }
+    
+    @IBAction func touchedBackButton(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
     }
 }

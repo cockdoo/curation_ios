@@ -25,22 +25,28 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
         initialize()
+        refreshEveryViewWillApper()
+        
+        //現在地を取得
+        appDelegate.LManager.locationManager.startUpdatingLocation()
+        
         getArticles()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        refreshEveryViewWillApper()
+    }
+    
     func initialize() {
+        apiManager.delegate = self
+        
         //初回画面からの画面遷移の判定用
         appDelegate.LManager.isTopView = true
         
         //ナビゲーションバーを隠す
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        //デリゲート設定
-        appDelegate.LManager.delegate = self
-        appDelegate.DBManager.delegate = self
-        apiManager.delegate = self
         
         //テーブルの設定
         articlesTable.dataSource = self
@@ -51,10 +57,13 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         //データベースを更新する
         appDelegate.DBManager.addCityName()
         
-        //現在地を取得
-        appDelegate.LManager.locationManager.startUpdatingLocation()
-        
         checkLocationAuthorize()
+    }
+    
+    func refreshEveryViewWillApper() {
+        //デリゲート設定
+        appDelegate.LManager.delegate = self
+        appDelegate.DBManager.delegate = self
     }
     
     func getArticles() {

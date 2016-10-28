@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XVb-5m-e9E">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Result View Controller-->
+        <scene sceneID="ZBg-oM-Mlq">
+            <objects>
+                <viewController id="XVb-5m-e9E" customClass="SearchResultViewController" customModule="Curation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ws-dd-cpf"/>
+                        <viewControllerLayoutGuide type="bottom" id="2rd-OH-eyi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N2d-gx-PrP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWe-xL-PIX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSr-cP-kZr">
+                                        <rect key="frame" x="16" y="26" width="31" height="30"/>
+                                        <state key="normal" title="戻る">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchedBackButton:" destination="XVb-5m-e9E" eventType="touchUpInside" id="EbM-sQ-rvD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="cSr-cP-kZr" firstAttribute="leading" secondItem="kWe-xL-PIX" secondAttribute="leading" constant="16" id="BQN-Mi-QEa"/>
+                                    <constraint firstAttribute="bottom" secondItem="cSr-cP-kZr" secondAttribute="bottom" constant="8" id="CNz-Q6-ok6"/>
+                                    <constraint firstAttribute="height" constant="64" id="R34-9V-NZe"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="61r-n6-nOe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kWe-xL-PIX" firstAttribute="leading" secondItem="N2d-gx-PrP" secondAttribute="leading" id="8kK-n4-lhN"/>
+                            <constraint firstItem="61r-n6-nOe" firstAttribute="top" secondItem="kWe-xL-PIX" secondAttribute="bottom" id="F7v-zu-Zlc"/>
+                            <constraint firstItem="kWe-xL-PIX" firstAttribute="top" secondItem="N2d-gx-PrP" secondAttribute="top" id="XtU-tm-zFs"/>
+                            <constraint firstAttribute="bottom" secondItem="61r-n6-nOe" secondAttribute="bottom" id="bZ3-Yo-S1Z"/>
+                            <constraint firstAttribute="trailing" secondItem="61r-n6-nOe" secondAttribute="trailing" id="j1N-Og-4rC"/>
+                            <constraint firstItem="61r-n6-nOe" firstAttribute="leading" secondItem="N2d-gx-PrP" secondAttribute="leading" id="qbb-f6-wXt"/>
+                            <constraint firstAttribute="trailing" secondItem="kWe-xL-PIX" secondAttribute="trailing" id="vPk-WN-17S"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="articlesTable" destination="61r-n6-nOe" id="PIk-3z-GxK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mS6-GM-4MB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="-231.63418290854574"/>
+        </scene>
+    </scenes>
+</document>

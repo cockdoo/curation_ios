@@ -47,11 +47,112 @@
             </objects>
             <point key="canvasLocation" x="-599.20000000000005" y="220.83958020989508"/>
         </scene>
+        <!--さがす-->
+        <scene sceneID="upl-yr-jL2">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="48V-aN-JTs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="さがす" id="PjD-Cd-CR2"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vWT-T2-6go">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6DO-27-2zC" kind="relationship" relationship="rootViewController" id="Aze-j3-Abv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H1S-hJ-51T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="-546"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="GPC-18-eE9">
+            <objects>
+                <viewController id="6DO-27-2zC" customClass="SearchViewController" customModule="Curation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UhP-tQ-1r2"/>
+                        <viewControllerLayoutGuide type="bottom" id="avJ-MG-4rF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iqm-wS-wjZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bj0-WM-yGE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="地名、住所、駅名などを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nwS-Wy-XSq">
+                                        <rect key="frame" x="8" y="26" width="267" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ZTO-yo-dX7"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taF-5p-x5M">
+                                        <rect key="frame" x="290" y="26" width="77" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="5hP-ho-5Fe"/>
+                                            <constraint firstAttribute="height" constant="30" id="8We-b9-5vQ"/>
+                                        </constraints>
+                                        <state key="normal" title="キャンセル">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchedCanselSerchButton:" destination="6DO-27-2zC" eventType="touchUpInside" id="BZu-1k-9f6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95079787234042556" green="0.95079787234042556" blue="0.95079787234042556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="0aa-Gm-TFa"/>
+                                    <constraint firstItem="nwS-Wy-XSq" firstAttribute="leading" secondItem="bj0-WM-yGE" secondAttribute="leading" constant="8" id="Afh-nM-6Mw"/>
+                                    <constraint firstAttribute="trailing" secondItem="taF-5p-x5M" secondAttribute="trailing" constant="8" id="BOa-RW-hbD"/>
+                                    <constraint firstItem="taF-5p-x5M" firstAttribute="centerY" secondItem="nwS-Wy-XSq" secondAttribute="centerY" id="L7V-Jc-vrW"/>
+                                    <constraint firstAttribute="bottom" secondItem="nwS-Wy-XSq" secondAttribute="bottom" constant="8" id="Tg0-BW-Tpv"/>
+                                    <constraint firstItem="taF-5p-x5M" firstAttribute="leading" secondItem="nwS-Wy-XSq" secondAttribute="trailing" constant="15" id="qKj-FS-W96"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Za-lwE">
+                                <rect key="frame" x="133" y="85" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="現在地から探す"/>
+                                <connections>
+                                    <action selector="touchedSerchCurrentLocationButton:" destination="6DO-27-2zC" eventType="touchUpInside" id="pC0-qJ-FhZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="よく行く場所から探す" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuL-j4-JUA">
+                                <rect key="frame" x="7" y="150" width="174" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bj0-WM-yGE" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" id="2LP-lg-0dv"/>
+                            <constraint firstAttribute="trailing" secondItem="bj0-WM-yGE" secondAttribute="trailing" id="69e-vj-dAj"/>
+                            <constraint firstItem="bj0-WM-yGE" firstAttribute="top" secondItem="iqm-wS-wjZ" secondAttribute="top" id="ffE-Eo-Odp"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="BP9-8h-L02"/>
+                    <connections>
+                        <outlet property="cancelSerchButton" destination="taF-5p-x5M" id="ewF-MT-sdv"/>
+                        <outlet property="serchField" destination="nwS-Wy-XSq" id="ARU-zJ-ahy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="chN-JZ-XSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="212.74362818590706"/>
+        </scene>
         <!--行きたい！リスト-->
         <scene sceneID="DoM-XL-Q64">
             <objects>
-                <navigationController id="jvJ-QH-P20" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="jvJ-QH-P20" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="行きたい！リスト" id="5P7-JJ-Ucz"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="51x-MS-Vet">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -63,26 +164,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNz-P3-xR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-598" y="-546"/>
-        </scene>
-        <!--さがす-->
-        <scene sceneID="yGi-Sa-0zH">
-            <objects>
-                <viewController id="4U6-4R-edG" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uIY-Hh-N2Z"/>
-                        <viewControllerLayoutGuide type="bottom" id="C6R-wD-zvc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yhN-tv-it3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="さがす" id="2cH-3Z-cMp"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WTl-Yq-cDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="206" y="-546"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="qxd-Ve-2Rp">
@@ -132,7 +213,7 @@
                     <connections>
                         <segue destination="BmR-OP-XZa" kind="relationship" relationship="viewControllers" id="Cw2-xA-fse"/>
                         <segue destination="jvJ-QH-P20" kind="relationship" relationship="viewControllers" id="twa-pq-miW"/>
-                        <segue destination="4U6-4R-edG" kind="relationship" relationship="viewControllers" id="AVB-V5-GdE"/>
+                        <segue destination="48V-aN-JTs" kind="relationship" relationship="viewControllers" id="iSH-fo-QZk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0T-X6-MIn" userLabel="First Responder" sceneMemberID="firstResponder"/>

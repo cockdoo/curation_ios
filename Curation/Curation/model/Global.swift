@@ -11,8 +11,11 @@ import UIKit
 
 class Global: NSObject {
     var selectedArticle: AnyObject!
+    var searchResultArticles: [AnyObject]!
     
     override init() {
         super.init()
+        selectedArticle = () as AnyObject!
+        searchResultArticles = [AnyObject]()
     }
 }

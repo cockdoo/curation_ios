@@ -10,7 +10,7 @@ import UIKit
 import AFNetworking
 
 @objc protocol APIManagerDelegate {
-    @objc optional func apiManager(didGetArticles articles: [AnyObject])
+    func apiManager(didGetArticles articles: [AnyObject])
 }
 
 class APIManager: NSObject {
@@ -49,7 +49,7 @@ class APIManager: NSObject {
                 
                 //デリゲートメソッドを呼ぶ
                 if json != nil {
-                    self.delegate.apiManager!(didGetArticles: json as! [AnyObject])
+                    self.delegate.apiManager(didGetArticles: json as! [AnyObject])
                 }
             },
             failure: {(operation: AFHTTPRequestOperation?, error: Error!) in
