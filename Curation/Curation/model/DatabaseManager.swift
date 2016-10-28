@@ -231,7 +231,13 @@ class DatabaseManager: NSObject {
                 ] as [String : Any]
             livingAreas.add(livingArea)
         }
-        return (livingAreas as [AnyObject])
+        if Config().isVirtualPersona == true {
+            //仮想ペルソナの生活圏をセット
+            return Config().virtualLivingArea as [AnyObject]
+        }
+        else {
+            return (livingAreas as [AnyObject])
+        }
     }
 }
 

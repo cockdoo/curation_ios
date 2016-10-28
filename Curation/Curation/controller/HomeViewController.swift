@@ -67,7 +67,9 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
             ]
             locations.append(location as AnyObject)
         }
-        apiManager.getArticles(locations, num: Config().numberForGetArticles)
+        if locations.count > 0 {
+            apiManager.getArticles(locations, num: Config().numberForGetArticles)
+        }
     }
     
     //位置情報が許可されてない場合アラートを表示する

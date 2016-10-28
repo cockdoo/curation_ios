@@ -54,21 +54,22 @@
                         <viewControllerLayoutGuide type="bottom" id="LmU-LC-kNL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SvR-g0-DMi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OmC-s8-Cu1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OmC-s8-Cu1">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OmC-s8-Cu1" firstAttribute="leading" secondItem="SvR-g0-DMi" secondAttribute="leading" id="7vU-ay-3q0"/>
+                            <constraint firstItem="OmC-s8-Cu1" firstAttribute="top" secondItem="SvR-g0-DMi" secondAttribute="top" constant="64" id="PxU-76-Css"/>
                             <constraint firstItem="LmU-LC-kNL" firstAttribute="top" secondItem="OmC-s8-Cu1" secondAttribute="bottom" id="dv6-7N-7zm"/>
-                            <constraint firstItem="OmC-s8-Cu1" firstAttribute="top" secondItem="j4F-SR-l4j" secondAttribute="bottom" constant="44" id="gDF-LW-HaX"/>
                             <constraint firstAttribute="trailing" secondItem="OmC-s8-Cu1" secondAttribute="trailing" id="vUw-zT-608"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="ホーム" id="tIc-oS-95N"/>
                     <navigationItem key="navigationItem" id="qfC-XR-myL"/>
                     <connections>
@@ -86,7 +87,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gYL-hh-iDJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="BmR-OP-XZa" kind="relationship" relationship="viewControllers" id="Cw2-xA-fse"/>

@@ -20,6 +20,37 @@ open class Config {
     
     //記事を取得する最低個数
     let numberForGetArticles = 30
+    
+    //仮想ペルソナの生活圏を表示するか否か
+    let isVirtualPersona: Bool = true
+    
+    //仮想ペルソナの生活圏
+    let virtualLivingArea = [
+        [
+            "cityName": "鎌倉市大船", //自宅
+            "subLocality": "大船",
+            "lat": 35.317931,
+            "lng": 139.499904
+        ],
+        [
+            "cityName": "鎌倉市津西", //勤務地
+            "subLocality": "津西",
+            "lat": 35.353113,
+            "lng": 139.538310
+        ],
+        [
+            "cityName": "鎌倉市鎌倉山", //よく行くカフェ
+            "subLocality": "鎌倉山",
+            "lat": 35.318271,
+            "lng": 139.514939
+        ],
+        [
+            "cityName": "鎌倉市小町", //スポーツクラブ
+            "subLocality": "小町",
+            "lat": 35.318734,
+            "lng": 139.552864
+        ]
+    ]
 }
 
 
