@@ -9,7 +9,7 @@
 import UIKit
 
 open class Common: NSObject {
-    func checkLocationAuthorize(controller: UIViewController) {
+    func checkLocationAuthorize(target: UIViewController) {
         let ud = UserDefaults.standard
         if ud.bool(forKey: "LOCATION_AUTHORIZED") == false {
             let alert: UIAlertController = UIAlertController(title: "位置情報サービスが無効です", message: "設定 > プライバシー > 位置情報サービス から\"My防災ノート\"による位置情報の利用を許可してください", preferredStyle:  UIAlertControllerStyle.alert)
@@ -19,7 +19,17 @@ open class Common: NSObject {
                 print("OK")
             })
             alert.addAction(defaultAction)
-            controller.present(alert, animated: true, completion: nil)
+            target.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func showAlert(title: String?, message: String?, target: UIViewController) {
+        let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle:  UIAlertControllerStyle.alert)
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+        })
+        alert.addAction(defaultAction)
+        target.present(alert, animated: true, completion: nil)
     }
 }

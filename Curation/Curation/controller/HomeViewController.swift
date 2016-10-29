@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         //データベースを更新する
         appDelegate.DBManager.addCityName()
         
-        Common().checkLocationAuthorize(controller: self)
+        Common().checkLocationAuthorize(target: self)
     }
     
     func refreshEveryViewWillApper() {

@@ -94,11 +94,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Za-lwE">
-                                <rect key="frame" x="88" y="81" width="199" height="34"/>
+                                <rect key="frame" x="20" y="81" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.86093334441489366" green="0.86093334441489366" blue="0.86093334441489366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="199" id="bRT-Uf-BQb"/>
-                                    <constraint firstAttribute="height" constant="34" id="yfx-dz-KXQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="yfx-dz-KXQ"/>
                                 </constraints>
                                 <state key="normal" title="現在地から探す">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -107,26 +106,39 @@
                                     <action selector="touchedSerchCurrentLocationButton:" destination="6DO-27-2zC" eventType="touchUpInside" id="pC0-qJ-FhZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="よく行く場所から探す" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuL-j4-JUA">
-                                <rect key="frame" x="7" y="150" width="174" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="よく行く場所から探す" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuL-j4-JUA">
+                                <rect key="frame" x="7" y="146" width="143" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D6M-uc-HTW">
+                                <rect key="frame" x="0.0" y="179" width="375" height="439"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="D6M-uc-HTW" secondAttribute="trailing" id="08G-6y-lMW"/>
                             <constraint firstItem="bj0-WM-yGE" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" id="2LP-lg-0dv"/>
+                            <constraint firstAttribute="trailing" secondItem="qTL-Za-lwE" secondAttribute="trailing" constant="20" id="3P2-pp-S6h"/>
                             <constraint firstAttribute="trailing" secondItem="bj0-WM-yGE" secondAttribute="trailing" id="69e-vj-dAj"/>
                             <constraint firstItem="qTL-Za-lwE" firstAttribute="centerX" secondItem="iqm-wS-wjZ" secondAttribute="centerX" id="6I8-oP-IHr"/>
+                            <constraint firstItem="qTL-Za-lwE" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" constant="20" id="Ayh-ND-tFh"/>
+                            <constraint firstAttribute="bottom" secondItem="D6M-uc-HTW" secondAttribute="bottom" id="NAx-9a-oUd"/>
                             <constraint firstItem="bj0-WM-yGE" firstAttribute="top" secondItem="iqm-wS-wjZ" secondAttribute="top" id="ffE-Eo-Odp"/>
+                            <constraint firstItem="vuL-j4-JUA" firstAttribute="top" secondItem="qTL-Za-lwE" secondAttribute="bottom" constant="25" id="jWf-rB-Tuf"/>
+                            <constraint firstItem="D6M-uc-HTW" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" id="ksz-6u-Gcm"/>
                             <constraint firstItem="qTL-Za-lwE" firstAttribute="top" secondItem="bj0-WM-yGE" secondAttribute="bottom" constant="17" id="lRF-Hw-WCH"/>
+                            <constraint firstItem="D6M-uc-HTW" firstAttribute="top" secondItem="vuL-j4-JUA" secondAttribute="bottom" constant="8" id="qR4-FR-agi"/>
+                            <constraint firstItem="vuL-j4-JUA" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" constant="7" id="zt6-oR-MBE"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="BP9-8h-L02"/>
                     <connections>
+                        <outlet property="areaListTable" destination="D6M-uc-HTW" id="2sg-2x-SPd"/>
+                        <outlet property="searchCurrentLocationButton" destination="qTL-Za-lwE" id="hoP-eK-gOq"/>
                         <outlet property="searchDisplayController" destination="Asa-x7-u4i" id="KtW-Rr-WRE"/>
                         <outlet property="searchField" destination="Nqj-GE-vUD" id="LAX-8d-k3o"/>
                     </connections>
