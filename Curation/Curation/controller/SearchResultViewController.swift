@@ -75,6 +75,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func touchedBackButton(_ sender: Any) {
+        appDelegate.global.isBackFromSearchResultView = true
         _ = navigationController?.popViewController(animated: true)
     }
 }

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class SearchViewController: UIViewController, APIManagerDelegate, LocationManagerDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, APIManagerDelegate, LocationManagerDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate {
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let apiManager = APIManager()
@@ -28,7 +29,16 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        refreshEveryViewWillApper()
+        if !appDelegate.global.isBackFromSearchResultView {
+            refreshEveryViewWillApper()
+        }
+        appDelegate.global.isBackFromSearchResultView = false
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if viewController == self.navigationController {
+            startEdit()
+        }   
     }
     
     func initialize() {
@@ -36,6 +46,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         searchField.layer.borderWidth = 0
         searchField.layer.borderColor = UIColor.clear.cgColor
         searchCurrentLocationButton.layer.cornerRadius = 4
+        self.tabBarController?.delegate = self
         apiManager.delegate = self
         areaListTable.delegate = self
         areaListTable.dataSource = self
@@ -45,8 +56,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     
     func refreshEveryViewWillApper() {
         appDelegate.LManager.delegate = self
-        searchField.becomeFirstResponder()
-        searchField.showsCancelButton = true
+        startEdit()
         setAreaList()
     }
     
@@ -61,7 +71,6 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         searchField.text = ""
     }
     
-    //キーボードのリターンボタンが押されたとき
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         endEdit()
         searchFromFieldContent()
@@ -69,13 +78,33 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     
     func searchFromFieldContent() {
         if !searchField.text!.isEmpty {
-            print("検索！")
+            searchLocationFromAddress()
         }
+    }
+    
+    func searchLocationFromAddress() {
+        CLGeocoder().geocodeAddressString(searchField.text!, in: nil, completionHandler: { (placemarks, error) in
+            if error != nil {
+                print("Search Error:\(error)")
+                Common().showAlert(title: "検索失敗", message: "該当する場所がありませんでした。", target: self)
+                return
+            }
+            if let placemarks = placemarks {
+                guard let place = placemarks.first else { return }
+                self.getArticlesWithLocation(lat: (place.location?.coordinate.latitude)!, lng: (place.location?.coordinate.latitude)!)
+            }
+            
+        })
     }
     
     //画面がタップされたときキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         endEdit()
+    }
+    
+    func startEdit() {
+        searchField.showsCancelButton = true
+        searchField.becomeFirstResponder()
     }
     
     func endEdit() {
@@ -142,7 +171,6 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     
     //記事を取得できたときに呼ばれる
     func apiManager(didGetArticles articles: [AnyObject]) {
-        print(articles)
         if articles.count > 0 {
             appDelegate.global.searchResultArticles = articles
             transitionToSearchResultView()

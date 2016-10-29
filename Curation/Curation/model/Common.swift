@@ -16,7 +16,6 @@ open class Common: NSObject {
             let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
                 // ボタンが押された時の処理を書く（クロージャ実装）
                 (action: UIAlertAction!) -> Void in
-                print("OK")
             })
             alert.addAction(defaultAction)
             target.present(alert, animated: true, completion: nil)
@@ -27,7 +26,6 @@ open class Common: NSObject {
         let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle:  UIAlertControllerStyle.alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
             (action: UIAlertAction!) -> Void in
-            print("OK")
         })
         alert.addAction(defaultAction)
         target.present(alert, animated: true, completion: nil)

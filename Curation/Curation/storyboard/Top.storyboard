@@ -51,7 +51,7 @@
         <scene sceneID="upl-yr-jL2">
             <objects>
                 <navigationController navigationBarHidden="YES" id="48V-aN-JTs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="さがす" id="PjD-Cd-CR2"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="さがす" id="PjD-Cd-CR2"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vWT-T2-6go">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

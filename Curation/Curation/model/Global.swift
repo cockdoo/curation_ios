@@ -12,10 +12,12 @@ import UIKit
 class Global: NSObject {
     var selectedArticle: AnyObject!
     var searchResultArticles: [AnyObject]!
+    var isBackFromSearchResultView: Bool!
     
     override init() {
         super.init()
         selectedArticle = () as AnyObject!
         searchResultArticles = [AnyObject]()
+        isBackFromSearchResultView = false
     }
 }
