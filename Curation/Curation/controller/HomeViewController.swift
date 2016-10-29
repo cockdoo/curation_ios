@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         //データベースを更新する
         appDelegate.DBManager.addCityName()
         
-        checkLocationAuthorize()
+        Common().checkLocationAuthorize(controller: self)
     }
     
     func refreshEveryViewWillApper() {
@@ -80,21 +80,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
             apiManager.getArticles(locations, num: Config().numberForGetArticles)
         }
     }
-    
-    //位置情報が許可されてない場合アラートを表示する
-    func checkLocationAuthorize() {
-        if ud.bool(forKey: "LOCATION_AUTHORIZED") == false {
-            let alert: UIAlertController = UIAlertController(title: "位置情報サービスが無効です", message: "設定 > プライバシー > 位置情報サービス から\"My防災ノート\"による位置情報の利用を許可してください", preferredStyle:  UIAlertControllerStyle.alert)
-            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
-                // ボタンが押された時の処理を書く（クロージャ実装）
-                (action: UIAlertAction!) -> Void in
-                print("OK")
-            })
-            alert.addAction(defaultAction)
-            present(alert, animated: true, completion: nil)
-        }
-    }
-    
+        
     func databaseManager(didRefreshData message: String) {
         print("DB更新完了")
     }

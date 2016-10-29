@@ -8,13 +8,12 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate, APIManagerDelegate, LocationManagerDelegate {
+class SearchViewController: UIViewController, UITextFieldDelegate, APIManagerDelegate, LocationManagerDelegate, UISearchBarDelegate {
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let apiManager = APIManager()
     
-    @IBOutlet weak var serchField: UITextField!
-    @IBOutlet weak var cancelSerchButton: UIButton!
+    @IBOutlet weak var searchField: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,25 +26,57 @@ class SearchViewController: UIViewController, UITextFieldDelegate, APIManagerDel
     }
     
     func initialize() {
-        serchField.delegate = self
-        serchField.returnKeyType = UIReturnKeyType.search
+        searchField.delegate = self
+        searchField.layer.borderWidth = 0
+        searchField.layer.borderColor = UIColor.clear.cgColor
         apiManager.delegate = self
     }
     
     func refreshEveryViewWillApper() {
-        //デリゲート設定
         appDelegate.LManager.delegate = self
+        searchField.becomeFirstResponder()
+        searchField.showsCancelButton = true
     }
     
-    @IBAction func touchedCanselSerchButton(_ sender: Any) {
-        
+    //MARK: Search Bar
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchField.showsCancelButton = true
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        endEdit()
+        searchField.text = ""
+    }
     
+    //キーボードのリターンボタンが押されたとき
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        endEdit()
+        searchFromFieldContent()
+    }
     
+    func searchFromFieldContent() {
+        if !searchField.text!.isEmpty {
+            print("検索！")
+        }
+    }
+    
+    //画面がタップされたときキーボードを閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        endEdit()
+    }
+    
+    func endEdit() {
+        searchField.showsCancelButton = false
+        self.view.endEditing(true)
+    }
+    
+    //MARK: 現在地から検索
     
     @IBAction func touchedSerchCurrentLocationButton(_ sender: Any) {
+        endEdit()
         appDelegate.LManager.startUpdatingLocation()
+        Common().checkLocationAuthorize(controller: self)
     }
     
     func locationManager(didUpdatingLocation message: String) {
@@ -54,24 +85,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, APIManagerDel
         let lng = appDelegate.LManager.lng
         getArticlesWithLocation(lat: lat, lng: lng)
     }
-    
-    //キーボードのリターンボタンが押されたとき
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchFromFieldContent()
-        return true
-    }
-    
-    func searchFromFieldContent() {
-        if !serchField.text!.isEmpty {
-            print("検索！")
-        }
-    }
-    
-    //画面がタップされたときキーボードを閉じる
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
+
     func getArticlesWithLocation(lat: Double, lng: Double) {
         let locations = [
             [

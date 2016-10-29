@@ -77,7 +77,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             statusStr = "Denied"
             ud.set(false, forKey: "LOCATION_AUTHORIZED")
             ud.synchronize()
-            
             if  isTopView == false {
                 self.delegate.locationManager!(deniedAuthorization: "")
             }
@@ -86,7 +85,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             statusStr = "AuthorizedAlways"
             ud.set(true, forKey: "LOCATION_AUTHORIZED")
             ud.synchronize()
-            
             if isTopView == false {
                 self.delegate.locationManager!(acceptAuthorization: "")
             }

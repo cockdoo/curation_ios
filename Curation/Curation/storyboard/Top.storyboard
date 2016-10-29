@@ -80,43 +80,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bj0-WM-yGE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="地名、住所、駅名などを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nwS-Wy-XSq">
-                                        <rect key="frame" x="8" y="26" width="267" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ZTO-yo-dX7"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taF-5p-x5M">
-                                        <rect key="frame" x="290" y="26" width="77" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="77" id="5hP-ho-5Fe"/>
-                                            <constraint firstAttribute="height" constant="30" id="8We-b9-5vQ"/>
-                                        </constraints>
-                                        <state key="normal" title="キャンセル">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="touchedCanselSerchButton:" destination="6DO-27-2zC" eventType="touchUpInside" id="BZu-1k-9f6"/>
-                                        </connections>
-                                    </button>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" placeholder="地名、住所、駅名などを入力" translatesAutoresizingMaskIntoConstraints="NO" id="Nqj-GE-vUD">
+                                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="barTintColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                    </searchBar>
                                 </subviews>
-                                <color key="backgroundColor" red="0.95079787234042556" green="0.95079787234042556" blue="0.95079787234042556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="0aa-Gm-TFa"/>
-                                    <constraint firstItem="nwS-Wy-XSq" firstAttribute="leading" secondItem="bj0-WM-yGE" secondAttribute="leading" constant="8" id="Afh-nM-6Mw"/>
-                                    <constraint firstAttribute="trailing" secondItem="taF-5p-x5M" secondAttribute="trailing" constant="8" id="BOa-RW-hbD"/>
-                                    <constraint firstItem="taF-5p-x5M" firstAttribute="centerY" secondItem="nwS-Wy-XSq" secondAttribute="centerY" id="L7V-Jc-vrW"/>
-                                    <constraint firstAttribute="bottom" secondItem="nwS-Wy-XSq" secondAttribute="bottom" constant="8" id="Tg0-BW-Tpv"/>
-                                    <constraint firstItem="taF-5p-x5M" firstAttribute="leading" secondItem="nwS-Wy-XSq" secondAttribute="trailing" constant="15" id="qKj-FS-W96"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Za-lwE">
-                                <rect key="frame" x="133" y="85" width="108" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="現在地から探す"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Za-lwE">
+                                <rect key="frame" x="88" y="81" width="199" height="34"/>
+                                <color key="backgroundColor" red="0.86093334441489366" green="0.86093334441489366" blue="0.86093334441489366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="199" id="bRT-Uf-BQb"/>
+                                    <constraint firstAttribute="height" constant="34" id="yfx-dz-KXQ"/>
+                                </constraints>
+                                <state key="normal" title="現在地から探す">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="touchedSerchCurrentLocationButton:" destination="6DO-27-2zC" eventType="touchUpInside" id="pC0-qJ-FhZ"/>
                                 </connections>
@@ -133,17 +119,26 @@
                         <constraints>
                             <constraint firstItem="bj0-WM-yGE" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" id="2LP-lg-0dv"/>
                             <constraint firstAttribute="trailing" secondItem="bj0-WM-yGE" secondAttribute="trailing" id="69e-vj-dAj"/>
+                            <constraint firstItem="qTL-Za-lwE" firstAttribute="centerX" secondItem="iqm-wS-wjZ" secondAttribute="centerX" id="6I8-oP-IHr"/>
                             <constraint firstItem="bj0-WM-yGE" firstAttribute="top" secondItem="iqm-wS-wjZ" secondAttribute="top" id="ffE-Eo-Odp"/>
+                            <constraint firstItem="qTL-Za-lwE" firstAttribute="top" secondItem="bj0-WM-yGE" secondAttribute="bottom" constant="17" id="lRF-Hw-WCH"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="BP9-8h-L02"/>
                     <connections>
-                        <outlet property="cancelSerchButton" destination="taF-5p-x5M" id="ewF-MT-sdv"/>
-                        <outlet property="serchField" destination="nwS-Wy-XSq" id="ARU-zJ-ahy"/>
+                        <outlet property="searchDisplayController" destination="Asa-x7-u4i" id="KtW-Rr-WRE"/>
+                        <outlet property="searchField" destination="Nqj-GE-vUD" id="LAX-8d-k3o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chN-JZ-XSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Asa-x7-u4i">
+                    <connections>
+                        <outlet property="searchContentsController" destination="6DO-27-2zC" id="xfw-yI-uYQ"/>
+                        <outlet property="searchResultsDataSource" destination="6DO-27-2zC" id="MxQ-sg-I4N"/>
+                        <outlet property="searchResultsDelegate" destination="6DO-27-2zC" id="cVZ-KI-3cP"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="124" y="212.74362818590706"/>
         </scene>
