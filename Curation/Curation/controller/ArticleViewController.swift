@@ -20,10 +20,13 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     var isFavorite: Bool!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    var myArticle: AnyObject!
+    
+    @IBOutlet weak var navigationTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-        refresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,16 +34,14 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     }
     
     func initialize() {
-        let article = appDelegate.global.selectedArticle
-        print(article ?? "")
-        let url = URL(string : article?["url"] as! String)
-        let urlRequest = URLRequest(url: url!)
-        webView.loadRequest(urlRequest)
+        myArticle = appDelegate.global.selectedArticle
+        navigationTitle.text = myArticle["title"] as? String
+        navigationTitle.font = UIFont.boldSystemFont(ofSize: navigationTitle.font.pointSize)
+        setWebView()
     }
     
     func refresh() {
-        let article = appDelegate.global.selectedArticle
-        let id = article?["id"] as! String
+        let id = myArticle["id"] as! String
         if appDelegate.DBManager.getFavoriteArticleFromId(id)["id"] != nil {
             isFavorite = true
         }else {
@@ -49,12 +50,27 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         setFavotiteButtonTheme()
     }
     
+    func setWebView() {
+        print(myArticle ?? "")
+        let url = URL(string : myArticle["url"] as! String)
+        let urlRequest = URLRequest(url: url!)
+        webView.loadRequest(urlRequest)
+    }
+    
     func webViewDidStartLoad(_ webView: UIWebView) {
         print("webview did start load")
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         print("webview did finish load")
+    }
+    
+    @IBAction func touchedPrevPageButton(_ sender: Any) {
+        webView.goBack()
+    }
+    
+    @IBAction func touchedNextPageButton(_ sender: Any) {
+        webView.goForward()
     }
     
     func setFavotiteButtonTheme() {
@@ -74,6 +90,20 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             isFavorite = true
         }
         setFavotiteButtonTheme()
+    }
+    
+    @IBAction func touchedMapButton(_ sender: Any) {
+        setMapView()
+    }
+    
+    func setMapView() {
+        let lightBox = ArticleMapView.instance()
+        lightBox.frame = CGRect.init(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.width - 60, height: self.view.frame.height - 120))
+        lightBox.center = self.view.center
+        let lat = Double(myArticle["lat"] as! String)
+        let lng = Double(myArticle["lng"] as! String)
+        lightBox.setMapCameraAndMarker(lat: lat!, lng: lng!)
+        self.view.addSubview(lightBox)
     }
     
     @IBAction func touchedBackButton(_ sender: AnyObject) {

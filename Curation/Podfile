@@ -7,5 +7,5 @@ pod 'GoogleMaps'
 pod 'RealmSwift'
 pod 'AFNetworking', '~> 2.6.0'
 pod 'Google/Analytics'
-
+pod 'PageMenu'
 

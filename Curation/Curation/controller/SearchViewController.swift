@@ -25,7 +25,6 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-        refreshEveryViewWillApper()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +37,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if viewController == self.navigationController {
             startEdit()
-        }   
+        }
     }
     
     func initialize() {
@@ -46,7 +45,6 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         searchField.layer.borderWidth = 0
         searchField.layer.borderColor = UIColor.clear.cgColor
         searchCurrentLocationButton.layer.cornerRadius = 4
-        self.tabBarController?.delegate = self
         apiManager.delegate = self
         areaListTable.delegate = self
         areaListTable.dataSource = self
@@ -56,7 +54,8 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     
     func refreshEveryViewWillApper() {
         appDelegate.LManager.delegate = self
-        startEdit()
+        self.tabBarController?.delegate = self
+//        startEdit()
         setAreaList()
     }
     

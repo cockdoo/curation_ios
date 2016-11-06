@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate {
     
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -23,15 +23,13 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     //Article
     var articles = [AnyObject]()
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initialize()
-        refreshEveryViewWillApper()
-        
         //現在地を取得
         appDelegate.LManager.locationManager.startUpdatingLocation()
-        
         getArticles()
     }
     
@@ -39,7 +37,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         refreshEveryViewWillApper()
     }
     
-    func initialize() {
+    func initialize() {  
         apiManager.delegate = self
         
         //初回画面からの画面遷移の判定用
@@ -64,6 +62,13 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         //デリゲート設定
         appDelegate.LManager.delegate = self
         appDelegate.DBManager.delegate = self
+        self.tabBarController?.delegate = self
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if viewController == self.navigationController {
+            articlesTable.setContentOffset(CGPoint(x: 0, y: -articlesTable.contentInset.top), animated: true)
+        }
     }
     
     func getArticles() {
@@ -115,10 +120,11 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         let article = articles[(indexPath as NSIndexPath).row] as AnyObject
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
+        let imageName: String = article["media"] as! String
         
         let cell: ArticleCell = articlesTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! ArticleCell
         
-        cell.setUpCell(title, imageUrl: imageUrl, index: (indexPath as NSIndexPath).row)
+        cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, index: (indexPath as NSIndexPath).row)
         return cell
     }
     
@@ -133,6 +139,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     func transitionToArticleView() {
         let storyboard = UIStoryboard(name: "Article", bundle: nil)
         let nextView: UIViewController! = storyboard.instantiateInitialViewController()
+        nextView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nextView, animated: true)
     }
 }

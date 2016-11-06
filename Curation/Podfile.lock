@@ -42,6 +42,7 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - PageMenu (1.2.9)
   - Realm (1.1.0):
     - Realm/Headers (= 1.1.0)
   - Realm/Headers (1.1.0)
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
   - Google/Analytics
   - GoogleMaps
+  - PageMenu
   - RealmSwift
 
 SPEC CHECKSUMS:
@@ -64,6 +66,7 @@ SPEC CHECKSUMS:
   GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
 

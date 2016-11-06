@@ -55,8 +55,10 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
         let article = articles[(indexPath as NSIndexPath).row] as AnyObject
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
+        let mediaName: String = article["media"] as! String
+        
         let cell: ArticleCell = articlesTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! ArticleCell
-        cell.setUpCell(title, imageUrl: imageUrl, index: (indexPath as NSIndexPath).row)
+        cell.setUpCell(title, imageUrl: imageUrl, mediaName: mediaName, index: (indexPath as NSIndexPath).row)
         return cell
     }
     

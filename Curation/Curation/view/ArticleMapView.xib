@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ArticleMapView" customModule="Curation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="409"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80R-01-KXj">
+                    <rect key="frame" x="10" y="359" width="301" height="40"/>
+                    <color key="backgroundColor" red="0.82736045120000001" green="0.82750314469999997" blue="0.82735145089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="fRa-ug-PpZ"/>
+                    </constraints>
+                    <state key="normal" title="閉じる">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="touchedCloseButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="InN-BM-VJE"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zqb-2j-jx3" customClass="GMSMapView">
+                    <rect key="frame" x="10" y="10" width="301" height="341"/>
+                    <color key="backgroundColor" red="0.97636479139999999" green="0.97653168440000004" blue="0.9763541818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zqb-2j-jx3" secondAttribute="trailing" constant="10" id="1Fb-iY-ME9"/>
+                <constraint firstAttribute="trailing" secondItem="80R-01-KXj" secondAttribute="trailing" constant="10" id="M84-IW-OBl"/>
+                <constraint firstItem="80R-01-KXj" firstAttribute="top" secondItem="zqb-2j-jx3" secondAttribute="bottom" constant="8" id="VCe-Zf-jQq"/>
+                <constraint firstItem="zqb-2j-jx3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Y4B-bg-wDe"/>
+                <constraint firstItem="zqb-2j-jx3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="b3w-NF-KkE"/>
+                <constraint firstAttribute="bottom" secondItem="80R-01-KXj" secondAttribute="bottom" constant="10" id="l3S-xu-uW5"/>
+                <constraint firstItem="80R-01-KXj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="oSh-fM-q6y"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mapView" destination="zqb-2j-jx3" id="5ZB-te-gnv"/>
+            </connections>
+            <point key="canvasLocation" x="7.5" y="-75.5"/>
+        </view>
+    </objects>
+</document>

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import PageMenu
 
-class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CAPSPageMenuDelegate {
     
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -21,11 +22,52 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     //Article
     var articles = [AnyObject]()
     
+    @IBOutlet weak var pageMenuCover: UIView!
+    var pageMenu: CAPSPageMenu?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-        refreshEveryViewWillApper()
     }
+    
+    override func viewDidLayoutSubviews() {
+        var controllerArray : [UIViewController] = []
+        
+        // Create variables for all view controllers you want to put in the
+        // page menu, initialize them, and add each to the controller array.
+        // (Can be any UIViewController subclass)
+        // Make sure the title property of all view controllers is set
+        // Example:
+        let list: UIViewController! = UIStoryboard(name: "FavoriteList", bundle: nil).instantiateInitialViewController()
+        let map: UIViewController! = UIStoryboard(name: "FavoriteMap", bundle: nil).instantiateInitialViewController()
+        list.title = "リスト"
+        map.title = "マップ"
+        controllerArray.append(list)
+        controllerArray.append(map)
+        
+        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
+        // Example:
+        let parameters: [CAPSPageMenuOption] = [
+            .useMenuLikeSegmentedControl(true),
+            .menuItemSeparatorPercentageHeight(0.1),
+            .scrollMenuBackgroundColor(Colors().lightgray),
+            .menuHeight(44),
+//            .menuItemSeparatorPercentageHeight(1),
+            .selectedMenuItemLabelColor(Colors().mainBlack),
+            .unselectedMenuItemLabelColor(Colors().subBlack),
+            .selectionIndicatorColor(Colors().mainBlack),
+            .bottomMenuHairlineColor(UIColor.lightGray),
+            .selectionIndicatorHeight(1)
+        ]
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect.init(x: 0, y: 0, width: pageMenuCover.frame.width, height: pageMenuCover.frame.height), pageMenuOptions: parameters)
+        pageMenuCover.addSubview(pageMenu!.view)
+        
+        pageMenu?.delegate = self
+    }
+    
+    func willMoveToPage(_ controller: UIViewController, index: Int){}
+    
+    func didMoveToPage(_ controller: UIViewController, index: Int){}
     
     override func viewWillAppear(_ animated: Bool) {
         refreshEveryViewWillApper()
@@ -36,16 +78,16 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         //テーブルの設定
-        favoritesTable.dataSource = self
-        favoritesTable.delegate = self
-        let nib = UINib(nibName: cellIdentifer, bundle: nil)
-        favoritesTable.register(nib, forCellReuseIdentifier: cellIdentifer)
+//        favoritesTable.dataSource = self
+//        favoritesTable.delegate = self
+//        let nib = UINib(nibName: cellIdentifer, bundle: nil)
+//        favoritesTable.register(nib, forCellReuseIdentifier: cellIdentifer)
     }
     
     func refreshEveryViewWillApper() {
         //お気に入り一覧を取得
         articles = appDelegate.DBManager.getFavoriteArticles()
-        favoritesTable.reloadData()
+//        favoritesTable.reloadData()
     }
     
     //MARK: - TABLE
