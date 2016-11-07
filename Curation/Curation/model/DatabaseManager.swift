@@ -286,7 +286,7 @@ class DatabaseManager: NSObject {
     //お気に入り一覧を取得
     func getFavoriteArticles() -> [AnyObject] {
         let myRealm = try! Realm()
-        let rows = myRealm.objects(Favorite_Table.self).sorted(byProperty: "createdDate", ascending: true)
+        let rows = myRealm.objects(Favorite_Table.self).sorted(byProperty: "createdDate", ascending: false)
         
         var articles = [AnyObject]()
         for row in rows {

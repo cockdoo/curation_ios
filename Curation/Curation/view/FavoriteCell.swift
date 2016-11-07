@@ -17,9 +17,10 @@ class FavoriteCell: UITableViewCell {
         //テキスト反映&行間調整
         let attributedText = NSMutableAttributedString(string: title)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.3
+        paragraphStyle.lineHeightMultiple = 1.0
         attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
         titleLabel.attributedText = attributedText
+        titleLabel.font = UIFont.boldSystemFont(ofSize: titleLabel.font.pointSize)
         
         //画像を非同期で読み込む
         let url: URL = URL(string: imageUrl)!

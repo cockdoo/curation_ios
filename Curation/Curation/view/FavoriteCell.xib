@@ -6,46 +6,65 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamRounded_Bold.otf">
+            <string>GothamRounded-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="XIb-45-Dod" customClass="FavoriteCell" customModule="Curation" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iYN-5h-GHn">
-                    <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Op-ZT-I3d">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iYN-5h-GHn">
+                            <rect key="frame" x="8" y="8" width="79" height="79"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="iYN-5h-GHn" secondAttribute="height" multiplier="1:1" id="QIc-8b-n2g"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルタイトルタイトルタイトルタイトルタイトル" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TO4-k0-ec0">
+                            <rect key="frame" x="95" y="12" width="276" height="28.5"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="14"/>
+                            <color key="textColor" red="0.35120927526595747" green="0.35120927526595747" blue="0.35120927526595747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-j6-OKH">
+                            <rect key="frame" x="8" y="94" width="359" height="1"/>
+                            <color key="backgroundColor" red="0.90057069063186646" green="0.90125507116317749" blue="0.9006766676902771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="A5s-Vf-K1o"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="130" id="OOW-oG-ikp"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="タイトルタイトルタイトルタイトルタイトルタイトル" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TO4-k0-ec0">
-                    <rect key="frame" x="138" y="8" width="227" height="36"/>
-                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="15"/>
-                    <color key="textColor" red="0.35120927526595747" green="0.35120927526595747" blue="0.35120927526595747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otr-Ge-DyK">
-                    <rect key="frame" x="0.0" y="127" width="378" height="3"/>
-                    <color key="backgroundColor" red="0.93706366356382975" green="0.93706366356382975" blue="0.93706366356382975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="f0x-Mq-41x"/>
+                        <constraint firstItem="TO4-k0-ec0" firstAttribute="leading" secondItem="iYN-5h-GHn" secondAttribute="trailing" constant="8" id="1UH-Uy-SqD"/>
+                        <constraint firstItem="iYN-5h-GHn" firstAttribute="leading" secondItem="8Op-ZT-I3d" secondAttribute="leading" constant="8" id="3lQ-y2-kGq"/>
+                        <constraint firstItem="iYN-5h-GHn" firstAttribute="top" secondItem="8Op-ZT-I3d" secondAttribute="top" constant="8" id="7iq-Z1-t7C"/>
+                        <constraint firstAttribute="bottom" secondItem="jwT-j6-OKH" secondAttribute="bottom" id="JRu-Sy-7xf"/>
+                        <constraint firstAttribute="trailing" secondItem="TO4-k0-ec0" secondAttribute="trailing" constant="4" id="UZC-fL-x2q"/>
+                        <constraint firstItem="TO4-k0-ec0" firstAttribute="top" secondItem="iYN-5h-GHn" secondAttribute="top" multiplier="1.5" id="e78-RV-jxI"/>
+                        <constraint firstItem="jwT-j6-OKH" firstAttribute="leading" secondItem="8Op-ZT-I3d" secondAttribute="leading" constant="8" id="g3Z-nt-Uyd"/>
+                        <constraint firstAttribute="bottom" secondItem="iYN-5h-GHn" secondAttribute="bottom" constant="8" id="rNO-s0-U1r"/>
+                        <constraint firstAttribute="trailing" secondItem="jwT-j6-OKH" secondAttribute="trailing" constant="8" id="vj8-TT-Q4e"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.97636479139999999" green="0.97653168440000004" blue="0.9763541818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="iYN-5h-GHn" firstAttribute="leading" secondItem="XIb-45-Dod" secondAttribute="leading" id="HdQ-Ry-h0E"/>
-                <constraint firstItem="TO4-k0-ec0" firstAttribute="leading" secondItem="iYN-5h-GHn" secondAttribute="trailing" constant="8" id="RVv-H1-fd0"/>
-                <constraint firstAttribute="bottom" secondItem="iYN-5h-GHn" secondAttribute="bottom" id="SpH-0b-LKF"/>
-                <constraint firstAttribute="trailing" secondItem="otr-Ge-DyK" secondAttribute="trailing" id="Wmw-uf-gcS"/>
-                <constraint firstItem="TO4-k0-ec0" firstAttribute="top" secondItem="XIb-45-Dod" secondAttribute="top" constant="8" id="cHe-L1-zBD"/>
-                <constraint firstItem="otr-Ge-DyK" firstAttribute="leading" secondItem="XIb-45-Dod" secondAttribute="leading" id="ghJ-ig-UdC"/>
-                <constraint firstItem="iYN-5h-GHn" firstAttribute="top" secondItem="XIb-45-Dod" secondAttribute="top" id="hOQ-Jk-8pR"/>
-                <constraint firstAttribute="trailing" secondItem="TO4-k0-ec0" secondAttribute="trailing" constant="10" id="q77-Wk-YvH"/>
-                <constraint firstAttribute="bottom" secondItem="otr-Ge-DyK" secondAttribute="bottom" id="tjL-Um-jei"/>
+                <constraint firstAttribute="bottom" secondItem="8Op-ZT-I3d" secondAttribute="bottom" id="Nrh-Vg-npl"/>
+                <constraint firstItem="8Op-ZT-I3d" firstAttribute="top" secondItem="XIb-45-Dod" secondAttribute="top" id="PYD-vY-Of4"/>
+                <constraint firstItem="8Op-ZT-I3d" firstAttribute="leading" secondItem="XIb-45-Dod" secondAttribute="leading" id="b40-Q7-dn3"/>
+                <constraint firstAttribute="trailing" secondItem="8Op-ZT-I3d" secondAttribute="trailing" id="wO4-Ik-GLL"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -53,7 +72,7 @@
                 <outlet property="thumbView" destination="iYN-5h-GHn" id="oXx-gZ-OSL"/>
                 <outlet property="titleLabel" destination="TO4-k0-ec0" id="jrw-z9-ds4"/>
             </connections>
-            <point key="canvasLocation" x="72.5" y="-174"/>
+            <point key="canvasLocation" x="72.5" y="-156.5"/>
         </view>
     </objects>
 </document>

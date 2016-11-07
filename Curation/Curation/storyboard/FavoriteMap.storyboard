@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Favorite Map View Controller-->
         <scene sceneID="6LO-fG-viM">
             <objects>
-                <viewController id="FgP-Nu-1w0" sceneMemberID="viewController">
+                <viewController id="FgP-Nu-1w0" customClass="FavoriteMapViewController" customModule="Curation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="an7-Dy-WzE"/>
                         <viewControllerLayoutGuide type="bottom" id="hcE-6Q-5yM"/>
@@ -20,12 +20,69 @@
                     <view key="view" contentMode="scaleToFill" id="oof-Ln-lGX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.67227445590000001" green="0.92941176469999998" blue="0.28656849270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBY-kw-BRq" customClass="FavoriteMapView" customModule="Curation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTZ-iD-VcN">
+                                <rect key="frame" x="18" y="577" width="339" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Aif-Wb-WTO"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOI-je-ifl">
+                                <rect key="frame" x="345" y="605" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="EiL-im-vtT"/>
+                                    <constraint firstAttribute="height" constant="24" id="UvQ-74-XH1"/>
+                                </constraints>
+                                <state key="normal" image="next.png">
+                                    <color key="titleColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchedNextButton:" destination="FgP-Nu-1w0" eventType="touchUpInside" id="035-Ev-ajy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXx-xZ-ulB">
+                                <rect key="frame" x="6" y="605" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="U5K-dj-lJV"/>
+                                    <constraint firstAttribute="height" constant="24" id="fAW-c0-QCU"/>
+                                </constraints>
+                                <state key="normal" image="prev.png"/>
+                                <connections>
+                                    <action selector="touchedPrevButton:" destination="FgP-Nu-1w0" eventType="touchUpInside" id="mii-Bu-vYe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hcE-6Q-5yM" firstAttribute="top" secondItem="jBY-kw-BRq" secondAttribute="bottom" id="3KI-IB-pMD"/>
+                            <constraint firstAttribute="trailing" secondItem="jBY-kw-BRq" secondAttribute="trailing" id="5uH-ug-caW"/>
+                            <constraint firstItem="jBY-kw-BRq" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" id="EXH-TI-0hf"/>
+                            <constraint firstItem="IXx-xZ-ulB" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" constant="6" id="G3s-0a-j75"/>
+                            <constraint firstItem="hcE-6Q-5yM" firstAttribute="top" secondItem="KTZ-iD-VcN" secondAttribute="bottom" constant="10" id="O8o-0d-eNF"/>
+                            <constraint firstItem="jBY-kw-BRq" firstAttribute="top" secondItem="an7-Dy-WzE" secondAttribute="bottom" id="SOx-lw-VhG"/>
+                            <constraint firstItem="KTZ-iD-VcN" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" constant="18" id="Wfc-Uk-eAa"/>
+                            <constraint firstItem="MOI-je-ifl" firstAttribute="centerY" secondItem="KTZ-iD-VcN" secondAttribute="centerY" id="ep9-oX-HMU"/>
+                            <constraint firstAttribute="trailing" secondItem="KTZ-iD-VcN" secondAttribute="trailing" constant="18" id="lUb-i7-Lj5"/>
+                            <constraint firstItem="IXx-xZ-ulB" firstAttribute="centerY" secondItem="KTZ-iD-VcN" secondAttribute="centerY" id="uM9-6T-kzc"/>
+                            <constraint firstAttribute="trailing" secondItem="MOI-je-ifl" secondAttribute="trailing" constant="6" id="xk8-lV-wMx"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="rCX-TM-RZU"/>
+                    <connections>
+                        <outlet property="infoScrollView" destination="KTZ-iD-VcN" id="BYJ-LJ-iVU"/>
+                        <outlet property="mapView" destination="jBY-kw-BRq" id="RxU-lq-4ll"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSk-Ip-nep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="72"/>
+            <point key="canvasLocation" x="607" y="108"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="next.png" width="64" height="64"/>
+        <image name="prev.png" width="64" height="64"/>
+    </resources>
 </document>
