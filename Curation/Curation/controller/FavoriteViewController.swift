@@ -47,15 +47,17 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
         controllerArray.append(map)
         let parameters: [CAPSPageMenuOption] = [
             .useMenuLikeSegmentedControl(true),
-            .menuItemSeparatorPercentageHeight(0.1),
+            .scrollAnimationDurationOnMenuItemTap(Int(250)),
+            .menuItemSeparatorPercentageHeight(0.0),
             .scrollMenuBackgroundColor(UIColor.white),
             .menuHeight(44),
             .selectedMenuItemLabelColor(Colors().mainBlack),
             .unselectedMenuItemLabelColor(Colors().subBlack),
             .selectionIndicatorColor(Colors().mainBlack),
             .bottomMenuHairlineColor(UIColor.lightGray),
-            .selectionIndicatorHeight(1)
-//            .menuItemFont(UIFont.init(name: "GothamRounded_Bold", size: 20))!
+            .selectionIndicatorHeight(1),
+            .menuItemFont(UIFont.init(name: "Gotham Rounded", size: 15)!),
+            .menuItemFont(UIFont.boldSystemFont(ofSize: 15))
         ]
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect.init(x: 0, y: 0, width: pageMenuCover.frame.width, height: pageMenuCover.frame.height), pageMenuOptions: parameters)
         pageMenuCover.addSubview(pageMenu!.view)

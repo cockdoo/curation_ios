@@ -32,10 +32,10 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOI-je-ifl">
-                                <rect key="frame" x="345" y="605" width="24" height="24"/>
+                                <rect key="frame" x="345" y="602" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="EiL-im-vtT"/>
-                                    <constraint firstAttribute="height" constant="24" id="UvQ-74-XH1"/>
+                                    <constraint firstAttribute="width" constant="30" id="EiL-im-vtT"/>
+                                    <constraint firstAttribute="height" constant="30" id="UvQ-74-XH1"/>
                                 </constraints>
                                 <state key="normal" image="next.png">
                                     <color key="titleColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,10 +45,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXx-xZ-ulB">
-                                <rect key="frame" x="6" y="605" width="24" height="24"/>
+                                <rect key="frame" x="0.0" y="602" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="U5K-dj-lJV"/>
-                                    <constraint firstAttribute="height" constant="24" id="fAW-c0-QCU"/>
+                                    <constraint firstAttribute="width" constant="30" id="U5K-dj-lJV"/>
+                                    <constraint firstAttribute="height" constant="30" id="fAW-c0-QCU"/>
                                 </constraints>
                                 <state key="normal" image="prev.png"/>
                                 <connections>
@@ -60,20 +60,22 @@
                             <constraint firstItem="hcE-6Q-5yM" firstAttribute="top" secondItem="jBY-kw-BRq" secondAttribute="bottom" id="3KI-IB-pMD"/>
                             <constraint firstAttribute="trailing" secondItem="jBY-kw-BRq" secondAttribute="trailing" id="5uH-ug-caW"/>
                             <constraint firstItem="jBY-kw-BRq" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" id="EXH-TI-0hf"/>
-                            <constraint firstItem="IXx-xZ-ulB" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" constant="6" id="G3s-0a-j75"/>
+                            <constraint firstItem="IXx-xZ-ulB" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" id="G3s-0a-j75"/>
                             <constraint firstItem="hcE-6Q-5yM" firstAttribute="top" secondItem="KTZ-iD-VcN" secondAttribute="bottom" constant="10" id="O8o-0d-eNF"/>
                             <constraint firstItem="jBY-kw-BRq" firstAttribute="top" secondItem="an7-Dy-WzE" secondAttribute="bottom" id="SOx-lw-VhG"/>
                             <constraint firstItem="KTZ-iD-VcN" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" constant="18" id="Wfc-Uk-eAa"/>
                             <constraint firstItem="MOI-je-ifl" firstAttribute="centerY" secondItem="KTZ-iD-VcN" secondAttribute="centerY" id="ep9-oX-HMU"/>
                             <constraint firstAttribute="trailing" secondItem="KTZ-iD-VcN" secondAttribute="trailing" constant="18" id="lUb-i7-Lj5"/>
                             <constraint firstItem="IXx-xZ-ulB" firstAttribute="centerY" secondItem="KTZ-iD-VcN" secondAttribute="centerY" id="uM9-6T-kzc"/>
-                            <constraint firstAttribute="trailing" secondItem="MOI-je-ifl" secondAttribute="trailing" constant="6" id="xk8-lV-wMx"/>
+                            <constraint firstAttribute="trailing" secondItem="MOI-je-ifl" secondAttribute="trailing" id="xk8-lV-wMx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rCX-TM-RZU"/>
                     <connections>
                         <outlet property="infoScrollView" destination="KTZ-iD-VcN" id="BYJ-LJ-iVU"/>
                         <outlet property="mapView" destination="jBY-kw-BRq" id="RxU-lq-4ll"/>
+                        <outlet property="nextButton" destination="MOI-je-ifl" id="GOY-K6-DzC"/>
+                        <outlet property="prevButton" destination="IXx-xZ-ulB" id="ssc-cg-z0l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSk-Ip-nep" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,7 +84,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="next.png" width="64" height="64"/>
-        <image name="prev.png" width="64" height="64"/>
+        <image name="next.png" width="60" height="60"/>
+        <image name="prev.png" width="60" height="60"/>
     </resources>
 </document>

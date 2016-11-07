@@ -64,10 +64,11 @@ class FavoriteListViewController: UIViewController, UITableViewDelegate, UITable
         let article = articles[(indexPath as NSIndexPath).row] as AnyObject
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
+        let media: String = article["media"] as! String
         
         let cell: FavoriteCell = favoritesTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! FavoriteCell
         
-        cell.setUpCell(title, imageUrl: imageUrl, index: (indexPath as NSIndexPath).row)
+        cell.setUpCell(title, imageUrl: imageUrl, media: media, index: (indexPath as NSIndexPath).row)
         return cell
     }
     

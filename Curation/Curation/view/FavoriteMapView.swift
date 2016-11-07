@@ -30,8 +30,7 @@ class FavoriteMapView: GMSMapView {
             
             let position = CLLocationCoordinate2DMake(lat, lng)
             let marker = GMSMarker(position: position)
-            marker.title = title
-            
+//            marker.title = title
 //            let pinName = "pin_\(num).png"
 //            let img: UIImage! = UIImage(named: pinName)
 //            marker.icon = img

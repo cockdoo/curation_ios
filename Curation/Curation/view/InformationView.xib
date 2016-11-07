@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0f-zx-4zs">
-                    <rect key="frame" x="8" y="0.0" width="359" height="80"/>
+                    <rect key="frame" x="10" y="0.0" width="355" height="80"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Bc-x4p">
                             <rect key="frame" x="8" y="8" width="64" height="64"/>
@@ -30,14 +30,14 @@
                                 <constraint firstAttribute="width" secondItem="S77-Bc-x4p" secondAttribute="height" multiplier="1:1" id="Md4-ur-SFE"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルタイトルタイトルタイトルタイトルタイトル" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qr2-Xf-yKg">
-                            <rect key="frame" x="82" y="8" width="267" height="28.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルタイトルタイトルタイトルタイトルタイトル" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qr2-Xf-yKg">
+                            <rect key="frame" x="82" y="8" width="263" height="28.5"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCg-Gf-Umr">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="80"/>
+                            <rect key="frame" x="0.0" y="0.0" width="355" height="80"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,10 +56,10 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="y0f-zx-4zs" secondAttribute="trailing" constant="8" id="9bX-Wp-a3t"/>
+                <constraint firstAttribute="trailing" secondItem="y0f-zx-4zs" secondAttribute="trailing" constant="10" id="9bX-Wp-a3t"/>
                 <constraint firstItem="y0f-zx-4zs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KhT-fk-ieX"/>
                 <constraint firstAttribute="bottom" secondItem="y0f-zx-4zs" secondAttribute="bottom" id="M2d-6p-ODU"/>
-                <constraint firstItem="y0f-zx-4zs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="qw0-7U-43M"/>
+                <constraint firstItem="y0f-zx-4zs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="qw0-7U-43M"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
