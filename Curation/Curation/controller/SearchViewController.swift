@@ -20,7 +20,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     @IBOutlet weak var areaListTable: UITableView!
     var areaList = [AnyObject]()
     let cellIdentifer = "AreaCell"
-    let cellHeight: CGFloat = 40
+    let cellHeight: CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +42,19 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     
     func initialize() {
         searchField.delegate = self
-        searchField.layer.borderWidth = 0
-        searchField.layer.borderColor = UIColor.clear.cgColor
+        searchField.layer.borderWidth = 1
+        searchField.layer.borderColor = UIColor.white.cgColor
+//        searchField.backgroundImage = UIImage()
+        for subView in searchField.subviews {
+            for secondSubView in subView.subviews {
+                if secondSubView is UITextField {
+                    secondSubView.backgroundColor = Colors().sublightgray
+                }
+            }
+        }
+        
         searchCurrentLocationButton.layer.cornerRadius = 4
+        
         apiManager.delegate = self
         areaListTable.delegate = self
         areaListTable.dataSource = self
@@ -63,6 +73,9 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchField.showsCancelButton = true
+        let uiButton = searchBar.value(forKey: "cancelButton") as! UIButton
+        uiButton.setTitle("キャンセル", for: UIControlState.normal)
+        uiButton.titleLabel?.font = UIFont.init(name: "Gotham Rounded", size: 16)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -104,6 +117,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     func startEdit() {
         searchField.showsCancelButton = true
         searchField.becomeFirstResponder()
+        
     }
     
     func endEdit() {

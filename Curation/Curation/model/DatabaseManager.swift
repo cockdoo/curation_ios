@@ -41,8 +41,8 @@ class Favorite_Table: Object {
     dynamic var createdDate: Date = Date()
     dynamic var id: String = ""
     dynamic var url: String = ""
-    dynamic var lat: Double = 0
-    dynamic var lng: Double = 0
+    dynamic var lat: String = ""
+    dynamic var lng: String = ""
     dynamic var date: String = ""
     dynamic var media: String = ""
     dynamic var tag: String = ""
@@ -260,8 +260,8 @@ class DatabaseManager: NSObject {
         let myFavorite = Favorite_Table()
         myFavorite.createdDate = Date()
         myFavorite.id = obj["id"] as! String
-        myFavorite.lat = Double(obj["lat"] as! String)!
-        myFavorite.lng = Double(obj["lng"] as! String)!
+        myFavorite.lat = obj["lat"] as! String
+        myFavorite.lng = obj["lng"] as! String
         myFavorite.url = obj["url"] as! String
         myFavorite.title = obj["title"] as! String
         myFavorite.imageUrl = obj["imageUrl"] as! String

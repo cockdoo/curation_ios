@@ -24,8 +24,8 @@ class FavoriteMapView: GMSMapView {
         markers = [GMSMarker]()
         
         for (index, object) in objects.enumerated() {
-            let lat = object["lat"] as! Double
-            let lng = object["lng"] as! Double
+            let lat = Double(object["lat"] as! String)!
+            let lng = Double(object["lng"] as! String)!
             let title = object["title"] as! String
             
             let position = CLLocationCoordinate2DMake(lat, lng)

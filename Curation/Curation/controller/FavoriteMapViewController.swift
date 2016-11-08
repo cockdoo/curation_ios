@@ -41,7 +41,6 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
     func initialize() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         infoScrollView.delegate = self
-        prevButton.isHidden = true
     }
     
     func refreshEveryViewWillApper() {
@@ -54,6 +53,7 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
         }
         articles = appDelegate.DBManager.getFavoriteArticles()
         setMarkersAndInformationViews()
+        switchPrevNextButtonHidden()
         self.view.layoutIfNeeded()
     }
     
@@ -72,8 +72,8 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
 
         for (index, article) in articles.enumerated() {
             let title = article["title"] as! String
-            let lat = article["lat"] as! Double
-            let lng = article["lng"] as! Double
+            let lat = Double(article["lat"] as! String)!
+            let lng = Double(article["lng"] as! String)!
             let imageUrl = article["imageUrl"] as! String
             let media = article["media"] as! String
             
@@ -104,14 +104,20 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
     */
     
     @IBAction func touchedPrevButton(_ sender: Any) {
-        if infoScrollView.contentOffset.x == 0 { return }
+        let index = infoScrollView.contentOffset.x / infoScrollView.frame.width
+        if !Common().isInteger(n: Double(index)) || infoScrollView.contentOffset.x == 0 { return }
+        
         infoScrollView.setContentOffset(CGPoint.init(x: infoScrollView.contentOffset.x - infoScrollView.frame.width, y: 0), animated: true)
     }
     
     @IBAction func touchedNextButton(_ sender: Any) {
-        if infoScrollView.contentOffset.x == infoScrollView.frame.width * CGFloat(articles.count - 1) { return }
+        let index = infoScrollView.contentOffset.x / infoScrollView.frame.width
+        if !Common().isInteger(n: Double(index)) || infoScrollView.contentOffset.x == infoScrollView.frame.width * CGFloat(articles.count - 1) { return }
+        
         infoScrollView.setContentOffset(CGPoint.init(x: infoScrollView.contentOffset.x + infoScrollView.frame.width, y: 0), animated: true)
     }
+    
+    
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         let index: Int = Int(scrollView.contentOffset.x / scrollView.frame.width)
@@ -128,6 +134,11 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
     }
     
     func switchPrevNextButtonHidden() {
+        if articles.count == 0 {
+            prevButton.isHidden = true
+            nextButton.isHidden = true
+            return
+        }
         if infoScrollView.contentOffset.x == 0 {
             prevButton.isHidden = true
         }else {
@@ -141,8 +152,8 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
     }
     
     func changeMapCameraPosition(index: Int) {
-        let lat = articles[index]["lat"] as! Double
-        let lng = articles[index]["lng"] as! Double
+        let lat = Double(articles[index]["lat"] as! String)!
+        let lng = Double(articles[index]["lng"] as! String)!
         mapView.animateCameraPosition(lat: lat, lng: lng)
     }
     

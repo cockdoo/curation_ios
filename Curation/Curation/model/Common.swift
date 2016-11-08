@@ -30,4 +30,12 @@ open class Common: NSObject {
         alert.addAction(defaultAction)
         target.present(alert, animated: true, completion: nil)
     }
+    
+    func isInteger(n: Double) -> Bool {
+        if round(n) == n {
+            return true
+        }else {
+            return false
+        }
+    }
 }
