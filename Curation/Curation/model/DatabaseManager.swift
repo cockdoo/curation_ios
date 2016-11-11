@@ -52,6 +52,7 @@ class Favorite_Table: Object {
 
 protocol DatabaseManagerDelegate {
     func databaseManager(didRefreshData message: String)
+    func databaseManager(startRefreshData message: String)
 }
 
 class DatabaseManager: NSObject {
@@ -95,13 +96,12 @@ class DatabaseManager: NSObject {
     
     //取得した位置情報をDBに保存する
     func insertLocationTable(_ lat: Double, lng: Double) {
+        print("現在の位置情報を保存：\(lat), \(lng)")
         let myLocations = Location_Table()
         
         myLocations.createdDate = Date()
         myLocations.lat = lat
         myLocations.lng = lng
-        
-        print("現在地データ追加　緯度：\(lat) 経度：\(lng)")
         
         let myRealm = try! Realm()
         try! myRealm.write {
@@ -111,7 +111,7 @@ class DatabaseManager: NSObject {
     
     //一定期間より古い位置情報履歴を削除する
     func deleteOldDataFromCityNameTable() {
-        print("古い履歴を削除")
+        print("CityNameTableから古い履歴を削除")
         let myRealm = try! Realm()
         
         let pastDate = Date(timeInterval: -60*60*24*(Config().timeIntervalHoldData), since: Date())
@@ -123,7 +123,7 @@ class DatabaseManager: NSObject {
     }
     
     //緯度経度データに地名を付与して別テーブルに保存
-    func addCityName() {
+    func addLocationDataToCityNameTable() {
         //位置情報履歴を取得
         let myRealm = try! Realm()
         let rows = myRealm.objects(Location_Table.self)
@@ -133,6 +133,9 @@ class DatabaseManager: NSObject {
             let lng = row.lng
             appDelegate.LManager.revGeocoding(lat, lng: lng)
         }
+        if rows.count > 0 {
+            delegate.databaseManager(startRefreshData: "")
+        }
         //中身を削除
         deleteTable(Location_Table.self)
     }
@@ -140,6 +143,7 @@ class DatabaseManager: NSObject {
     var timer: Timer!
     //地名を取得したとき、テーブルに保存する
     func insertCityNameTable(_ cityName: String, locality: String, subLocality: String, lat: Double, lng: Double) {
+        print("地名を保存：\(cityName)")
         let cityNames = CityName_Table()
     
         cityNames.createdDate = Date()
@@ -221,14 +225,13 @@ class DatabaseManager: NSObject {
         try! myRealm.write {
             myRealm.add(myFrequencies)
         }
-//        print("【保存】地名：\(cityName) 頻度：\(frequency)")
     }
     
     //上位の地域の情報を取得
     func getLivingAreaList() -> [AnyObject] {
         
         let myRealm = try! Realm()
-        let tableContents = myRealm.objects(CityFrequency_Table.self)
+        let tableContents = myRealm.objects(CityFrequency_Table.self).sorted(byProperty: "frequency", ascending: false)
         
         let livingAreas = NSMutableArray()
         

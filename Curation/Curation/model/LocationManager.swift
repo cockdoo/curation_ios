@@ -97,44 +97,38 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     // 位置情報が取得できたとき
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if locations.count > 0{
+        if locations.count > 0 {
             
             if let currentLocation = locations.last {
                 lat = currentLocation.coordinate.latitude
                 lng = currentLocation.coordinate.longitude
-                print("緯度:\(lat) 経度:\(lng)")
-                
-                //一度停止する
-                locationManager.stopUpdatingLocation()
-                
-                //一定時間後に再び取得する
-                /*
-                let updatingTimer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(Config().timeIntervalUpdatingLocation, target: self, selector: "restartUpdatingLocation", userInfo: nil, repeats: false)
-                */
+                //                print("緯度:\(lat) 経度:\(lng)")
                 
                 //データベースに保存（緯度経度取得時 複数のデータが来るので1個だけ保存されるようにする）
                 if canInsertData == true {
                     //データベースに保存する
                     appDelegate.DBManager.insertLocationTable(lat, lng: lng)
                     
+                    //一旦停止する
+                    locationManager.stopMonitoringSignificantLocationChanges()
+                    
                     canInsertData = false
-                    Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(LocationManager.arrowInsertData), userInfo: nil, repeats: false)
+                    
+                    //一定時間後に再び取得する
+                    Timer.scheduledTimer(timeInterval: Config().timeIntervalUpdatingLocation, target: self, selector: #selector(LocationManager.restartUpdatingLocation), userInfo: nil, repeats: false)
                     
                     //Topviewcontorollerに緯度経度を取得したことを知らせる
                     self.delegate.locationManager!(didUpdatingLocation: "")
                 }
             }
         }
+
     }
     
     func restartUpdatingLocation() {
+        canInsertData = true
         locationManager.startUpdatingLocation()
     }
-    
-    func arrowInsertData() {
-        canInsertData = true
-    }
-    
     
     // 位置情報取得に失敗したとき
     func locationManager(_ manager: CLLocationManager,didFailWithError error: Error){
@@ -165,7 +159,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 //                print("Throughfare = \(placemark.thoroughfare)")
                 
                 locality = placemark.locality!
-                subLocality = placemark.subLocality!
+                if placemark.subLocality != nil {
+                    subLocality = placemark.subLocality!
+                }
                 
                 //取得した地名をDatabaseManagerの方で保存する
                 self.appDelegate.DBManager.insertCityNameTable(locality+subLocality, locality: locality, subLocality: subLocality, lat: lat, lng: lng)

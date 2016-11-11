@@ -39,6 +39,8 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     func initialize() {  
         apiManager.delegate = self
+        appDelegate.LManager.delegate = self
+        appDelegate.DBManager.delegate = self
         
         //初回画面からの画面遷移の判定用
         appDelegate.LManager.isTopView = true
@@ -53,7 +55,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         articlesTable.register(nib, forCellReuseIdentifier: cellIdentifer)
         
         //データベースを更新する
-        appDelegate.DBManager.addCityName()
+        appDelegate.DBManager.addLocationDataToCityNameTable()
         
         Common().checkLocationAuthorize(target: self)
     }
@@ -85,6 +87,10 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
             apiManager.getArticles(locations, num: Config().numberForGetArticles)
         }
     }
+    
+    func databaseManager(startRefreshData message: String) {
+        print("DB更新開始")
+    }
         
     func databaseManager(didRefreshData message: String) {
         print("DB更新完了")
@@ -99,22 +105,28 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     func apiManager(didGetArticles articles: [AnyObject]) {
 //        print(articles)
         self.articles = articles
+//        if self.articles.count % 2 == 0 {
+//            self.articles.removeLast()
+//        }
         articlesTable.reloadData()
     }
 
     
     //MARK: - TABLE
     
+    
     //セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
     }
+    
     
     // セルの行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
     }
     
+
     // セルの内容を変更
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let article = articles[(indexPath as NSIndexPath).row] as AnyObject
