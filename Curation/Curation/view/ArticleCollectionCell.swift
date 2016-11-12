@@ -12,8 +12,19 @@ class ArticleCollectionCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var thumbView: UIImageView!
     @IBOutlet weak var mediaLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var clipView: UIView!
     
     func setUpCell(_ title: String, imageUrl: String, mediaName: String, index: Int) {
+        self.layer.cornerRadius = 4
+        clipView.layer.cornerRadius = 4
+        
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = CGSize.init(width: 0, height: 0)
+        self.layer.shadowRadius = 1
+        
+        
         //テキスト反映&行間調整
         let attributedText = NSMutableAttributedString(string: title)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -26,8 +37,8 @@ class ArticleCollectionCell: UICollectionViewCell {
         titleLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         titleLabel.layer.shadowRadius = 5
         
-        mediaLabel.text = mediaName
-        mediaLabel.font = UIFont.boldSystemFont(ofSize: mediaLabel.font.pointSize)
+//        mediaLabel.text = mediaName
+//        mediaLabel.font = UIFont.boldSystemFont(ofSize: mediaLabel.font.pointSize)
         
         let r = CGFloat(arc4random() % 150) + 100
         let g = CGFloat(arc4random() % 150) + 100

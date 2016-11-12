@@ -13,6 +13,7 @@ class FirstArticleCollectionCell: UICollectionViewCell {
     @IBOutlet weak var thumbView: UIImageView!
     @IBOutlet weak var mediaLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var bgView: UIView!
     
     func setUpCell(_ title: String, imageUrl: String, mediaName: String, index: Int) {
         //テキスト反映&行間調整
@@ -23,12 +24,21 @@ class FirstArticleCollectionCell: UICollectionViewCell {
         titleLabel.attributedText = attributedText
         titleLabel.font = UIFont.boldSystemFont(ofSize: titleLabel.font.pointSize)
         titleLabel.layer.shadowColor = UIColor.black.cgColor
-        titleLabel.layer.shadowOpacity = 0.3
+        titleLabel.layer.shadowOpacity = 0.5
         titleLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         titleLabel.layer.shadowRadius = 5
         
         mediaLabel.text = mediaName
         mediaLabel.font = UIFont.boldSystemFont(ofSize: mediaLabel.font.pointSize)
+        
+        let topColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        let bottomColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.frame = bgView.bounds
+        bgView.layer.insertSublayer(gradientLayer, at: 0)
+//        bgView.backgroundColor = UIColor.red
         
         let r = CGFloat(arc4random() % 150) + 100
         let g = CGFloat(arc4random() % 150) + 100
