@@ -8,17 +8,19 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate {
+class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
     
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let ud = UserDefaults.standard
     let apiManager = APIManager()
+    var sw: CGFloat!
+    var sh: CGFloat!
     
-    //Table
-    @IBOutlet weak var articlesTable: UITableView!
-    let cellIdentifer = "ArticleCell"
-    let cellHeight: CGFloat = 240
+    //Collection
+    @IBOutlet weak var articleCollectionView: UICollectionView!
+    let cellIdentifer = "ArticleCollectionCell"
+    let firstCellIdentifer = "FirstArticleCollectionCell"
     
     //Article
     var articles = [AnyObject]()
@@ -37,7 +39,10 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         refreshEveryViewWillApper()
     }
     
-    func initialize() {  
+    func initialize() {
+        sw = self.view.bounds.width
+        sh = self.view.bounds.height
+        
         apiManager.delegate = self
         appDelegate.LManager.delegate = self
         appDelegate.DBManager.delegate = self
@@ -48,11 +53,13 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         //ナビゲーションバーを隠す
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        //テーブルの設定
-        articlesTable.dataSource = self
-        articlesTable.delegate = self
+        articleCollectionView.delegate = self
+        articleCollectionView.dataSource = self
+        //CollectionCellの設定
         let nib = UINib(nibName: cellIdentifer, bundle: nil)
-        articlesTable.register(nib, forCellReuseIdentifier: cellIdentifer)
+        let nib2 = UINib(nibName: firstCellIdentifer, bundle: nil)
+        articleCollectionView.register(nib, forCellWithReuseIdentifier: cellIdentifer)
+        articleCollectionView.register(nib2, forCellWithReuseIdentifier: firstCellIdentifer)
         
         //データベースを更新する
         appDelegate.DBManager.addLocationDataToCityNameTable()
@@ -69,7 +76,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if viewController == self.navigationController {
-            articlesTable.setContentOffset(CGPoint(x: 0, y: -articlesTable.contentInset.top), animated: true)
+            articleCollectionView.setContentOffset(CGPoint(x: 0, y: -articleCollectionView.contentInset.top), animated: true)
         }
     }
     
@@ -98,53 +105,97 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     func locationManager(didUpdatingLocation message: String) {
         print("位置情報取得できた")
-//        apiManager.getArticles(appDelegate.LManager.lat, lng: appDelegate.LManager.lng, num: Config().numberForGetArticles)
     }
     
     //記事を取得できたときに呼ばれる
     func apiManager(didGetArticles articles: [AnyObject]) {
 //        print(articles)
         self.articles = articles
-//        if self.articles.count % 2 == 0 {
-//            self.articles.removeLast()
-//        }
-        articlesTable.reloadData()
-    }
-
-    
-    //MARK: - TABLE
-    
-    
-    //セルの高さ
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeight
-    }
-    
-    
-    // セルの行数
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        if self.articles.count % 2 == 0 {
+            self.articles.removeLast()
+        }
+        articleCollectionView.reloadData()
     }
     
 
-    // セルの内容を変更
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let article = articles[(indexPath as NSIndexPath).row] as AnyObject
+    //MARK: Collection View
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var size: CGSize
+        if indexPath.section == 0 {
+            size = CGSize.init(width: sw, height: (sw-20)/1.618)
+        }else {
+            size = CGSize.init(width: (sw-15)/2, height: (sw-15)/2*2)
+        }
+        return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        var inset: UIEdgeInsets!
+        switch section {
+        case 0:
+            inset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+            break
+        case 1:
+            inset = UIEdgeInsets.init(top: 5, left: 5, bottom: 0, right: 0)
+            break
+        default:
+            inset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+            break
+        }
+        return inset
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if articles.count == 0 {
+            return 0
+        }
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return articles.count - 1
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var index: Int!
+        if indexPath.section == 0 {
+            index = 0
+        }else {
+            index = indexPath.row + 1
+        }
+        let article = articles[index] as AnyObject
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
         let imageName: String = article["media"] as! String
         
-        let cell: ArticleCell = articlesTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! ArticleCell
-        
-        cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, index: (indexPath as NSIndexPath).row)
-        return cell
+        if indexPath.section == 0 {
+            let cell: FirstArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: firstCellIdentifer, for: indexPath) as! FirstArticleCollectionCell
+            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, index: index)
+            return cell
+        }else {
+            let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
+            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, index: index)
+            return cell
+        }
     }
     
-    //Cellが選択された際に呼び出される.
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Index: \((indexPath as NSIndexPath).row)")
-        
-        appDelegate.global.selectedArticle = articles[(indexPath as NSIndexPath).row]
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var index: Int!
+        if indexPath.section == 0 {
+            index = 0
+        }else {
+            index = indexPath.row + 1
+        }
+        print("Index: \(index)")
+        appDelegate.global.selectedArticle = articles[index]
         transitionToArticleView()
     }
     

@@ -230,10 +230,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OmC-s8-Cu1">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiT-eZ-Nbz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
@@ -261,23 +257,47 @@
                                     <constraint firstAttribute="trailing" secondItem="BHF-ql-YV9" secondAttribute="trailing" id="tMR-BP-eQJ"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sJx-o4-cYR">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uW5-UZ-EkH">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="qiK-Uq-Ytm">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="egb-mW-9hU" id="I4U-KI-dyc"/>
+                                    <outlet property="delegate" destination="egb-mW-9hU" id="hZt-FD-Ccj"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sJx-o4-cYR" secondAttribute="trailing" id="415-1i-Ae2"/>
                             <constraint firstItem="YiT-eZ-Nbz" firstAttribute="top" secondItem="SvR-g0-DMi" secondAttribute="top" id="4ry-jP-IS1"/>
-                            <constraint firstItem="OmC-s8-Cu1" firstAttribute="leading" secondItem="SvR-g0-DMi" secondAttribute="leading" id="7vU-ay-3q0"/>
                             <constraint firstAttribute="trailing" secondItem="YiT-eZ-Nbz" secondAttribute="trailing" id="Aau-qM-y9W"/>
-                            <constraint firstItem="LmU-LC-kNL" firstAttribute="top" secondItem="OmC-s8-Cu1" secondAttribute="bottom" id="dv6-7N-7zm"/>
-                            <constraint firstItem="OmC-s8-Cu1" firstAttribute="top" secondItem="YiT-eZ-Nbz" secondAttribute="bottom" id="jYc-Gp-23B"/>
+                            <constraint firstItem="sJx-o4-cYR" firstAttribute="leading" secondItem="SvR-g0-DMi" secondAttribute="leading" id="CZH-0q-SVs"/>
+                            <constraint firstItem="sJx-o4-cYR" firstAttribute="top" secondItem="YiT-eZ-Nbz" secondAttribute="bottom" id="pPT-zH-2RM"/>
                             <constraint firstItem="YiT-eZ-Nbz" firstAttribute="leading" secondItem="SvR-g0-DMi" secondAttribute="leading" id="pn0-la-e6i"/>
-                            <constraint firstAttribute="trailing" secondItem="OmC-s8-Cu1" secondAttribute="trailing" id="vUw-zT-608"/>
+                            <constraint firstItem="LmU-LC-kNL" firstAttribute="top" secondItem="sJx-o4-cYR" secondAttribute="bottom" id="zSr-oP-IDc"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="ホーム" id="tIc-oS-95N"/>
                     <navigationItem key="navigationItem" id="qfC-XR-myL"/>
                     <connections>
-                        <outlet property="articlesTable" destination="OmC-s8-Cu1" id="yLb-7k-JYz"/>
+                        <outlet property="articleCollectionView" destination="sJx-o4-cYR" id="8hK-5V-5A3"/>
                         <outlet property="titleLabel" destination="2uT-1w-HTQ" id="yne-u1-VHh"/>
                     </connections>
                 </viewController>
@@ -330,7 +350,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tab_home.png" width="16" height="16"/>
+        <image name="tab_home.png" width="64" height="64"/>
         <image name="tab_home_selected.png" width="16" height="16"/>
     </resources>
 </document>

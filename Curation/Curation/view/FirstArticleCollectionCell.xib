@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamRounded_Bold.otf">
+            <string>GothamRounded-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="qbT-3o-trg" customClass="FirstArticleCollectionCell" customModule="Curation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="huM-8s-kjk">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+                </imageView>
+                <view alpha="0.05000000074505806" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWu-Mp-de8" customClass="FirstAticleCollectionCell">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルタイトルタイトルタイトルタイトルタイトル" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLE-xc-Oai">
+                    <rect key="frame" x="16" y="170" width="343" height="38"/>
+                    <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="19"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rss.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nmj-IR-J4y">
+                    <rect key="frame" x="16" y="217" width="12" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="Z3o-ot-bBa"/>
+                        <constraint firstAttribute="width" constant="12" id="wHS-af-nh7"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メディア名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEb-3J-7hB">
+                    <rect key="frame" x="33" y="217" width="60" height="12"/>
+                    <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="huM-8s-kjk" secondAttribute="trailing" id="0sq-Ge-bMr"/>
+                <constraint firstAttribute="trailing" secondItem="bWu-Mp-de8" secondAttribute="trailing" id="5k3-O1-RAt"/>
+                <constraint firstItem="JLE-xc-Oai" firstAttribute="leading" secondItem="qbT-3o-trg" secondAttribute="leading" constant="16" id="7uY-28-2fA"/>
+                <constraint firstItem="Nmj-IR-J4y" firstAttribute="leading" secondItem="qbT-3o-trg" secondAttribute="leading" constant="16" id="Bjt-VE-MF3"/>
+                <constraint firstItem="huM-8s-kjk" firstAttribute="leading" secondItem="qbT-3o-trg" secondAttribute="leading" id="Hxw-NC-cMW"/>
+                <constraint firstItem="bWu-Mp-de8" firstAttribute="leading" secondItem="qbT-3o-trg" secondAttribute="leading" id="I05-IP-ir7"/>
+                <constraint firstAttribute="bottom" secondItem="Nmj-IR-J4y" secondAttribute="bottom" constant="11" id="NV0-y2-9rb"/>
+                <constraint firstItem="huM-8s-kjk" firstAttribute="top" secondItem="qbT-3o-trg" secondAttribute="top" id="YVm-gV-lEa"/>
+                <constraint firstItem="QEb-3J-7hB" firstAttribute="centerY" secondItem="Nmj-IR-J4y" secondAttribute="centerY" id="fnK-yY-i8A"/>
+                <constraint firstItem="QEb-3J-7hB" firstAttribute="top" secondItem="JLE-xc-Oai" secondAttribute="bottom" constant="9" id="nyB-7C-0v6"/>
+                <constraint firstAttribute="bottom" secondItem="bWu-Mp-de8" secondAttribute="bottom" id="oWl-1p-Ghi"/>
+                <constraint firstItem="bWu-Mp-de8" firstAttribute="top" secondItem="qbT-3o-trg" secondAttribute="top" id="pKw-0D-x4F"/>
+                <constraint firstAttribute="trailing" secondItem="JLE-xc-Oai" secondAttribute="trailing" constant="16" id="sCm-VS-qAh"/>
+                <constraint firstItem="QEb-3J-7hB" firstAttribute="leading" secondItem="Nmj-IR-J4y" secondAttribute="trailing" constant="5" id="wns-J9-fgB"/>
+                <constraint firstAttribute="bottom" secondItem="huM-8s-kjk" secondAttribute="bottom" id="wqt-zT-z2T"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="mediaLabel" destination="QEb-3J-7hB" id="REs-kg-1c5"/>
+                <outlet property="thumbView" destination="huM-8s-kjk" id="5NA-gj-9au"/>
+                <outlet property="titleLabel" destination="JLE-xc-Oai" id="po0-ZX-aZc"/>
+            </connections>
+            <point key="canvasLocation" x="64.5" y="-241"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="rss.png" width="64" height="64"/>
+    </resources>
+</document>
