@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftGifOrigin
+import SwiftyGif
 
 class ArticleViewController: UIViewController, UIWebViewDelegate {
     
@@ -33,13 +33,12 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         initialize()
         
-        let gif = UIImage.gif(name: "favo")
-        favoImageView.image = gif
-        
-        let gifData = NSData(contentsOfFile: Bundle.main.path(forResource: "favo",ofType:"gif")!)!
-        let animationGifView = UIWebView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        animationGifView.load(gifData as Data, mimeType: "image/gif", textEncodingName: "utf-8", baseURL: NSURL() as URL)
-        self.view.addSubview(animationGifView)
+        let gifmanager = SwiftyGifManager(memoryLimit:20)
+        let gif = UIImage(gifName: "favo")
+        let imageview = UIImageView(gifImage: gif, manager: gifmanager)
+        imageview.frame = CGRect(x: 0.0, y: 5.0, width: 400.0, height: 200.0)
+        imageview.setGifImage(gif, loopCount: 1)
+        self.view.addSubview(imageview)
     }
     
     override func viewWillAppear(_ animated: Bool) {

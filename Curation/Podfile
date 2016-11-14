@@ -10,7 +10,7 @@ target 'Curation' do
   pod 'AFNetworking', '~> 2.6.0'
   pod 'Google/Analytics'
   pod 'PageMenu'
-  pod 'SwiftGifOrigin', '~> 1.6.1'
+  pod 'SwiftyGif'
 
   # Pods for Curation
 
@@ -24,7 +24,7 @@ target 'Curation' do
   pod 'AFNetworking', '~> 2.6.0'
   pod 'Google/Analytics'
   pod 'PageMenu'
-  pod 'SwiftGifOrigin', '~> 1.6.1'
+  pod 'SwiftyGif'
   end
 
   target 'CurationUITests' do
