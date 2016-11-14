@@ -131,17 +131,23 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     
     //MARK: CURRENT LOCATION
     
+    var isSearch = false
     @IBAction func touchedSerchCurrentLocationButton(_ sender: Any) {
         endEdit()
+        isSearch = true
         appDelegate.LManager.startUpdatingLocation()
         Common().checkLocationAuthorize(target: self)
     }
     
     func locationManager(didUpdatingLocation message: String) {
+        if !isSearch {
+            return
+        }
         print("位置情報取得完了！")
         let lat = appDelegate.LManager.lat
         let lng = appDelegate.LManager.lng
         getArticlesWithLocation(lat: lat, lng: lng)
+        isSearch = false
     }
 
     func getArticlesWithLocation(lat: Double, lng: Double) {

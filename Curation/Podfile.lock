@@ -20,11 +20,15 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - FirebaseAnalytics (3.4.2):
+  - FirebaseAnalytics (3.5.1):
+    - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
-    - GoogleUtilities (~> 1.2)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.4.4):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.8)
   - Google/Analytics (3.0.3):
     - Google/Core
@@ -32,22 +36,24 @@ PODS:
   - Google/Core (3.0.3):
     - FirebaseAnalytics (~> 3.2)
   - GoogleAnalytics (3.17.0)
-  - GoogleInterchangeUtilities (1.2.1):
-    - GoogleSymbolUtilities (~> 1.0)
-  - GoogleMaps (2.0.1):
-    - GoogleMaps/Maps (= 2.0.1)
-  - GoogleMaps/Base (2.0.1)
-  - GoogleMaps/Maps (2.0.1):
-    - GoogleMaps/Base (= 2.0.1)
-  - GoogleSymbolUtilities (1.1.1)
-  - GoogleUtilities (1.3.1):
-    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleToolboxForMac/Defines (2.1.0)
+  - GoogleToolboxForMac/NSData+zlib (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
   - PageMenu (1.2.9)
-  - Realm (1.1.0):
-    - Realm/Headers (= 1.1.0)
-  - Realm/Headers (1.1.0)
-  - RealmSwift (1.1.0):
-    - Realm (= 1.1.0)
+  - Realm (2.0.3):
+    - Realm/Headers (= 2.0.3)
+  - Realm/Headers (2.0.3)
+  - RealmSwift (2.0.3):
+    - Realm (= 2.0.3)
+  - SwiftGifOrigin (1.6.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
@@ -55,19 +61,24 @@ DEPENDENCIES:
   - GoogleMaps
   - PageMenu
   - RealmSwift
+  - SwiftGifOrigin (~> 1.6.1)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
+  FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
+  FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
-  GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
-  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
-  GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
-  GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
-  Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
-  RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
+  RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
+  SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 7bc5521b67f46c4607cec565f371b4ebf75f547c
+
+COCOAPODS: 1.1.1

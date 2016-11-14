@@ -22,7 +22,7 @@ open class Config {
     let numberForGetArticles = 30
     
     //仮想ペルソナの生活圏を表示するか否か
-    let isVirtualPersona: Bool = false
+    let isVirtualPersona: Bool = true
     
     //仮想ペルソナの生活圏
     let virtualLivingArea = [
