@@ -94,7 +94,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zC7-2c-oH0">
                                 <rect key="frame" x="0.0" y="124" width="375" height="40"/>
-                                <color key="backgroundColor" red="0.97636479139999999" green="0.97653168440000004" blue="0.9763541818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="rQk-z2-nyN"/>
                                 </constraints>
@@ -133,55 +132,71 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-Za-lwE">
                                 <rect key="frame" x="10" y="74" width="355" height="40"/>
-                                <color key="backgroundColor" white="0.41252893518518519" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.90588235294117647" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yfx-dz-KXQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="15"/>
                                 <state key="normal" title="現在地から探す">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.24313725490196078" green="0.2196078431372549" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="touchedSerchCurrentLocationButton:" destination="6DO-27-2zC" eventType="touchUpInside" id="pC0-qJ-FhZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="よく行く場所から探す" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuL-j4-JUA">
-                                <rect key="frame" x="10" y="135" width="143" height="17"/>
+                                <rect key="frame" x="10" y="135" width="170" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="wIk-ZX-6pi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="17"/>
                                 <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D6M-uc-HTW">
-                                <rect key="frame" x="0.0" y="164" width="375" height="454"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-Uz-fh1">
+                                <rect key="frame" x="0.0" y="160" width="375" height="458"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EzE-O7-gB9">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Gn6-mE-HSA">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="D6M-uc-HTW" secondAttribute="trailing" id="08G-6y-lMW"/>
                             <constraint firstItem="bj0-WM-yGE" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" id="2LP-lg-0dv"/>
+                            <constraint firstItem="avJ-MG-4rF" firstAttribute="top" secondItem="cpY-Uz-fh1" secondAttribute="bottom" id="2Um-rT-f4D"/>
                             <constraint firstAttribute="trailing" secondItem="qTL-Za-lwE" secondAttribute="trailing" constant="10" id="3P2-pp-S6h"/>
                             <constraint firstAttribute="trailing" secondItem="bj0-WM-yGE" secondAttribute="trailing" id="69e-vj-dAj"/>
+                            <constraint firstAttribute="trailing" secondItem="cpY-Uz-fh1" secondAttribute="trailing" id="88a-Cz-ria"/>
                             <constraint firstItem="qTL-Za-lwE" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" constant="10" id="Ayh-ND-tFh"/>
+                            <constraint firstItem="vuL-j4-JUA" firstAttribute="top" secondItem="qTL-Za-lwE" secondAttribute="bottom" constant="21" id="En0-RD-g5U"/>
                             <constraint firstAttribute="trailing" secondItem="zC7-2c-oH0" secondAttribute="trailing" id="Mun-VM-JJP"/>
-                            <constraint firstAttribute="bottom" secondItem="D6M-uc-HTW" secondAttribute="bottom" id="NAx-9a-oUd"/>
-                            <constraint firstItem="D6M-uc-HTW" firstAttribute="top" secondItem="vuL-j4-JUA" secondAttribute="bottom" constant="12" id="caj-Gq-mhs"/>
                             <constraint firstItem="bj0-WM-yGE" firstAttribute="top" secondItem="iqm-wS-wjZ" secondAttribute="top" id="ffE-Eo-Odp"/>
+                            <constraint firstItem="cpY-Uz-fh1" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" id="jCj-f1-cKi"/>
                             <constraint firstItem="zC7-2c-oH0" firstAttribute="top" secondItem="qTL-Za-lwE" secondAttribute="bottom" constant="10" id="ksQ-bm-Nrk"/>
-                            <constraint firstItem="D6M-uc-HTW" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" id="ksz-6u-Gcm"/>
                             <constraint firstItem="qTL-Za-lwE" firstAttribute="top" secondItem="bj0-WM-yGE" secondAttribute="bottom" constant="10" id="lRF-Hw-WCH"/>
                             <constraint firstItem="zC7-2c-oH0" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" id="neb-eC-3nM"/>
-                            <constraint firstItem="D6M-uc-HTW" firstAttribute="top" secondItem="zC7-2c-oH0" secondAttribute="bottom" id="zXG-vM-lLm"/>
+                            <constraint firstItem="cpY-Uz-fh1" firstAttribute="top" secondItem="vuL-j4-JUA" secondAttribute="bottom" constant="8" id="oul-kY-Wxi"/>
                             <constraint firstItem="vuL-j4-JUA" firstAttribute="leading" secondItem="iqm-wS-wjZ" secondAttribute="leading" constant="10" id="zt6-oR-MBE"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="BP9-8h-L02"/>
                     <connections>
-                        <outlet property="areaListTable" destination="D6M-uc-HTW" id="2sg-2x-SPd"/>
+                        <outlet property="areaCollection" destination="cpY-Uz-fh1" id="SiB-0f-B54"/>
                         <outlet property="searchCurrentLocationButton" destination="qTL-Za-lwE" id="hoP-eK-gOq"/>
                         <outlet property="searchDisplayController" destination="Asa-x7-u4i" id="KtW-Rr-WRE"/>
                         <outlet property="searchField" destination="Nqj-GE-vUD" id="LAX-8d-k3o"/>
@@ -241,7 +256,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AppName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uT-1w-HTQ">
-                                        <rect key="frame" x="145" y="34" width="86" height="17"/>
+                                        <rect key="frame" x="144.5" y="34" width="86" height="17"/>
                                         <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

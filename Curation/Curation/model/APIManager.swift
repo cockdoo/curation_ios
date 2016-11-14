@@ -32,7 +32,7 @@ class APIManager: NSObject {
         var lngText = ""
         for location in locations {
             latText = latText + (location["lat"] as! String) + ","
-            lngText = latText + (location["lng"] as! String) + ","
+            lngText = lngText + (location["lng"] as! String) + ","
         }
         latText = latText.substring(to: latText.index(latText.startIndex, offsetBy: latText.characters.count-1))
         lngText = lngText.substring(to: lngText.index(lngText.startIndex, offsetBy: lngText.characters.count-1))
@@ -59,4 +59,5 @@ class APIManager: NSObject {
             }
         )
     }
+    
 }

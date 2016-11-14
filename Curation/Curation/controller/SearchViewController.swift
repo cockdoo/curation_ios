@@ -9,18 +9,20 @@
 import UIKit
 import CoreLocation
 
-class SearchViewController: UIViewController, APIManagerDelegate, LocationManagerDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate {
+class SearchViewController: UIViewController, APIManagerDelegate, LocationManagerDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let apiManager = APIManager()
+    var sw: CGFloat!
+    var sh: CGFloat!
     
     @IBOutlet weak var searchCurrentLocationButton: UIButton!
     @IBOutlet weak var searchField: UISearchBar!
     
-    @IBOutlet weak var areaListTable: UITableView!
+    @IBOutlet weak var areaCollection: UICollectionView!
+    
     var areaList = [AnyObject]()
     let cellIdentifer = "AreaCell"
-    let cellHeight: CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,8 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     }
     
     func initialize() {
+        sw = self.view.bounds.width
+        sh = self.view.bounds.height
         searchField.delegate = self
         searchField.layer.borderWidth = 1
         searchField.layer.borderColor = UIColor.white.cgColor
@@ -53,13 +57,13 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
             }
         }
         
-        searchCurrentLocationButton.layer.cornerRadius = 4
+        searchCurrentLocationButton.layer.cornerRadius = 20
         
         apiManager.delegate = self
-        areaListTable.delegate = self
-        areaListTable.dataSource = self
+        areaCollection.delegate = self
+        areaCollection.dataSource = self
         let nib = UINib(nibName: cellIdentifer, bundle: nil)
-        areaListTable.register(nib, forCellReuseIdentifier: cellIdentifer)
+        areaCollection.register(nib, forCellWithReuseIdentifier: cellIdentifer)
     }
     
     func refreshEveryViewWillApper() {
@@ -145,42 +149,45 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         apiManager.getArticles(locations as [AnyObject], num: Config().numberForGetArticles)
     }
     
-    //MARK: AREA TABLE
+    //MARK: Area Collection
     
     func setAreaList() {
         areaList = appDelegate.DBManager.getLivingAreaList()
-        areaListTable.reloadData()
+        areaCollection.reloadData()
     }
     
-    //セルの高さ
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeight
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size: CGSize = CGSize.init(width: (sw-30)/2, height: (sw-30)/2/1.618)
+        return size
     }
     
-    // セルの行数
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let inset: UIEdgeInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
+        return inset
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return areaList.count
     }
     
-    // セルの内容を変更
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let area = areaList[indexPath.row]
         let areaName: String = area["cityName"] as! String
-        let cell: AreaCell = areaListTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! AreaCell
+        let lat: Double = area["lat"] as! Double
+        let lng: Double = area["lng"] as! Double
+        let cell: AreaCell = areaCollection.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! AreaCell
         
-        cell.setUpCell(areaName)
+        cell.setUpCell(areaName, lat: lat, lng: lng)
         return cell
     }
     
-    //Cellが選択された際に呼び出される.
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Index: \((indexPath as NSIndexPath).row)")
         endEdit()
         let lat = areaList[indexPath.row]["lat"] as! Double
         let lng = areaList[indexPath.row]["lng"] as! Double
         getArticlesWithLocation(lat: lat, lng: lng)
     }
-    
     
     //記事を取得できたときに呼ばれる
     func apiManager(didGetArticles articles: [AnyObject]) {

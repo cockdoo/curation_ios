@@ -35,7 +35,7 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
         
         articles = appDelegate.global.searchResultArticles
         articlesTable.reloadData()
-        print(articles)
+//        print(articles)
     }
     
     //MARK: - TABLE

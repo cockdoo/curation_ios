@@ -64,7 +64,7 @@ class DatabaseManager: NSObject {
         super.init()
 //        showTableContent(Location_Table.self)
 //        showTableContent(CityName_Table.self)
-//        showTableContent(CityFrequency_Table.self)
+        showTableContent(CityFrequency_Table.self)
         showTableContent(Favorite_Table.self)
     }
     
