@@ -28,17 +28,16 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webPrevButton: UIButton!
     @IBOutlet weak var webNextButton: UIButton!
     
+    @IBOutlet weak var toolView: UIView!
     @IBOutlet weak var favoImageView: UIImageView!
+    var favoAnimationView: UIImageView!
+    
+    @IBOutlet weak var ikitaiLabel: UILabel!
+    @IBOutlet weak var tizuLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-        
-        let gifmanager = SwiftyGifManager(memoryLimit:20)
-        let gif = UIImage(gifName: "favo")
-        let imageview = UIImageView(gifImage: gif, manager: gifmanager)
-        imageview.frame = CGRect(x: 0.0, y: 5.0, width: 400.0, height: 200.0)
-        imageview.setGifImage(gif, loopCount: 1)
-        self.view.addSubview(imageview)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +48,13 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         myArticle = appDelegate.global.selectedArticle
         navigationTitle.text = myArticle["title"] as? String
         navigationTitle.font = UIFont.boldSystemFont(ofSize: navigationTitle.font.pointSize)
-        setWebView()
+        toolView.layer.shadowColor = UIColor.black.cgColor
+        toolView.layer.shadowOffset = CGSize.init(width: 0, height: 0)
+        toolView.layer.shadowOpacity = 0.3
+        toolView.layer.shadowRadius = 1
+        ikitaiLabel.font = UIFont.boldSystemFont(ofSize: ikitaiLabel.font.pointSize)
+        tizuLabel.font = UIFont.boldSystemFont(ofSize: tizuLabel.font.pointSize)
+        loadWebView()
     }
     
     func refresh() {
@@ -59,10 +64,11 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         }else {
             isFavorite = false
         }
-        setFavotiteButtonTheme()
+        webView.delegate = self
+        toggleFavotiteButtonTheme()
     }
     
-    func setWebView() {
+    func loadWebView() {
         print(myArticle ?? "")
         let url = URL(string : myArticle["url"] as! String)
         let urlRequest = URLRequest(url: url!)
@@ -75,21 +81,47 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         print("webview did finish load")
+        if webView.canGoBack {
+            webPrevButton.isUserInteractionEnabled = true
+            webPrevButton.setImage(UIImage.init(named: "web_prev_on.png"), for: .normal)
+        }else {
+            webPrevButton.isUserInteractionEnabled = false
+            webPrevButton.setImage(UIImage.init(named: "web_prev_off.png"), for: .normal)
+        }
+        if webView.canGoForward {
+            webNextButton.isUserInteractionEnabled = true
+            webNextButton.setImage(UIImage.init(named: "web_next_on.png"), for: .normal)
+        }else {
+            webNextButton.isUserInteractionEnabled = false
+            webNextButton.setImage(UIImage.init(named: "web_next_off.png"), for: .normal)
+        }
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        print("読み込み失敗")
+    }
+    
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        return true
     }
     
     @IBAction func touchedPrevPageButton(_ sender: Any) {
         webView.goBack()
     }
-    
     @IBAction func touchedNextPageButton(_ sender: Any) {
         webView.goForward()
     }
-    
-    func setFavotiteButtonTheme() {
+  
+    func toggleFavotiteButtonTheme() {
         if isFavorite! {
-            favoriteButton.setTitle("削除", for: UIControlState.normal)
+            favoImageView.image = UIImage(named: "favo_on.png")
+            ikitaiLabel.textColor = Colors().mainYellow
         }else {
-            favoriteButton.setTitle("追加", for: UIControlState.normal)
+            if favoAnimationView != nil {
+                favoAnimationView.removeFromSuperview()
+            }
+            favoImageView.image = UIImage(named: "favo_off.png")
+            ikitaiLabel.textColor = Colors().subBlack
         }
     }
     
@@ -97,11 +129,18 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         if isFavorite! {
             appDelegate.DBManager.removeFromFavoriteTable(appDelegate.global.selectedArticle["id"] as! String)
             isFavorite = false
+            
         }else {
             appDelegate.DBManager.insertFavoriteTable(appDelegate.global.selectedArticle)
+            let gifmanager = SwiftyGifManager(memoryLimit: 20)
+            let gif = UIImage(gifName: "favo")
+            favoAnimationView = UIImageView(gifImage: gif, manager: gifmanager)
+            favoAnimationView.frame = CGRect(x: 0, y: 0, width: 33, height: 33)
+            favoAnimationView.setGifImage(gif, loopCount: 1)
+            favoImageView.addSubview(favoAnimationView)
             isFavorite = true
         }
-        setFavotiteButtonTheme()
+        toggleFavotiteButtonTheme()
     }
     
     @IBAction func touchedMapButton(_ sender: Any) {

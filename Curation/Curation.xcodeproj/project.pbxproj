@@ -93,6 +93,9 @@
 		78C1BF161D92B41E003E9E88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C1BF141D92B41E003E9E88 /* LaunchScreen.storyboard */; };
 		78C1BF211D92B41E003E9E88 /* CurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1BF201D92B41E003E9E88 /* CurationTests.swift */; };
 		78C1BF2C1D92B41E003E9E88 /* CurationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1BF2B1D92B41E003E9E88 /* CurationUITests.swift */; };
+		78CE42051DDAC9ED0021254B /* favo_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 78CE42031DDAC9ED0021254B /* favo_off.png */; };
+		78CE42061DDAC9ED0021254B /* favo_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 78CE42041DDAC9ED0021254B /* favo_on.png */; };
+		78CE42081DDADB660021254B /* mapicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 78CE42071DDADB660021254B /* mapicon.png */; };
 		F69860ACF9173CD293485614 /* Pods_CurationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7887DD48E598E6D427B3D4 /* Pods_CurationUITests.framework */; };
 		FD2C786BBF3027F0199DA477 /* Pods_Curation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAED9403FE0AF9A65AB84727 /* Pods_Curation.framework */; };
 /* End PBXBuildFile section */
@@ -193,6 +196,9 @@
 		78C1BF271D92B41E003E9E88 /* CurationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C1BF2B1D92B41E003E9E88 /* CurationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationUITests.swift; sourceTree = "<group>"; };
 		78C1BF2D1D92B41E003E9E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78CE42031DDAC9ED0021254B /* favo_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favo_off.png; path = assets/images/favo_off.png; sourceTree = "<group>"; };
+		78CE42041DDAC9ED0021254B /* favo_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favo_on.png; path = assets/images/favo_on.png; sourceTree = "<group>"; };
+		78CE42071DDADB660021254B /* mapicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapicon.png; path = assets/images/mapicon.png; sourceTree = "<group>"; };
 		8698F44467F05E88B8FC8F63 /* Pods-CurationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CurationTests/Pods-CurationTests.release.xcconfig"; sourceTree = "<group>"; };
 		9519DBFF31BEC9C34F34EBFE /* Pods-Curation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Curation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Curation/Pods-Curation.debug.xcconfig"; sourceTree = "<group>"; };
 		AAE861F3AE5534EB76421CEF /* Pods_CurationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,6 +261,9 @@
 		785E9C081DCE19ED000526B1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				78CE42071DDADB660021254B /* mapicon.png */,
+				78CE42031DDAC9ED0021254B /* favo_off.png */,
+				78CE42041DDAC9ED0021254B /* favo_on.png */,
 				7887E36A1DD9D5F80073C0B8 /* favo.gif */,
 				7887E3621DD9CEEB0073C0B8 /* web_next_off.png */,
 				7887E3631DD9CEEB0073C0B8 /* web_next_on.png */,
@@ -559,14 +568,17 @@
 				785E9C181DCE2CFD000526B1 /* GothamRounded-Medium.otf in Resources */,
 				785E9C171DCE1D4C000526B1 /* rss.png in Resources */,
 				787238261DD6AEB3007BBD3A /* ArticleCollectionCell.xib in Resources */,
+				78CE42061DDAC9ED0021254B /* favo_on.png in Resources */,
 				78C1BF161D92B41E003E9E88 /* LaunchScreen.storyboard in Resources */,
 				7887E3661DD9CEEB0073C0B8 /* web_next_off.png in Resources */,
+				78CE42051DDAC9ED0021254B /* favo_off.png in Resources */,
 				7818416A1DCF1F850000500A /* ArticleMapView.xib in Resources */,
 				785E9C271DCE2D6F000526B1 /* GothamRounded-Light.otf in Resources */,
 				7887E36B1DD9D5F80073C0B8 /* favo.gif in Resources */,
 				7820361D1DC33C610045D5A6 /* SearchResult.storyboard in Resources */,
 				7887F63B1DACD4C3004747D8 /* Article.storyboard in Resources */,
 				785E9C2A1DCE2D74000526B1 /* GothamRounded-LightItalic.otf in Resources */,
+				78CE42081DDADB660021254B /* mapicon.png in Resources */,
 				7818416E1DCF2EF40000500A /* FavoriteList.storyboard in Resources */,
 				785E9C241DCE2D69000526B1 /* GothamRounded-BookItalic.otf in Resources */,
 				788BC15E1DD998CB0086ACBA /* area_pin.png in Resources */,
