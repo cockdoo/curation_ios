@@ -21,7 +21,7 @@ open class Config {
     //記事を取得する最低個数
     let numberForGetArticles = 30
     
-    //仮想ペルソナの生活圏を表示するか否か
+    //仮想ペルソナの生活圏データを表示するか否か
     let isVirtualPersona: Bool = true
     
     //仮想ペルソナの生活圏

@@ -12,5 +12,7 @@ class SearchNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tabBarItem.image = UIImage.init(named: "search.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+//        self.tabBarItem.selectedImage = UIImage.init(named: "search_selected.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
     }
 }

@@ -12,6 +12,7 @@ class HomeNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tabBarItem.image = UIImage.init(named: "tab_home.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+//        self.tabBarItem.image = UIImage.init(named: "home.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+//        self.tabBarItem.selectedImage = UIImage.init(named: "home_selected.png")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
     }
 }

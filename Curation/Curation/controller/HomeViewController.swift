@@ -125,7 +125,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         if indexPath.section == 0 {
             size = CGSize.init(width: sw, height: (sw-20)/1.618)
         }else {
-            size = CGSize.init(width: (sw-15)/2, height: (sw-15)/2*1.2)
+            size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.15)
         }
         return size
     }
@@ -137,7 +137,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
             inset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
             break
         case 1:
-            inset = UIEdgeInsets.init(top: 7, left: 5, bottom: 0, right: 5)
+            inset = UIEdgeInsets.init(top: 1, left: 0, bottom: 0, right: 0)
             break
         default:
             inset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)

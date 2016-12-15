@@ -16,19 +16,23 @@ class ArticleCollectionCell: UICollectionViewCell {
     @IBOutlet weak var clipView: UIView!
     
     func setUpCell(_ title: String, imageUrl: String, mediaName: String, index: Int) {
+        /*
         self.layer.cornerRadius = 4
         clipView.layer.cornerRadius = 4
-        
+        */
+ 
+        /*
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = CGSize.init(width: 0, height: 0)
         self.layer.shadowRadius = 1
+        */
         
         
         //テキスト反映&行間調整
         let attributedText = NSMutableAttributedString(string: title)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.0
+        paragraphStyle.lineHeightMultiple = 1.1
         attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
         titleLabel.attributedText = attributedText
         titleLabel.font = UIFont.boldSystemFont(ofSize: titleLabel.font.pointSize)
