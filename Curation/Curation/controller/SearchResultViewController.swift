@@ -8,15 +8,16 @@
 
 import UIKit
 
-class SearchResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchResultViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    var sw: CGFloat!
+    var sh: CGFloat!
     
     //Table
-    @IBOutlet weak var articlesTable: UITableView!
-    let cellIdentifer = "ArticleCell"
-    let cellHeight: CGFloat = 240
+    @IBOutlet weak var articleCollectionView: UICollectionView!
+    let cellIdentifer = "ArticleCollectionCell"
     
     //Article
     var articles = [AnyObject]()
@@ -27,46 +28,54 @@ class SearchResultViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func initialize() {
+        sw = self.view.bounds.width
+        sh = self.view.bounds.height
+        
         //テーブルの設定
-        articlesTable.delegate = self
-        articlesTable.dataSource = self
+        articleCollectionView.delegate = self
+        articleCollectionView.dataSource = self
         let nib = UINib(nibName: cellIdentifer, bundle: nil)
-        articlesTable.register(nib, forCellReuseIdentifier: cellIdentifer)
+        articleCollectionView.register(nib, forCellWithReuseIdentifier: cellIdentifer)
         
         articles = appDelegate.global.searchResultArticles
-        articlesTable.reloadData()
+        articleCollectionView.reloadData()
 //        print(articles)
     }
     
-    //MARK: - TABLE
+    //MARK: Collection View
     
-    //セルの高さ
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeight
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.15)
     }
     
-    // セルの行数
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: 1, left: 0, bottom: 0, right: 0)
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
     }
     
-    // セルの内容を変更
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let article = articles[(indexPath as NSIndexPath).row] as AnyObject
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let index = indexPath.row + 1
+        
+        let article = articles[index] as AnyObject
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
-        let mediaName: String = article["media"] as! String
+        let imageName: String = article["media"] as! String
         
-        let cell: ArticleCell = articlesTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! ArticleCell
-        cell.setUpCell(title, imageUrl: imageUrl, mediaName: mediaName, index: (indexPath as NSIndexPath).row)
+        let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
+        cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, index: index)
         return cell
+
     }
     
-    //Cellが選択された際に呼び出される.
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Index: \((indexPath as NSIndexPath).row)")
-        
-        appDelegate.global.selectedArticle = articles[(indexPath as NSIndexPath).row]
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        appDelegate.global.selectedArticle = articles[indexPath.row]
         transitionToArticleView()
     }
     

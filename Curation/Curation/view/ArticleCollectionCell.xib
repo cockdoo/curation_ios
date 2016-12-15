@@ -25,8 +25,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="187" height="215"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルタイトルタイトルタイトルタイトルタイトルタイトル" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxp-Nh-NnK">
-                            <rect key="frame" x="9" y="124.5" width="169" height="39"/>
-                            <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="13"/>
+                            <rect key="frame" x="9" y="124.5" width="169" height="42.5"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="14"/>
                             <color key="textColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamRounded-Book.otf">
+            <string>GothamRounded-Book</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Search Result View Controller-->
         <scene sceneID="ZBg-oM-Mlq">
@@ -24,43 +29,81 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWe-xL-PIX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSr-cP-kZr">
-                                        <rect key="frame" x="16" y="26" width="31" height="30"/>
-                                        <state key="normal" title="戻る">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSr-cP-kZr">
+                                        <rect key="frame" x="5" y="36.5" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="R80-Gb-3Px"/>
+                                            <constraint firstAttribute="width" constant="18" id="Zya-fi-Ahn"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow_back.png">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="touchedBackButton:" destination="XVb-5m-e9E" eventType="touchUpInside" id="EbM-sQ-rvD"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="たいとる" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJd-vD-NI0">
+                                        <rect key="frame" x="50" y="38" width="275" height="15"/>
+                                        <fontDescription key="fontDescription" name="GothamRounded-Book" family="Gotham Rounded" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3u-de-k7g">
+                                        <rect key="frame" x="0.0" y="63" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="yws-WD-RGO"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="cSr-cP-kZr" firstAttribute="leading" secondItem="kWe-xL-PIX" secondAttribute="leading" constant="16" id="BQN-Mi-QEa"/>
-                                    <constraint firstAttribute="bottom" secondItem="cSr-cP-kZr" secondAttribute="bottom" constant="8" id="CNz-Q6-ok6"/>
+                                    <constraint firstAttribute="trailing" secondItem="cJd-vD-NI0" secondAttribute="trailing" constant="50" id="5XF-SY-kjN"/>
+                                    <constraint firstAttribute="trailing" secondItem="V3u-de-k7g" secondAttribute="trailing" id="IsM-V7-GwG"/>
+                                    <constraint firstItem="cJd-vD-NI0" firstAttribute="leading" secondItem="kWe-xL-PIX" secondAttribute="leading" constant="50" id="J7k-jR-a7r"/>
                                     <constraint firstAttribute="height" constant="64" id="R34-9V-NZe"/>
+                                    <constraint firstItem="cSr-cP-kZr" firstAttribute="leading" secondItem="kWe-xL-PIX" secondAttribute="leading" constant="5" id="YDF-vX-KJj"/>
+                                    <constraint firstItem="V3u-de-k7g" firstAttribute="leading" secondItem="kWe-xL-PIX" secondAttribute="leading" id="YDI-6h-Ag4"/>
+                                    <constraint firstAttribute="bottom" secondItem="V3u-de-k7g" secondAttribute="bottom" id="gem-ux-pBv"/>
+                                    <constraint firstItem="cJd-vD-NI0" firstAttribute="centerY" secondItem="cSr-cP-kZr" secondAttribute="centerY" id="lfQ-rK-n2e"/>
+                                    <constraint firstAttribute="bottom" secondItem="cJd-vD-NI0" secondAttribute="bottom" constant="11" id="yoK-RC-cdG"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="61r-n6-nOe">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ICU-zq-GYc">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wPx-BF-pVC">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="A8P-A9-Xph">
+                                        <rect key="frame" x="188" y="0.0" width="0.0" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kWe-xL-PIX" firstAttribute="leading" secondItem="N2d-gx-PrP" secondAttribute="leading" id="8kK-n4-lhN"/>
-                            <constraint firstItem="61r-n6-nOe" firstAttribute="top" secondItem="kWe-xL-PIX" secondAttribute="bottom" id="F7v-zu-Zlc"/>
+                            <constraint firstItem="2rd-OH-eyi" firstAttribute="top" secondItem="ICU-zq-GYc" secondAttribute="bottom" id="DYH-GC-3GG"/>
+                            <constraint firstItem="ICU-zq-GYc" firstAttribute="top" secondItem="kWe-xL-PIX" secondAttribute="bottom" id="LNg-JB-pvT"/>
                             <constraint firstItem="kWe-xL-PIX" firstAttribute="top" secondItem="N2d-gx-PrP" secondAttribute="top" id="XtU-tm-zFs"/>
-                            <constraint firstAttribute="bottom" secondItem="61r-n6-nOe" secondAttribute="bottom" id="bZ3-Yo-S1Z"/>
-                            <constraint firstAttribute="trailing" secondItem="61r-n6-nOe" secondAttribute="trailing" id="j1N-Og-4rC"/>
-                            <constraint firstItem="61r-n6-nOe" firstAttribute="leading" secondItem="N2d-gx-PrP" secondAttribute="leading" id="qbb-f6-wXt"/>
+                            <constraint firstAttribute="trailing" secondItem="ICU-zq-GYc" secondAttribute="trailing" id="fLj-XY-Koy"/>
+                            <constraint firstItem="ICU-zq-GYc" firstAttribute="leading" secondItem="N2d-gx-PrP" secondAttribute="leading" id="lzC-AE-q9k"/>
                             <constraint firstAttribute="trailing" secondItem="kWe-xL-PIX" secondAttribute="trailing" id="vPk-WN-17S"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="articlesTable" destination="61r-n6-nOe" id="PIk-3z-GxK"/>
+                        <outlet property="articleCollectionView" destination="ICU-zq-GYc" id="Hgc-UK-XVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mS6-GM-4MB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,4 +111,7 @@
             <point key="canvasLocation" x="468" y="-231.63418290854574"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow_back.png" width="36" height="36"/>
+    </resources>
 </document>

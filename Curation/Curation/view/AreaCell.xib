@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,35 +27,35 @@
                     <rect key="frame" x="0.0" y="0.0" width="172" height="106"/>
                 </imageView>
                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Utc-kx-d88">
-                    <rect key="frame" x="0.0" y="76" width="172" height="30"/>
+                    <rect key="frame" x="0.0" y="72" width="172" height="34"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="W1t-Qs-aXt"/>
+                        <constraint firstAttribute="height" constant="34" id="W1t-Qs-aXt"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZb-gE-KXS">
-                    <rect key="frame" x="0.0" y="76" width="172" height="30"/>
+                    <rect key="frame" x="0.0" y="72" width="172" height="34"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="東京都八王子市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJe-yd-fqD">
-                            <rect key="frame" x="28" y="6" width="138" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <rect key="frame" x="27" y="8.5" width="139" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="area_pin.png" translatesAutoresizingMaskIntoConstraints="NO" id="l17-mp-cu0">
-                            <rect key="frame" x="6" y="4" width="15.5" height="22"/>
+                            <rect key="frame" x="8" y="6.5" width="15" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="15.5" id="TxF-bl-MNq"/>
-                                <constraint firstAttribute="height" constant="22" id="vCH-gx-PdI"/>
+                                <constraint firstAttribute="width" secondItem="l17-mp-cu0" secondAttribute="height" multiplier="8:11" id="4BC-Cu-9eB"/>
+                                <constraint firstAttribute="width" constant="15" id="TxF-bl-MNq"/>
                             </constraints>
                         </imageView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="56Q-29-dcO"/>
+                        <constraint firstAttribute="height" constant="34" id="56Q-29-dcO"/>
                         <constraint firstAttribute="trailing" secondItem="aJe-yd-fqD" secondAttribute="trailing" constant="6" id="ABb-rc-eoy"/>
-                        <constraint firstItem="l17-mp-cu0" firstAttribute="leading" secondItem="sZb-gE-KXS" secondAttribute="leading" constant="6" id="R5e-TU-rw6"/>
+                        <constraint firstItem="l17-mp-cu0" firstAttribute="leading" secondItem="sZb-gE-KXS" secondAttribute="leading" constant="8" id="R5e-TU-rw6"/>
                         <constraint firstItem="l17-mp-cu0" firstAttribute="centerY" secondItem="sZb-gE-KXS" secondAttribute="centerY" id="Vep-hT-ypI"/>
-                        <constraint firstItem="aJe-yd-fqD" firstAttribute="leading" secondItem="l17-mp-cu0" secondAttribute="trailing" constant="6" id="Zka-5q-fAf"/>
+                        <constraint firstItem="aJe-yd-fqD" firstAttribute="leading" secondItem="l17-mp-cu0" secondAttribute="trailing" constant="4" id="Zka-5q-fAf"/>
                         <constraint firstItem="aJe-yd-fqD" firstAttribute="centerY" secondItem="sZb-gE-KXS" secondAttribute="centerY" id="ps5-vz-7HL"/>
                     </constraints>
                 </view>
@@ -84,6 +85,6 @@
         </view>
     </objects>
     <resources>
-        <image name="area_pin.png" width="48" height="66"/>
+        <image name="area_pin.png" width="32" height="44"/>
     </resources>
 </document>
