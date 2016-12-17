@@ -26,6 +26,13 @@ class CityName_Table: Object {
     dynamic var cityName: String = ""
 }
 
+//移動ログ用に永久的に保存しておくテーブル
+class PermanentLocation_Table: Object {
+    dynamic var createdDate: Date = Date()
+    dynamic var lat: Double = 0
+    dynamic var lng: Double = 0
+}
+
 //各地域の滞在頻度のテーブル
 class CityFrequency_Table: Object {
     dynamic var cityName: String = ""
@@ -98,14 +105,19 @@ class DatabaseManager: NSObject {
     func insertLocationTable(_ lat: Double, lng: Double) {
         print("現在の位置情報を保存：\(lat), \(lng)")
         let myLocations = Location_Table()
-        
         myLocations.createdDate = Date()
         myLocations.lat = lat
         myLocations.lng = lng
         
+        let perLocations = PermanentLocation_Table()
+        perLocations.createdDate = Date()
+        perLocations.lat = lat
+        perLocations.lng = lng
+        
         let myRealm = try! Realm()
         try! myRealm.write {
             myRealm.add(myLocations)
+            myRealm.add(perLocations)
         }
     }
     
@@ -330,6 +342,24 @@ class DatabaseManager: NSObject {
                 ]
         }
         return article
+    }
+    
+    func getLocationLog(from: Date, to: Date) -> [AnyObject] {
+        let myRealm = try! Realm()
+//        let tableContents = myRealm.objects(PermanentLocation_Table.self)
+        let tableContents = myRealm.objects(CityName_Table.self).filter("createdDate => %@ AND createdDate <= %@", from, to)
+        
+        var locations = [AnyObject]()
+        
+        for row in tableContents {
+            let location = [
+                "createdDate": row.createdDate,
+                "lat": row.lat,
+                "lng": row.lng
+            ] as [String : Any]
+            locations.append(location as AnyObject)
+        }
+        return locations
     }
 }
 

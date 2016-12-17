@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

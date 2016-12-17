@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a4h-gv-ScQ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamRounded-Medium.otf">
+            <string>GothamRounded-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Moves Log View Controller-->
+        <scene sceneID="zcP-UQ-zDb">
+            <objects>
+                <viewController id="a4h-gv-ScQ" customClass="MovesLogViewController" customModule="Curation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jnI-EM-krU"/>
+                        <viewControllerLayoutGuide type="bottom" id="exD-pf-S0A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="crr-nU-c4t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khx-zH-VRK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4I-0g-BEI">
+                                        <rect key="frame" x="0.0" y="63" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="nyV-GC-ja9"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="移動のきろく" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-AE-bMZ">
+                                        <rect key="frame" x="137" y="34" width="102" height="17"/>
+                                        <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn7-Sr-bXY">
+                                        <rect key="frame" x="321" y="28" width="46" height="30"/>
+                                        <state key="normal" title="閉じる"/>
+                                        <connections>
+                                            <action selector="touchedCloseButton:" destination="a4h-gv-ScQ" eventType="touchUpInside" id="5wR-tE-tT5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="S4I-0g-BEI" secondAttribute="bottom" id="7sH-d5-kJq"/>
+                                    <constraint firstItem="S4I-0g-BEI" firstAttribute="leading" secondItem="Khx-zH-VRK" secondAttribute="leading" id="80C-XD-Kiz"/>
+                                    <constraint firstItem="S4I-0g-BEI" firstAttribute="top" secondItem="gpg-AE-bMZ" secondAttribute="bottom" constant="12" id="BP1-f3-VDZ"/>
+                                    <constraint firstItem="gpg-AE-bMZ" firstAttribute="centerX" secondItem="Khx-zH-VRK" secondAttribute="centerX" id="HUY-Vh-mTK"/>
+                                    <constraint firstAttribute="height" constant="64" id="PlS-2L-ud6"/>
+                                    <constraint firstAttribute="trailing" secondItem="S4I-0g-BEI" secondAttribute="trailing" id="dAG-Vw-g6E"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="kVO-Cs-vyA"/>
+                                    <constraint firstItem="Pn7-Sr-bXY" firstAttribute="centerY" secondItem="gpg-AE-bMZ" secondAttribute="centerY" id="l2N-du-Z6X"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pn7-Sr-bXY" secondAttribute="trailing" constant="8" id="qPc-pI-qQf"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qVz-lq-rXk">
+                                <rect key="frame" x="0.0" y="547" width="375" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="LOa-7G-9yu"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQb-nx-w30" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="483"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Khx-zH-VRK" firstAttribute="leading" secondItem="crr-nU-c4t" secondAttribute="leading" id="7hB-3U-Tvr"/>
+                            <constraint firstItem="FQb-nx-w30" firstAttribute="top" secondItem="Khx-zH-VRK" secondAttribute="bottom" id="CUn-cj-2JJ"/>
+                            <constraint firstItem="Khx-zH-VRK" firstAttribute="top" secondItem="crr-nU-c4t" secondAttribute="top" id="ChT-87-zLz"/>
+                            <constraint firstAttribute="trailing" secondItem="Khx-zH-VRK" secondAttribute="trailing" id="IvC-JV-m4X"/>
+                            <constraint firstItem="exD-pf-S0A" firstAttribute="top" secondItem="qVz-lq-rXk" secondAttribute="bottom" id="RQ2-bU-ADn"/>
+                            <constraint firstAttribute="trailing" secondItem="FQb-nx-w30" secondAttribute="trailing" id="bAG-KU-cme"/>
+                            <constraint firstItem="qVz-lq-rXk" firstAttribute="leading" secondItem="crr-nU-c4t" secondAttribute="leading" id="ply-QI-Y8t"/>
+                            <constraint firstItem="FQb-nx-w30" firstAttribute="leading" secondItem="crr-nU-c4t" secondAttribute="leading" id="s0K-bE-2jy"/>
+                            <constraint firstAttribute="trailing" secondItem="qVz-lq-rXk" secondAttribute="trailing" id="sS0-ug-mod"/>
+                            <constraint firstItem="qVz-lq-rXk" firstAttribute="top" secondItem="FQb-nx-w30" secondAttribute="bottom" id="sj3-cc-nCv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateScrollView" destination="qVz-lq-rXk" id="PxA-iS-3bz"/>
+                        <outlet property="mapView" destination="FQb-nx-w30" id="ade-m7-LKD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SOr-7Y-gZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="597.60000000000002" y="-38.23088455772114"/>
+        </scene>
+    </scenes>
+</document>

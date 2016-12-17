@@ -53,6 +53,7 @@ PODS:
   - Realm/Headers (2.0.3)
   - RealmSwift (2.0.3):
     - Realm (= 2.0.3)
+  - SlideMenuControllerSwift (3.0.0)
   - SwiftyGif (3.0.0)
 
 DEPENDENCIES:
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - GoogleMaps
   - PageMenu
   - RealmSwift
+  - SlideMenuControllerSwift
   - SwiftyGif
 
 SPEC CHECKSUMS:
@@ -77,8 +79,9 @@ SPEC CHECKSUMS:
   PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
   RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
+  SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
   SwiftyGif: d6b4d63de2a2a5134d8b54ba5719837319d77ef0
 
-PODFILE CHECKSUM: 0d594c665bf5534bb44de9ba6d83d9218638e583
+PODFILE CHECKSUM: b732f9b24d39258dd03eb5e12be53d6aa30883f6
 
 COCOAPODS: 1.1.1

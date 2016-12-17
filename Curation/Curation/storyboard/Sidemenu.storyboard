@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fra-1s-hIw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sidemenu View Controller-->
+        <scene sceneID="Lwf-QW-0ic">
+            <objects>
+                <viewController id="fra-1s-hIw" customClass="SidemenuViewController" customModule="Curation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4xY-Fj-mqy"/>
+                        <viewControllerLayoutGuide type="bottom" id="PLI-zB-GdD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f8A-P9-JaA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kUg-RL-MRT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メニュー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-IB-t4W">
+                                        <rect key="frame" x="152.5" y="19.5" width="70" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="6Vw-eG-IRD"/>
+                                    <constraint firstItem="gHa-IB-t4W" firstAttribute="centerY" secondItem="kUg-RL-MRT" secondAttribute="centerY" id="eL8-uq-hfw"/>
+                                    <constraint firstItem="gHa-IB-t4W" firstAttribute="centerX" secondItem="kUg-RL-MRT" secondAttribute="centerX" id="mpf-5E-ffc"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugz-b9-xtI">
+                                <rect key="frame" x="16" y="92" width="123" height="30"/>
+                                <state key="normal" title="移動の記録を見る"/>
+                                <connections>
+                                    <action selector="touchedMoveLogButton:" destination="fra-1s-hIw" eventType="touchUpInside" id="hhu-Du-pc5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmC-Kf-4bW">
+                                <rect key="frame" x="16" y="140" width="138" height="30"/>
+                                <state key="normal" title="アンケートのお願い"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qmC-Kf-4bW" firstAttribute="top" secondItem="ugz-b9-xtI" secondAttribute="bottom" constant="18" id="R0M-jX-bZL"/>
+                            <constraint firstItem="ugz-b9-xtI" firstAttribute="top" secondItem="kUg-RL-MRT" secondAttribute="bottom" constant="32" id="Rl4-iR-Tz5"/>
+                            <constraint firstItem="kUg-RL-MRT" firstAttribute="leading" secondItem="f8A-P9-JaA" secondAttribute="leading" id="ZbP-97-Zyf"/>
+                            <constraint firstItem="kUg-RL-MRT" firstAttribute="top" secondItem="f8A-P9-JaA" secondAttribute="top" id="dzD-pb-WCo"/>
+                            <constraint firstItem="ugz-b9-xtI" firstAttribute="leading" secondItem="f8A-P9-JaA" secondAttribute="leading" constant="16" id="hh7-w8-wYd"/>
+                            <constraint firstAttribute="trailing" secondItem="kUg-RL-MRT" secondAttribute="trailing" id="ig5-Jf-TX2"/>
+                            <constraint firstItem="qmC-Kf-4bW" firstAttribute="leading" secondItem="f8A-P9-JaA" secondAttribute="leading" constant="16" id="zfF-Wl-eU9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wv9-wq-Li1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-316" y="-104"/>
+        </scene>
+    </scenes>
+</document>

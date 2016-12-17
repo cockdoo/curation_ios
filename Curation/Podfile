@@ -11,6 +11,7 @@ target 'Curation' do
   pod 'Google/Analytics'
   pod 'PageMenu'
   pod 'SwiftyGif'
+  pod 'SlideMenuControllerSwift'
 
   # Pods for Curation
 
@@ -25,6 +26,7 @@ target 'Curation' do
   pod 'Google/Analytics'
   pod 'PageMenu'
   pod 'SwiftyGif'
+  pod 'SlideMenuControllerSwift'
   end
 
   target 'CurationUITests' do

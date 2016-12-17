@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
     
@@ -26,6 +27,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     var articles = [AnyObject]()
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sidemenuButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +53,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         appDelegate.LManager.isTopView = true
         
         //ナビゲーションバーを隠す
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         articleCollectionView.delegate = self
         articleCollectionView.dataSource = self
@@ -205,4 +207,12 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         nextView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nextView, animated: true)
     }
+    
+    @IBAction func toucedSidemenuButton(_ sender: Any) {
+        self.slideMenuController()?.openLeft()
+//        let storyboard = UIStoryboard(name: "Sidemenu", bundle: nil)
+//        let nextView: UIViewController! = storyboard.instantiateInitialViewController()
+//        self.navigationController?.pushViewController(nextView, animated: true)
+    }
+    
 }

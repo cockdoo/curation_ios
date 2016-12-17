@@ -79,6 +79,11 @@
 		7887F63B1DACD4C3004747D8 /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7887F63A1DACD4C3004747D8 /* Article.storyboard */; };
 		788BC15E1DD998CB0086ACBA /* area_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 788BC15D1DD998CB0086ACBA /* area_pin.png */; };
 		789A7ECF1DD1873500625FF5 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 789A7ECE1DD1873500625FF5 /* arrow.png */; };
+		789DAAFA1E056900007E4559 /* HomeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789DAAF91E056900007E4559 /* HomeContainerViewController.swift */; };
+		789DAAFC1E056AE6007E4559 /* SidemenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789DAAFB1E056AE6007E4559 /* SidemenuViewController.swift */; };
+		789DAAFE1E056AF1007E4559 /* Sidemenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789DAAFD1E056AF1007E4559 /* Sidemenu.storyboard */; };
+		789DAB001E056DC5007E4559 /* MovesLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789DAAFF1E056DC5007E4559 /* MovesLogViewController.swift */; };
+		789DAB021E056DCC007E4559 /* MovesLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789DAB011E056DCC007E4559 /* MovesLog.storyboard */; };
 		78B7DE071E02646E00213C3D /* favo_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78B7DE011E02646E00213C3D /* favo_selected@3x.png */; };
 		78B7DE081E02646E00213C3D /* favo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78B7DE021E02646E00213C3D /* favo@3x.png */; };
 		78B7DE091E02646E00213C3D /* search_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78B7DE031E02646E00213C3D /* search_selected@3x.png */; };
@@ -183,6 +188,11 @@
 		7887F63A1DACD4C3004747D8 /* Article.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
 		788BC15D1DD998CB0086ACBA /* area_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = area_pin.png; path = assets/images/area_pin.png; sourceTree = "<group>"; };
 		789A7ECE1DD1873500625FF5 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = assets/images/arrow.png; sourceTree = "<group>"; };
+		789DAAF91E056900007E4559 /* HomeContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContainerViewController.swift; sourceTree = "<group>"; };
+		789DAAFB1E056AE6007E4559 /* SidemenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidemenuViewController.swift; sourceTree = "<group>"; };
+		789DAAFD1E056AF1007E4559 /* Sidemenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sidemenu.storyboard; sourceTree = "<group>"; };
+		789DAAFF1E056DC5007E4559 /* MovesLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovesLogViewController.swift; sourceTree = "<group>"; };
+		789DAB011E056DCC007E4559 /* MovesLog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovesLog.storyboard; sourceTree = "<group>"; };
 		78B7DE011E02646E00213C3D /* favo_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favo_selected@3x.png"; path = "assets/images/tab/favo_selected@3x.png"; sourceTree = "<group>"; };
 		78B7DE021E02646E00213C3D /* favo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favo@3x.png"; path = "assets/images/tab/favo@3x.png"; sourceTree = "<group>"; };
 		78B7DE031E02646E00213C3D /* search_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search_selected@3x.png"; path = "assets/images/tab/search_selected@3x.png"; sourceTree = "<group>"; };
@@ -360,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				78676D1E1DA2639A00136530 /* TutorialViewController.swift */,
+				789DAAF91E056900007E4559 /* HomeContainerViewController.swift */,
 				78676D261DA267BD00136530 /* HomeViewController.swift */,
 				7887F6381DACD4B9004747D8 /* ArticleViewController.swift */,
 				7805EB491DC2F73B00C95DA9 /* FavoriteViewController.swift */,
@@ -371,6 +382,8 @@
 				78CF52561E02655A000BDA1B /* HomeNavigationController.swift */,
 				78CF525C1E02656F000BDA1B /* FavoriteNavigationController.swift */,
 				78CF52581E026567000BDA1B /* SearchNavigationController.swift */,
+				789DAAFB1E056AE6007E4559 /* SidemenuViewController.swift */,
+				789DAAFF1E056DC5007E4559 /* MovesLogViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -384,6 +397,8 @@
 				7820361C1DC33C610045D5A6 /* SearchResult.storyboard */,
 				7818416D1DCF2EF40000500A /* FavoriteList.storyboard */,
 				7818416F1DCF2EFC0000500A /* FavoriteMap.storyboard */,
+				789DAAFD1E056AF1007E4559 /* Sidemenu.storyboard */,
+				789DAB011E056DCC007E4559 /* MovesLog.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -622,12 +637,14 @@
 				78676D251DA2678900136530 /* Top.storyboard in Resources */,
 				782FDB051DD0B948000112CF /* rss_gray.png in Resources */,
 				78B7DE091E02646E00213C3D /* search_selected@3x.png in Resources */,
+				789DAB021E056DCC007E4559 /* MovesLog.storyboard in Resources */,
 				7805EB4E1DC2F7C200C95DA9 /* FavoriteCell.xib in Resources */,
 				7818416C1DCF298C0000500A /* back.png in Resources */,
 				78BB63CB1DC49B4600AA75B7 /* AreaCell.xib in Resources */,
 				783448E01E0282DD0089EE7C /* current_location.png in Resources */,
 				7887E3671DD9CEEB0073C0B8 /* web_next_on.png in Resources */,
 				78B7DE071E02646E00213C3D /* favo_selected@3x.png in Resources */,
+				789DAAFE1E056AF1007E4559 /* Sidemenu.storyboard in Resources */,
 				785E9C1E1DCE2D5F000526B1 /* GothamRounded-BoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -811,6 +828,7 @@
 				78CF525D1E02656F000BDA1B /* FavoriteNavigationController.swift in Sources */,
 				78676D1D1DA262F200136530 /* Global.swift in Sources */,
 				781841681DCF1F780000500A /* ArticleMapView.swift in Sources */,
+				789DAB001E056DC5007E4559 /* MovesLogViewController.swift in Sources */,
 				78CF525B1E026567000BDA1B /* TabBarController.swift in Sources */,
 				78BB63C91DC49B3900AA75B7 /* AreaCell.swift in Sources */,
 				78676D211DA2640C00136530 /* LocationManager.swift in Sources */,
@@ -823,9 +841,11 @@
 				787238241DD6AEA9007BBD3A /* ArticleCollectionCell.swift in Sources */,
 				7872382A1DD6BAE9007BBD3A /* FirstArticleCollectionCell.swift in Sources */,
 				78B921341DAC9A1D00BD0C22 /* ArticleCell.swift in Sources */,
+				789DAAFA1E056900007E4559 /* HomeContainerViewController.swift in Sources */,
 				781841721DCF309C0000500A /* Colors.swift in Sources */,
 				78676D231DA2644400136530 /* DatabaseManager.swift in Sources */,
 				78CF52571E02655A000BDA1B /* HomeNavigationController.swift in Sources */,
+				789DAAFC1E056AE6007E4559 /* SidemenuViewController.swift in Sources */,
 				7887F6391DACD4B9004747D8 /* ArticleViewController.swift in Sources */,
 				7805EB4C1DC2F79600C95DA9 /* FavoriteCell.swift in Sources */,
 				78B921321DAC90CC00BD0C22 /* APIManager.swift in Sources */,
