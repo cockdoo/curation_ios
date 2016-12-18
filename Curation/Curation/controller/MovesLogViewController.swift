@@ -44,7 +44,6 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate {
 //        print("Index: \(index)")
     }
     
-    
     @IBAction func touchedCloseButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

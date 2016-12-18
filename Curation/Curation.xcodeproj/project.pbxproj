@@ -78,6 +78,8 @@
 		7887F6391DACD4B9004747D8 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7887F6381DACD4B9004747D8 /* ArticleViewController.swift */; };
 		7887F63B1DACD4C3004747D8 /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7887F63A1DACD4C3004747D8 /* Article.storyboard */; };
 		788BC15E1DD998CB0086ACBA /* area_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 788BC15D1DD998CB0086ACBA /* area_pin.png */; };
+		788CE0951E063EDD00F31D88 /* MovesLogDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788CE0941E063EDD00F31D88 /* MovesLogDayView.swift */; };
+		788CE0971E063EE400F31D88 /* MovesLogDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788CE0961E063EE400F31D88 /* MovesLogDayView.xib */; };
 		789A7ECF1DD1873500625FF5 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 789A7ECE1DD1873500625FF5 /* arrow.png */; };
 		789DAAFA1E056900007E4559 /* HomeContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789DAAF91E056900007E4559 /* HomeContainerViewController.swift */; };
 		789DAAFC1E056AE6007E4559 /* SidemenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789DAAFB1E056AE6007E4559 /* SidemenuViewController.swift */; };
@@ -187,6 +189,8 @@
 		7887F6381DACD4B9004747D8 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		7887F63A1DACD4C3004747D8 /* Article.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
 		788BC15D1DD998CB0086ACBA /* area_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = area_pin.png; path = assets/images/area_pin.png; sourceTree = "<group>"; };
+		788CE0941E063EDD00F31D88 /* MovesLogDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovesLogDayView.swift; sourceTree = "<group>"; };
+		788CE0961E063EE400F31D88 /* MovesLogDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovesLogDayView.xib; sourceTree = "<group>"; };
 		789A7ECE1DD1873500625FF5 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = assets/images/arrow.png; sourceTree = "<group>"; };
 		789DAAF91E056900007E4559 /* HomeContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContainerViewController.swift; sourceTree = "<group>"; };
 		789DAAFB1E056AE6007E4559 /* SidemenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidemenuViewController.swift; sourceTree = "<group>"; };
@@ -362,6 +366,8 @@
 				787238251DD6AEB3007BBD3A /* ArticleCollectionCell.xib */,
 				787238291DD6BAE9007BBD3A /* FirstArticleCollectionCell.swift */,
 				787238271DD6BADD007BBD3A /* FirstArticleCollectionCell.xib */,
+				788CE0941E063EDD00F31D88 /* MovesLogDayView.swift */,
+				788CE0961E063EE400F31D88 /* MovesLogDayView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -604,6 +610,7 @@
 				785E9C181DCE2CFD000526B1 /* GothamRounded-Medium.otf in Resources */,
 				785E9C171DCE1D4C000526B1 /* rss.png in Resources */,
 				787238261DD6AEB3007BBD3A /* ArticleCollectionCell.xib in Resources */,
+				788CE0971E063EE400F31D88 /* MovesLogDayView.xib in Resources */,
 				78B7DE0A1E02646E00213C3D /* search@3x.png in Resources */,
 				78CE42061DDAC9ED0021254B /* favo_on.png in Resources */,
 				78C1BF161D92B41E003E9E88 /* LaunchScreen.storyboard in Resources */,
@@ -845,6 +852,7 @@
 				781841721DCF309C0000500A /* Colors.swift in Sources */,
 				78676D231DA2644400136530 /* DatabaseManager.swift in Sources */,
 				78CF52571E02655A000BDA1B /* HomeNavigationController.swift in Sources */,
+				788CE0951E063EDD00F31D88 /* MovesLogDayView.swift in Sources */,
 				789DAAFC1E056AE6007E4559 /* SidemenuViewController.swift in Sources */,
 				7887F6391DACD4B9004747D8 /* ArticleViewController.swift in Sources */,
 				7805EB4C1DC2F79600C95DA9 /* FavoriteCell.swift in Sources */,
