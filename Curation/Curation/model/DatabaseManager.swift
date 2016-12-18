@@ -18,7 +18,6 @@ class Location_Table: Object {
 
 //緯度経度を地名と合わせた一定期間保存しておくテーブル
 class CityName_Table: Object {
-    dynamic var createdDate: Date = Date()
     dynamic var lat: Double = 0
     dynamic var lng: Double = 0
     dynamic var locality: String = ""
@@ -105,12 +104,12 @@ class DatabaseManager: NSObject {
     func insertLocationTable(_ lat: Double, lng: Double) {
         print("現在の位置情報を保存：\(lat), \(lng)")
         let myLocations = Location_Table()
-        myLocations.createdDate = Date()
+        myLocations.createdDate = Date(timeIntervalSinceNow: TimeInterval(NSTimeZone.system.secondsFromGMT()))
         myLocations.lat = lat
         myLocations.lng = lng
         
         let perLocations = PermanentLocation_Table()
-        perLocations.createdDate = Date()
+        perLocations.createdDate = Date(timeIntervalSinceNow: TimeInterval(NSTimeZone.system.secondsFromGMT()))
         perLocations.lat = lat
         perLocations.lng = lng
         
@@ -126,7 +125,7 @@ class DatabaseManager: NSObject {
         print("CityNameTableから古い履歴を削除")
         let myRealm = try! Realm()
         
-        let pastDate = Date(timeInterval: -60*60*24*(Config().timeIntervalHoldData), since: Date())
+        let pastDate = Date(timeInterval: -60*60*24*(Config().timeIntervalHoldData), since: Date(timeIntervalSinceNow: TimeInterval(NSTimeZone.system.secondsFromGMT())))
         let rows = myRealm.objects(CityName_Table.self).filter("createdDate <= %@", pastDate)
     
         try! myRealm.write {
@@ -158,7 +157,6 @@ class DatabaseManager: NSObject {
         print("地名を保存：\(cityName)")
         let cityNames = CityName_Table()
     
-        cityNames.createdDate = Date()
         cityNames.lat = lat
         cityNames.lng = lng
         cityNames.locality = locality
@@ -273,7 +271,7 @@ class DatabaseManager: NSObject {
         
         //市町名と頻度をテーブルに保存
         let myFavorite = Favorite_Table()
-        myFavorite.createdDate = Date()
+        myFavorite.createdDate = Date(timeIntervalSinceNow: TimeInterval(NSTimeZone.system.secondsFromGMT()))
         myFavorite.id = obj["id"] as! String
         myFavorite.lat = obj["lat"] as! String
         myFavorite.lng = obj["lng"] as! String
@@ -346,8 +344,7 @@ class DatabaseManager: NSObject {
     
     func getLocationLog(from: Date, to: Date) -> [AnyObject] {
         let myRealm = try! Realm()
-//        let tableContents = myRealm.objects(PermanentLocation_Table.self)
-        let tableContents = myRealm.objects(CityName_Table.self).filter("createdDate => %@ AND createdDate <= %@", from, to)
+        let tableContents = myRealm.objects(PermanentLocation_Table.self).filter("createdDate => %@ AND createdDate <= %@", from, to)
         
         var locations = [AnyObject]()
         
