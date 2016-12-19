@@ -8,28 +8,70 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamRounded-Medium.otf">
+            <string>GothamRounded-Medium</string>
+        </array>
+        <array key="GothamRounded_Bold.otf">
+            <string>GothamRounded-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MovesLogDayView" customModule="Curation" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="12/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbm-PO-fZS">
-                    <rect key="frame" x="166" y="29" width="41" height="21"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZx-4M-AuF">
+                    <rect key="frame" x="14" y="14" width="47" height="47"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="水" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPY-tH-YJ0">
+                            <rect key="frame" x="14.5" y="10" width="17" height="17"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="17"/>
+                            <color key="textColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKs-ks-bSt">
+                            <rect key="frame" x="17.5" y="30" width="11.5" height="11"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="11"/>
+                            <color key="textColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.68627450980392157" green="0.8784313725490196" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="41" id="7Cu-RN-KE5"/>
-                        <constraint firstAttribute="height" constant="21" id="LQ7-zD-mLn"/>
+                        <constraint firstItem="UPY-tH-YJ0" firstAttribute="centerX" secondItem="zZx-4M-AuF" secondAttribute="centerX" id="EJi-WV-DGw"/>
+                        <constraint firstAttribute="width" constant="47" id="bYI-wE-czz"/>
+                        <constraint firstItem="PKs-ks-bSt" firstAttribute="top" secondItem="UPY-tH-YJ0" secondAttribute="bottom" constant="3" id="ne7-yy-6dC"/>
+                        <constraint firstAttribute="height" constant="47" id="upU-7N-xM1"/>
+                        <constraint firstItem="UPY-tH-YJ0" firstAttribute="top" secondItem="zZx-4M-AuF" secondAttribute="top" constant="10" id="yCu-qv-cqd"/>
+                        <constraint firstItem="PKs-ks-bSt" firstAttribute="centerX" secondItem="zZx-4M-AuF" secondAttribute="centerX" id="yFD-Az-xG0"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/12/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbm-PO-fZS">
+                    <rect key="frame" x="76" y="27.5" width="110.5" height="20"/>
+                    <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="20"/>
+                    <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="zZx-4M-AuF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="621-Pe-yKi"/>
+                <constraint firstItem="mbm-PO-fZS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="N7m-ys-VWJ"/>
+                <constraint firstItem="zZx-4M-AuF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="SHe-22-zNG"/>
+                <constraint firstItem="mbm-PO-fZS" firstAttribute="leading" secondItem="zZx-4M-AuF" secondAttribute="trailing" constant="15" id="pak-7K-LmM"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="161.5" y="-258.5"/>
+            <connections>
+                <outlet property="circleView" destination="zZx-4M-AuF" id="yli-aP-sIH"/>
+                <outlet property="dateLabel" destination="mbm-PO-fZS" id="MZF-Gz-23q"/>
+                <outlet property="dayLabel" destination="PKs-ks-bSt" id="4Tb-lo-TSV"/>
+                <outlet property="dayOfWeelLabel" destination="UPY-tH-YJ0" id="OgG-LK-LQs"/>
+            </connections>
+            <point key="canvasLocation" x="161.5" y="-259"/>
         </view>
     </objects>
 </document>

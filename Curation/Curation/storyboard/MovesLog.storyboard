@@ -63,34 +63,33 @@
                                     <constraint firstAttribute="trailing" secondItem="Pn7-Sr-bXY" secondAttribute="trailing" constant="8" id="qPc-pI-qQf"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qVz-lq-rXk">
-                                <rect key="frame" x="0.0" y="547" width="375" height="120"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVz-lq-rXk">
+                                <rect key="frame" x="0.0" y="593" width="375" height="74"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="LOa-7G-9yu"/>
+                                    <constraint firstAttribute="height" constant="74" id="LOa-7G-9yu"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQb-nx-w30" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="483"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-7n-r0l">
+                                <rect key="frame" x="0.0" y="64" width="375" height="529"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cF0-7n-r0l" firstAttribute="leading" secondItem="crr-nU-c4t" secondAttribute="leading" id="5sj-ZA-ZYP"/>
                             <constraint firstItem="Khx-zH-VRK" firstAttribute="leading" secondItem="crr-nU-c4t" secondAttribute="leading" id="7hB-3U-Tvr"/>
-                            <constraint firstItem="FQb-nx-w30" firstAttribute="top" secondItem="Khx-zH-VRK" secondAttribute="bottom" id="CUn-cj-2JJ"/>
                             <constraint firstItem="Khx-zH-VRK" firstAttribute="top" secondItem="crr-nU-c4t" secondAttribute="top" id="ChT-87-zLz"/>
                             <constraint firstAttribute="trailing" secondItem="Khx-zH-VRK" secondAttribute="trailing" id="IvC-JV-m4X"/>
+                            <constraint firstItem="qVz-lq-rXk" firstAttribute="top" secondItem="cF0-7n-r0l" secondAttribute="bottom" id="K4o-vP-eMj"/>
                             <constraint firstItem="exD-pf-S0A" firstAttribute="top" secondItem="qVz-lq-rXk" secondAttribute="bottom" id="RQ2-bU-ADn"/>
-                            <constraint firstAttribute="trailing" secondItem="FQb-nx-w30" secondAttribute="trailing" id="bAG-KU-cme"/>
+                            <constraint firstItem="cF0-7n-r0l" firstAttribute="top" secondItem="Khx-zH-VRK" secondAttribute="bottom" id="bvF-Pr-qPe"/>
+                            <constraint firstAttribute="trailing" secondItem="cF0-7n-r0l" secondAttribute="trailing" id="cA0-qm-RHr"/>
                             <constraint firstItem="qVz-lq-rXk" firstAttribute="leading" secondItem="crr-nU-c4t" secondAttribute="leading" id="ply-QI-Y8t"/>
-                            <constraint firstItem="FQb-nx-w30" firstAttribute="leading" secondItem="crr-nU-c4t" secondAttribute="leading" id="s0K-bE-2jy"/>
                             <constraint firstAttribute="trailing" secondItem="qVz-lq-rXk" secondAttribute="trailing" id="sS0-ug-mod"/>
-                            <constraint firstItem="qVz-lq-rXk" firstAttribute="top" secondItem="FQb-nx-w30" secondAttribute="bottom" id="sj3-cc-nCv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dateScrollView" destination="qVz-lq-rXk" id="PxA-iS-3bz"/>
-                        <outlet property="mapView" destination="FQb-nx-w30" id="ade-m7-LKD"/>
+                        <outlet property="mapView" destination="cF0-7n-r0l" id="5DQ-9m-6FP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOr-7Y-gZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
