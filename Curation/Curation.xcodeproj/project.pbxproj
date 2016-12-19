@@ -30,6 +30,7 @@
 		782BAF321E028D1200F55139 /* arrow_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 782BAF311E028D1200F55139 /* arrow_back.png */; };
 		782FDB051DD0B948000112CF /* rss_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 782FDB041DD0B948000112CF /* rss_gray.png */; };
 		783448E01E0282DD0089EE7C /* current_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 783448DF1E0282DD0089EE7C /* current_location.png */; };
+		784871A31E07B10C00924272 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784871A21E07B10C00924272 /* MapKit.framework */; };
 		784C5E3D1E02843C0087D20C /* arrow_right_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 784C5E3C1E02843C0087D20C /* arrow_right_small.png */; };
 		785E9C171DCE1D4C000526B1 /* rss.png in Resources */ = {isa = PBXBuildFile; fileRef = 785E9C161DCE1D4C000526B1 /* rss.png */; };
 		785E9C181DCE2CFD000526B1 /* GothamRounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 785E9C101DCE1A6B000526B1 /* GothamRounded-Medium.otf */; };
@@ -157,6 +158,7 @@
 		782BAF311E028D1200F55139 /* arrow_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_back.png; path = assets/images/arrow_back.png; sourceTree = "<group>"; };
 		782FDB041DD0B948000112CF /* rss_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rss_gray.png; path = assets/images/rss_gray.png; sourceTree = "<group>"; };
 		783448DF1E0282DD0089EE7C /* current_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = current_location.png; path = assets/images/current_location.png; sourceTree = "<group>"; };
+		784871A21E07B10C00924272 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		784C5E3C1E02843C0087D20C /* arrow_right_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right_small.png; path = assets/images/arrow_right_small.png; sourceTree = "<group>"; };
 		785E9C0A1DCE1A6B000526B1 /* GothamRounded_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GothamRounded_Bold.otf; path = assets/fonts/GothamRounded_Bold.otf; sourceTree = "<group>"; };
 		785E9C0B1DCE1A6B000526B1 /* GothamRounded-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRounded-BoldItalic.otf"; path = "assets/fonts/GothamRounded-BoldItalic.otf"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				784871A31E07B10C00924272 /* MapKit.framework in Frameworks */,
 				FD2C786BBF3027F0199DA477 /* Pods_Curation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +471,7 @@
 		C2E360B3AC1D61306FD70280 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				784871A21E07B10C00924272 /* MapKit.framework */,
 				ADD6E0A3824B6E185B3732F1 /* Pods.framework */,
 				EAED9403FE0AF9A65AB84727 /* Pods_Curation.framework */,
 				AAE861F3AE5534EB76421CEF /* Pods_CurationTests.framework */,

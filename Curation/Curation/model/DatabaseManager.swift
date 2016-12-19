@@ -18,6 +18,7 @@ class Location_Table: Object {
 
 //緯度経度を地名と合わせた一定期間保存しておくテーブル
 class CityName_Table: Object {
+    dynamic var createdDate: Date = Date()
     dynamic var lat: Double = 0
     dynamic var lng: Double = 0
     dynamic var locality: String = ""
@@ -70,8 +71,9 @@ class DatabaseManager: NSObject {
         super.init()
 //        showTableContent(Location_Table.self)
 //        showTableContent(CityName_Table.self)
-        showTableContent(CityFrequency_Table.self)
-        showTableContent(Favorite_Table.self)
+//        showTableContent(PermanentLocation_Table.self)
+//        showTableContent(CityFrequency_Table.self)
+//        showTableContent(Favorite_Table.self)
     }
     
     //指定したテーブルの中身を表示
@@ -157,6 +159,7 @@ class DatabaseManager: NSObject {
         print("地名を保存：\(cityName)")
         let cityNames = CityName_Table()
     
+        cityNames.createdDate = Date(timeIntervalSinceNow: TimeInterval(NSTimeZone.system.secondsFromGMT()))
         cityNames.lat = lat
         cityNames.lng = lng
         cityNames.locality = locality
@@ -343,6 +346,9 @@ class DatabaseManager: NSObject {
     }
     
     func getLocationLog(from: Date, to: Date) -> [AnyObject] {
+        print("From:\(from)")
+        print("From:\(to)")
+        
         let myRealm = try! Realm()
         let tableContents = myRealm.objects(PermanentLocation_Table.self).filter("createdDate => %@ AND createdDate <= %@", from, to)
         

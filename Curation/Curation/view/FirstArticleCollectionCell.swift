@@ -15,7 +15,7 @@ class FirstArticleCollectionCell: UICollectionViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     
-    func setUpCell(_ title: String, imageUrl: String, mediaName: String, index: Int) {
+    func setUpCell(_ title: String, imageUrl: String, mediaName: String, cityName: String, index: Int) {
         //テキスト反映&行間調整
         let attributedText = NSMutableAttributedString(string: title)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -31,8 +31,11 @@ class FirstArticleCollectionCell: UICollectionViewCell {
         mediaLabel.text = mediaName
         mediaLabel.font = UIFont.boldSystemFont(ofSize: mediaLabel.font.pointSize)
         
+        locationLabel.text = cityName
+        locationLabel.font = UIFont.boldSystemFont(ofSize: locationLabel.font.pointSize)
+        
         let topColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        let bottomColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        let bottomColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
         let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
         let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors

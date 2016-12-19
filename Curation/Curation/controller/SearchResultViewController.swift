@@ -45,7 +45,15 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     //MARK: Collection View
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.15)
+        var size: CGSize
+        if sw == 320 {
+            size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.25)
+        }else if sw == 375 {
+            size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.18)
+        }else {
+            size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.12)
+        }
+        return size
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -67,9 +75,10 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
         let imageName: String = article["media"] as! String
+        let cityName: String = (article["locality"] as! String) + (article["sublocality"] as! String)
         
         let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
-        cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, index: index)
+        cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
         return cell
 
     }

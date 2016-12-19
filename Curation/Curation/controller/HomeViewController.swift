@@ -127,7 +127,13 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         if indexPath.section == 0 {
             size = CGSize.init(width: sw, height: (sw-20)/1.618)
         }else {
-            size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.15)
+            if sw == 320 {
+                size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.25)
+            }else if sw == 375 {
+                size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.18)
+            }else {
+                size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.12)
+            }
         }
         return size
     }
@@ -177,14 +183,15 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
         let imageName: String = article["media"] as! String
+        let cityName: String = (article["locality"] as! String) + (article["sublocality"] as! String)
         
         if indexPath.section == 0 {
             let cell: FirstArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: firstCellIdentifer, for: indexPath) as! FirstArticleCollectionCell
-            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, index: index)
+            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
             return cell
         }else {
             let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
-            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, index: index)
+            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
             return cell
         }
     }
