@@ -12,7 +12,7 @@ protocol FavoriteListViewDelegate {
     func favoriteListView(touchedArticleButton message: String)
 }
 
-class FavoriteListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavoriteListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarControllerDelegate {
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -22,12 +22,15 @@ class FavoriteListViewController: UIViewController, UITableViewDelegate, UITable
     let cellIdentifer = "FavoriteCell"
     let cellHeight: CGFloat = 95
     
+    var refreshControl:UIRefreshControl!
+    
     //Article
     var articles = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        refreshEveryViewWillApper()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,14 +42,26 @@ class FavoriteListViewController: UIViewController, UITableViewDelegate, UITable
         favoritesTable.delegate = self
         let nib = UINib(nibName: cellIdentifer, bundle: nil)
         favoritesTable.register(nib, forCellReuseIdentifier: cellIdentifer)
+        
+        //多分必要ない
+        /*
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString.init(string: "")
+        refreshControl.addTarget(self, action: #selector(FavoriteListViewController.refreshFavoriteList), for: .valueChanged)
+        favoritesTable.addSubview(refreshControl)
+        */
     }
     
     func refreshEveryViewWillApper() {
-        //お気に入り一覧を取得
-        articles = appDelegate.DBManager.getFavoriteArticles()
-        favoritesTable.reloadData()
+        refreshFavoriteList()
     }
     
+    func refreshFavoriteList() {
+        articles = appDelegate.DBManager.getFavoriteArticles()
+        favoritesTable.reloadData()
+        /*refreshControl.endRefreshing()*/
+    }
+
     //MARK: - TABLE
     
     //セルの高さ

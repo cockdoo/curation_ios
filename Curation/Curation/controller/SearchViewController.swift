@@ -69,7 +69,6 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     func refreshEveryViewWillApper() {
         appDelegate.LManager.delegate = self
         self.tabBarController?.delegate = self
-//        startEdit()
         setAreaList()
     }
     
@@ -108,6 +107,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
             if let placemarks = placemarks {
                 guard let place = placemarks.first else { return }
                 self.getArticlesWithLocation(lat: (place.location?.coordinate.latitude)!, lng: (place.location?.coordinate.latitude)!)
+                self.appDelegate.global.searchedPlaceName = self.searchField.text!
             }
             
         })
@@ -135,8 +135,12 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     @IBAction func touchedSerchCurrentLocationButton(_ sender: Any) {
         endEdit()
         isSearch = true
-        appDelegate.LManager.startUpdatingLocation()
-        Common().checkLocationAuthorize(target: self)
+        if Common().isLocationAuthorize() {
+            getArticlesWithLocation(lat: appDelegate.LManager.lat, lng: appDelegate.LManager.lng)
+            appDelegate.global.searchedPlaceName = "現在地"
+        }else {
+            Common().checkLocationAuthorize(target: self)
+        }
     }
     
     func locationManager(didUpdatingLocation message: String) {
@@ -144,10 +148,10 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
             return
         }
         print("位置情報取得完了！")
-        let lat = appDelegate.LManager.lat
-        let lng = appDelegate.LManager.lng
-        getArticlesWithLocation(lat: lat, lng: lng)
-        isSearch = false
+//        let lat = appDelegate.LManager.lat
+//        let lng = appDelegate.LManager.lng
+//        getArticlesWithLocation(lat: lat, lng: lng)
+//        isSearch = false
     }
 
     func getArticlesWithLocation(lat: Double, lng: Double) {
@@ -193,6 +197,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         let lat = areaList[indexPath.row]["lat"] as! Double
         let lng = areaList[indexPath.row]["lng"] as! Double
         getArticlesWithLocation(lat: lat, lng: lng)
+        appDelegate.global.searchedPlaceName = areaList[indexPath.row]["cityName"] as! String
     }
     
     //記事を取得できたときに呼ばれる

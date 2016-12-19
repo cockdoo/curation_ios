@@ -9,12 +9,15 @@
 import UIKit
 import PageMenu
 
-class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteListViewDelegate, FavoriteMapViewDelegate {
+
+class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteListViewDelegate, FavoriteMapViewDelegate, UITabBarControllerDelegate {
     
     @IBOutlet weak var pageMenuCover: UIView!
     var pageMenu: CAPSPageMenu?
 
     var alreadyAddSubview: Bool!
+    
+    var pageMenuCoverFrame: CGRect!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +30,25 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        refreshEveryViewWillApper()
+        if alreadyAddSubview! {
+            print("C")
+            setPageMenuController()
+        }
+    }
+    
+    func refreshEveryViewWillApper() {
+        self.tabBarController?.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
-        if alreadyAddSubview! {
-           return
+        pageMenuCoverFrame = pageMenuCover.frame
+        if !alreadyAddSubview {
+            setPageMenuController()
         }
+    }
+    
+    func setPageMenuController() {
         
         var controllerArray : [UIViewController] = []
         let list: FavoriteListViewController! = UIStoryboard(name: "FavoriteList", bundle: nil).instantiateInitialViewController() as! FavoriteListViewController!
@@ -59,7 +75,7 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
             .menuItemFont(UIFont.init(name: "Gotham Rounded", size: 15)!),
             .menuItemFont(UIFont.boldSystemFont(ofSize: 15))
         ]
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect.init(x: 0, y: 0, width: pageMenuCover.frame.width, height: pageMenuCover.frame.height), pageMenuOptions: parameters)
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect.init(x: 0, y: 0, width: pageMenuCoverFrame.width, height: pageMenuCoverFrame.height), pageMenuOptions: parameters)
         pageMenuCover.addSubview(pageMenu!.view)
         pageMenu?.delegate = self
         

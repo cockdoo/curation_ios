@@ -15,9 +15,11 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     var sw: CGFloat!
     var sh: CGFloat!
     
-    //Table
+    
+    
     @IBOutlet weak var articleCollectionView: UICollectionView!
     let cellIdentifer = "ArticleCollectionCell"
+    @IBOutlet weak var titleLabel: UILabel!
     
     //Article
     var articles = [AnyObject]()
@@ -40,6 +42,8 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
         articles = appDelegate.global.searchResultArticles
         articleCollectionView.reloadData()
 //        print(articles)
+        
+        titleLabel.text = appDelegate.global.searchedPlaceName
     }
     
     //MARK: Collection View
@@ -69,8 +73,7 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let index = indexPath.row + 1
-        
+        let index = indexPath.row
         let article = articles[index] as AnyObject
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String

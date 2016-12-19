@@ -24,7 +24,7 @@ class FirstArticleCollectionCell: UICollectionViewCell {
         titleLabel.attributedText = attributedText
         titleLabel.font = UIFont.boldSystemFont(ofSize: titleLabel.font.pointSize)
         titleLabel.layer.shadowColor = UIColor.black.cgColor
-        titleLabel.layer.shadowOpacity = 0.5
+        titleLabel.layer.shadowOpacity = 0.3
         titleLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         titleLabel.layer.shadowRadius = 5
         

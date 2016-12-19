@@ -13,11 +13,13 @@ class Global: NSObject {
     var selectedArticle: AnyObject!
     var searchResultArticles: [AnyObject]!
     var isBackFromSearchResultView: Bool!
+    var searchedPlaceName: String!
     
     override init() {
         super.init()
         selectedArticle = () as AnyObject!
         searchResultArticles = [AnyObject]()
         isBackFromSearchResultView = false
+        searchedPlaceName = ""
     }
 }
