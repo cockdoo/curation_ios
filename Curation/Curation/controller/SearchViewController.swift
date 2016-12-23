@@ -93,6 +93,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     
     func searchFromFieldContent() {
         if !searchField.text!.isEmpty {
+            appDelegate.global.showLoadingView(view: self.view, messege: nil)
             searchLocationFromAddress()
         }
     }
@@ -101,7 +102,8 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         CLGeocoder().geocodeAddressString(searchField.text!, in: nil, completionHandler: { (placemarks, error) in
             if error != nil {
                 print("Search Error:\(error)")
-                Common().showAlert(title: "検索失敗", message: "該当する場所がありませんでした。", target: self)
+                self.appDelegate.global.removeLoadingView()
+                Common().showAlert(title: "検索失敗", message: "該当する場所がありませんでした。", target: self, popView: false)
                 return
             }
             if let placemarks = placemarks {
@@ -136,6 +138,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         endEdit()
         isSearch = true
         if Common().isLocationAuthorize() {
+            appDelegate.global.showLoadingView(view: self.view, messege: nil)
             getArticlesWithLocation(lat: appDelegate.LManager.lat, lng: appDelegate.LManager.lng)
             appDelegate.global.searchedPlaceName = "現在地"
         }else {
@@ -196,17 +199,19 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         endEdit()
         let lat = areaList[indexPath.row]["lat"] as! Double
         let lng = areaList[indexPath.row]["lng"] as! Double
+        appDelegate.global.showLoadingView(view: self.view, messege: nil)
         getArticlesWithLocation(lat: lat, lng: lng)
         appDelegate.global.searchedPlaceName = areaList[indexPath.row]["cityName"] as! String
     }
     
     //記事を取得できたときに呼ばれる
     func apiManager(didGetArticles articles: [AnyObject]) {
+        appDelegate.global.removeLoadingView()
         if articles.count > 0 {
             appDelegate.global.searchResultArticles = articles
             transitionToSearchResultView()
         }else {
-            Common().showAlert(title: "検索結果", message: "該当記事がありませんでした。", target: self)
+            Common().showAlert(title: "検索結果", message: "該当記事がありませんでした。", target: self, popView: false)
         }
     }
     

@@ -10,7 +10,6 @@ import UIKit
 import SwiftyGif
 
 class ArticleViewController: UIViewController, UIWebViewDelegate {
-    
     @IBOutlet weak var webView: UIWebView!
     
     //Commons
@@ -35,6 +34,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var ikitaiLabel: UILabel!
     @IBOutlet weak var tizuLabel: UILabel!
     
+    var loadCount: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
@@ -54,6 +55,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         toolView.layer.shadowRadius = 1
         ikitaiLabel.font = UIFont.boldSystemFont(ofSize: ikitaiLabel.font.pointSize)
         tizuLabel.font = UIFont.boldSystemFont(ofSize: tizuLabel.font.pointSize)
+        loadCount = 0
         loadWebView()
     }
     
@@ -77,10 +79,22 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
         print("webview did start load")
+        loadCount =  loadCount + 1
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        appDelegate.global.showLoadingView(view: self.view, messege: nil)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         print("webview did finish load")
+        loadCount =  loadCount - 1
+        if loadCount > 0 {
+            return;
+        }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        print("finish all loading")
+        
+        appDelegate.global.removeLoadingView()
         if webView.canGoBack {
             webPrevButton.isUserInteractionEnabled = true
             webPrevButton.setImage(UIImage.init(named: "web_prev_on.png"), for: .normal)
@@ -99,6 +113,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         print("読み込み失敗")
+        appDelegate.global.removeLoadingView()
+        Common().showAlert(title: "", message: "読み込みに失敗しました", target: self, popView: true)
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -119,6 +135,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         }else {
             if favoAnimationView != nil {
                 favoAnimationView.removeFromSuperview()
+                favoAnimationView = nil
             }
             favoImageView.image = UIImage(named: "favo_off.png")
             ikitaiLabel.textColor = Colors().subBlack

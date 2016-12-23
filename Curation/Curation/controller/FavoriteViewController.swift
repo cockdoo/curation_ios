@@ -32,7 +32,6 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
     override func viewWillAppear(_ animated: Bool) {
         refreshEveryViewWillApper()
         if alreadyAddSubview! {
-            print("C")
             setPageMenuController()
         }
     }

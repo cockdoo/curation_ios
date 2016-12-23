@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import GoogleMaps
+import MapKit
 
-class FavoriteMapView: GMSMapView {
+class FavoriteMapView: MKMapView {
     
-    var markers = [GMSMarker]()
+    var markers = [MKAnnotation]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,37 +21,43 @@ class FavoriteMapView: GMSMapView {
     }
     
     func setMarkers(objects: [AnyObject]) {
-        markers = [GMSMarker]()
+        markers = [MKAnnotation]()
         
         for (index, object) in objects.enumerated() {
             let lat = Double(object["lat"] as! String)!
             let lng = Double(object["lng"] as! String)!
-            let title = object["title"] as! String
             
             let position = CLLocationCoordinate2DMake(lat, lng)
-            let marker = GMSMarker(position: position)
 //            marker.title = title
 //            let pinName = "pin_\(num).png"
 //            let img: UIImage! = UIImage(named: pinName)
 //            marker.icon = img
-            marker.userData = index
-            marker.map = self
-            markers.append(marker)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = position
+            annotation.title = "\(index)"
+            self.addAnnotation(annotation)
+            
+            markers.append(annotation)
         }
     }
     
     func resetMarkers() {
         for marker in markers {
-            marker.map = nil
+            self.removeAnnotation(marker)
         }
     }
     
     func setCameraPosition(lat: Double, lng: Double) {
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 14)
-        self.camera = camera
+        var cr: MKCoordinateRegion = self.region
+        cr.center = CLLocationCoordinate2DMake(lat, lng)
+        cr.span = MKCoordinateSpanMake(0.01, 0.01)
+        self.setRegion(cr, animated: false)
     }
     
     func animateCameraPosition(lat: Double, lng: Double) {
-        self.animate(toLocation: CLLocationCoordinate2D.init(latitude: lat, longitude: lng))
+        var cr: MKCoordinateRegion = self.region
+        cr.center = CLLocationCoordinate2DMake(lat, lng)
+        self.setRegion(cr, animated: true)
     }
 }

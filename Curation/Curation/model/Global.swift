@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SVProgressHUD
+import SVProgressHUD
 
 class Global: NSObject {
     var selectedArticle: AnyObject!
@@ -21,5 +21,31 @@ class Global: NSObject {
         searchResultArticles = [AnyObject]()
         isBackFromSearchResultView = false
         searchedPlaceName = ""
+    }
+    
+    var blackView: UIView?
+    func showLoadingView(view: UIView, messege: String?) {
+        if blackView != nil {
+            return
+        }
+        blackView = UIView.init(frame: view.frame)
+        blackView?.backgroundColor = UIColor.black
+        blackView?.alpha = 0.1
+        view.addSubview(blackView!)
+        
+        if messege != nil {
+            SVProgressHUD.show(withStatus: messege)
+        }else {
+            SVProgressHUD.show()
+        }
+    }
+    
+    func removeLoadingView() {
+        if blackView != nil {
+            blackView?.removeFromSuperview()
+            blackView = nil
+        }
+        blackView?.removeFromSuperview()
+        SVProgressHUD.dismiss()
     }
 }

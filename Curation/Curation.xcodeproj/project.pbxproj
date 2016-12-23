@@ -111,6 +111,8 @@
 		78CF525A1E026567000BDA1B /* SearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF52581E026567000BDA1B /* SearchNavigationController.swift */; };
 		78CF525B1E026567000BDA1B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF52591E026567000BDA1B /* TabBarController.swift */; };
 		78CF525D1E02656F000BDA1B /* FavoriteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF525C1E02656F000BDA1B /* FavoriteNavigationController.swift */; };
+		78DDF8A81E0D2A080067DFE8 /* NoMoveLogLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DDF8A71E0D2A080067DFE8 /* NoMoveLogLabel.swift */; };
+		78DDF8AA1E0D2A110067DFE8 /* NoMoveLogLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78DDF8A91E0D2A110067DFE8 /* NoMoveLogLabel.xib */; };
 		F69860ACF9173CD293485614 /* Pods_CurationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7887DD48E598E6D427B3D4 /* Pods_CurationUITests.framework */; };
 		FD2C786BBF3027F0199DA477 /* Pods_Curation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAED9403FE0AF9A65AB84727 /* Pods_Curation.framework */; };
 /* End PBXBuildFile section */
@@ -229,6 +231,8 @@
 		78CF52581E026567000BDA1B /* SearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationController.swift; sourceTree = "<group>"; };
 		78CF52591E026567000BDA1B /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		78CF525C1E02656F000BDA1B /* FavoriteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteNavigationController.swift; sourceTree = "<group>"; };
+		78DDF8A71E0D2A080067DFE8 /* NoMoveLogLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMoveLogLabel.swift; sourceTree = "<group>"; };
+		78DDF8A91E0D2A110067DFE8 /* NoMoveLogLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoMoveLogLabel.xib; sourceTree = "<group>"; };
 		8698F44467F05E88B8FC8F63 /* Pods-CurationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CurationTests/Pods-CurationTests.release.xcconfig"; sourceTree = "<group>"; };
 		9519DBFF31BEC9C34F34EBFE /* Pods-Curation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Curation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Curation/Pods-Curation.debug.xcconfig"; sourceTree = "<group>"; };
 		AAE861F3AE5534EB76421CEF /* Pods_CurationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -371,6 +375,8 @@
 				787238271DD6BADD007BBD3A /* FirstArticleCollectionCell.xib */,
 				788CE0941E063EDD00F31D88 /* MovesLogDayView.swift */,
 				788CE0961E063EE400F31D88 /* MovesLogDayView.xib */,
+				78DDF8A71E0D2A080067DFE8 /* NoMoveLogLabel.swift */,
+				78DDF8A91E0D2A110067DFE8 /* NoMoveLogLabel.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -637,6 +643,7 @@
 				7808DAA61DD031F10014E129 /* next.png in Resources */,
 				781841701DCF2EFC0000500A /* FavoriteMap.storyboard in Resources */,
 				78C1BF131D92B41E003E9E88 /* Assets.xcassets in Resources */,
+				78DDF8AA1E0D2A110067DFE8 /* NoMoveLogLabel.xib in Resources */,
 				785E9C1B1DCE2D5B000526B1 /* GothamRounded_Bold.otf in Resources */,
 				78676D291DA267FD00136530 /* Tutorial.storyboard in Resources */,
 				785E9C2E1DCE2D7D000526B1 /* GothamRounded-MediumItalic.otf in Resources */,
@@ -844,6 +851,7 @@
 				78BB63C91DC49B3900AA75B7 /* AreaCell.swift in Sources */,
 				78676D211DA2640C00136530 /* LocationManager.swift in Sources */,
 				78676D1F1DA2639A00136530 /* TutorialViewController.swift in Sources */,
+				78DDF8A81E0D2A080067DFE8 /* NoMoveLogLabel.swift in Sources */,
 				78C1BF0C1D92B41E003E9E88 /* AppDelegate.swift in Sources */,
 				7808DA9F1DD027D70014E129 /* FavoriteMapView.swift in Sources */,
 				78676D1B1DA262CE00136530 /* Config.swift in Sources */,

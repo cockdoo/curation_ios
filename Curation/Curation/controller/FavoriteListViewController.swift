@@ -80,10 +80,10 @@ class FavoriteListViewController: UIViewController, UITableViewDelegate, UITable
         let title: String = article["title"] as! String
         let imageUrl: String = article["imageUrl"] as! String
         let media: String = article["media"] as! String
-        
+        let location: String = (article["locality"] as! String) + (article["sublocality"] as! String)
         let cell: FavoriteCell = favoritesTable.dequeueReusableCell(withIdentifier: cellIdentifer) as! FavoriteCell
         
-        cell.setUpCell(title, imageUrl: imageUrl, media: media, index: (indexPath as NSIndexPath).row)
+        cell.setUpCell(title, imageUrl: imageUrl, media: media, location: location, index: (indexPath as NSIndexPath).row)
         return cell
     }
     

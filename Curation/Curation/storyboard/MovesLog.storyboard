@@ -37,13 +37,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="移動のきろく" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpg-AE-bMZ">
-                                        <rect key="frame" x="137" y="34" width="102" height="17"/>
+                                        <rect key="frame" x="137" y="31" width="102" height="20"/>
                                         <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn7-Sr-bXY">
-                                        <rect key="frame" x="321" y="28" width="46" height="30"/>
+                                        <rect key="frame" x="321" y="26.5" width="46" height="30"/>
                                         <state key="normal" title="閉じる"/>
                                         <connections>
                                             <action selector="touchedCloseButton:" destination="a4h-gv-ScQ" eventType="touchUpInside" id="5wR-tE-tT5"/>
@@ -89,7 +89,7 @@
                     </view>
                     <connections>
                         <outlet property="dateScrollView" destination="qVz-lq-rXk" id="PxA-iS-3bz"/>
-                        <outlet property="mapView" destination="cF0-7n-r0l" id="5DQ-9m-6FP"/>
+                        <outlet property="logMapView" destination="cF0-7n-r0l" id="54o-0o-Cvw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOr-7Y-gZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,7 @@ target 'Curation' do
   pod 'PageMenu'
   pod 'SwiftyGif'
   pod 'SlideMenuControllerSwift'
+  pod 'SVProgressHUD'
 
   # Pods for Curation
 
@@ -27,6 +28,7 @@ target 'Curation' do
   pod 'PageMenu'
   pod 'SwiftyGif'
   pod 'SlideMenuControllerSwift'
+  pod 'SVProgressHUD'
   end
 
   target 'CurationUITests' do

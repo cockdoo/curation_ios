@@ -55,6 +55,9 @@ class Favorite_Table: Object {
     dynamic var tag: String = ""
     dynamic var title: String = ""
     dynamic var imageUrl: String = ""
+    dynamic var prefecture: String = ""
+    dynamic var locality: String = ""
+    dynamic var sublocality: String = ""
 }
 
 protocol DatabaseManagerDelegate {
@@ -284,6 +287,9 @@ class DatabaseManager: NSObject {
         myFavorite.tag = obj["tag"] as! String
         myFavorite.date = obj["date"] as! String
         myFavorite.media = obj["media"] as! String
+        myFavorite.prefecture = obj["prefecture"] as! String
+        myFavorite.locality = obj["locality"] as! String
+        myFavorite.sublocality = obj["sublocality"] as! String
         
         try! myRealm.write {
             myRealm.add(myFavorite)
@@ -316,7 +322,10 @@ class DatabaseManager: NSObject {
                 "imageUrl": row.imageUrl,
                 "tag": row.tag,
                 "date": row.date,
-                "media": row.media
+                "media": row.media,
+                "prefecture": row.prefecture,
+                "locality": row.locality,
+                "sublocality": row.sublocality
             ] as AnyObject
             articles.append(article)
         }

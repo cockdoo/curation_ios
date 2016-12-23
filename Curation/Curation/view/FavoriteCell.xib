@@ -47,36 +47,52 @@
                                 <constraint firstAttribute="height" constant="0.5" id="A5s-Vf-K1o"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rss_gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="tLR-9v-Jjk">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メディア" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJk-1m-EH9">
+                            <rect key="frame" x="317" y="74.5" width="48" height="12"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="12"/>
+                            <color key="textColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin_gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="RKT-98-Mj5">
                             <rect key="frame" x="95" y="74" width="13" height="13"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="13" id="1Ef-Gh-DgW"/>
+                                <constraint firstAttribute="height" constant="13" id="P2C-dR-RCo"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2J-tN-e92">
+                            <rect key="frame" x="112" y="74.5" width="24" height="12"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="12"/>
+                            <color key="textColor" red="0.82745098039999998" green="0.82745098039999998" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rss_gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="tLR-9v-Jjk">
+                            <rect key="frame" x="300" y="74" width="13" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="13" id="hOz-MZ-UjB"/>
                                 <constraint firstAttribute="height" constant="13" id="rjW-bI-IoK"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メディア" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJk-1m-EH9">
-                            <rect key="frame" x="112" y="74.5" width="253" height="12"/>
-                            <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="12"/>
-                            <color key="textColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="TO4-k0-ec0" firstAttribute="leading" secondItem="iYN-5h-GHn" secondAttribute="trailing" constant="8" id="1UH-Uy-SqD"/>
                         <constraint firstItem="iYN-5h-GHn" firstAttribute="leading" secondItem="8Op-ZT-I3d" secondAttribute="leading" constant="8" id="3lQ-y2-kGq"/>
                         <constraint firstItem="iYN-5h-GHn" firstAttribute="top" secondItem="8Op-ZT-I3d" secondAttribute="top" constant="8" id="7iq-Z1-t7C"/>
+                        <constraint firstItem="B2J-tN-e92" firstAttribute="centerY" secondItem="RKT-98-Mj5" secondAttribute="centerY" id="94y-KP-l5Q"/>
                         <constraint firstItem="TJk-1m-EH9" firstAttribute="centerY" secondItem="tLR-9v-Jjk" secondAttribute="centerY" id="9no-lT-lQS"/>
+                        <constraint firstItem="tLR-9v-Jjk" firstAttribute="bottom" secondItem="RKT-98-Mj5" secondAttribute="bottom" id="BGH-Ml-Z3q"/>
+                        <constraint firstItem="RKT-98-Mj5" firstAttribute="leading" secondItem="TO4-k0-ec0" secondAttribute="leading" id="H0a-9P-rau"/>
                         <constraint firstAttribute="bottom" secondItem="jwT-j6-OKH" secondAttribute="bottom" id="JRu-Sy-7xf"/>
                         <constraint firstItem="TJk-1m-EH9" firstAttribute="leading" secondItem="tLR-9v-Jjk" secondAttribute="trailing" constant="4" id="QpU-ZS-fSs"/>
                         <constraint firstAttribute="trailing" secondItem="TO4-k0-ec0" secondAttribute="trailing" constant="4" id="UZC-fL-x2q"/>
                         <constraint firstItem="tLR-9v-Jjk" firstAttribute="bottom" secondItem="iYN-5h-GHn" secondAttribute="bottom" id="dwQ-jz-5UX"/>
                         <constraint firstItem="TO4-k0-ec0" firstAttribute="top" secondItem="iYN-5h-GHn" secondAttribute="top" multiplier="1.2" id="e78-RV-jxI"/>
                         <constraint firstItem="jwT-j6-OKH" firstAttribute="leading" secondItem="8Op-ZT-I3d" secondAttribute="leading" constant="8" id="g3Z-nt-Uyd"/>
-                        <constraint firstItem="tLR-9v-Jjk" firstAttribute="leading" secondItem="TO4-k0-ec0" secondAttribute="leading" id="gxh-TX-uk4"/>
                         <constraint firstAttribute="bottom" secondItem="iYN-5h-GHn" secondAttribute="bottom" constant="8" id="rNO-s0-U1r"/>
                         <constraint firstAttribute="trailing" secondItem="TJk-1m-EH9" secondAttribute="trailing" constant="10" id="rvo-EY-1wd"/>
                         <constraint firstAttribute="trailing" secondItem="jwT-j6-OKH" secondAttribute="trailing" constant="8" id="vj8-TT-Q4e"/>
+                        <constraint firstItem="B2J-tN-e92" firstAttribute="leading" secondItem="RKT-98-Mj5" secondAttribute="trailing" constant="4" id="zJG-7V-g1P"/>
                     </constraints>
                 </view>
             </subviews>
@@ -90,6 +106,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="locationLabel" destination="B2J-tN-e92" id="ypd-WB-Hrb"/>
                 <outlet property="mediaLabel" destination="TJk-1m-EH9" id="ihF-qM-rNe"/>
                 <outlet property="thumbView" destination="iYN-5h-GHn" id="oXx-gZ-OSL"/>
                 <outlet property="titleLabel" destination="TO4-k0-ec0" id="jrw-z9-ds4"/>
@@ -98,6 +115,7 @@
         </view>
     </objects>
     <resources>
+        <image name="pin_gray.png" width="64" height="64"/>
         <image name="rss_gray.png" width="28" height="28"/>
     </resources>
 </document>

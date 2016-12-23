@@ -7,18 +7,18 @@
 //
 
 import UIKit
-import GoogleMaps
+import MapKit
 
 protocol FavoriteMapViewDelegate {
     func favoriteMapView(touchedArticleButton message: String)
 }
 
-class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapViewDelegate {
+class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var delegate: FavoriteListViewDelegate!
     
-    @IBOutlet weak var mapView: FavoriteMapView!
+    @IBOutlet weak var fMapView: FavoriteMapView!
     @IBOutlet weak var infoScrollView: UIScrollView!
     let infoViewHeight: CGFloat = 80
     
@@ -58,9 +58,9 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
     }
     
     func setMarkersAndInformationViews() {
-        mapView.resetMarkers()
-        mapView.setMarkers(objects: articles)
-        mapView.delegate = self
+        fMapView.resetMarkers()
+        fMapView.setMarkers(objects: articles)
+        fMapView.delegate = self
         
         let width = infoScrollView.frame.width
         
@@ -78,7 +78,7 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
             let media = article["media"] as! String
             
             if index == 0 {
-                mapView.setCameraPosition(lat: lat, lng: lng)
+                fMapView.setCameraPosition(lat: lat, lng: lng)
             }
             
             let infoView = InformationView.instance()
@@ -89,19 +89,30 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
         isFirstSubView = false
     }
     
-    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        let index: CGFloat = CGFloat(marker.userData as! Int)
-        print("Index: \(index)")
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let annotation = view.annotation
+        if !(annotation is MKPointAnnotation) {
+            return
+        }
+        let index : CGFloat = CGFloat(atof((annotation?.title)!))
         infoScrollView.setContentOffset(CGPoint.init(x: infoScrollView.frame.width * index, y: 0), animated: true)
-        return false
     }
     
-    /*
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        appDelegate.global.selectedArticle = articles[marker.userData as! Int]
-        delegate.favoriteListView(touchedArticleButton: "")
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+        
+        let identifier = "annotaion"
+        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotation") { // 再利用できる場合はそのまま返す
+            return annotationView
+        } else { // 再利用できるアノテーションが無い場合（初回など）は生成する
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView.image = UIImage(named: "area_pin.png") // ここで好きな画像を設定します
+            return annotationView
+        }
     }
-    */
+    
     
     @IBAction func touchedPrevButton(_ sender: Any) {
         let index = infoScrollView.contentOffset.x / infoScrollView.frame.width
@@ -154,12 +165,12 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, GMSMapV
     func changeMapCameraPosition(index: Int) {
         let lat = Double(articles[index]["lat"] as! String)!
         let lng = Double(articles[index]["lng"] as! String)!
-        mapView.animateCameraPosition(lat: lat, lng: lng)
+        fMapView.animateCameraPosition(lat: lat, lng: lng)
     }
     
     
-    
     func touchedInfoView(button: UIButton) {
+        print(button.tag)
         appDelegate.global.selectedArticle = articles[button.tag]
         delegate.favoriteListView(touchedArticleButton: "")
     }

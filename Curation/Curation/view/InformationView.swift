@@ -36,7 +36,7 @@ class InformationView: UIView {
         
         articleTitleLabel.text = title
         articleTitleLabel.font = UIFont.boldSystemFont(ofSize: articleTitleLabel.font.pointSize)
-        self.tag = index
+        button.tag = index
         button.addTarget(FavoriteMapViewController(), action: #selector(FavoriteMapViewController.touchedInfoView(button:)), for: .touchUpInside)
         
         //画像を非同期で読み込む

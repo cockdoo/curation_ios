@@ -13,8 +13,9 @@ class FavoriteCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var thumbView: UIImageView!
     @IBOutlet weak var mediaLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     
-    func setUpCell(_ title: String, imageUrl: String, media: String, index: Int) {
+    func setUpCell(_ title: String, imageUrl: String, media: String, location: String, index: Int) {
         //テキスト反映&行間調整
         let attributedText = NSMutableAttributedString(string: title)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -24,6 +25,7 @@ class FavoriteCell: UITableViewCell {
         titleLabel.font = UIFont.boldSystemFont(ofSize: titleLabel.font.pointSize)
         
         mediaLabel.text = media
+        locationLabel.text = location
         
         //画像を非同期で読み込む
         let url: URL = URL(string: imageUrl)!

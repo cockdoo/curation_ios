@@ -28,25 +28,24 @@
                         <action selector="touchedCloseButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="InN-BM-VJE"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zqb-2j-jx3" customClass="GMSMapView">
-                    <rect key="frame" x="10" y="10" width="301" height="341"/>
-                    <color key="backgroundColor" red="0.97636479139999999" green="0.97653168440000004" blue="0.9763541818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uYW-mY-xVz">
+                    <rect key="frame" x="9.5" y="10" width="301" height="339"/>
+                </mapView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="zqb-2j-jx3" secondAttribute="trailing" constant="10" id="1Fb-iY-ME9"/>
+                <constraint firstItem="uYW-mY-xVz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0q1-AO-IZf"/>
                 <constraint firstAttribute="trailing" secondItem="80R-01-KXj" secondAttribute="trailing" constant="10" id="M84-IW-OBl"/>
-                <constraint firstItem="80R-01-KXj" firstAttribute="top" secondItem="zqb-2j-jx3" secondAttribute="bottom" constant="8" id="VCe-Zf-jQq"/>
-                <constraint firstItem="zqb-2j-jx3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Y4B-bg-wDe"/>
-                <constraint firstItem="zqb-2j-jx3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="b3w-NF-KkE"/>
+                <constraint firstItem="uYW-mY-xVz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="jVM-mt-QlX"/>
                 <constraint firstAttribute="bottom" secondItem="80R-01-KXj" secondAttribute="bottom" constant="10" id="l3S-xu-uW5"/>
                 <constraint firstItem="80R-01-KXj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="oSh-fM-q6y"/>
+                <constraint firstItem="80R-01-KXj" firstAttribute="top" secondItem="uYW-mY-xVz" secondAttribute="bottom" constant="10" id="rBn-gx-H66"/>
+                <constraint firstItem="80R-01-KXj" firstAttribute="width" secondItem="uYW-mY-xVz" secondAttribute="width" id="tKZ-O3-FDr"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="mapView" destination="zqb-2j-jx3" id="5ZB-te-gnv"/>
+                <outlet property="mapView" destination="uYW-mY-xVz" id="tAo-8I-9li"/>
             </connections>
             <point key="canvasLocation" x="7.5" y="-75.5"/>
         </view>

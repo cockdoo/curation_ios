@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import GoogleMaps
+import MapKit
 
-class ArticleMapView: UIView, GMSMapViewDelegate {
+class ArticleMapView: UIView {
     
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var mapView: MKMapView!
     
     class func instance() -> ArticleMapView {
         return UINib(nibName: "ArticleMapView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ArticleMapView
@@ -32,11 +32,15 @@ class ArticleMapView: UIView, GMSMapViewDelegate {
     
     func setMapCameraAndMarker(lat: Double, lng: Double) {
         let position = CLLocationCoordinate2DMake(lat, lng)
-        let marker = GMSMarker.init(position: position)
-        marker.map = mapView
         
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 14)
-        mapView.camera = camera
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = position
+        mapView.addAnnotation(annotation)
+        
+        var cr: MKCoordinateRegion = mapView.region
+        cr.center = position
+        cr.span = MKCoordinateSpanMake(0.01, 0.01)
+        mapView.setRegion(cr, animated: true)
     }
     
     @IBAction func touchedCloseButton(_ sender: Any) {

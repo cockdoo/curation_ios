@@ -31,10 +31,13 @@ open class Common: NSObject {
         }
     }
     
-    func showAlert(title: String?, message: String?, target: UIViewController) {
+    func showAlert(title: String?, message: String?, target: UIViewController, popView: Bool) {
         let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle:  UIAlertControllerStyle.alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
             (action: UIAlertAction!) -> Void in
+            if popView {
+                target.navigationController?.popViewController(animated: true)
+            }
         })
         alert.addAction(defaultAction)
         target.present(alert, animated: true, completion: nil)

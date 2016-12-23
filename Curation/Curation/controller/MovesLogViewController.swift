@@ -9,10 +9,10 @@
 import UIKit
 import MapKit
 
-class MovesLogViewController: UIViewController, UIScrollViewDelegate {
+class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var logMapView: MKMapView!
     @IBOutlet weak var dateScrollView: UIScrollView!
     
     let currentDate: Date = Date.init(timeIntervalSinceNow: TimeInterval(NSTimeZone.system.secondsFromGMT()))
@@ -24,19 +24,23 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func initialize() {
+        UIApplication.shared.setStatusBarHidden(false, with: .none)
+        
         dateScrollView.delegate = self
         
         dateScrollView.layer.shadowColor = UIColor.black.cgColor
         dateScrollView.layer.shadowOffset = CGSize.init(width: 0, height: -2)
         dateScrollView.layer.shadowOpacity = 0.5
         dateScrollView.layer.shadowRadius = 2
+        
+        logMapView.delegate = self
     }
     
     var isAlreadySet = false
     override func viewDidLayoutSubviews() {
         if !isAlreadySet {
             setDateView()
-            setDayMoveLog(dayCountFromToday: 0)
+            prepareSetDayMoveLog(dayCountFromToday: 0)
             isAlreadySet = true
         }
     }
@@ -79,11 +83,11 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate {
         
         if prevIndex != index {
             prevIndex = index
-            setDayMoveLog(dayCountFromToday: index)
+            prepareSetDayMoveLog(dayCountFromToday: index)
         }
     }
     
-    func setDayMoveLog(dayCountFromToday: Int) {
+    func prepareSetDayMoveLog(dayCountFromToday: Int) {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd"
         let todayString = dateFormater.string(from: Date())
@@ -93,7 +97,77 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate {
         let to: Date = Date.init(timeInterval: TimeInterval(-60*60*24*(dayCountFromToday-1)-1), since: todayStartDate)
         
         let locationLog = appDelegate.DBManager.getLocationLog(from: from, to: to)
-        print(locationLog)
+        
+        if prevLines != nil {
+            logMapView.remove(prevLines!)
+        }
+        if locationLog.count > 0 {
+            removeNoMoveLogLabel()
+            setDayMoveLog(locations: locationLog)
+        }else {
+            setNoMoveLogLabel()
+        }
+    }
+    
+    var prevLines: MKPolyline?
+    func setDayMoveLog(locations: [AnyObject]) {
+        var coordinates = [CLLocationCoordinate2D]()
+        var maxLat = -999.0
+        var maxLng = -999.0
+        var minLat = 999.0
+        var minLng = 999.0
+        
+        for location in locations {
+            let lat = location["lat"] as! Double
+            let lng = location["lng"] as! Double
+            let c = CLLocationCoordinate2DMake(lat, lng)
+            coordinates.append(c)
+            
+            if lat > maxLat { maxLat = lat }
+            if lng > maxLng { maxLng = lng }
+            if lat < minLat { minLat = lat }
+            if lng < minLng { minLng = lng }
+        }
+        let polyline: MKPolyline = MKPolyline.init(coordinates: coordinates, count: coordinates.count)
+        prevLines = polyline
+        logMapView.add(polyline)
+        
+        var cr: MKCoordinateRegion = logMapView.region
+        cr.center.latitude = (maxLat + minLat) / 2
+        cr.center.longitude = (maxLng + minLng) / 2
+        
+        let mapMargin:Double = 1.5;
+        let leastCoordSpan:Double = 0.005;
+        let span_x:Double = fmax(leastCoordSpan, fabs(maxLat - minLat) * mapMargin);
+        let span_y:Double = fmax(leastCoordSpan, fabs(maxLng - minLng) * mapMargin);
+        cr.span = MKCoordinateSpanMake(span_x, span_y);
+        logMapView.setRegion(cr, animated: true)
+    }
+    
+    var noLabel: NoMoveLogLabel?
+    func setNoMoveLogLabel() {
+        if noLabel != nil {
+            return
+        }
+        noLabel = NoMoveLogLabel.instance()
+        noLabel?.frame = CGRect.init(x: 0, y: 0, width: 190, height: 40)
+        noLabel?.center = logMapView.center
+        self.view.addSubview(noLabel!)
+    }
+    
+    func removeNoMoveLogLabel() {
+        if noLabel != nil {
+            noLabel?.removeFromSuperview()
+            noLabel = nil
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let myPolyLineRendere: MKPolylineRenderer = MKPolylineRenderer(overlay: overlay)
+        myPolyLineRendere.lineWidth = 7
+        myPolyLineRendere.strokeColor = UIColor.red
+        myPolyLineRendere.alpha = 0.6
+        return myPolyLineRendere
     }
     
     @IBAction func touchedCloseButton(_ sender: Any) {

@@ -54,6 +54,7 @@ PODS:
   - RealmSwift (2.0.3):
     - Realm (= 2.0.3)
   - SlideMenuControllerSwift (3.0.0)
+  - SVProgressHUD (2.0.3)
   - SwiftyGif (3.0.0)
 
 DEPENDENCIES:
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - PageMenu
   - RealmSwift
   - SlideMenuControllerSwift
+  - SVProgressHUD
   - SwiftyGif
 
 SPEC CHECKSUMS:
@@ -80,8 +82,9 @@ SPEC CHECKSUMS:
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
   RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyGif: d6b4d63de2a2a5134d8b54ba5719837319d77ef0
 
-PODFILE CHECKSUM: b732f9b24d39258dd03eb5e12be53d6aa30883f6
+PODFILE CHECKSUM: 19cba169eb8b64f5ba7099d1aa1cdea60afeb3e8
 
 COCOAPODS: 1.1.1

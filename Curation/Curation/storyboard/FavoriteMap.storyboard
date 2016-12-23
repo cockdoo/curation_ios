@@ -21,10 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBY-kw-BRq" customClass="FavoriteMapView" customModule="Curation" customModuleProvider="target">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nV9-vy-411" customClass="FavoriteMapView" customModule="Curation" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            </mapView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTZ-iD-VcN">
                                 <rect key="frame" x="18" y="577" width="339" height="80"/>
                                 <constraints>
@@ -57,23 +56,23 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="hcE-6Q-5yM" firstAttribute="top" secondItem="jBY-kw-BRq" secondAttribute="bottom" id="3KI-IB-pMD"/>
-                            <constraint firstAttribute="trailing" secondItem="jBY-kw-BRq" secondAttribute="trailing" id="5uH-ug-caW"/>
-                            <constraint firstItem="jBY-kw-BRq" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" id="EXH-TI-0hf"/>
+                            <constraint firstItem="hcE-6Q-5yM" firstAttribute="top" secondItem="nV9-vy-411" secondAttribute="bottom" id="284-Zi-maG"/>
+                            <constraint firstItem="nV9-vy-411" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" id="358-Z1-lUx"/>
+                            <constraint firstItem="nV9-vy-411" firstAttribute="top" secondItem="an7-Dy-WzE" secondAttribute="bottom" id="4e0-21-sQc"/>
                             <constraint firstItem="IXx-xZ-ulB" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" id="G3s-0a-j75"/>
                             <constraint firstItem="hcE-6Q-5yM" firstAttribute="top" secondItem="KTZ-iD-VcN" secondAttribute="bottom" constant="10" id="O8o-0d-eNF"/>
-                            <constraint firstItem="jBY-kw-BRq" firstAttribute="top" secondItem="an7-Dy-WzE" secondAttribute="bottom" id="SOx-lw-VhG"/>
                             <constraint firstItem="KTZ-iD-VcN" firstAttribute="leading" secondItem="oof-Ln-lGX" secondAttribute="leading" constant="18" id="Wfc-Uk-eAa"/>
                             <constraint firstItem="MOI-je-ifl" firstAttribute="centerY" secondItem="KTZ-iD-VcN" secondAttribute="centerY" id="ep9-oX-HMU"/>
                             <constraint firstAttribute="trailing" secondItem="KTZ-iD-VcN" secondAttribute="trailing" constant="18" id="lUb-i7-Lj5"/>
+                            <constraint firstAttribute="trailing" secondItem="nV9-vy-411" secondAttribute="trailing" id="ldG-8w-vKu"/>
                             <constraint firstItem="IXx-xZ-ulB" firstAttribute="centerY" secondItem="KTZ-iD-VcN" secondAttribute="centerY" id="uM9-6T-kzc"/>
                             <constraint firstAttribute="trailing" secondItem="MOI-je-ifl" secondAttribute="trailing" id="xk8-lV-wMx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rCX-TM-RZU"/>
                     <connections>
+                        <outlet property="fMapView" destination="nV9-vy-411" id="84E-Ik-gE8"/>
                         <outlet property="infoScrollView" destination="KTZ-iD-VcN" id="BYJ-LJ-iVU"/>
-                        <outlet property="mapView" destination="jBY-kw-BRq" id="RxU-lq-4ll"/>
                         <outlet property="nextButton" destination="MOI-je-ifl" id="GOY-K6-DzC"/>
                         <outlet property="prevButton" destination="IXx-xZ-ulB" id="ssc-cg-z0l"/>
                     </connections>
