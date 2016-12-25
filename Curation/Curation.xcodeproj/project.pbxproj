@@ -30,6 +30,8 @@
 		782BAF321E028D1200F55139 /* arrow_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 782BAF311E028D1200F55139 /* arrow_back.png */; };
 		782FDB051DD0B948000112CF /* rss_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 782FDB041DD0B948000112CF /* rss_gray.png */; };
 		783448E01E0282DD0089EE7C /* current_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 783448DF1E0282DD0089EE7C /* current_location.png */; };
+		783D42961E0FC57F009DCA59 /* logo_header.png in Resources */ = {isa = PBXBuildFile; fileRef = 783D42951E0FC57F009DCA59 /* logo_header.png */; };
+		783D42981E0FCBAA009DCA59 /* sidemenu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 783D42971E0FCBAA009DCA59 /* sidemenu_button.png */; };
 		784871A31E07B10C00924272 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784871A21E07B10C00924272 /* MapKit.framework */; };
 		784C5E3D1E02843C0087D20C /* arrow_right_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 784C5E3C1E02843C0087D20C /* arrow_right_small.png */; };
 		7858AFF21E0F7F1A007E27F5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7858AFF11E0F7F1A007E27F5 /* NotificationManager.swift */; };
@@ -161,6 +163,8 @@
 		782BAF311E028D1200F55139 /* arrow_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_back.png; path = assets/images/arrow_back.png; sourceTree = "<group>"; };
 		782FDB041DD0B948000112CF /* rss_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rss_gray.png; path = assets/images/rss_gray.png; sourceTree = "<group>"; };
 		783448DF1E0282DD0089EE7C /* current_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = current_location.png; path = assets/images/current_location.png; sourceTree = "<group>"; };
+		783D42951E0FC57F009DCA59 /* logo_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_header.png; path = assets/images/logo_header.png; sourceTree = "<group>"; };
+		783D42971E0FCBAA009DCA59 /* sidemenu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sidemenu_button.png; path = assets/images/sidemenu_button.png; sourceTree = "<group>"; };
 		784871A21E07B10C00924272 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		784C5E3C1E02843C0087D20C /* arrow_right_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right_small.png; path = assets/images/arrow_right_small.png; sourceTree = "<group>"; };
 		7858AFF11E0F7F1A007E27F5 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -298,6 +302,8 @@
 		785E9C081DCE19ED000526B1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				783D42971E0FCBAA009DCA59 /* sidemenu_button.png */,
+				783D42951E0FC57F009DCA59 /* logo_header.png */,
 				782BAF311E028D1200F55139 /* arrow_back.png */,
 				784C5E3C1E02843C0087D20C /* arrow_right_small.png */,
 				783448DF1E0282DD0089EE7C /* current_location.png */,
@@ -621,6 +627,7 @@
 				7808DAA71DD031F10014E129 /* prev.png in Resources */,
 				7887E3681DD9CEEB0073C0B8 /* web_prev_off.png in Resources */,
 				785E9C181DCE2CFD000526B1 /* GothamRounded-Medium.otf in Resources */,
+				783D42981E0FCBAA009DCA59 /* sidemenu_button.png in Resources */,
 				785E9C171DCE1D4C000526B1 /* rss.png in Resources */,
 				787238261DD6AEB3007BBD3A /* ArticleCollectionCell.xib in Resources */,
 				788CE0971E063EE400F31D88 /* MovesLogDayView.xib in Resources */,
@@ -661,6 +668,7 @@
 				789DAB021E056DCC007E4559 /* MovesLog.storyboard in Resources */,
 				7805EB4E1DC2F7C200C95DA9 /* FavoriteCell.xib in Resources */,
 				7818416C1DCF298C0000500A /* back.png in Resources */,
+				783D42961E0FC57F009DCA59 /* logo_header.png in Resources */,
 				78BB63CB1DC49B4600AA75B7 /* AreaCell.xib in Resources */,
 				783448E01E0282DD0089EE7C /* current_location.png in Resources */,
 				7887E3671DD9CEEB0073C0B8 /* web_next_on.png in Resources */,

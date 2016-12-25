@@ -35,7 +35,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grz-iW-chd">
-                                        <rect key="frame" x="5" y="37" width="18" height="18"/>
+                                        <rect key="frame" x="7" y="36.5" width="18" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="18" id="K4G-RI-P8t"/>
                                             <constraint firstAttribute="height" constant="18" id="Zbp-mS-ipK"/>
@@ -57,7 +57,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="たいとる" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6T-Sj-bYi">
                                         <rect key="frame" x="50" y="38" width="275" height="15"/>
                                         <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="15"/>
-                                        <color key="textColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.25490196079999999" green="0.26274509800000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -69,7 +69,7 @@
                                     <constraint firstAttribute="bottom" secondItem="VpE-wF-HwL" secondAttribute="bottom" id="KVe-Nt-5Ot"/>
                                     <constraint firstAttribute="trailing" secondItem="VpE-wF-HwL" secondAttribute="trailing" id="PpJ-fv-yiZ"/>
                                     <constraint firstItem="c6T-Sj-bYi" firstAttribute="centerY" secondItem="grz-iW-chd" secondAttribute="centerY" id="ahm-s6-MUd"/>
-                                    <constraint firstItem="grz-iW-chd" firstAttribute="leading" secondItem="nP4-oN-rjE" secondAttribute="leading" constant="5" id="deb-mu-NOR"/>
+                                    <constraint firstItem="grz-iW-chd" firstAttribute="leading" secondItem="nP4-oN-rjE" secondAttribute="leading" constant="7" id="deb-mu-NOR"/>
                                     <constraint firstAttribute="height" constant="64" id="qZe-J7-2NJ"/>
                                     <constraint firstItem="VpE-wF-HwL" firstAttribute="leading" secondItem="nP4-oN-rjE" secondAttribute="leading" id="tc5-CO-Xl5"/>
                                 </constraints>
@@ -87,7 +87,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地図" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHN-Wy-HU9">
                                         <rect key="frame" x="315" y="33" width="60" height="10"/>
                                         <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="10"/>
-                                        <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.25490196079999999" green="0.26274509800000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favo_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="aA4-aG-OhI">
@@ -98,7 +98,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIa-w5-VSm">
-                                        <rect key="frame" x="46" y="0.0" width="45" height="45"/>
+                                        <rect key="frame" x="50" y="0.0" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="DXX-dc-TR5"/>
                                             <constraint firstAttribute="width" constant="45" id="qoD-OU-kN5"/>
@@ -124,7 +124,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Av-Pq-4nx">
-                                        <rect key="frame" x="1" y="0.0" width="45" height="45"/>
+                                        <rect key="frame" x="5" y="0.0" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="5iH-uX-9L5"/>
                                             <constraint firstAttribute="height" constant="45" id="daS-TC-2nM"/>
@@ -164,7 +164,7 @@
                                 <constraints>
                                     <constraint firstItem="cGl-xE-Df3" firstAttribute="top" secondItem="aA4-aG-OhI" secondAttribute="bottom" constant="-5" id="4hY-Ko-oRu"/>
                                     <constraint firstItem="sWD-N1-MMf" firstAttribute="centerX" secondItem="ffa-ZT-Xwz" secondAttribute="centerX" id="5od-5Q-sCe"/>
-                                    <constraint firstItem="5Av-Pq-4nx" firstAttribute="leading" secondItem="ffa-ZT-Xwz" secondAttribute="leading" constant="1" id="6Id-Np-xng"/>
+                                    <constraint firstItem="5Av-Pq-4nx" firstAttribute="leading" secondItem="ffa-ZT-Xwz" secondAttribute="leading" constant="5" id="6Id-Np-xng"/>
                                     <constraint firstAttribute="bottom" secondItem="sWD-N1-MMf" secondAttribute="bottom" id="7ec-Cv-NbN"/>
                                     <constraint firstAttribute="bottom" secondItem="8RZ-2T-y9t" secondAttribute="bottom" id="9E9-ZX-2d2"/>
                                     <constraint firstItem="wIa-w5-VSm" firstAttribute="leading" secondItem="5Av-Pq-4nx" secondAttribute="trailing" id="EKW-Og-4wh"/>
@@ -222,8 +222,8 @@
     <resources>
         <image name="arrow_back.png" width="36" height="36"/>
         <image name="favo_off.png" width="100" height="100"/>
-        <image name="mapicon.png" width="102" height="78"/>
-        <image name="web_next_off.png" width="90" height="90"/>
-        <image name="web_prev_off.png" width="90" height="90"/>
+        <image name="mapicon.png" width="90" height="69"/>
+        <image name="web_next_off.png" width="100" height="100"/>
+        <image name="web_prev_off.png" width="100" height="100"/>
     </resources>
 </document>

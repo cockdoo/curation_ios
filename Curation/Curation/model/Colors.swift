@@ -14,5 +14,5 @@ public class Colors {
     
     let subBlack = UIColor(red: 142/255, green: 143/255, blue: 137/255, alpha: 1.0)
     let mainBlack = UIColor(red: 38/255, green: 38/255, blue: 37/255, alpha: 1.0)
-    let mainYellow = UIColor(red: 200/255, green: 219/255, blue: 18/255, alpha: 1.0)
+    let mainYellow = UIColor(red: 175/255, green: 224/255, blue: 23/255, alpha: 1.0)
 }
