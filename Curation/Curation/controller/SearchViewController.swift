@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class SearchViewController: UIViewController, APIManagerDelegate, LocationManagerDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController, APIManagerDelegate, LocationManagerDelegate, NotificationManagerDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let apiManager = APIManager()
@@ -68,6 +68,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     
     func refreshEveryViewWillApper() {
         appDelegate.LManager.delegate = self
+        appDelegate.NManager.delegate = self
         self.tabBarController?.delegate = self
         setAreaList()
     }
@@ -218,6 +219,17 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     func transitionToSearchResultView() {
         let storyboard = UIStoryboard(name: "SearchResult", bundle: nil)
         let nextView: UIViewController! = storyboard.instantiateInitialViewController()
+        self.navigationController?.pushViewController(nextView, animated: true)
+    }
+    
+    func notificationManager(deniedAuthorization message: String) {
+        transitionToArticleView()
+    }
+    
+    func transitionToArticleView() {
+        let storyboard = UIStoryboard(name: "Article", bundle: nil)
+        let nextView: UIViewController! = storyboard.instantiateInitialViewController()
+        nextView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nextView, animated: true)
     }
 }

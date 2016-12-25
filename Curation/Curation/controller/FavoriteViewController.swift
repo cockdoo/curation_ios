@@ -10,7 +10,8 @@ import UIKit
 import PageMenu
 
 
-class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteListViewDelegate, FavoriteMapViewDelegate, UITabBarControllerDelegate {
+class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteListViewDelegate, FavoriteMapViewDelegate, NotificationManagerDelegate, UITabBarControllerDelegate {
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var pageMenuCover: UIView!
     var pageMenu: CAPSPageMenu?
@@ -29,6 +30,7 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
         alreadyAddSubview = false
     }
     
+    
     let list: FavoriteListViewController! = UIStoryboard(name: "FavoriteList", bundle: nil).instantiateInitialViewController() as! FavoriteListViewController!
     let map: FavoriteMapViewController! = UIStoryboard(name: "FavoriteMap", bundle: nil).instantiateInitialViewController() as! FavoriteMapViewController!
     
@@ -38,6 +40,7 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
     
     func refreshEveryViewWillApper() {
         self.tabBarController?.delegate = self
+        appDelegate.NManager.delegate = self
         if alreadyAddSubview! {
             list.superViewWillApperd()
             map.superViewWillApperd()
@@ -52,7 +55,6 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
     }
     
     func setPageMenuController() {
-        print("せっと！")
         var controllerArray : [UIViewController] = []
         
         list.delegate = self
@@ -96,12 +98,14 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
         transitionToArticleView()
     }
     
+    func notificationManager(deniedAuthorization message: String) {
+        transitionToArticleView()
+    }
+    
     func transitionToArticleView() {
         let storyboard = UIStoryboard(name: "Article", bundle: nil)
         let nextView: UIViewController! = storyboard.instantiateInitialViewController()
         nextView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nextView, animated: true)
     }
-    
-    
 }

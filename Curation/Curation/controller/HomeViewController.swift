@@ -9,7 +9,7 @@
 import UIKit
 import SlideMenuControllerSwift
 
-class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
+class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, NotificationManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
     
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -63,16 +63,27 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         articleCollectionView.register(nib, forCellWithReuseIdentifier: cellIdentifer)
         articleCollectionView.register(nib2, forCellWithReuseIdentifier: firstCellIdentifer)
         
-        //データベースを更新する
+        //位置情報履歴のデータベースを更新する
         appDelegate.DBManager.addLocationDataToCityNameTable()
         
         Common().checkLocationAuthorize(target: self)
+        
+        
+        let application = UIApplication.shared
+        if #available(iOS 8.0, *) {
+            let notiSettings = UIUserNotificationSettings.init(types: [.alert, .sound], categories: nil)
+            application.registerUserNotificationSettings(notiSettings)
+            application.registerForRemoteNotifications()
+        } else{
+            application.registerForRemoteNotifications()
+        }
     }
-    
+        
     func refreshEveryViewWillApper() {
         //デリゲート設定
         appDelegate.LManager.delegate = self
         appDelegate.DBManager.delegate = self
+        appDelegate.NManager.delegate = self
         self.tabBarController?.delegate = self
     }
     
@@ -106,12 +117,11 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     }
     
     func locationManager(didUpdatingLocation message: String) {
-        print("位置情報取得できた")
+        print("位置情報取得できた @HomeViewController")
     }
     
     //記事を取得できたときに呼ばれる
     func apiManager(didGetArticles articles: [AnyObject]) {
-//        print(articles)
         self.articles = articles
         if self.articles.count % 2 == 0 {
             self.articles.removeLast()
@@ -205,6 +215,10 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         }
         print("Index: \(index)")
         appDelegate.global.selectedArticle = articles[index]
+        transitionToArticleView()
+    }
+    
+    func notificationManager(deniedAuthorization message: String) {
         transitionToArticleView()
     }
     

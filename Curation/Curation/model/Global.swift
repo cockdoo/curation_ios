@@ -14,6 +14,7 @@ class Global: NSObject {
     var searchResultArticles: [AnyObject]!
     var isBackFromSearchResultView: Bool!
     var searchedPlaceName: String!
+    var isNotification: Bool!
     
     override init() {
         super.init()
@@ -21,6 +22,7 @@ class Global: NSObject {
         searchResultArticles = [AnyObject]()
         isBackFromSearchResultView = false
         searchedPlaceName = ""
+        isNotification = false
     }
     
     var blackView: UIView?

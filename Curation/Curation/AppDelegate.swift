@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var DBManager: DatabaseManager!
     var LManager: LocationManager!
     var global: Global!
+    var NManager: NotificationManager!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -40,9 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ud = UserDefaults.standard
         
         //初期値を設定
-        let defaults: [String: NSObject] = ["FIRST_LAUNCH": true as NSObject]
+        let defaults: [String: NSObject] = [
+            "FIRST_LAUNCH": true as NSObject,
+            "PUSHED_TIME": Date() as NSObject
+        ]
         ud.register(defaults: defaults)
-        
+        ud.synchronize()
         
         var firstSb: UIStoryboard!
         
@@ -61,14 +65,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LManager = LocationManager.init()
         DBManager = DatabaseManager.init()
         global = Global.init()
+        NManager = NotificationManager.init()
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
-        // ここに処理内容
-        print("Background fetch foo")
+        global.isNotification = true
         LManager.locationManager.startUpdatingLocation()
         completionHandler(UIBackgroundFetchResult.newData)
+        
+    }
+    
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        if application.applicationState != .active{
+            let userInfo = notification.userInfo
+            global.selectedArticle = userInfo as AnyObject!
+            application.cancelLocalNotification(notification)
+            
+            let notification = NSNotification(
+                name: NSNotification.Name(rawValue: "article_push"),
+                object: nil
+            )
+            NotificationCenter.default.post(notification as Notification)
+            
+        }else{
+            application.cancelLocalNotification(notification)
+        }
+    }
+    
+    private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Override point for customization after application launch.
+        //復帰したかどうか
+//        if let notification = launchOptions[UIApplicationLaunchOptionsKey.localNotification] as? UILocalNotification, let userInfo = notification.userInfo{
+//            application.applicationIconBadgeNumber = 0
+//            application.cancelLocalNotification(notification)
+//        }
+        ////////以下略(通知許可の)
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

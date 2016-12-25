@@ -28,6 +28,7 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, MKMapVi
     var isFirstSubView: Bool!
     
     var articles = [AnyObject]()
+    var isInitializedSelf: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, MKMapVi
     func initialize() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         infoScrollView.delegate = self
+        isInitializedSelf = true
     }
     
     func refreshEveryViewWillApper() {
@@ -55,7 +57,9 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, MKMapVi
     }
     
     func superViewWillApperd() {
-        refreshFavoriteList()
+        if isInitializedSelf {
+            refreshFavoriteList()
+        }
     }
     
     func refreshFavoriteList(){

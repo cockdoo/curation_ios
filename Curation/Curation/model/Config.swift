@@ -24,6 +24,9 @@ open class Config {
     //仮想ペルソナの生活圏データを表示するか否か
     let isVirtualPersona: Bool = true
     
+    //次の記事の通知を出す最低時間
+    let hourPushInterval: TimeInterval = 12
+    
     //仮想ペルソナの生活圏
     let virtualLivingArea = [
         [

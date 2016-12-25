@@ -32,6 +32,7 @@
 		783448E01E0282DD0089EE7C /* current_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 783448DF1E0282DD0089EE7C /* current_location.png */; };
 		784871A31E07B10C00924272 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784871A21E07B10C00924272 /* MapKit.framework */; };
 		784C5E3D1E02843C0087D20C /* arrow_right_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 784C5E3C1E02843C0087D20C /* arrow_right_small.png */; };
+		7858AFF21E0F7F1A007E27F5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7858AFF11E0F7F1A007E27F5 /* NotificationManager.swift */; };
 		785E9C171DCE1D4C000526B1 /* rss.png in Resources */ = {isa = PBXBuildFile; fileRef = 785E9C161DCE1D4C000526B1 /* rss.png */; };
 		785E9C181DCE2CFD000526B1 /* GothamRounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 785E9C101DCE1A6B000526B1 /* GothamRounded-Medium.otf */; };
 		785E9C191DCE2CFE000526B1 /* GothamRounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 785E9C101DCE1A6B000526B1 /* GothamRounded-Medium.otf */; };
@@ -162,6 +163,7 @@
 		783448DF1E0282DD0089EE7C /* current_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = current_location.png; path = assets/images/current_location.png; sourceTree = "<group>"; };
 		784871A21E07B10C00924272 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		784C5E3C1E02843C0087D20C /* arrow_right_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right_small.png; path = assets/images/arrow_right_small.png; sourceTree = "<group>"; };
+		7858AFF11E0F7F1A007E27F5 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		785E9C0A1DCE1A6B000526B1 /* GothamRounded_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GothamRounded_Bold.otf; path = assets/fonts/GothamRounded_Bold.otf; sourceTree = "<group>"; };
 		785E9C0B1DCE1A6B000526B1 /* GothamRounded-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRounded-BoldItalic.otf"; path = "assets/fonts/GothamRounded-BoldItalic.otf"; sourceTree = "<group>"; };
 		785E9C0C1DCE1A6B000526B1 /* GothamRounded-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRounded-Book.otf"; path = "assets/fonts/GothamRounded-Book.otf"; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				78B921311DAC90CC00BD0C22 /* APIManager.swift */,
 				78676D201DA2640C00136530 /* LocationManager.swift */,
 				78676D221DA2644400136530 /* DatabaseManager.swift */,
+				7858AFF11E0F7F1A007E27F5 /* NotificationManager.swift */,
 				78676D1C1DA262F200136530 /* Global.swift */,
 				781841711DCF309C0000500A /* Colors.swift */,
 				78676D1A1DA262CE00136530 /* Config.swift */,
@@ -860,6 +863,7 @@
 				787238241DD6AEA9007BBD3A /* ArticleCollectionCell.swift in Sources */,
 				7872382A1DD6BAE9007BBD3A /* FirstArticleCollectionCell.swift in Sources */,
 				78B921341DAC9A1D00BD0C22 /* ArticleCell.swift in Sources */,
+				7858AFF21E0F7F1A007E27F5 /* NotificationManager.swift in Sources */,
 				789DAAFA1E056900007E4559 /* HomeContainerViewController.swift in Sources */,
 				781841721DCF309C0000500A /* Colors.swift in Sources */,
 				78676D231DA2644400136530 /* DatabaseManager.swift in Sources */,

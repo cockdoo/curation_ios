@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate {
+class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate, NotificationManagerDelegate {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var logMapView: MKMapView!
@@ -34,6 +34,10 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewD
         dateScrollView.layer.shadowRadius = 2
         
         logMapView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        appDelegate.NManager.delegate = self
     }
     
     var isAlreadySet = false
@@ -172,5 +176,15 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewD
     
     @IBAction func touchedCloseButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func notificationManager(deniedAuthorization message: String) {
+        transitionToArticleView()
+    }
+    
+    func transitionToArticleView() {
+        let storyboard = UIStoryboard(name: "Article", bundle: nil)
+        let nextView: UIViewController! = storyboard.instantiateInitialViewController()
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
 }

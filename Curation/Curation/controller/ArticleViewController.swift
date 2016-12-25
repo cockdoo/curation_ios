@@ -78,7 +78,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
-        print("webview did start load")
+//        print("webview did start load")
         loadCount =  loadCount + 1
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
@@ -86,7 +86,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        print("webview did finish load")
+//        print("webview did finish load")
         loadCount =  loadCount - 1
         if loadCount > 0 {
             return;

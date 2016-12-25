@@ -60,6 +60,11 @@ class Favorite_Table: Object {
     dynamic var sublocality: String = ""
 }
 
+//過去にプッシュ通知を出した記事のテーブル
+class Pushed_Table: Object {
+    dynamic var id: String = ""
+}
+
 protocol DatabaseManagerDelegate {
     func databaseManager(didRefreshData message: String)
     func databaseManager(startRefreshData message: String)
@@ -159,7 +164,7 @@ class DatabaseManager: NSObject {
     var timer: Timer!
     //地名を取得したとき、テーブルに保存する
     func insertCityNameTable(_ cityName: String, locality: String, subLocality: String, lat: Double, lng: Double) {
-        print("地名を保存：\(cityName)")
+//        print("地名を保存：\(cityName)")
         let cityNames = CityName_Table()
     
         cityNames.createdDate = Date(timeIntervalSinceNow: TimeInterval(NSTimeZone.system.secondsFromGMT()))
@@ -352,6 +357,28 @@ class DatabaseManager: NSObject {
                 ]
         }
         return article
+    }
+    
+    func insertPushedTable(_ id: String) {
+        let myRealm = try! Realm()
+        
+        let myPushed = Pushed_Table()
+        myPushed.id = id
+        
+        try! myRealm.write {
+            myRealm.add(myPushed)
+        }
+    }
+    
+    func isAlreadyPushed(_ id: String) -> Bool {
+        let myRealm = try! Realm()
+        let rows = myRealm.objects(Pushed_Table.self).filter("id = %@", id)
+        
+        var already = false
+        for _ in rows {
+            already = true
+        }
+        return already
     }
     
     func getLocationLog(from: Date, to: Date) -> [AnyObject] {

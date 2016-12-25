@@ -10,7 +10,8 @@ import UIKit
 import AFNetworking
 
 @objc protocol APIManagerDelegate {
-    func apiManager(didGetArticles articles: [AnyObject])
+    @objc optional func apiManager(didGetArticles articles: [AnyObject])
+    @objc optional func apiManager(didGetArticleFromId article: AnyObject)
 }
 
 class APIManager: NSObject {
@@ -49,7 +50,7 @@ class APIManager: NSObject {
                 
                 //デリゲートメソッドを呼ぶ
                 if json != nil {
-                    self.delegate.apiManager(didGetArticles: json as! [AnyObject])
+                    self.delegate.apiManager!(didGetArticles: json as! [AnyObject])
                 }
             },
             failure: {(operation: AFHTTPRequestOperation?, error: Error!) in
@@ -60,4 +61,25 @@ class APIManager: NSObject {
         )
     }
     
+    func getOneArticle(lat: Double, lng: Double) {
+        let manager:AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
+        let serializer:AFHTTPResponseSerializer = AFHTTPResponseSerializer()
+        manager.responseSerializer = serializer
+        
+        let url = "http://taigasano.com/curation/api/?lat=\(lat)&lng=\(lng)"
+        let encodeURL: String! = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        manager.get(encodeURL, parameters: nil,
+                    success: {(operation: AFHTTPRequestOperation!, responsobject: Any!) in
+                        let json = (try? JSONSerialization.jsonObject(with: responsobject as! Data, options: .mutableContainers)) as? NSArray
+                        if json != nil {
+                            self.delegate.apiManager!(didGetArticleFromId: json?[0] as AnyObject)
+                        }
+        },
+                    failure: {(operation: AFHTTPRequestOperation?, error: Error!) in
+                        print("エラー！")
+                        print(operation?.responseObject ?? "")
+                        print(operation?.responseString ?? "")
+        }
+        )
+    }
 }

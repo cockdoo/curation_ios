@@ -102,7 +102,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             if let currentLocation = locations.last {
                 lat = currentLocation.coordinate.latitude
                 lng = currentLocation.coordinate.longitude
-                //                print("緯度:\(lat) 経度:\(lng)")
+                //print("緯度:\(lat) 経度:\(lng)")
+                
+                if appDelegate.global.isNotification! {
+                    appDelegate.global.isNotification = false
+                    appDelegate.NManager.prepareGetArticle(lat: lat, lng: lng)
+                }
                 
                 //データベースに保存（緯度経度取得時 複数のデータが来るので1個だけ保存されるようにする）
                 if canInsertData == true {
