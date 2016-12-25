@@ -16,6 +16,11 @@ class HomeContainerViewController: SlideMenuController {
         self.mainViewController = controller
         let leftController = UIStoryboard(name: "Sidemenu", bundle: nil).instantiateInitialViewController()
         self.leftViewController = leftController
+        
+        SlideMenuOptions.leftViewWidth = self.view.frame.width*6/10
+        SlideMenuOptions.contentViewScale = 0.98
+        SlideMenuOptions.animationDuration = 0.2
+        SlideMenuOptions.hideStatusBar = false
         super.awakeFromNib()
     }
 }

@@ -51,6 +51,14 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, MKMapVi
         if !isFirstSubView {
             return
         }
+        refreshFavoriteList()
+    }
+    
+    func superViewWillApperd() {
+        refreshFavoriteList()
+    }
+    
+    func refreshFavoriteList(){
         articles = appDelegate.DBManager.getFavoriteArticles()
         setMarkersAndInformationViews()
         switchPrevNextButtonHidden()

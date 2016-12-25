@@ -29,15 +29,19 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
         alreadyAddSubview = false
     }
     
+    let list: FavoriteListViewController! = UIStoryboard(name: "FavoriteList", bundle: nil).instantiateInitialViewController() as! FavoriteListViewController!
+    let map: FavoriteMapViewController! = UIStoryboard(name: "FavoriteMap", bundle: nil).instantiateInitialViewController() as! FavoriteMapViewController!
+    
     override func viewWillAppear(_ animated: Bool) {
         refreshEveryViewWillApper()
-        if alreadyAddSubview! {
-            setPageMenuController()
-        }
     }
     
     func refreshEveryViewWillApper() {
         self.tabBarController?.delegate = self
+        if alreadyAddSubview! {
+            list.superViewWillApperd()
+            map.superViewWillApperd()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -48,12 +52,11 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
     }
     
     func setPageMenuController() {
-        
+        print("せっと！")
         var controllerArray : [UIViewController] = []
-        let list: FavoriteListViewController! = UIStoryboard(name: "FavoriteList", bundle: nil).instantiateInitialViewController() as! FavoriteListViewController!
+        
         list.delegate = self
         
-        let map: FavoriteMapViewController! = UIStoryboard(name: "FavoriteMap", bundle: nil).instantiateInitialViewController() as! FavoriteMapViewController!
         map.delegate = self
         
         list.title = "リスト"

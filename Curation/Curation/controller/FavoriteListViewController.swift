@@ -61,6 +61,10 @@ class FavoriteListViewController: UIViewController, UITableViewDelegate, UITable
         favoritesTable.reloadData()
         /*refreshControl.endRefreshing()*/
     }
+    
+    func superViewWillApperd() {
+        refreshFavoriteList()
+    }
 
     //MARK: - TABLE
     
