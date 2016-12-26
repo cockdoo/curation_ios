@@ -11,7 +11,9 @@ import AFNetworking
 
 @objc protocol APIManagerDelegate {
     @objc optional func apiManager(didGetArticles articles: [AnyObject])
+    @objc optional func apiManager(failedGetArticles messege: String?)
     @objc optional func apiManager(didGetArticleFromId article: AnyObject)
+    @objc optional func apiManager(failedGetArticleFromId messege: String?)
 }
 
 class APIManager: NSObject {
@@ -57,6 +59,7 @@ class APIManager: NSObject {
                 print("エラー！")
                 print(operation?.responseObject ?? "")
                 print(operation?.responseString ?? "")
+                self.delegate.apiManager!(failedGetArticles: nil)
             }
         )
     }
@@ -79,6 +82,7 @@ class APIManager: NSObject {
                         print("エラー！")
                         print(operation?.responseObject ?? "")
                         print(operation?.responseString ?? "")
+                        self.delegate.apiManager!(failedGetArticleFromId: nil)
         }
         )
     }

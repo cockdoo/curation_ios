@@ -70,6 +70,8 @@ class NotificationManager: NSObject, APIManagerDelegate {
         application.scheduleLocalNotification(notification)
     }
     
+    func apiManager(failedGetArticleFromId messege: String?) {}
+    
 //    func alreadyPushedArticle(id: String) -> Bool {
 //        
 //    }

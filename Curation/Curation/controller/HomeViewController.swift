@@ -22,12 +22,15 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     @IBOutlet weak var articleCollectionView: UICollectionView!
     let cellIdentifer = "ArticleCollectionCell"
     let firstCellIdentifer = "FirstArticleCollectionCell"
+    let refresher = UIRefreshControl()
     
     //Article
     var articles = [AnyObject]()
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sidemenuButton: UIButton!
+    
+    var isFirstRefresh = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +66,15 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         articleCollectionView.register(nib, forCellWithReuseIdentifier: cellIdentifer)
         articleCollectionView.register(nib2, forCellWithReuseIdentifier: firstCellIdentifer)
         
-        //位置情報履歴のデータベースを更新する
+        //位置情報履歴のデータベースを更新する（全てはここからはじまる）
         appDelegate.DBManager.addLocationDataToCityNameTable()
+        
+        getArticles()
+        
+        refresher.tintColor = Colors().grayGreen
+        refresher.addTarget(appDelegate.DBManager, action: #selector(appDelegate.DBManager.addLocationDataToCityNameTable), for: .valueChanged)
+        articleCollectionView.alwaysBounceVertical = true
+        articleCollectionView.addSubview(refresher)
         
         Common().checkLocationAuthorize(target: self)
     }
@@ -98,33 +108,59 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         }
     }
     
+    func databaseManager(noRefreshData message: String) {
+        print("更新する必要がなかった")
+        if refresher.isRefreshing {
+            Timer.scheduledTimer(timeInterval: 1, target: refresher, selector: #selector(refresher.endRefreshing), userInfo: nil, repeats: false)
+        }
+        appDelegate.global.removeLoadingView()
+    }
+    
     func databaseManager(startRefreshData message: String) {
         print("DB更新開始")
-        appDelegate.global.showLoadingView(view: self.view, messege: nil)
+        if refresher.isRefreshing {
+            return
+        }
+//        appDelegate.global.showLoadingView(view: self.view, messege: nil)
     }
         
     func databaseManager(didRefreshData message: String) {
         print("DB更新完了")
-        getArticles()
+        if refresher.isRefreshing || isFirstRefresh {
+            isFirstRefresh = false
+            getArticles()
+        }
     }
     
     func locationManager(didUpdatingLocation message: String) {
         print("位置情報取得できた @HomeViewController")
         let livingAreaList = appDelegate.DBManager.getLivingAreaList()
         if livingAreaList.count == 0 {
+            isFirstRefresh = true
             appDelegate.DBManager.addLocationDataToCityNameTable()
         }
     }
     
-    //記事を取得できたときに呼ばれる
+    
     func apiManager(didGetArticles articles: [AnyObject]) {
         print("記事取得完了")
+        if refresher.isRefreshing {
+            refresher.endRefreshing()
+        }
         appDelegate.global.removeLoadingView()
         self.articles = articles
         if self.articles.count % 2 == 0 {
             self.articles.removeLast()
         }
         articleCollectionView.reloadData()
+    }
+    
+    func apiManager(failedGetArticles messege: String?) {
+        print("記事取得失敗")
+        if refresher.isRefreshing {
+            refresher.endRefreshing()
+        }
+        appDelegate.global.removeLoadingView()
     }
     
 

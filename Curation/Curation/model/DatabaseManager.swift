@@ -68,6 +68,7 @@ class Pushed_Table: Object {
 protocol DatabaseManagerDelegate {
     func databaseManager(didRefreshData message: String)
     func databaseManager(startRefreshData message: String)
+    func databaseManager(noRefreshData message: String)
 }
 
 class DatabaseManager: NSObject {
@@ -156,6 +157,8 @@ class DatabaseManager: NSObject {
         }
         if rows.count > 0 {
             delegate.databaseManager(startRefreshData: "")
+        }else {
+            delegate.databaseManager(noRefreshData: "")
         }
         //中身を削除
         deleteTable(Location_Table.self)

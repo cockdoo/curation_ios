@@ -35,13 +35,13 @@
                     <rect key="frame" x="0.0" y="334" width="375" height="193"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ようこそ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRU-lJ-BCA">
-                            <rect key="frame" x="144" y="50" width="88" height="22"/>
+                            <rect key="frame" x="144" y="48" width="88" height="22"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="22"/>
                             <color key="textColor" red="0.25490196079999999" green="0.26274509800000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xn-Z5-cwK">
-                            <rect key="frame" x="44" y="84" width="288" height="32"/>
+                            <rect key="frame" x="44" y="82" width="288" height="32"/>
                             <string key="text">Ékoccaは、あなたの移動スタイルに
 あわせたお出かけ情報をお届けします。</string>
                             <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="16"/>
@@ -50,7 +50,7 @@
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="VRU-lJ-BCA" firstAttribute="centerY" secondItem="nGm-Tj-3Jd" secondAttribute="centerY" multiplier="0.63" id="E9T-wp-ohU"/>
+                        <constraint firstItem="VRU-lJ-BCA" firstAttribute="centerY" secondItem="nGm-Tj-3Jd" secondAttribute="centerY" multiplier="0.62" id="E9T-wp-ohU"/>
                         <constraint firstItem="9Xn-Z5-cwK" firstAttribute="centerX" secondItem="nGm-Tj-3Jd" secondAttribute="centerX" id="Gen-pf-wZR"/>
                         <constraint firstItem="9Xn-Z5-cwK" firstAttribute="top" secondItem="VRU-lJ-BCA" secondAttribute="bottom" constant="12" id="RvJ-DK-eR4"/>
                         <constraint firstItem="VRU-lJ-BCA" firstAttribute="centerX" secondItem="nGm-Tj-3Jd" secondAttribute="centerX" id="jWb-hX-3P1"/>

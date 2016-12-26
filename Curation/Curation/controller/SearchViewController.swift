@@ -216,6 +216,12 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         }
     }
     
+    func apiManager(failedGetArticles messege: String?) {
+        print("記事取得失敗")
+        appDelegate.global.removeLoadingView()
+        Common().showAlert(title: "エラー", message: "記事の取得に失敗しました。再度お試しください。", target: self, popView: false)
+    }
+    
     func transitionToSearchResultView() {
         let storyboard = UIStoryboard(name: "SearchResult", bundle: nil)
         let nextView: UIViewController! = storyboard.instantiateInitialViewController()

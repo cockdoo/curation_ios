@@ -10,7 +10,7 @@ import UIKit
 
 public class Colors {
     let lightGreen = UIColor(red: 235/255, green: 237/255, blue: 230/255, alpha: 1.0)
-//    let gray = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1.0)
+    let grayGreen = UIColor(red: 177/255, green: 179/255, blue: 171/255, alpha: 1.0)
     
     let subText = UIColor(red: 141/255, green: 143/255, blue: 137/255, alpha: 1.0)
     let mainBlack = UIColor(red: 65/255, green: 67/255, blue: 61/255, alpha: 1.0)
