@@ -28,17 +28,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9A-TH-u4P">
-                                <rect key="frame" x="0.0" y="64" width="375" height="558"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="557"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nP4-oN-rjE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grz-iW-chd">
-                                        <rect key="frame" x="7" y="36.5" width="18" height="18"/>
+                                        <rect key="frame" x="5" y="36" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="18" id="K4G-RI-P8t"/>
-                                            <constraint firstAttribute="height" constant="18" id="Zbp-mS-ipK"/>
+                                            <constraint firstAttribute="width" constant="20" id="K4G-RI-P8t"/>
+                                            <constraint firstAttribute="height" constant="20" id="Zbp-mS-ipK"/>
                                         </constraints>
                                         <state key="normal" image="arrow_back.png">
                                             <color key="titleColor" red="0.83921568629999999" green="0.90588235289999997" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -69,36 +69,36 @@
                                     <constraint firstAttribute="bottom" secondItem="VpE-wF-HwL" secondAttribute="bottom" id="KVe-Nt-5Ot"/>
                                     <constraint firstAttribute="trailing" secondItem="VpE-wF-HwL" secondAttribute="trailing" id="PpJ-fv-yiZ"/>
                                     <constraint firstItem="c6T-Sj-bYi" firstAttribute="centerY" secondItem="grz-iW-chd" secondAttribute="centerY" id="ahm-s6-MUd"/>
-                                    <constraint firstItem="grz-iW-chd" firstAttribute="leading" secondItem="nP4-oN-rjE" secondAttribute="leading" constant="7" id="deb-mu-NOR"/>
+                                    <constraint firstItem="grz-iW-chd" firstAttribute="leading" secondItem="nP4-oN-rjE" secondAttribute="leading" constant="5" id="deb-mu-NOR"/>
                                     <constraint firstAttribute="height" constant="64" id="qZe-J7-2NJ"/>
                                     <constraint firstItem="VpE-wF-HwL" firstAttribute="leading" secondItem="nP4-oN-rjE" secondAttribute="leading" id="tc5-CO-Xl5"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffa-ZT-Xwz">
-                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="621" width="375" height="46"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="m73-f7-cgD">
-                                        <rect key="frame" x="330" y="6" width="30" height="23"/>
+                                        <rect key="frame" x="330" y="8" width="30" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="I5C-3A-24Q"/>
                                             <constraint firstAttribute="width" constant="30" id="fJx-SA-6MY"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地図" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHN-Wy-HU9">
-                                        <rect key="frame" x="315" y="33" width="60" height="10"/>
-                                        <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="10"/>
-                                        <color key="textColor" red="0.25490196079999999" green="0.26274509800000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="315" y="35" width="60" height="9"/>
+                                        <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="9"/>
+                                        <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favo_off.png" translatesAutoresizingMaskIntoConstraints="NO" id="aA4-aG-OhI">
-                                        <rect key="frame" x="171" y="3" width="33" height="33"/>
+                                        <rect key="frame" x="170" y="2" width="35" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="33" id="lW3-ag-DHB"/>
-                                            <constraint firstAttribute="width" constant="33" id="u4E-0A-ybD"/>
+                                            <constraint firstAttribute="height" constant="35" id="lW3-ag-DHB"/>
+                                            <constraint firstAttribute="width" constant="35" id="u4E-0A-ybD"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIa-w5-VSm">
-                                        <rect key="frame" x="50" y="0.0" width="45" height="45"/>
+                                        <rect key="frame" x="50" y="0.5" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="DXX-dc-TR5"/>
                                             <constraint firstAttribute="width" constant="45" id="qoD-OU-kN5"/>
@@ -111,7 +111,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWD-N1-MMf">
-                                        <rect key="frame" x="143" y="0.0" width="90" height="45"/>
+                                        <rect key="frame" x="143" y="1" width="90" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Ycy-3L-1mX"/>
                                             <constraint firstAttribute="width" constant="90" id="Yjl-il-Jy4"/>
@@ -124,7 +124,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Av-Pq-4nx">
-                                        <rect key="frame" x="5" y="0.0" width="45" height="45"/>
+                                        <rect key="frame" x="5" y="0.5" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="5iH-uX-9L5"/>
                                             <constraint firstAttribute="height" constant="45" id="daS-TC-2nM"/>
@@ -135,20 +135,20 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行きたい！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGl-xE-Df3">
-                                        <rect key="frame" x="164" y="31" width="55" height="11"/>
-                                        <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="11"/>
+                                        <rect key="frame" x="166.5" y="32" width="50" height="10"/>
+                                        <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="10"/>
                                         <color key="textColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RZ-2T-y9t">
-                                        <rect key="frame" x="314" y="0.0" width="1" height="45"/>
-                                        <color key="backgroundColor" red="0.90057069059999995" green="0.90125507120000004" blue="0.90067666769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="314" y="0.0" width="1" height="46"/>
+                                        <color key="backgroundColor" red="0.89411764705882346" green="0.90196078431372551" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="T9W-kX-wcB"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jf4-4D-W0u">
-                                        <rect key="frame" x="315" y="0.0" width="60" height="45"/>
+                                        <rect key="frame" x="315" y="0.0" width="60" height="46"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="suo-Qh-bVj"/>
                                         </constraints>
@@ -179,11 +179,11 @@
                                     <constraint firstAttribute="bottom" secondItem="KHN-Wy-HU9" secondAttribute="bottom" constant="2" id="n3m-Hn-9or"/>
                                     <constraint firstItem="8RZ-2T-y9t" firstAttribute="top" secondItem="ffa-ZT-Xwz" secondAttribute="top" id="n9R-3d-oAP"/>
                                     <constraint firstItem="cGl-xE-Df3" firstAttribute="centerX" secondItem="ffa-ZT-Xwz" secondAttribute="centerX" multiplier="1.02" id="nkS-2b-g5V"/>
-                                    <constraint firstAttribute="height" constant="45" id="pOI-Yn-Lze"/>
+                                    <constraint firstAttribute="height" constant="46" id="pOI-Yn-Lze"/>
                                     <constraint firstAttribute="bottom" secondItem="Jf4-4D-W0u" secondAttribute="bottom" id="rHM-9V-cy9"/>
                                     <constraint firstAttribute="trailing" secondItem="Jf4-4D-W0u" secondAttribute="trailing" id="sFe-8Q-4Wu"/>
                                     <constraint firstItem="wIa-w5-VSm" firstAttribute="centerY" secondItem="ffa-ZT-Xwz" secondAttribute="centerY" id="vzF-Ew-KW3"/>
-                                    <constraint firstAttribute="bottom" secondItem="cGl-xE-Df3" secondAttribute="bottom" constant="3" id="zwR-Oy-jkU"/>
+                                    <constraint firstAttribute="bottom" secondItem="cGl-xE-Df3" secondAttribute="bottom" constant="4" id="zwR-Oy-jkU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -220,8 +220,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_back.png" width="36" height="36"/>
-        <image name="favo_off.png" width="100" height="100"/>
+        <image name="arrow_back.png" width="40" height="40"/>
+        <image name="favo_off.png" width="200" height="200"/>
         <image name="mapicon.png" width="90" height="69"/>
         <image name="web_next_off.png" width="100" height="100"/>
         <image name="web_prev_off.png" width="100" height="100"/>

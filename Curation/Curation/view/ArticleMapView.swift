@@ -12,6 +12,7 @@ import MapKit
 class ArticleMapView: UIView {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var coverView: UIView!
     
     class func instance() -> ArticleMapView {
         return UINib(nibName: "ArticleMapView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! ArticleMapView
@@ -23,11 +24,15 @@ class ArticleMapView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.2
+        self.layer.shadowColor = Colors().mainBlack.cgColor
+        self.layer.shadowOpacity = 0.8
         self.layer.shadowOffset = CGSize.init(width: 0, height: 0)
-        self.layer.shadowOpacity = 20
-        
+        self.layer.shadowRadius = 2
+        self.layer.cornerRadius = 4
+    }
+    
+    override func layoutSubviews() {
+        coverView.layer.cornerRadius = 4
     }
     
     func setMapCameraAndMarker(lat: Double, lng: Double) {

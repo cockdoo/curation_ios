@@ -11,13 +11,11 @@ import UIKit
 class NoMoveLogLabel: UIView {
     
     class func instance() -> NoMoveLogLabel {
-        print("F")
         return UINib(nibName: "NoMoveLogLabel", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! NoMoveLogLabel
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("E")
         self.layer.cornerRadius = 4
     }
 }

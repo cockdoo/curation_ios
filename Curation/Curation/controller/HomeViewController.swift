@@ -34,7 +34,6 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         initialize()
         //現在地を取得
         appDelegate.LManager.locationManager.startUpdatingLocation()
-        getArticles()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +47,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         apiManager.delegate = self
         appDelegate.LManager.delegate = self
         appDelegate.DBManager.delegate = self
+        appDelegate.NManager.delegate = self
         
         //初回画面からの画面遷移の判定用
         appDelegate.LManager.isTopView = true
@@ -67,16 +67,6 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         appDelegate.DBManager.addLocationDataToCityNameTable()
         
         Common().checkLocationAuthorize(target: self)
-        
-        
-        let application = UIApplication.shared
-        if #available(iOS 8.0, *) {
-            let notiSettings = UIUserNotificationSettings.init(types: [.alert, .sound], categories: nil)
-            application.registerUserNotificationSettings(notiSettings)
-            application.registerForRemoteNotifications()
-        } else{
-            application.registerForRemoteNotifications()
-        }
     }
         
     func refreshEveryViewWillApper() {
@@ -110,18 +100,26 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     func databaseManager(startRefreshData message: String) {
         print("DB更新開始")
+        appDelegate.global.showLoadingView(view: self.view, messege: nil)
     }
         
     func databaseManager(didRefreshData message: String) {
         print("DB更新完了")
+        getArticles()
     }
     
     func locationManager(didUpdatingLocation message: String) {
         print("位置情報取得できた @HomeViewController")
+        let livingAreaList = appDelegate.DBManager.getLivingAreaList()
+        if livingAreaList.count == 0 {
+            appDelegate.DBManager.addLocationDataToCityNameTable()
+        }
     }
     
     //記事を取得できたときに呼ばれる
     func apiManager(didGetArticles articles: [AnyObject]) {
+        print("記事取得完了")
+        appDelegate.global.removeLoadingView()
         self.articles = articles
         if self.articles.count % 2 == 0 {
             self.articles.removeLast()

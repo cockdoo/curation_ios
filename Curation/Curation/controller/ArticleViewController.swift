@@ -36,6 +36,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     var loadCount: Int!
     
+    var mapLightBox: ArticleMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
@@ -49,7 +51,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         myArticle = appDelegate.global.selectedArticle
         navigationTitle.text = myArticle["title"] as? String
         navigationTitle.font = UIFont.boldSystemFont(ofSize: navigationTitle.font.pointSize)
-        toolView.layer.shadowColor = UIColor.black.cgColor
+        toolView.layer.shadowColor = Colors().mainBlack.cgColor
         toolView.layer.shadowOffset = CGSize.init(width: 0, height: 0)
         toolView.layer.shadowOpacity = 0.3
         toolView.layer.shadowRadius = 1
@@ -131,14 +133,14 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     func toggleFavotiteButtonTheme() {
         if isFavorite! {
             favoImageView.image = UIImage(named: "favo_on.png")
-            ikitaiLabel.textColor = Colors().mainYellow
+            ikitaiLabel.textColor = Colors().mainGreen
         }else {
             if favoAnimationView != nil {
                 favoAnimationView.removeFromSuperview()
                 favoAnimationView = nil
             }
             favoImageView.image = UIImage(named: "favo_off.png")
-            ikitaiLabel.textColor = Colors().subBlack
+            ikitaiLabel.textColor = Colors().subText
         }
     }
     
@@ -146,13 +148,12 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         if isFavorite! {
             appDelegate.DBManager.removeFromFavoriteTable(appDelegate.global.selectedArticle["id"] as! String)
             isFavorite = false
-            
         }else {
             appDelegate.DBManager.insertFavoriteTable(appDelegate.global.selectedArticle)
             let gifmanager = SwiftyGifManager(memoryLimit: 20)
             let gif = UIImage(gifName: "favo")
             favoAnimationView = UIImageView(gifImage: gif, manager: gifmanager)
-            favoAnimationView.frame = CGRect(x: 0, y: 0, width: 33, height: 33)
+            favoAnimationView.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
             favoAnimationView.setGifImage(gif, loopCount: 1)
             favoImageView.addSubview(favoAnimationView)
             isFavorite = true
@@ -161,17 +162,28 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func touchedMapButton(_ sender: Any) {
-        setMapView()
+        if mapLightBox == nil {
+            setMapView()
+        }else {
+            removeMapView()
+        }
     }
     
     func setMapView() {
-        let lightBox = ArticleMapView.instance()
-        lightBox.frame = CGRect.init(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.width - 60, height: self.view.frame.height - 120))
-        lightBox.center = self.view.center
+        mapLightBox = ArticleMapView.instance()
+        mapLightBox.frame = CGRect.init(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.width - 90, height: (self.view.frame.width - 90) * 1.5))
+        mapLightBox.center = self.view.center
         let lat = Double(myArticle["lat"] as! String)
         let lng = Double(myArticle["lng"] as! String)
-        lightBox.setMapCameraAndMarker(lat: lat!, lng: lng!)
-        self.view.addSubview(lightBox)
+        mapLightBox.setMapCameraAndMarker(lat: lat!, lng: lng!)
+        self.view.addSubview(mapLightBox)
+    }
+    
+    func removeMapView() {
+        if mapLightBox != nil {
+            mapLightBox.removeFromSuperview()
+            mapLightBox = nil
+        }
     }
     
     @IBAction func touchedBackButton(_ sender: AnyObject) {

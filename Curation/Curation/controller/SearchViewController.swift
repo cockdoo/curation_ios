@@ -52,7 +52,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         for subView in searchField.subviews {
             for secondSubView in subView.subviews {
                 if secondSubView is UITextField {
-                    secondSubView.backgroundColor = Colors().lightGray
+                    secondSubView.backgroundColor = Colors().lightGreen
                 }
             }
         }
@@ -171,12 +171,12 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size: CGSize = CGSize.init(width: (sw-1)/2, height: (sw-1)/2/1.618)
+        let size: CGSize = CGSize.init(width: (sw-15)/2, height: (sw-15)/2/1.618)
         return size
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let inset: UIEdgeInsets = UIEdgeInsets.init(top: 1, left: 0, bottom: 0, right: 0)
+        let inset: UIEdgeInsets = UIEdgeInsets.init(top: 5, left: 5, bottom: 0, right: 5)
         return inset
     }
     

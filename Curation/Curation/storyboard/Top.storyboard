@@ -32,10 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb4-sf-QqA">
-                                <rect key="frame" x="0.0" y="20" width="100" height="598"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="hrf-qn-Bk5"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rnt-Kn-5v7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
@@ -73,7 +70,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                     </tabBarItem>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vWT-T2-6go">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vWT-T2-6go">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -130,7 +127,7 @@
                                     <searchBar contentMode="redraw" placeholder="地名、住所、駅名などを入力" translatesAutoresizingMaskIntoConstraints="NO" id="Nqj-GE-vUD">
                                         <rect key="frame" x="0.0" y="19" width="375" height="44"/>
                                         <color key="tintColor" red="0.59993284940000002" green="0.60003870729999997" blue="0.59992617370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="barTintColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -156,7 +153,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="15"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="0.24313725490196078" green="0.2196078431372549" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.69411764705882351" green="0.70196078431372544" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="touchedSerchCurrentLocationButton:" destination="6DO-27-2zC" eventType="touchUpInside" id="pC0-qJ-FhZ"/>
@@ -165,15 +162,15 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-Uz-fh1">
                                 <rect key="frame" x="0.0" y="161" width="375" height="457"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="EzE-O7-gB9">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="EzE-O7-gB9">
                                     <size key="itemSize" width="0.0" height="0.0"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Gn6-mE-HSA">
-                                        <rect key="frame" x="188" y="0.0" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="5" y="5" width="0.0" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -273,7 +270,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                     </tabBarItem>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="51x-MS-Vet">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="51x-MS-Vet">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -302,7 +299,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHF-ql-YV9">
                                         <rect key="frame" x="0.0" y="63" width="375" height="1"/>
-                                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.89411764705882346" green="0.90196078431372551" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="T2Y-8G-5cg"/>
                                         </constraints>
@@ -319,7 +316,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_header.png" translatesAutoresizingMaskIntoConstraints="NO" id="wWZ-Q4-rtf">
-                                        <rect key="frame" x="134" y="28.5" width="100" height="31.5"/>
+                                        <rect key="frame" x="134" y="27.5" width="100" height="31.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="KI1-0l-y17"/>
                                             <constraint firstAttribute="width" secondItem="wWZ-Q4-rtf" secondAttribute="height" multiplier="150:47" id="VAu-Cd-ydb"/>
@@ -329,7 +326,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="zDj-KL-PDP" firstAttribute="leading" secondItem="YiT-eZ-Nbz" secondAttribute="leading" constant="10" id="4g7-Ub-osy"/>
-                                    <constraint firstAttribute="bottom" secondItem="wWZ-Q4-rtf" secondAttribute="bottom" constant="4" id="LMN-e6-jUp"/>
+                                    <constraint firstAttribute="bottom" secondItem="wWZ-Q4-rtf" secondAttribute="bottom" constant="5" id="LMN-e6-jUp"/>
                                     <constraint firstItem="wWZ-Q4-rtf" firstAttribute="centerX" secondItem="YiT-eZ-Nbz" secondAttribute="centerX" multiplier="0.98" id="NiE-6v-Yy8"/>
                                     <constraint firstItem="BHF-ql-YV9" firstAttribute="leading" secondItem="YiT-eZ-Nbz" secondAttribute="leading" id="hrz-W7-pCV"/>
                                     <constraint firstAttribute="bottom" secondItem="BHF-ql-YV9" secondAttribute="bottom" id="kBn-WA-065"/>
@@ -436,7 +433,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                     </tabBarItem>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6xO-Mg-1D8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6xO-Mg-1D8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.75141345569999995" blue="0.55170667870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

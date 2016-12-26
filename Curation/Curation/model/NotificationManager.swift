@@ -28,6 +28,17 @@ class NotificationManager: NSObject, APIManagerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(NotificationManager.didGetNotification), name: NSNotification.Name(rawValue: "article_push"), object: nil)
     }
     
+    func registerUserNotificationSettings() {
+        let application = UIApplication.shared
+        if #available(iOS 8.0, *) {
+            let notiSettings = UIUserNotificationSettings.init(types: [.alert, .sound], categories: nil)
+            application.registerUserNotificationSettings(notiSettings)
+            application.registerForRemoteNotifications()
+        } else{
+            application.registerForRemoteNotifications()
+        }
+    }
+    
     func prepareGetArticle(lat: Double, lng: Double) {
         let ud = UserDefaults.standard
         let pushedTime = ud.object(forKey: "PUSHED_TIME") as! Date

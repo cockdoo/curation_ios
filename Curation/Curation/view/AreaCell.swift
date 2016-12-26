@@ -22,7 +22,7 @@ class AreaCell: UICollectionViewCell {
         let b = CGFloat(arc4random() % 150) + 100
         areaImageView.backgroundColor = UIColor.init(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
         
-        
+        self.layer.cornerRadius = 4
         
         //画像を非同期で読み込む
         let urlStr = "http://taigasano.com/curation/api/get-image/?lat=\(lat)&lng=\(lng)"

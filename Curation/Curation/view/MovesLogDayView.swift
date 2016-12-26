@@ -14,6 +14,7 @@ class MovesLogDayView: UIView {
     @IBOutlet weak var dayOfWeelLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var circleInsideView: UIView!
     
     
     class func instance() -> MovesLogDayView {
@@ -34,5 +35,6 @@ class MovesLogDayView: UIView {
     
     override func layoutSubviews() {
         circleView.layer.cornerRadius = 47.0/2
+        circleInsideView.layer.cornerRadius = 43.0/2
     }
 }

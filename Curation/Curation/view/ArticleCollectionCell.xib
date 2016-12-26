@@ -55,7 +55,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メディア" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-pt-G9m">
                             <rect key="frame" x="137" y="193" width="40" height="10"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Light" family="Gotham Rounded" pointSize="10"/>
-                            <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -64,10 +64,10 @@
                         <constraint firstAttribute="trailing" secondItem="Qxp-Nh-NnK" secondAttribute="trailing" constant="10" id="A2W-81-nuk"/>
                         <constraint firstAttribute="trailing" secondItem="2oe-yf-C8v" secondAttribute="trailing" id="JCb-Ks-ILF"/>
                         <constraint firstItem="krr-gY-Mez" firstAttribute="leading" secondItem="Qxp-Nh-NnK" secondAttribute="leading" id="Oll-4k-ijk"/>
+                        <constraint firstItem="3ct-v0-Djt" firstAttribute="bottom" secondItem="krr-gY-Mez" secondAttribute="bottom" id="QBO-qb-T4q"/>
                         <constraint firstItem="7zc-pt-G9m" firstAttribute="trailing" secondItem="Qxp-Nh-NnK" secondAttribute="trailing" id="QMN-iY-oVv"/>
                         <constraint firstItem="Qxp-Nh-NnK" firstAttribute="top" secondItem="2oe-yf-C8v" secondAttribute="bottom" constant="9" id="YPY-bm-eFh"/>
                         <constraint firstItem="Qxp-Nh-NnK" firstAttribute="leading" secondItem="Y6L-dJ-lSH" secondAttribute="leading" constant="10" id="aK6-39-3vx"/>
-                        <constraint firstItem="krr-gY-Mez" firstAttribute="centerY" secondItem="3ct-v0-Djt" secondAttribute="centerY" id="bWj-bf-yPN"/>
                         <constraint firstAttribute="bottom" secondItem="krr-gY-Mez" secondAttribute="bottom" constant="12" id="mnC-hl-Xax"/>
                         <constraint firstItem="7zc-pt-G9m" firstAttribute="bottom" secondItem="3ct-v0-Djt" secondAttribute="bottom" id="pbW-eX-KUv"/>
                         <constraint firstItem="2oe-yf-C8v" firstAttribute="top" secondItem="Y6L-dJ-lSH" secondAttribute="top" id="pla-6a-KVq"/>
@@ -96,6 +96,6 @@
         </view>
     </objects>
     <resources>
-        <image name="pin_gray.png" width="36" height="36"/>
+        <image name="pin_gray.png" width="28" height="28"/>
     </resources>
 </document>

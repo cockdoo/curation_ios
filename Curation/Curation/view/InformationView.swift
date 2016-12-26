@@ -28,10 +28,10 @@ class InformationView: UIView {
     }
     
     func setInfomations(imageUrl: String, title: String, media: String, index: Int) {
-        wrapView.layer.shadowColor = UIColor.black.cgColor
+        wrapView.layer.shadowColor = Colors().mainBlack.cgColor
         wrapView.layer.shadowOffset = CGSize.init(width: 0, height: 0)
-        wrapView.layer.shadowOpacity = 0.2
-        wrapView.layer.shadowRadius = 3
+        wrapView.layer.shadowOpacity = 0.3
+        wrapView.layer.shadowRadius = 2
         wrapView.layer.cornerRadius = 4
         
         articleTitleLabel.text = title

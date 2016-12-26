@@ -74,6 +74,11 @@
 		7872382A1DD6BAE9007BBD3A /* FirstArticleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787238291DD6BAE9007BBD3A /* FirstArticleCollectionCell.swift */; };
 		7872382C1DD6C33A007BBD3A /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7872382B1DD6C33A007BBD3A /* pin.png */; };
 		7872382E1DD6CA5F007BBD3A /* pin_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 7872382D1DD6CA5F007BBD3A /* pin_gray.png */; };
+		78834EEE1E1120D400616414 /* TutorialPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78834EED1E1120D400616414 /* TutorialPage3.swift */; };
+		78834EF01E1120D900616414 /* TutorialPage3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78834EEF1E1120D900616414 /* TutorialPage3.xib */; };
+		78834EF41E11231100616414 /* tutorial_images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 78834EF11E11231100616414 /* tutorial_images.jpg */; };
+		78834EF51E11231100616414 /* tutorial_location.png in Resources */ = {isa = PBXBuildFile; fileRef = 78834EF21E11231100616414 /* tutorial_location.png */; };
+		78834EF61E11231100616414 /* tutorial_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 78834EF31E11231100616414 /* tutorial_notification.png */; };
 		7887E3661DD9CEEB0073C0B8 /* web_next_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 7887E3621DD9CEEB0073C0B8 /* web_next_off.png */; };
 		7887E3671DD9CEEB0073C0B8 /* web_next_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 7887E3631DD9CEEB0073C0B8 /* web_next_on.png */; };
 		7887E3681DD9CEEB0073C0B8 /* web_prev_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 7887E3641DD9CEEB0073C0B8 /* web_prev_off.png */; };
@@ -116,6 +121,10 @@
 		78CF525D1E02656F000BDA1B /* FavoriteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF525C1E02656F000BDA1B /* FavoriteNavigationController.swift */; };
 		78DDF8A81E0D2A080067DFE8 /* NoMoveLogLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DDF8A71E0D2A080067DFE8 /* NoMoveLogLabel.swift */; };
 		78DDF8AA1E0D2A110067DFE8 /* NoMoveLogLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78DDF8A91E0D2A110067DFE8 /* NoMoveLogLabel.xib */; };
+		78F8293F1E10E02F00F83B97 /* TutorialPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F8293E1E10E02F00F83B97 /* TutorialPage1.swift */; };
+		78F829411E10E03D00F83B97 /* TutorialPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F829401E10E03D00F83B97 /* TutorialPage2.swift */; };
+		78F829431E10E04600F83B97 /* TutorialPage1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78F829421E10E04600F83B97 /* TutorialPage1.xib */; };
+		78F829451E10E04E00F83B97 /* TutorialPage2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78F829441E10E04E00F83B97 /* TutorialPage2.xib */; };
 		F69860ACF9173CD293485614 /* Pods_CurationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7887DD48E598E6D427B3D4 /* Pods_CurationUITests.framework */; };
 		FD2C786BBF3027F0199DA477 /* Pods_Curation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAED9403FE0AF9A65AB84727 /* Pods_Curation.framework */; };
 /* End PBXBuildFile section */
@@ -191,6 +200,11 @@
 		787238291DD6BAE9007BBD3A /* FirstArticleCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstArticleCollectionCell.swift; sourceTree = "<group>"; };
 		7872382B1DD6C33A007BBD3A /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = assets/images/pin.png; sourceTree = "<group>"; };
 		7872382D1DD6CA5F007BBD3A /* pin_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_gray.png; path = assets/images/pin_gray.png; sourceTree = "<group>"; };
+		78834EED1E1120D400616414 /* TutorialPage3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPage3.swift; sourceTree = "<group>"; };
+		78834EEF1E1120D900616414 /* TutorialPage3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialPage3.xib; sourceTree = "<group>"; };
+		78834EF11E11231100616414 /* tutorial_images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tutorial_images.jpg; path = assets/images/tutorial_images.jpg; sourceTree = "<group>"; };
+		78834EF21E11231100616414 /* tutorial_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_location.png; path = assets/images/tutorial_location.png; sourceTree = "<group>"; };
+		78834EF31E11231100616414 /* tutorial_notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_notification.png; path = assets/images/tutorial_notification.png; sourceTree = "<group>"; };
 		7887E3621DD9CEEB0073C0B8 /* web_next_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = web_next_off.png; path = assets/images/web_next_off.png; sourceTree = "<group>"; };
 		7887E3631DD9CEEB0073C0B8 /* web_next_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = web_next_on.png; path = assets/images/web_next_on.png; sourceTree = "<group>"; };
 		7887E3641DD9CEEB0073C0B8 /* web_prev_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = web_prev_off.png; path = assets/images/web_prev_off.png; sourceTree = "<group>"; };
@@ -239,6 +253,10 @@
 		78CF525C1E02656F000BDA1B /* FavoriteNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteNavigationController.swift; sourceTree = "<group>"; };
 		78DDF8A71E0D2A080067DFE8 /* NoMoveLogLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMoveLogLabel.swift; sourceTree = "<group>"; };
 		78DDF8A91E0D2A110067DFE8 /* NoMoveLogLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoMoveLogLabel.xib; sourceTree = "<group>"; };
+		78F8293E1E10E02F00F83B97 /* TutorialPage1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPage1.swift; sourceTree = "<group>"; };
+		78F829401E10E03D00F83B97 /* TutorialPage2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPage2.swift; sourceTree = "<group>"; };
+		78F829421E10E04600F83B97 /* TutorialPage1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialPage1.xib; sourceTree = "<group>"; };
+		78F829441E10E04E00F83B97 /* TutorialPage2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialPage2.xib; sourceTree = "<group>"; };
 		8698F44467F05E88B8FC8F63 /* Pods-CurationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CurationTests/Pods-CurationTests.release.xcconfig"; sourceTree = "<group>"; };
 		9519DBFF31BEC9C34F34EBFE /* Pods-Curation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Curation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Curation/Pods-Curation.debug.xcconfig"; sourceTree = "<group>"; };
 		AAE861F3AE5534EB76421CEF /* Pods_CurationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +320,9 @@
 		785E9C081DCE19ED000526B1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				78834EF11E11231100616414 /* tutorial_images.jpg */,
+				78834EF21E11231100616414 /* tutorial_location.png */,
+				78834EF31E11231100616414 /* tutorial_notification.png */,
 				783D42971E0FCBAA009DCA59 /* sidemenu_button.png */,
 				783D42951E0FC57F009DCA59 /* logo_header.png */,
 				782BAF311E028D1200F55139 /* arrow_back.png */,
@@ -386,6 +407,12 @@
 				788CE0961E063EE400F31D88 /* MovesLogDayView.xib */,
 				78DDF8A71E0D2A080067DFE8 /* NoMoveLogLabel.swift */,
 				78DDF8A91E0D2A110067DFE8 /* NoMoveLogLabel.xib */,
+				78F8293E1E10E02F00F83B97 /* TutorialPage1.swift */,
+				78F829421E10E04600F83B97 /* TutorialPage1.xib */,
+				78F829401E10E03D00F83B97 /* TutorialPage2.swift */,
+				78F829441E10E04E00F83B97 /* TutorialPage2.xib */,
+				78834EED1E1120D400616414 /* TutorialPage3.swift */,
+				78834EEF1E1120D900616414 /* TutorialPage3.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -628,6 +655,7 @@
 				7887E3681DD9CEEB0073C0B8 /* web_prev_off.png in Resources */,
 				785E9C181DCE2CFD000526B1 /* GothamRounded-Medium.otf in Resources */,
 				783D42981E0FCBAA009DCA59 /* sidemenu_button.png in Resources */,
+				78834EF51E11231100616414 /* tutorial_location.png in Resources */,
 				785E9C171DCE1D4C000526B1 /* rss.png in Resources */,
 				787238261DD6AEB3007BBD3A /* ArticleCollectionCell.xib in Resources */,
 				788CE0971E063EE400F31D88 /* MovesLogDayView.xib in Resources */,
@@ -648,18 +676,22 @@
 				7818416E1DCF2EF40000500A /* FavoriteList.storyboard in Resources */,
 				784C5E3D1E02843C0087D20C /* arrow_right_small.png in Resources */,
 				78B7DE081E02646E00213C3D /* favo@3x.png in Resources */,
+				78F829431E10E04600F83B97 /* TutorialPage1.xib in Resources */,
 				785E9C241DCE2D69000526B1 /* GothamRounded-BookItalic.otf in Resources */,
 				788BC15E1DD998CB0086ACBA /* area_pin.png in Resources */,
 				7808DAA61DD031F10014E129 /* next.png in Resources */,
 				781841701DCF2EFC0000500A /* FavoriteMap.storyboard in Resources */,
 				78C1BF131D92B41E003E9E88 /* Assets.xcassets in Resources */,
+				78F829451E10E04E00F83B97 /* TutorialPage2.xib in Resources */,
 				78DDF8AA1E0D2A110067DFE8 /* NoMoveLogLabel.xib in Resources */,
+				78834EF01E1120D900616414 /* TutorialPage3.xib in Resources */,
 				785E9C1B1DCE2D5B000526B1 /* GothamRounded_Bold.otf in Resources */,
 				78676D291DA267FD00136530 /* Tutorial.storyboard in Resources */,
 				785E9C2E1DCE2D7D000526B1 /* GothamRounded-MediumItalic.otf in Resources */,
 				782BAF321E028D1200F55139 /* arrow_back.png in Resources */,
 				787238281DD6BADD007BBD3A /* FirstArticleCollectionCell.xib in Resources */,
 				7887E3691DD9CEEB0073C0B8 /* web_prev_on.png in Resources */,
+				78834EF41E11231100616414 /* tutorial_images.jpg in Resources */,
 				78B921361DAC9A2E00BD0C22 /* ArticleCell.xib in Resources */,
 				7872382E1DD6CA5F007BBD3A /* pin_gray.png in Resources */,
 				78676D251DA2678900136530 /* Top.storyboard in Resources */,
@@ -672,6 +704,7 @@
 				78BB63CB1DC49B4600AA75B7 /* AreaCell.xib in Resources */,
 				783448E01E0282DD0089EE7C /* current_location.png in Resources */,
 				7887E3671DD9CEEB0073C0B8 /* web_next_on.png in Resources */,
+				78834EF61E11231100616414 /* tutorial_notification.png in Resources */,
 				78B7DE071E02646E00213C3D /* favo_selected@3x.png in Resources */,
 				789DAAFE1E056AF1007E4559 /* Sidemenu.storyboard in Resources */,
 				785E9C1E1DCE2D5F000526B1 /* GothamRounded-BoldItalic.otf in Resources */,
@@ -857,10 +890,12 @@
 				78CF525D1E02656F000BDA1B /* FavoriteNavigationController.swift in Sources */,
 				78676D1D1DA262F200136530 /* Global.swift in Sources */,
 				781841681DCF1F780000500A /* ArticleMapView.swift in Sources */,
+				78F8293F1E10E02F00F83B97 /* TutorialPage1.swift in Sources */,
 				789DAB001E056DC5007E4559 /* MovesLogViewController.swift in Sources */,
 				78CF525B1E026567000BDA1B /* TabBarController.swift in Sources */,
 				78BB63C91DC49B3900AA75B7 /* AreaCell.swift in Sources */,
 				78676D211DA2640C00136530 /* LocationManager.swift in Sources */,
+				78834EEE1E1120D400616414 /* TutorialPage3.swift in Sources */,
 				78676D1F1DA2639A00136530 /* TutorialViewController.swift in Sources */,
 				78DDF8A81E0D2A080067DFE8 /* NoMoveLogLabel.swift in Sources */,
 				78C1BF0C1D92B41E003E9E88 /* AppDelegate.swift in Sources */,
@@ -881,6 +916,7 @@
 				7887F6391DACD4B9004747D8 /* ArticleViewController.swift in Sources */,
 				7805EB4C1DC2F79600C95DA9 /* FavoriteCell.swift in Sources */,
 				78B921321DAC90CC00BD0C22 /* APIManager.swift in Sources */,
+				78F829411E10E03D00F83B97 /* TutorialPage2.swift in Sources */,
 				78676D271DA267BD00136530 /* HomeViewController.swift in Sources */,
 				78BB63C71DC4972E00AA75B7 /* Common.swift in Sources */,
 				7820361B1DC33C570045D5A6 /* SearchResultViewController.swift in Sources */,

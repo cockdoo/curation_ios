@@ -61,7 +61,7 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: 1, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

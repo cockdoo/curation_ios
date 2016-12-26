@@ -115,7 +115,7 @@
         </view>
     </objects>
     <resources>
-        <image name="pin_gray.png" width="36" height="36"/>
+        <image name="pin_gray.png" width="28" height="28"/>
         <image name="rss_gray.png" width="28" height="28"/>
     </resources>
 </document>

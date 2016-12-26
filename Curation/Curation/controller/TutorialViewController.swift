@@ -8,33 +8,88 @@
 
 import UIKit
 
-class TutorialViewController: UIViewController, LocationManagerDelegate {
+class TutorialViewController: UIViewController, LocationManagerDelegate, UIScrollViewDelegate {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-
-    @IBOutlet weak var startButton: UIButton!
     
-    //アナリティクスのトラッカー
+    @IBOutlet weak var tutorialScrollView: UIScrollView!
+    @IBOutlet weak var pageControll: UIPageControl!
+    
+    @IBOutlet weak var mainButton: UIButton!
 //    let tracker = GAI.sharedInstance().defaultTracker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initialize()
+    }
+    
+    func initialize() {
         appDelegate.LManager.delegate = self
+        mainButton.layer.cornerRadius = 4
+        mainButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: (mainButton.titleLabel?.font.pointSize)!)
         
-        startButton.layer.cornerRadius = 4
-        startButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        UIApplication.shared.setStatusBarHidden(true, with: .none)
+        
+        tutorialScrollView.delegate = self
+        
+        let tw = tutorialScrollView.frame.width
+        let th = tutorialScrollView.frame.height
+        tutorialScrollView.contentSize = CGSize.init(width: tw * 3, height: th)
+        
+        let page1 = TutorialPage1.instance()
+        let page2 = TutorialPage2.instance()
+        let page3 = TutorialPage3.instance()
+        page1.frame = CGRect.init(x: 0, y: 0, width: tw, height: th)
+        page2.frame = CGRect.init(x: tw, y: 0, width: tw, height: th)
+        page3.frame = CGRect.init(x: tw * 2, y: 0, width: tw, height: th)
+        tutorialScrollView.addSubview(page1)
+        tutorialScrollView.addSubview(page2)
+        tutorialScrollView.addSubview(page3)
     }
     
-    @IBAction func didTouchedStartButton(_ sender: AnyObject) {
-        print("スタート！")
-        
-        //位置情報許可の申請
-        appDelegate.LManager.requestAuthorization()
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
-    //ステータスバーを白くする
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        let index: Int = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        setBottomViewStyle(index: index)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index: Int = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        setBottomViewStyle(index: index)
+    }
+    
+    func setBottomViewStyle(index: Int) {
+        pageControll.currentPage = index
+        if index == 2 {
+            mainButton.setTitle("はじめる", for: .normal)
+        }else {
+            mainButton.setTitle("次へ", for: .normal)
+        }
+    }
+    
+    @IBAction func changePage(_ sender: Any) {
+        print("changePage")
+    }
+    
+    @IBAction func touchedMainButton(_ sender: Any) {
+        if pageControll.currentPage == 0 {
+            tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width, y: 0), animated: true)
+        }else if pageControll.currentPage == 1 {
+            tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width * 2, y: 0), animated: true)
+        }else if pageControll.currentPage == 2 {
+            appDelegate.LManager.requestAuthorization()
+        }
+    }
+    
+    func touchedUseNotificaitonButton() {
+        appDelegate.NManager.registerUserNotificationSettings()
+        tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width * 2, y: 0), animated: true)
+    }
+    
+    func touchedNoUseNotificationButton() {
+        tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width * 2, y: 0), animated: true)
     }
     
     func locationManager(acceptAuthorization message: String) {
@@ -49,6 +104,9 @@ class TutorialViewController: UIViewController, LocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         trackingScreen()
     }
+    
+    
+    
     
     //スクリーンをトラッキング
     func trackingScreen() {
