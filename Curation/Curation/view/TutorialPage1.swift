@@ -22,6 +22,7 @@ class TutorialPage1: UIView {
         let attributedText = NSMutableAttributedString(string: descriptionLabel.text!)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.6
+        paragraphStyle.alignment = NSTextAlignment.center
         attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
         descriptionLabel.attributedText = attributedText
     }

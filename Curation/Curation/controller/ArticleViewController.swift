@@ -77,14 +77,13 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         let url = URL(string : myArticle["url"] as! String)
         let urlRequest = URLRequest(url: url!)
         webView.loadRequest(urlRequest)
+        appDelegate.global.showLoadingView(view: self.view, messege: nil)
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
 //        print("webview did start load")
         loadCount =  loadCount + 1
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
-        appDelegate.global.showLoadingView(view: self.view, messege: nil)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -95,8 +94,12 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         print("finish all loading")
-        
+        loadCount = 0
         appDelegate.global.removeLoadingView()
+        setWebControlButton()
+    }
+    
+    func setWebControlButton() {
         if webView.canGoBack {
             webPrevButton.isUserInteractionEnabled = true
             webPrevButton.setImage(UIImage.init(named: "web_prev_on.png"), for: .normal)
@@ -114,9 +117,12 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        print("読み込み失敗")
+        loadCount = loadCount - 1
+        if loadCount > 0 {
+            return
+        }
         appDelegate.global.removeLoadingView()
-        Common().showAlert(title: "", message: "読み込みに失敗しました", target: self, popView: true)
+        Common().showAlert(title: "", message: "読み込みエラー", target: self, popView: true)
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
