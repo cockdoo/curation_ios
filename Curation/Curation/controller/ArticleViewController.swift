@@ -77,7 +77,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         let url = URL(string : myArticle["url"] as! String)
         let urlRequest = URLRequest(url: url!)
         webView.loadRequest(urlRequest)
-        appDelegate.global.showLoadingView(view: self.view, messege: nil)
+        appDelegate.global.showLoadingView(view: webView, messege: nil)
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -193,6 +193,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func touchedBackButton(_ sender: AnyObject) {
+        appDelegate.global.removeLoadingView()
         _ = navigationController?.popViewController(animated: true)
     }
 }

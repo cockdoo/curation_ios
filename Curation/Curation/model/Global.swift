@@ -30,7 +30,8 @@ class Global: NSObject {
         if blackView != nil {
             return
         }
-        blackView = UIView.init(frame: view.frame)
+        let rect = CGRect.init(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        blackView = UIView.init(frame: rect)
         blackView?.backgroundColor = UIColor.black
         blackView?.alpha = 0.1
         view.addSubview(blackView!)
