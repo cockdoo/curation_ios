@@ -103,6 +103,7 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     func transitionToArticleView() {
         let storyboard = UIStoryboard(name: "Article", bundle: nil)
         let nextView: UIViewController! = storyboard.instantiateInitialViewController()
+        nextView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nextView, animated: true)
     }
     
