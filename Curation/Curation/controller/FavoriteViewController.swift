@@ -74,7 +74,7 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
             .selectedMenuItemLabelColor(Colors().mainBlack),
             .unselectedMenuItemLabelColor(Colors().subText),
             .selectionIndicatorColor(Colors().mainGreen),
-            .bottomMenuHairlineColor(Colors().lightGreen),
+            .bottomMenuHairlineColor(Colors().borderGray),
             .selectionIndicatorHeight(2),
             .menuItemFont(UIFont.init(name: "Gotham Rounded", size: 15)!),
             .menuItemFont(UIFont.boldSystemFont(ofSize: 15))

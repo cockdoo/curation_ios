@@ -15,6 +15,7 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewD
     @IBOutlet weak var logMapView: MKMapView!
     @IBOutlet weak var dateScrollView: UIScrollView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     let currentDate: Date = Date.init(timeIntervalSinceNow: TimeInterval(NSTimeZone.system.secondsFromGMT()))
     let timeDifference: TimeInterval = TimeInterval(NSTimeZone.system.secondsFromGMT())
     
@@ -27,11 +28,12 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewD
         UIApplication.shared.setStatusBarHidden(false, with: .none)
         
         dateScrollView.delegate = self
-        
         dateScrollView.layer.shadowColor = UIColor.black.cgColor
         dateScrollView.layer.shadowOffset = CGSize.init(width: 0, height: -2)
         dateScrollView.layer.shadowOpacity = 0.5
         dateScrollView.layer.shadowRadius = 2
+        
+        titleLabel.font = UIFont.boldSystemFont(ofSize: titleLabel.font.pointSize)
         
         logMapView.delegate = self
     }

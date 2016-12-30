@@ -9,11 +9,11 @@
 import UIKit
 
 public class Colors {
-    let lightGreen = UIColor(red: 235/255, green: 237/255, blue: 230/255, alpha: 1.0)
-    let grayGreen = UIColor(red: 177/255, green: 179/255, blue: 171/255, alpha: 1.0)
+    let borderGray = UIColor(red: 230/255, green: 228/255, blue: 225/255, alpha: 1.0)
+    let grayGreen = UIColor(red: 179/255, green: 176/255, blue: 171/255, alpha: 1.0)
     
-    let subText = UIColor(red: 141/255, green: 143/255, blue: 137/255, alpha: 1.0)
-    let mainBlack = UIColor(red: 65/255, green: 67/255, blue: 61/255, alpha: 1.0)
-    let mainGreen = UIColor(red: 175/255, green: 224/255, blue: 23/255, alpha: 1.0)
-    let textGreen = UIColor(red: 160/255, green: 206/255, blue: 17/255, alpha: 1.0)
+    let subText = UIColor(red: 143/255, green: 140/255, blue: 137/255, alpha: 1.0)
+    let mainBlack = UIColor(red: 66/255, green: 64/255, blue: 60/255, alpha: 1.0)
+    let mainGreen = UIColor(red: 240/255, green: 142/255, blue: 1/255, alpha: 1.0)
+    let textGreen = UIColor(red: 224/255, green: 131/255, blue: 0/255, alpha: 1.0)
 }

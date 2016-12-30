@@ -120,7 +120,7 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, MKMapVi
             return annotationView
         } else { // 再利用できるアノテーションが無い場合（初回など）は生成する
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView.image = UIImage(named: "area_pin.png") // ここで好きな画像を設定します
+            annotationView.image = UIImage(named: "favomap_pin.png")
             return annotationView
         }
     }

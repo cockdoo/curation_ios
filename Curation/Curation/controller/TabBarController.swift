@@ -24,9 +24,9 @@ class TabBarController: UITabBarController {
         UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .disabled)
         
         self.tabBar.layer.shadowOpacity = 1.0
-        self.tabBar.layer.shadowColor = UIColor(red: 228/255, green: 230/255, blue: 225/255, alpha: 1.0).cgColor
+        self.tabBar.layer.shadowColor = Colors().borderGray.cgColor
         self.tabBar.layer.shadowRadius = 0
-        self.tabBar.layer.shadowOffset = CGSize.init(width: 0, height: -1.0)
+        self.tabBar.layer.shadowOffset = CGSize.init(width: 0, height: -0.5)
         
 //        self.tabBar.layer.borderColor = UIColor.red.cgColor
 //        self.tabBar.layer.borderWidth = 3

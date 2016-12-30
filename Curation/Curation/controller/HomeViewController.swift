@@ -8,6 +8,7 @@
 
 import UIKit
 import SlideMenuControllerSwift
+import GGLAnalytics
 
 class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, NotificationManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
     
@@ -21,6 +22,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     //Collection
     @IBOutlet weak var articleCollectionView: UICollectionView!
     let cellIdentifer = "ArticleCollectionCell"
+    let cellIdentifer_R = "ArticleCollectionCell_R"
     let firstCellIdentifer = "FirstArticleCollectionCell"
     let refresher = UIRefreshControl()
     
@@ -31,6 +33,8 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     @IBOutlet weak var sidemenuButton: UIButton!
     
     var isFirstRefresh = false
+    
+//    let tracker = GAI.sharedInstance().defaultTracker
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +66,11 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         articleCollectionView.dataSource = self
         //CollectionCellの設定
         let nib = UINib(nibName: cellIdentifer, bundle: nil)
-        let nib2 = UINib(nibName: firstCellIdentifer, bundle: nil)
+        let nib2 = UINib(nibName: cellIdentifer_R, bundle: nil)
+        let nib3 = UINib(nibName: firstCellIdentifer, bundle: nil)
         articleCollectionView.register(nib, forCellWithReuseIdentifier: cellIdentifer)
-        articleCollectionView.register(nib2, forCellWithReuseIdentifier: firstCellIdentifer)
+        articleCollectionView.register(nib2, forCellWithReuseIdentifier: cellIdentifer_R)
+        articleCollectionView.register(nib3, forCellWithReuseIdentifier: firstCellIdentifer)
         
         //位置情報履歴のデータベースを更新する（全てはここからはじまる）
         appDelegate.DBManager.addLocationDataToCityNameTable()
@@ -172,29 +178,18 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
             size = CGSize.init(width: sw, height: (sw-20)/1.618)
         }else {
             if sw == 320 {
-                size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.25)
+                size = CGSize.init(width: sw/2, height: sw/2*1.25)
             }else if sw == 375 {
-                size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.18)
+                size = CGSize.init(width: sw/2, height: sw/2*1.18)
             }else {
-                size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.12)
+                size = CGSize.init(width: sw/2, height: sw/2*1.12)
             }
         }
         return size
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        var inset: UIEdgeInsets!
-        switch section {
-        case 0:
-            inset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
-            break
-        case 1:
-            inset = UIEdgeInsets.init(top: 1, left: 0, bottom: 0, right: 0)
-            break
-        default:
-            inset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
-            break
-        }
+        let inset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         return inset
     }
     
@@ -234,9 +229,16 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
             cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
             return cell
         }else {
-            let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
-            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
-            return cell
+            if index % 2 != 0 {
+                let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
+                cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
+                return cell
+            }else {
+                let cell: ArticleCollectionCell_R = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer_R, for: indexPath) as! ArticleCollectionCell_R
+                cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
+                return cell
+            }
+            
         }
     }
     

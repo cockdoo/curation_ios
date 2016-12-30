@@ -21,47 +21,48 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="huM-8s-kjk">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                 </imageView>
                 <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWu-Mp-de8">
-                    <rect key="frame" x="0.0" y="131" width="375" height="100"/>
+                    <rect key="frame" x="0.0" y="130" width="375" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="dcy-HH-fOh"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZG7-wJ-ipw">
-                    <rect key="frame" x="10" y="209" width="11" height="11"/>
+                    <rect key="frame" x="10" y="208" width="11" height="11"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="11" id="YxC-i9-GKP"/>
                         <constraint firstAttribute="width" constant="11" id="iiP-Sc-SwU"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="東京都八王子市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ad1-qW-Bhq">
-                    <rect key="frame" x="25" y="209" width="77" height="11"/>
+                    <rect key="frame" x="25" y="208" width="77" height="11"/>
                     <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="11"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルタイトルタイトルタイトルタイトルタイトル" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLE-xc-Oai">
-                    <rect key="frame" x="10" y="161.5" width="355" height="38"/>
+                    <rect key="frame" x="10" y="160.5" width="355" height="38"/>
                     <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="19"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rss.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nmj-IR-J4y">
-                    <rect key="frame" x="295" y="208" width="11" height="12"/>
+                    <rect key="frame" x="295" y="207" width="11" height="12"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="12" id="Z3o-ot-bBa"/>
                         <constraint firstAttribute="width" constant="11" id="wHS-af-nh7"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メディア名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEb-3J-7hB">
-                    <rect key="frame" x="310" y="208.5" width="55" height="11"/>
+                    <rect key="frame" x="310" y="207.5" width="55" height="11"/>
                     <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="11"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="huM-8s-kjk" secondAttribute="trailing" id="0sq-Ge-bMr"/>
                 <constraint firstItem="Nmj-IR-J4y" firstAttribute="bottom" secondItem="ZG7-wJ-ipw" secondAttribute="bottom" id="1yv-GV-cjf"/>
@@ -70,17 +71,17 @@
                 <constraint firstItem="huM-8s-kjk" firstAttribute="leading" secondItem="qbT-3o-trg" secondAttribute="leading" id="Hxw-NC-cMW"/>
                 <constraint firstItem="bWu-Mp-de8" firstAttribute="leading" secondItem="qbT-3o-trg" secondAttribute="leading" id="I05-IP-ir7"/>
                 <constraint firstItem="Ad1-qW-Bhq" firstAttribute="leading" secondItem="ZG7-wJ-ipw" secondAttribute="trailing" constant="4" id="I2J-A7-b0e"/>
-                <constraint firstAttribute="bottom" secondItem="Nmj-IR-J4y" secondAttribute="bottom" constant="11" id="NV0-y2-9rb"/>
+                <constraint firstAttribute="bottom" secondItem="Nmj-IR-J4y" secondAttribute="bottom" constant="12" id="NV0-y2-9rb"/>
                 <constraint firstAttribute="trailing" secondItem="QEb-3J-7hB" secondAttribute="trailing" constant="10" id="P1C-Dt-bcK"/>
                 <constraint firstItem="Ad1-qW-Bhq" firstAttribute="centerY" secondItem="ZG7-wJ-ipw" secondAttribute="centerY" id="RdY-Nx-G4L"/>
                 <constraint firstItem="huM-8s-kjk" firstAttribute="top" secondItem="qbT-3o-trg" secondAttribute="top" id="YVm-gV-lEa"/>
                 <constraint firstItem="QEb-3J-7hB" firstAttribute="centerY" secondItem="Nmj-IR-J4y" secondAttribute="centerY" id="fnK-yY-i8A"/>
                 <constraint firstItem="ZG7-wJ-ipw" firstAttribute="leading" secondItem="qbT-3o-trg" secondAttribute="leading" constant="10" id="mcQ-Xh-tvF"/>
                 <constraint firstItem="QEb-3J-7hB" firstAttribute="top" secondItem="JLE-xc-Oai" secondAttribute="bottom" constant="9" id="nyB-7C-0v6"/>
-                <constraint firstAttribute="bottom" secondItem="bWu-Mp-de8" secondAttribute="bottom" id="oWl-1p-Ghi"/>
+                <constraint firstAttribute="bottom" secondItem="bWu-Mp-de8" secondAttribute="bottom" constant="1" id="oWl-1p-Ghi"/>
                 <constraint firstAttribute="trailing" secondItem="JLE-xc-Oai" secondAttribute="trailing" constant="10" id="sCm-VS-qAh"/>
                 <constraint firstItem="QEb-3J-7hB" firstAttribute="leading" secondItem="Nmj-IR-J4y" secondAttribute="trailing" constant="4" id="wns-J9-fgB"/>
-                <constraint firstAttribute="bottom" secondItem="huM-8s-kjk" secondAttribute="bottom" id="wqt-zT-z2T"/>
+                <constraint firstAttribute="bottom" secondItem="huM-8s-kjk" secondAttribute="bottom" constant="1" id="wqt-zT-z2T"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

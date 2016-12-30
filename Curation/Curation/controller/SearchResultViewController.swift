@@ -19,6 +19,7 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBOutlet weak var articleCollectionView: UICollectionView!
     let cellIdentifer = "ArticleCollectionCell"
+    let cellIdentifer_R = "ArticleCollectionCell_R"
     @IBOutlet weak var titleLabel: UILabel!
     
     //Article
@@ -37,13 +38,16 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
         articleCollectionView.delegate = self
         articleCollectionView.dataSource = self
         let nib = UINib(nibName: cellIdentifer, bundle: nil)
+        let nib2 = UINib(nibName: cellIdentifer_R, bundle: nil)
         articleCollectionView.register(nib, forCellWithReuseIdentifier: cellIdentifer)
+        articleCollectionView.register(nib2, forCellWithReuseIdentifier: cellIdentifer_R)
         
         articles = appDelegate.global.searchResultArticles
         articleCollectionView.reloadData()
 //        print(articles)
         
         titleLabel.text = appDelegate.global.searchedPlaceName
+        titleLabel.font = UIFont.boldSystemFont(ofSize: titleLabel.font.pointSize)
     }
     
     //MARK: Collection View
@@ -51,11 +55,11 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var size: CGSize
         if sw == 320 {
-            size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.25)
+            size = CGSize.init(width: sw/2, height: sw/2*1.25)
         }else if sw == 375 {
-            size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.18)
+            size = CGSize.init(width: sw/2, height: sw/2*1.18)
         }else {
-            size = CGSize.init(width: (sw-1)/2, height: (sw-1)/2*1.12)
+            size = CGSize.init(width: sw/2, height: sw/2*1.12)
         }
         return size
     }
@@ -80,10 +84,15 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
         let imageName: String = article["media"] as! String
         let cityName: String = (article["locality"] as! String) + (article["sublocality"] as! String)
         
-        let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
-        cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
-        return cell
-
+        if index % 2 != 0 {
+            let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
+            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
+            return cell
+        }else {
+            let cell: ArticleCollectionCell_R = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer_R, for: indexPath) as! ArticleCollectionCell_R
+            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -51,10 +51,10 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         myArticle = appDelegate.global.selectedArticle
         navigationTitle.text = myArticle["title"] as? String
         navigationTitle.font = UIFont.boldSystemFont(ofSize: navigationTitle.font.pointSize)
-        toolView.layer.shadowColor = Colors().mainBlack.cgColor
-        toolView.layer.shadowOffset = CGSize.init(width: 0, height: 0)
-        toolView.layer.shadowOpacity = 0.3
-        toolView.layer.shadowRadius = 1
+        toolView.layer.shadowColor = Colors().borderGray.cgColor
+        toolView.layer.shadowOffset = CGSize.init(width: 0, height: -0.5)
+        toolView.layer.shadowOpacity = 1
+        toolView.layer.shadowRadius = 0
         ikitaiLabel.font = UIFont.boldSystemFont(ofSize: ikitaiLabel.font.pointSize)
         tizuLabel.font = UIFont.boldSystemFont(ofSize: tizuLabel.font.pointSize)
         loadCount = 0

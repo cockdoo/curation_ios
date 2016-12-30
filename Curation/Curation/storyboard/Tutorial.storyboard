@@ -44,7 +44,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66X-pC-jSf">
                                         <rect key="frame" x="30" y="49" width="315" height="46"/>
-                                        <color key="backgroundColor" red="0.68627450980000004" green="0.87843137250000003" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.94117647058823528" green="0.55686274509803924" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="WWo-NG-Z3D"/>
                                         </constraints>
@@ -64,8 +64,8 @@
                                     </view>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yEc-a0-h5R">
                                         <rect key="frame" x="168" y="8" width="39" height="37"/>
-                                        <color key="pageIndicatorTintColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="currentPageIndicatorTintColor" red="0.5568627451" green="0.56078431370000004" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="pageIndicatorTintColor" red="0.90196078431372551" green="0.89411764705882346" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.5607843137254902" green="0.5490196078431373" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="changePage:" destination="hFF-Y9-jnG" eventType="valueChanged" id="WId-0P-Sl9"/>
                                         </connections>

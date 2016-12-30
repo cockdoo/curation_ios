@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -37,9 +38,9 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abv-vK-rMg">
                                         <rect key="frame" x="0.0" y="63" width="375" height="1"/>
-                                        <color key="backgroundColor" red="0.89411764705882346" green="0.90196078431372551" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90196078431372551" green="0.89411764705882346" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="vP4-wh-SKu"/>
+                                            <constraint firstAttribute="height" constant="0.5" id="vP4-wh-SKu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -54,49 +55,67 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugz-b9-xtI">
-                                <rect key="frame" x="10" y="64" width="365" height="50"/>
+                                <rect key="frame" x="10" y="64" width="365" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="G7R-1J-h7m"/>
+                                    <constraint firstAttribute="height" constant="55" id="G7R-1J-h7m"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="15"/>
                                 <state key="normal" title="移動の記録を見る">
-                                    <color key="titleColor" red="0.62745098040000002" green="0.80784313730000001" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.25882352941176467" green="0.25098039215686274" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="touchedMoveLogButton:" destination="fra-1s-hIw" eventType="touchUpInside" id="hhu-Du-pc5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmC-Kf-4bW">
-                                <rect key="frame" x="10" y="115" width="365" height="50"/>
+                                <rect key="frame" x="10" y="120" width="365" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="GPb-1O-R2G"/>
+                                    <constraint firstAttribute="height" constant="55" id="GPb-1O-R2G"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="15"/>
                                 <state key="normal" title="アンケートのお願い">
-                                    <color key="titleColor" red="0.62745098040000002" green="0.80784313730000001" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.25882352941176467" green="0.25098039215686274" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rb3-iE-bsb">
-                                <rect key="frame" x="10" y="114" width="365" height="1"/>
-                                <color key="backgroundColor" red="0.89411764705882346" green="0.90196078431372551" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="10" y="119" width="365" height="1"/>
+                                <color key="backgroundColor" red="0.90196078431372551" green="0.89411764705882346" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="8Sp-Np-0md"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXN-oH-iPF">
-                                <rect key="frame" x="10" y="165" width="365" height="1"/>
-                                <color key="backgroundColor" red="0.89411764709999997" green="0.90196078430000004" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="10" y="175" width="365" height="1"/>
+                                <color key="backgroundColor" red="0.90196078431372551" green="0.89411764705882346" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="kWc-J4-znH"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="jex-Tt-V6f">
+                                <rect key="frame" x="344" y="88.5" width="5" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="5" id="O7I-gR-uJq"/>
+                                    <constraint firstAttribute="height" constant="8" id="q2q-Dv-nrA"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="05X-yw-HQT">
+                                <rect key="frame" x="344" y="144.5" width="5" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="5" id="wCX-aN-1Xt"/>
+                                    <constraint firstAttribute="height" constant="8" id="zab-it-ifX"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="05X-yw-HQT" firstAttribute="baseline" secondItem="qmC-Kf-4bW" secondAttribute="baseline" id="04j-82-XgA"/>
+                            <constraint firstItem="jex-Tt-V6f" firstAttribute="baseline" secondItem="ugz-b9-xtI" secondAttribute="baseline" id="0l8-It-akp"/>
                             <constraint firstItem="qmC-Kf-4bW" firstAttribute="top" secondItem="Rb3-iE-bsb" secondAttribute="bottom" id="3Sg-cQ-YXH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jex-Tt-V6f" secondAttribute="trailing" constant="10" id="8wz-Qe-47k"/>
                             <constraint firstItem="ugz-b9-xtI" firstAttribute="leading" secondItem="f8A-P9-JaA" secondAttribute="leading" constant="10" id="Dqn-Gx-781"/>
                             <constraint firstItem="NXN-oH-iPF" firstAttribute="width" secondItem="qmC-Kf-4bW" secondAttribute="width" id="NZc-p9-3KB"/>
                             <constraint firstItem="Rb3-iE-bsb" firstAttribute="top" secondItem="ugz-b9-xtI" secondAttribute="bottom" id="PLt-i7-6ck"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="05X-yw-HQT" secondAttribute="trailing" constant="10" id="Pce-jH-y9H"/>
                             <constraint firstAttribute="trailing" secondItem="NXN-oH-iPF" secondAttribute="trailing" id="WyT-kf-jTf"/>
                             <constraint firstItem="Rb3-iE-bsb" firstAttribute="width" secondItem="ugz-b9-xtI" secondAttribute="width" id="Ya4-oG-A6x"/>
                             <constraint firstItem="kUg-RL-MRT" firstAttribute="leading" secondItem="f8A-P9-JaA" secondAttribute="leading" id="ZbP-97-Zyf"/>
@@ -110,10 +129,16 @@
                             <constraint firstAttribute="trailing" secondItem="qmC-Kf-4bW" secondAttribute="trailing" id="vXk-Ec-AA9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="gHa-IB-t4W" id="Tx8-75-uoH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wv9-wq-Li1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-316" y="-104.7976011994003"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow_right_small.png" width="10" height="14"/>
+    </resources>
 </document>

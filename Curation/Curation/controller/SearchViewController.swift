@@ -52,7 +52,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         for subView in searchField.subviews {
             for secondSubView in subView.subviews {
                 if secondSubView is UITextField {
-                    secondSubView.backgroundColor = Colors().lightGreen
+                    secondSubView.backgroundColor = Colors().borderGray
                 }
             }
         }

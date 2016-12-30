@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -28,47 +29,57 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5o-Xy-bWQ">
                             <rect key="frame" x="2" y="2" width="43" height="43"/>
-                            <color key="backgroundColor" red="0.68627450980000004" green="0.87843137250000003" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.94117647058823528" green="0.55686274509803924" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="水" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPY-tH-YJ0">
-                            <rect key="frame" x="14.5" y="10" width="17" height="17"/>
+                            <rect key="frame" x="14.5" y="10.5" width="17" height="17"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="17"/>
                             <color key="textColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKs-ks-bSt">
-                            <rect key="frame" x="17.5" y="30" width="11.5" height="11"/>
+                            <rect key="frame" x="17.5" y="29.5" width="11.5" height="11"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="11"/>
                             <color key="textColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.62745098040000002" green="0.80784313730000001" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.94117647058823528" green="0.55686274509803924" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="f5o-Xy-bWQ" secondAttribute="trailing" constant="2" id="7Z2-Ut-X0e"/>
                         <constraint firstItem="UPY-tH-YJ0" firstAttribute="centerX" secondItem="zZx-4M-AuF" secondAttribute="centerX" id="EJi-WV-DGw"/>
                         <constraint firstItem="f5o-Xy-bWQ" firstAttribute="top" secondItem="zZx-4M-AuF" secondAttribute="top" constant="2" id="SUg-nz-RYi"/>
+                        <constraint firstItem="UPY-tH-YJ0" firstAttribute="centerY" secondItem="zZx-4M-AuF" secondAttribute="centerY" multiplier="0.8" id="Xp5-cm-Kld"/>
                         <constraint firstItem="f5o-Xy-bWQ" firstAttribute="leading" secondItem="zZx-4M-AuF" secondAttribute="leading" constant="2" id="ZyB-LH-KbD"/>
                         <constraint firstAttribute="width" constant="47" id="bYI-wE-czz"/>
                         <constraint firstAttribute="bottom" secondItem="f5o-Xy-bWQ" secondAttribute="bottom" constant="2" id="eD7-ZB-ihB"/>
-                        <constraint firstItem="PKs-ks-bSt" firstAttribute="top" secondItem="UPY-tH-YJ0" secondAttribute="bottom" constant="3" id="ne7-yy-6dC"/>
+                        <constraint firstItem="PKs-ks-bSt" firstAttribute="top" secondItem="UPY-tH-YJ0" secondAttribute="bottom" constant="2" id="ne7-yy-6dC"/>
                         <constraint firstAttribute="height" constant="47" id="upU-7N-xM1"/>
-                        <constraint firstItem="UPY-tH-YJ0" firstAttribute="top" secondItem="zZx-4M-AuF" secondAttribute="top" constant="10" id="yCu-qv-cqd"/>
                         <constraint firstItem="PKs-ks-bSt" firstAttribute="centerX" secondItem="zZx-4M-AuF" secondAttribute="centerX" id="yFD-Az-xG0"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/12/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbm-PO-fZS">
-                    <rect key="frame" x="76" y="27" width="110.5" height="20"/>
+                    <rect key="frame" x="76" y="27.5" width="110.5" height="20"/>
                     <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="20"/>
-                    <color key="textColor" red="0.25490196079999999" green="0.26274509800000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.25882352941176467" green="0.25098039215686274" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EqG-Nq-cOH">
+                    <rect key="frame" x="61" y="0.0" width="314" height="0.5"/>
+                    <color key="backgroundColor" red="0.90196078431372551" green="0.89411764705882346" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="6IX-lh-3DQ"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="zZx-4M-AuF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="621-Pe-yKi"/>
+                <constraint firstItem="EqG-Nq-cOH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CnN-F9-j1Q"/>
+                <constraint firstAttribute="trailing" secondItem="EqG-Nq-cOH" secondAttribute="trailing" id="LkO-9B-FIG"/>
                 <constraint firstItem="mbm-PO-fZS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="N7m-ys-VWJ"/>
                 <constraint firstItem="zZx-4M-AuF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="SHe-22-zNG"/>
+                <constraint firstItem="EqG-Nq-cOH" firstAttribute="leading" secondItem="zZx-4M-AuF" secondAttribute="trailing" id="bm1-KD-3Cr"/>
                 <constraint firstItem="mbm-PO-fZS" firstAttribute="leading" secondItem="zZx-4M-AuF" secondAttribute="trailing" constant="15" id="pak-7K-LmM"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
