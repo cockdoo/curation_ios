@@ -33,18 +33,22 @@
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="水" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPY-tH-YJ0">
                             <rect key="frame" x="14.5" y="10.5" width="17" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="17" id="1Kp-YC-E4G"/>
+                                <constraint firstAttribute="height" constant="17" id="bdV-em-B4B"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="17"/>
                             <color key="textColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKs-ks-bSt">
-                            <rect key="frame" x="17.5" y="29.5" width="11.5" height="11"/>
+                            <rect key="frame" x="17.5" y="28.5" width="11.5" height="11"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="11"/>
                             <color key="textColor" red="0.98823529409999999" green="0.98823529409999999" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.94117647058823528" green="0.55686274509803924" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.8784313725490196" green="0.51372549019607838" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="f5o-Xy-bWQ" secondAttribute="trailing" constant="2" id="7Z2-Ut-X0e"/>
                         <constraint firstItem="UPY-tH-YJ0" firstAttribute="centerX" secondItem="zZx-4M-AuF" secondAttribute="centerX" id="EJi-WV-DGw"/>
@@ -53,7 +57,7 @@
                         <constraint firstItem="f5o-Xy-bWQ" firstAttribute="leading" secondItem="zZx-4M-AuF" secondAttribute="leading" constant="2" id="ZyB-LH-KbD"/>
                         <constraint firstAttribute="width" constant="47" id="bYI-wE-czz"/>
                         <constraint firstAttribute="bottom" secondItem="f5o-Xy-bWQ" secondAttribute="bottom" constant="2" id="eD7-ZB-ihB"/>
-                        <constraint firstItem="PKs-ks-bSt" firstAttribute="top" secondItem="UPY-tH-YJ0" secondAttribute="bottom" constant="2" id="ne7-yy-6dC"/>
+                        <constraint firstItem="PKs-ks-bSt" firstAttribute="top" secondItem="UPY-tH-YJ0" secondAttribute="bottom" constant="1" id="ne7-yy-6dC"/>
                         <constraint firstAttribute="height" constant="47" id="upU-7N-xM1"/>
                         <constraint firstItem="PKs-ks-bSt" firstAttribute="centerX" secondItem="zZx-4M-AuF" secondAttribute="centerX" id="yFD-Az-xG0"/>
                     </constraints>

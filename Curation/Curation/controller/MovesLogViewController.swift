@@ -171,7 +171,7 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewD
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let myPolyLineRendere: MKPolylineRenderer = MKPolylineRenderer(overlay: overlay)
         myPolyLineRendere.lineWidth = 7
-        myPolyLineRendere.strokeColor = UIColor.red
+        myPolyLineRendere.strokeColor = Colors().mainGreen
         myPolyLineRendere.alpha = 0.6
         return myPolyLineRendere
     }
