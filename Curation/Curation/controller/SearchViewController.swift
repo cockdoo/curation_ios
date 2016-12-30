@@ -109,7 +109,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
             }
             if let placemarks = placemarks {
                 guard let place = placemarks.first else { return }
-                self.getArticlesWithLocation(lat: (place.location?.coordinate.latitude)!, lng: (place.location?.coordinate.latitude)!)
+                self.getArticlesWithLocation(lat: (place.location?.coordinate.latitude)!, lng: (place.location?.coordinate.longitude)!)
                 self.appDelegate.global.searchedPlaceName = self.searchField.text!
             }
             
