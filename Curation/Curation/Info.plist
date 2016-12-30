@@ -30,7 +30,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>防災情報をカスタマイズするために位置情報を利用します。（バッテリーの消費量を抑える設計にしています。）</string>
+	<string>あなたの移動スタイルに合わせて表示する記事を厳選します。（バッテリーの消費を抑える設計にしています）</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>GothamRounded_Bold.otf</string>
