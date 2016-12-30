@@ -35,7 +35,6 @@ class TutorialViewController: UIViewController, LocationManagerDelegate, UIScrol
     }
     
     override func viewDidLayoutSubviews() {
-        print("ほげ")
         if alreadySubview! {
             return
         }
@@ -80,14 +79,20 @@ class TutorialViewController: UIViewController, LocationManagerDelegate, UIScrol
     
     @IBAction func changePage(_ sender: Any) {
         print("changePage")
+//        let index = (sender as! UIPageControl).currentPage
+//        changeScrollViewPosition(index: index)
     }
     
     @IBAction func touchedMainButton(_ sender: Any) {
-        if pageControll.currentPage == 0 {
+        changeScrollViewPosition(index: pageControll.currentPage)
+    }
+    
+    func changeScrollViewPosition(index: Int) {
+        if index == 0 {
             tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width, y: 0), animated: true)
-        }else if pageControll.currentPage == 1 {
+        }else if index == 1 {
             tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width * 2, y: 0), animated: true)
-        }else if pageControll.currentPage == 2 {
+        }else if index == 2 {
             appDelegate.LManager.requestAuthorization()
         }
     }

@@ -15,7 +15,7 @@
                 <navigationController navigationBarHidden="YES" id="tD6-Nx-5uH" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="73z-Pq-cyY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="73z-Pq-cyY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -62,7 +62,7 @@
                                             <constraint firstAttribute="height" constant="1" id="jgx-jZ-Y4g"/>
                                         </constraints>
                                     </view>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yEc-a0-h5R">
+                                    <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yEc-a0-h5R">
                                         <rect key="frame" x="168" y="8" width="39" height="37"/>
                                         <color key="pageIndicatorTintColor" red="0.90196078431372551" green="0.89411764705882346" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="currentPageIndicatorTintColor" red="0.5607843137254902" green="0.5490196078431373" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
