@@ -17,20 +17,29 @@ class TutorialViewController: UIViewController, LocationManagerDelegate, UIScrol
     @IBOutlet weak var mainButton: UIButton!
 //    let tracker = GAI.sharedInstance().defaultTracker
     
+    var alreadySubview: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
     }
     
     func initialize() {
+        alreadySubview = false
         appDelegate.LManager.delegate = self
-        mainButton.layer.cornerRadius = 4
-        mainButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: (mainButton.titleLabel?.font.pointSize)!)
-        
-        UIApplication.shared.setStatusBarHidden(true, with: .none)
-        
         tutorialScrollView.delegate = self
         
+        mainButton.layer.cornerRadius = 4
+        mainButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: (mainButton.titleLabel?.font.pointSize)!)
+        UIApplication.shared.setStatusBarHidden(true, with: .none)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        print("ほげ")
+        if alreadySubview! {
+            return
+        }
+        alreadySubview = true
         let tw = tutorialScrollView.frame.width
         let th = tutorialScrollView.frame.height
         tutorialScrollView.contentSize = CGSize.init(width: tw * 3, height: th)
