@@ -26,4 +26,10 @@ class SidemenuViewController: UIViewController {
         let nextView: UIViewController! = storyboard.instantiateInitialViewController()
         self.present(nextView, animated: true, completion: nil)
     }
+    
+    @IBAction func touchedAnketoButton(_ sender: Any) {
+        let url = NSURL(string: "https://docs.google.com/forms/d/1DSU7cL-tYr4ASLA40VJHGkdAoYbRA0v6sNqw8yHNgRY")
+        let app:UIApplication = UIApplication.shared
+        app.openURL(url! as URL)
+    }    
 }

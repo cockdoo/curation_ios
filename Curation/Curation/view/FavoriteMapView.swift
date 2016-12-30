@@ -28,11 +28,6 @@ class FavoriteMapView: MKMapView {
             let lng = Double(object["lng"] as! String)!
             
             let position = CLLocationCoordinate2DMake(lat, lng)
-//            marker.title = title
-//            let pinName = "pin_\(num).png"
-//            let img: UIImage! = UIImage(named: pinName)
-//            marker.icon = img
-            
             let annotation = MKPointAnnotation()
             annotation.coordinate = position
             annotation.title = "\(index)"
