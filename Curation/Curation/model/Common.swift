@@ -42,12 +42,25 @@ open class Common: NSObject {
         alert.addAction(defaultAction)
         target.present(alert, animated: true, completion: nil)
     }
-    
+        
     func isInteger(n: Double) -> Bool {
         if round(n) == n {
             return true
         }else {
             return false
         }
+    }
+    
+    func trackingScreen(vc: UIViewController) {
+        let className = NSStringFromClass(type(of: vc)).components(separatedBy: ".").last!
+        let tracker = GAI.sharedInstance().defaultTracker
+        let build = GAIDictionaryBuilder.createScreenView().set(className, forKey: kGAIScreenName).build() as Dictionary
+        tracker?.send(build as [NSObject : AnyObject])
+    }
+    
+    func trackingEvent(category: String?, action: String?, label: String?) {
+        let tracker = GAI.sharedInstance().defaultTracker
+        let build = GAIDictionaryBuilder.createEvent(withCategory: category, action: action, label: label, value: nil).build() as Dictionary
+        tracker?.send(build as [NSObject : AnyObject])
     }
 }

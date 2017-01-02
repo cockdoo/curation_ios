@@ -44,7 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //初期値を設定
         let defaults: [String: NSObject] = [
             "FIRST_LAUNCH": true as NSObject,
-            "PUSHED_TIME": Date() as NSObject
+            "PUSHED_TIME": Date() as NSObject,
+            "ANKET_TIME": Date() as NSObject,
+            "DONE_ANKET": false as NSObject
         ]
         ud.register(defaults: defaults)
         ud.synchronize()

@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     var isFirstRefresh = false
     
-//    let tracker = GAI.sharedInstance().defaultTracker
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,11 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         appDelegate.LManager.locationManager.startUpdatingLocation()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         refreshEveryViewWillApper()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+//        refreshEveryViewWillApper()
     }
     
     func initialize() {
@@ -86,6 +89,8 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     }
         
     func refreshEveryViewWillApper() {
+        Common().trackingScreen(vc: self)
+        checkShowAnketAlert()
         //デリゲート設定
         appDelegate.LManager.delegate = self
         appDelegate.DBManager.delegate = self
@@ -243,6 +248,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Common().trackingEvent(category: "Home", action: "SelectedArticle", label: "\(indexPath.row)")
         var index: Int!
         if indexPath.section == 0 {
             index = 0
@@ -266,10 +272,55 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     }
     
     @IBAction func toucedSidemenuButton(_ sender: Any) {
+        Common().trackingEvent(category: "Home", action: "ShowSlidemenu", label: nil)
         self.slideMenuController()?.openLeft()
 //        let storyboard = UIStoryboard(name: "Sidemenu", bundle: nil)
 //        let nextView: UIViewController! = storyboard.instantiateInitialViewController()
 //        self.navigationController?.pushViewController(nextView, animated: true)
     }
     
+    func checkShowAnketAlert() {
+        if ud.bool(forKey: "DONE_ANKET") {
+            return
+        }
+        let time = ud.object(forKey: "ANKET_TIME") as! Date
+        let pushedInterval = Date().timeIntervalSince(time)
+        if pushedInterval < 4 * 24 * 60 * 60 {
+            return
+        }
+        ud.set(Date(), forKey: "ANKET_TIME")
+        ud.synchronize()
+        showAnketAleart()
+    }
+    
+    var anketView: AnketAleartView?
+    func showAnketAleart() {
+        Common().trackingEvent(category: "Home", action: "ShowAnketAleart", label: nil)
+        if anketView == nil {
+            anketView = AnketAleartView.instance()
+            print(sw)
+            anketView?.frame = CGRect.init(x: 0, y: 0, width: sw - 60, height: 190)
+            anketView?.center = CGPoint.init(x: self.view.center.x, y: self.view.center.y + 10)
+            self.view.addSubview(anketView!)
+        }
+    }
+    
+    func removeAnketAleart() {
+        Common().trackingEvent(category: "Home", action: "TouchedAnketAeart", label: "NO")
+        if anketView != nil {
+            anketView?.removeFromSuperview()
+            anketView = nil
+        }
+    }
+    
+    func linkAnketWebPage() {
+        Common().trackingEvent(category: "Home", action: "TouchedAnketAeart", label: "OK")
+        ud.set(true, forKey: "DONE_ANKET")
+        ud.synchronize()
+        
+        removeAnketAleart()
+        let url = NSURL(string: Config().anketURL)
+        let app:UIApplication = UIApplication.shared
+        app.openURL(url! as URL)
+    }
 }
