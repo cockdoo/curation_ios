@@ -9,7 +9,6 @@
 import UIKit
 import GoogleMaps
 import SlideMenuControllerSwift
-import GGLAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -75,10 +74,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
-        // Optional: configure GAI options.
-//        let gai = GAI.sharedInstance()
-//        gai.trackUncaughtExceptions = true  // report uncaught exceptions
-//        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+        let gai = GAI.sharedInstance()
+        gai?.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
+        if !Config().isTrackingAnalytics {
+            gai?.dryRun = true
+        }
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

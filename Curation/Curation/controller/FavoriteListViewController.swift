@@ -53,6 +53,7 @@ class FavoriteListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func refreshEveryViewWillApper() {
+        Common().trackingScreen(vc: self)
         refreshFavoriteList()
     }
     
@@ -93,6 +94,7 @@ class FavoriteListViewController: UIViewController, UITableViewDelegate, UITable
     
     //Cellが選択された際に呼び出される.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Common().trackingEvent(category: "FavoriteList", action: "SelectedArticle", label: "\(indexPath.row)")
         print("Index: \((indexPath as NSIndexPath).row)")
         appDelegate.global.selectedArticle = articles[(indexPath as NSIndexPath).row]
         delegate.favoriteListView(touchedArticleButton: "")

@@ -30,6 +30,10 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
         initialize()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        Common().trackingScreen(vc: self)
+    }
+    
     func initialize() {
         sw = self.view.bounds.width
         sh = self.view.bounds.height
@@ -96,6 +100,7 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Common().trackingEvent(category: "SearchResult", action: "SelectedArticle", label: "\(indexPath.row)")
         appDelegate.global.selectedArticle = articles[indexPath.row]
         transitionToArticleView()
     }

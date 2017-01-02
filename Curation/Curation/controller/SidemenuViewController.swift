@@ -22,13 +22,15 @@ class SidemenuViewController: UIViewController {
     }
     
     func openMovesLogView() {
+        Common().trackingEvent(category: "Sidemenu", action: "TouchedMovesButton", label: nil)
         let storyboard = UIStoryboard(name: "MovesLog", bundle: nil)
         let nextView: UIViewController! = storyboard.instantiateInitialViewController()
         self.present(nextView, animated: true, completion: nil)
     }
     
     @IBAction func touchedAnketoButton(_ sender: Any) {
-        let url = NSURL(string: "https://docs.google.com/forms/d/1DSU7cL-tYr4ASLA40VJHGkdAoYbRA0v6sNqw8yHNgRY")
+        Common().trackingEvent(category: "Sidemenu", action: "TouchedAnketButton", label: nil)
+        let url = NSURL(string: Config().anketURL)
         let app:UIApplication = UIApplication.shared
         app.openURL(url! as URL)
     }    

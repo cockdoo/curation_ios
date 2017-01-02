@@ -39,6 +39,7 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewD
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        Common().trackingScreen(vc: self)
         appDelegate.NManager.delegate = self
     }
     
@@ -94,6 +95,7 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewD
     }
     
     func prepareSetDayMoveLog(dayCountFromToday: Int) {
+        Common().trackingEvent(category: "MoveLog", action: "SetMoveLog", label: "\(dayCountFromToday)日前")
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd"
         let todayString = dateFormater.string(from: Date())

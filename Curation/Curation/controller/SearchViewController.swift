@@ -30,6 +30,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        Common().trackingScreen(vc: self)
         if !appDelegate.global.isBackFromSearchResultView {
             refreshEveryViewWillApper()
         }
@@ -100,6 +101,8 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     }
     
     func searchLocationFromAddress() {
+        Common().trackingEvent(category: "Search", action: "TextField", label: searchField.text!)
+        
         CLGeocoder().geocodeAddressString(searchField.text!, in: nil, completionHandler: { (placemarks, error) in
             if error != nil {
                 print("Search Error:\(error)")
@@ -139,6 +142,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         endEdit()
         isSearch = true
         if Common().isLocationAuthorize() {
+            Common().trackingEvent(category: "Search", action: "CurrentLocation", label: nil)
             appDelegate.global.showLoadingView(view: self.view, messege: nil)
             getArticlesWithLocation(lat: appDelegate.LManager.lat, lng: appDelegate.LManager.lng)
             appDelegate.global.searchedPlaceName = "現在地"
@@ -196,6 +200,8 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Common().trackingEvent(category: "Search", action: "LivingArea", label: "\(indexPath.row)")
+        
         print("Index: \((indexPath as NSIndexPath).row)")
         endEdit()
         let lat = areaList[indexPath.row]["lat"] as! Double

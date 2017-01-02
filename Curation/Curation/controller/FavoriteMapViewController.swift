@@ -46,6 +46,7 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, MKMapVi
     }
     
     func refreshEveryViewWillApper() {
+        Common().trackingScreen(vc: self) 
         isFirstSubView = true
     }
     
@@ -107,6 +108,7 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, MKMapVi
             return
         }
         let index : CGFloat = CGFloat(atof((annotation?.title)!))
+        Common().trackingEvent(category: "FavoriteMap", action: "SelectedPin", label: "\(index)")
         infoScrollView.setContentOffset(CGPoint.init(x: infoScrollView.frame.width * index, y: 0), animated: true)
     }
     
@@ -183,6 +185,7 @@ class FavoriteMapViewController: UIViewController, UIScrollViewDelegate, MKMapVi
     
     func touchedInfoView(button: UIButton) {
         print(button.tag)
+        Common().trackingEvent(category: "FavoriteMap", action: "SelectedArticle", label: "\(button.tag)")
         appDelegate.global.selectedArticle = articles[button.tag]
         delegate.favoriteListView(touchedArticleButton: "")
     }

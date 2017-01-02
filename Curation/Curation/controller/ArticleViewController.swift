@@ -62,6 +62,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     }
     
     func refresh() {
+        Common().trackingScreen(vc: self)
+        
         let id = myArticle["id"] as! String
         if appDelegate.DBManager.getFavoriteArticleFromId(id)["id"] != nil {
             isFavorite = true
@@ -152,9 +154,11 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     @IBAction func touchedFavoriteButton(_ sender: AnyObject) {
         if isFavorite! {
+            Common().trackingEvent(category: "Article", action: "AddFavorite", label: appDelegate.global.selectedArticle["id"] as! String)
             appDelegate.DBManager.removeFromFavoriteTable(appDelegate.global.selectedArticle["id"] as! String)
             isFavorite = false
         }else {
+            Common().trackingEvent(category: "Article", action: "RemoveFavorite", label: appDelegate.global.selectedArticle["id"] as! String)
             appDelegate.DBManager.insertFavoriteTable(appDelegate.global.selectedArticle)
             let gifmanager = SwiftyGifManager(memoryLimit: 20)
             let gif = UIImage(gifName: "favo")
@@ -176,6 +180,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     }
     
     func setMapView() {
+        Common().trackingEvent(category: "Article", action: "ShowMap", label: nil)
         mapLightBox = ArticleMapView.instance()
         mapLightBox.frame = CGRect.init(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.width - 90, height: (self.view.frame.width - 90) * 1.5))
         mapLightBox.center = self.view.center
