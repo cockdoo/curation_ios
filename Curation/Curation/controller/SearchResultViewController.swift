@@ -89,7 +89,7 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
         let imageName: String = article["media"] as! String
         let cityName: String = (article["locality"] as! String) + (article["sublocality"] as! String)
         
-        if index % 2 != 0 {
+        if index % 2 == 0 {
             let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
             cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
             return cell
