@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class SearchViewController: UIViewController, APIManagerDelegate, LocationManagerDelegate, NotificationManagerDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController, APIManagerDelegate, LocationManagerDelegate, NotificationManagerDelegate, UISearchBarDelegate, UITabBarControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let apiManager = APIManager()
@@ -29,12 +29,15 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
         initialize()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         Common().trackingScreen(vc: self)
+        appDelegate.global.removeLoadingView()
         if !appDelegate.global.isBackFromSearchResultView {
             refreshEveryViewWillApper()
         }
         appDelegate.global.isBackFromSearchResultView = false
+    }
+    override func viewWillAppear(_ animated: Bool) {   
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
@@ -57,6 +60,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
                 }
             }
         }
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         searchCurrentLocationButton.layer.cornerRadius = 20
         

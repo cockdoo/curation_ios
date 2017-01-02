@@ -32,6 +32,7 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     
     override func viewWillAppear(_ animated: Bool) {
         Common().trackingScreen(vc: self)
+        appDelegate.global.removeLoadingView()
     }
     
     func initialize() {

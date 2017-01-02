@@ -10,7 +10,7 @@ import UIKit
 import SlideMenuControllerSwift
 import GGLAnalytics
 
-class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, NotificationManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate {
+class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseManagerDelegate, APIManagerDelegate, NotificationManagerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarControllerDelegate, UIGestureRecognizerDelegate {
     
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -54,6 +54,8 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         sw = self.view.bounds.width
         sh = self.view.bounds.height
         
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
         apiManager.delegate = self
         appDelegate.LManager.delegate = self
         appDelegate.DBManager.delegate = self
@@ -87,6 +89,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         
         Common().checkLocationAuthorize(target: self)
     }
+    
         
     func refreshEveryViewWillApper() {
         Common().trackingScreen(vc: self)
@@ -96,6 +99,8 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         appDelegate.DBManager.delegate = self
         appDelegate.NManager.delegate = self
         self.tabBarController?.delegate = self
+        
+        appDelegate.global.removeLoadingView()
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

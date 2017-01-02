@@ -10,7 +10,7 @@ import UIKit
 import PageMenu
 
 
-class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteListViewDelegate, FavoriteMapViewDelegate, NotificationManagerDelegate, UITabBarControllerDelegate {
+class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteListViewDelegate, FavoriteMapViewDelegate, NotificationManagerDelegate, UITabBarControllerDelegate, UIGestureRecognizerDelegate {
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var pageMenuCover: UIView!
@@ -28,17 +28,22 @@ class FavoriteViewController: UIViewController, CAPSPageMenuDelegate, FavoriteLi
     func initialize() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         alreadyAddSubview = false
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     
     let list: FavoriteListViewController! = UIStoryboard(name: "FavoriteList", bundle: nil).instantiateInitialViewController() as! FavoriteListViewController!
     let map: FavoriteMapViewController! = UIStoryboard(name: "FavoriteMap", bundle: nil).instantiateInitialViewController() as! FavoriteMapViewController!
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         refreshEveryViewWillApper()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
     func refreshEveryViewWillApper() {
+        appDelegate.global.removeLoadingView()
         self.tabBarController?.delegate = self
         appDelegate.NManager.delegate = self
         if alreadyAddSubview! {
