@@ -40,25 +40,36 @@ class NotificationManager: NSObject, APIManagerDelegate {
     }
     
     func prepareGetArticle(lat: Double, lng: Double) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        
+        let currentDate = Date()
+        let currentHour = formatter.string(from: currentDate)
+        
+        if Int(currentHour)! > 21 || Int(currentHour)! < 8 {
+            return
+        }
+        
         let ud = UserDefaults.standard
         let pushedTime = ud.object(forKey: "PUSHED_TIME") as! Date
         let pushedInterval = Date().timeIntervalSince(pushedTime)
-
-//        if pushedInterval < Config().hourPushInterval * 60 * 60 {
-//            return
-//        }
-      
-        ud.set(Date(), forKey: "PUSHED_TIME")
-        ud.synchronize()
+        
+        if pushedInterval < Config().hourPushInterval * 60 * 60 {
+            return
+        }
         apiManager.getOneArticle(lat: lat, lng: lng)
     }
     
     func apiManager(didGetArticleFromId article: AnyObject) {
         let id = article["id"] as! String
-        if appDelegate.DBManager.isAlreadyPushed(id) {
+        if appDelegate.DBManager.isAlreadyPushed(id) { 
             return
         }
         appDelegate.DBManager.insertPushedTable(id)
+        
+        let ud = UserDefaults.standard
+        ud.set(Date(), forKey: "PUSHED_TIME")
+        ud.synchronize()
         
         let application = UIApplication.shared
         let notification = UILocalNotification()
