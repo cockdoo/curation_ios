@@ -27,6 +27,8 @@ class FavoriteListViewController: UIViewController, UITableViewDelegate, UITable
     //Article
     var articles = [AnyObject]()
     
+    var noItemView: FavoriteListNoItemView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
@@ -60,6 +62,15 @@ class FavoriteListViewController: UIViewController, UITableViewDelegate, UITable
     func refreshFavoriteList() {
         articles = appDelegate.DBManager.getFavoriteArticles()
         favoritesTable.reloadData()
+        
+        if articles.count == 0 && noItemView == nil {
+            noItemView = FavoriteListNoItemView.instance()
+            noItemView?.frame = CGRect.init(x: 0, y: 0, width: favoritesTable.frame.width, height: favoritesTable.frame.height)
+            favoritesTable.addSubview(noItemView!)
+        }else if articles.count > 0 && noItemView != nil {
+            noItemView?.removeFromSuperview()
+            noItemView = nil
+        }
         /*refreshControl.endRefreshing()*/
     }
     

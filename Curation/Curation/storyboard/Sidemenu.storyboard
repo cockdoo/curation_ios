@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メニュー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-IB-t4W">
-                                        <rect key="frame" x="152.5" y="33" width="70" height="21"/>
+                                        <rect key="frame" x="153" y="33" width="70" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.25490196079999999" green="0.26274509800000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -95,21 +95,21 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="jex-Tt-V6f">
-                                <rect key="frame" x="344" y="88.5" width="5" height="8"/>
+                                <rect key="frame" x="344" y="88" width="5" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="O7I-gR-uJq"/>
                                     <constraint firstAttribute="height" constant="8" id="q2q-Dv-nrA"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="05X-yw-HQT">
-                                <rect key="frame" x="344" y="144.5" width="5" height="8"/>
+                                <rect key="frame" x="344" y="144" width="5" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="wCX-aN-1Xt"/>
                                     <constraint firstAttribute="height" constant="8" id="zab-it-ifX"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215686274506" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98823529409999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="05X-yw-HQT" firstAttribute="baseline" secondItem="qmC-Kf-4bW" secondAttribute="baseline" id="04j-82-XgA"/>
                             <constraint firstItem="jex-Tt-V6f" firstAttribute="baseline" secondItem="ugz-b9-xtI" secondAttribute="baseline" id="0l8-It-akp"/>

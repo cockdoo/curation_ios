@@ -25,6 +25,8 @@
 		7818416E1DCF2EF40000500A /* FavoriteList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7818416D1DCF2EF40000500A /* FavoriteList.storyboard */; };
 		781841701DCF2EFC0000500A /* FavoriteMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7818416F1DCF2EFC0000500A /* FavoriteMap.storyboard */; };
 		781841721DCF309C0000500A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781841711DCF309C0000500A /* Colors.swift */; };
+		781AF5171E1BD34A007778BB /* FavoriteListNoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781AF5161E1BD34A007778BB /* FavoriteListNoItemView.swift */; };
+		781AF5191E1BD355007778BB /* FavoriteListNoItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 781AF5181E1BD355007778BB /* FavoriteListNoItemView.xib */; };
 		7820361B1DC33C570045D5A6 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7820361A1DC33C570045D5A6 /* SearchResultViewController.swift */; };
 		7820361D1DC33C610045D5A6 /* SearchResult.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7820361C1DC33C610045D5A6 /* SearchResult.storyboard */; };
 		782BAF321E028D1200F55139 /* arrow_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 782BAF311E028D1200F55139 /* arrow_back.png */; };
@@ -180,6 +182,8 @@
 		7818416D1DCF2EF40000500A /* FavoriteList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FavoriteList.storyboard; sourceTree = "<group>"; };
 		7818416F1DCF2EFC0000500A /* FavoriteMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FavoriteMap.storyboard; sourceTree = "<group>"; };
 		781841711DCF309C0000500A /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		781AF5161E1BD34A007778BB /* FavoriteListNoItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteListNoItemView.swift; sourceTree = "<group>"; };
+		781AF5181E1BD355007778BB /* FavoriteListNoItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteListNoItemView.xib; sourceTree = "<group>"; };
 		7820361A1DC33C570045D5A6 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		7820361C1DC33C610045D5A6 /* SearchResult.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchResult.storyboard; sourceTree = "<group>"; };
 		782BAF311E028D1200F55139 /* arrow_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_back.png; path = assets/images/arrow_back.png; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 				78834EEF1E1120D900616414 /* TutorialPage3.xib */,
 				7892FB7C1E1A579300F5C329 /* AnketAleartView.swift */,
 				7892FB801E1A579A00F5C329 /* AnketAleartView.xib */,
+				781AF5161E1BD34A007778BB /* FavoriteListNoItemView.swift */,
+				781AF5181E1BD355007778BB /* FavoriteListNoItemView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -741,6 +747,7 @@
 				7818416C1DCF298C0000500A /* back.png in Resources */,
 				783D42961E0FC57F009DCA59 /* logo_header.png in Resources */,
 				78BB63CB1DC49B4600AA75B7 /* AreaCell.xib in Resources */,
+				781AF5191E1BD355007778BB /* FavoriteListNoItemView.xib in Resources */,
 				783448E01E0282DD0089EE7C /* current_location.png in Resources */,
 				7887E3671DD9CEEB0073C0B8 /* web_next_on.png in Resources */,
 				78834EF61E11231100616414 /* tutorial_notification.png in Resources */,
@@ -939,6 +946,7 @@
 				78CF525B1E026567000BDA1B /* TabBarController.swift in Sources */,
 				78BB63C91DC49B3900AA75B7 /* AreaCell.swift in Sources */,
 				78676D211DA2640C00136530 /* LocationManager.swift in Sources */,
+				781AF5171E1BD34A007778BB /* FavoriteListNoItemView.swift in Sources */,
 				78834EEE1E1120D400616414 /* TutorialPage3.swift in Sources */,
 				78676D1F1DA2639A00136530 /* TutorialViewController.swift in Sources */,
 				78DDF8A81E0D2A080067DFE8 /* NoMoveLogLabel.swift in Sources */,
