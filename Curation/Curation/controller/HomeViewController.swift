@@ -14,7 +14,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     //Commons
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let ud = UserDefaults.standard
+    
     let apiManager = APIManager()
     var sw: CGFloat!
     var sh: CGFloat!
@@ -165,7 +165,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         }
         appDelegate.global.removeLoadingView()
         self.articles = articles
-        if self.articles.count % 2 == 0 {
+        if self.articles.count % 2 == 0 && self.articles.count > 0 {
             self.articles.removeLast()
         }
         articleCollectionView.reloadData()
@@ -285,12 +285,14 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     }
     
     func checkShowAnketAlert() {
+        let ud = UserDefaults.standard
         if ud.bool(forKey: "DONE_ANKET") {
             return
         }
         let time = ud.object(forKey: "ANKET_TIME") as! Date
         let pushedInterval = Date().timeIntervalSince(time)
-        if pushedInterval < 4 * 24 * 60 * 60 {
+        print(pushedInterval)
+        if pushedInterval < 3 * 24 * 60 * 60 {
             return
         }
         ud.set(Date(), forKey: "ANKET_TIME")
@@ -319,6 +321,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     }
     
     func linkAnketWebPage() {
+        let ud = UserDefaults.standard
         Common().trackingEvent(category: "Home", action: "TouchedAnketAeart", label: "OK")
         ud.set(true, forKey: "DONE_ANKET")
         ud.synchronize()

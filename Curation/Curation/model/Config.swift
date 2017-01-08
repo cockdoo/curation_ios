@@ -25,7 +25,7 @@ open class Config {
     let isVirtualPersona: Bool = false
     
     //次の記事の通知を出す最低時間
-    let hourPushInterval: TimeInterval = 10
+    let hourPushInterval: TimeInterval = 8
     
     let isTrackingAnalytics: Bool = false
     

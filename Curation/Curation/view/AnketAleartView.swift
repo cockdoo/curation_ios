@@ -10,6 +10,7 @@ import UIKit
 
 class AnketAleartView: UIView {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var wrapperView: UIView!
     @IBOutlet weak var noButton: UIButton!
@@ -20,16 +21,18 @@ class AnketAleartView: UIView {
     }
     
     override func layoutSubviews() {
-        self.layer.cornerRadius = 6
+        titleLabel.font = UIFont.boldSystemFont(ofSize: titleLabel.font.pointSize)
+        
+        self.layer.cornerRadius = 10
         self.layer.shadowColor = Colors().mainBlack.cgColor
         self.layer.shadowOffset = CGSize.init(width: 0, height: 0)
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowRadius = 3
-        wrapperView.layer.cornerRadius = 6
+        self.layer.shadowOpacity = 0.4
+        self.layer.shadowRadius = 2
+        wrapperView.layer.cornerRadius = 10
         
         let attributedText = NSMutableAttributedString(string: descriptionLabel.text!)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.3
+        paragraphStyle.lineHeightMultiple = 1.4
         paragraphStyle.alignment = NSTextAlignment.center
         attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
         descriptionLabel.attributedText = attributedText

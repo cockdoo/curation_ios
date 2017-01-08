@@ -40,19 +40,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func getFirstViewController() -> UIViewController {
         let ud = UserDefaults.standard
-        
         //初期値を設定
-        let defaults: [String: NSObject] = [
-            "FIRST_LAUNCH": true as NSObject,
-            "PUSHED_TIME": Date() as NSObject,
-            "ANKET_TIME": Date() as NSObject,
-            "DONE_ANKET": false as NSObject
+        let defaults: [String: Any] = [
+            "FIRST_LAUNCH": true,
+//            "PUSHED_TIME": date,
+//            "ANKET_TIME": date,
+            "DONE_ANKET": false
         ]
         ud.register(defaults: defaults)
+        
+        if ud.object(forKey: "PUSHED_TIME") == nil {
+            ud.set(Date(), forKey: "PUSHED_TIME")
+        }
+        if ud.object(forKey: "ANKET_TIME") == nil {
+            ud.set(Date(), forKey: "ANKET_TIME")
+        }
         ud.synchronize()
         
         var firstSb: UIStoryboard!
-        
         //初回起動かどうかの判定
         print("初回起動判定：\(ud.bool(forKey: "FIRST_LAUNCH"))")
         if ud.bool(forKey: "FIRST_LAUNCH") {

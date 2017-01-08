@@ -58,7 +58,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8W-ak-GBf">
-                            <rect key="frame" x="10" y="60" width="260" height="39"/>
+                            <rect key="frame" x="10" y="63" width="260" height="39"/>
                             <string key="text">アプリの精度、機能向上のため
 5分程度のアンケートのご協力を
 お願い致します。</string>
@@ -67,7 +67,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アンケートのお願い" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHh-iQ-vBi">
-                            <rect key="frame" x="68" y="27" width="144" height="16"/>
+                            <rect key="frame" x="68" y="33" width="144" height="16"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -78,12 +78,12 @@
                         <constraint firstItem="YHh-iQ-vBi" firstAttribute="centerX" secondItem="qGB-i3-Nt7" secondAttribute="centerX" id="0SD-bC-RBd"/>
                         <constraint firstItem="U8W-ak-GBf" firstAttribute="leading" secondItem="qGB-i3-Nt7" secondAttribute="leading" constant="10" id="20P-XP-MiL"/>
                         <constraint firstItem="Qgq-O1-id1" firstAttribute="leading" secondItem="qGB-i3-Nt7" secondAttribute="leading" id="Gba-tR-KJ0"/>
-                        <constraint firstItem="U8W-ak-GBf" firstAttribute="top" secondItem="YHh-iQ-vBi" secondAttribute="bottom" constant="17" id="J7K-Od-q2V"/>
+                        <constraint firstItem="U8W-ak-GBf" firstAttribute="top" secondItem="YHh-iQ-vBi" secondAttribute="bottom" constant="14" id="J7K-Od-q2V"/>
                         <constraint firstAttribute="trailing" secondItem="Qgq-O1-id1" secondAttribute="trailing" id="SHV-12-rEk"/>
                         <constraint firstAttribute="bottom" secondItem="Qgq-O1-id1" secondAttribute="bottom" id="TY9-cc-C5p"/>
                         <constraint firstAttribute="trailing" secondItem="U8W-ak-GBf" secondAttribute="trailing" constant="10" id="wz3-zj-dVJ"/>
                         <constraint firstItem="U8W-ak-GBf" firstAttribute="centerX" secondItem="qGB-i3-Nt7" secondAttribute="centerX" id="xI0-VY-cGK"/>
-                        <constraint firstItem="Qgq-O1-id1" firstAttribute="top" secondItem="U8W-ak-GBf" secondAttribute="bottom" constant="25" id="yGy-gV-BZB"/>
+                        <constraint firstItem="Qgq-O1-id1" firstAttribute="top" secondItem="U8W-ak-GBf" secondAttribute="bottom" constant="22" id="yGy-gV-BZB"/>
                     </constraints>
                 </view>
             </subviews>
@@ -99,6 +99,7 @@
                 <outlet property="descriptionLabel" destination="U8W-ak-GBf" id="V4e-Lt-rLt"/>
                 <outlet property="noButton" destination="1vg-bU-jJH" id="Sad-zV-6vm"/>
                 <outlet property="okButton" destination="G2j-XP-sd1" id="wac-mk-eIk"/>
+                <outlet property="titleLabel" destination="YHh-iQ-vBi" id="jTf-Iw-NP3"/>
                 <outlet property="wrapperView" destination="qGB-i3-Nt7" id="CLb-nF-ih9"/>
             </connections>
             <point key="canvasLocation" x="92" y="68.5"/>
