@@ -257,11 +257,9 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         let scroll = scrollView.contentOffset.y
         let contentHeight = articleCollectionView.contentSize.height - articleCollectionView.frame.height
         
-        print(scroll)
-        print(contentHeight)
         if contentHeight - scroll < 3000 {
             if !isGettingArticle {
-                getArticles(num: articles.count + 30)
+                getArticles(num: articles.count + 20)
             }
         }
     }

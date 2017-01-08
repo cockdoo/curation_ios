@@ -37,5 +37,6 @@ class MovesLogDayView: UIView {
         circleView.layer.cornerRadius = 47.0/2
         circleInsideView.layer.cornerRadius = 43.0/2
         dayOfWeelLabel.font = UIFont.boldSystemFont(ofSize: dayOfWeelLabel.font.pointSize)
+        dateLabel.font = UIFont.boldSystemFont(ofSize: dateLabel.font.pointSize)
     }
 }

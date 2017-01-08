@@ -56,11 +56,20 @@ class MovesLogViewController: UIViewController, UIScrollViewDelegate, MKMapViewD
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy/MM/dd"
         
-        for num in 0..<30 {
+        for num in 0..<60 {
             let dateView: MovesLogDayView = MovesLogDayView.instance()
             dateView.frame = CGRect.init(x: dateScrollView.frame.width*CGFloat(num), y: 0, width: dateScrollView.frame.width, height: dateScrollView.frame.height)
+            
             let dateString = dateFormater.string(from: Date.init(timeInterval: TimeInterval(-60*60*24*num), since: Date()))
-            dateView.dateLabel.text = dateString
+            var dateLabelText: String!
+            if num == 0 {
+                dateLabelText = "今日"
+            }else if num == 1 {
+                dateLabelText = "昨日"
+            }else {
+                dateLabelText = dateString
+            }
+            dateView.dateLabel.text = dateLabelText
             dateView.dayLabel.text = dateString.substring(from: dateString.index(dateString.endIndex, offsetBy: -2))
             dateView.dayOfWeelLabel.text = getshortWeekdaySymbols(date: Date.init(timeInterval: TimeInterval(-60*60*24*num), since: Date()))
             dateScrollView.addSubview(dateView)
