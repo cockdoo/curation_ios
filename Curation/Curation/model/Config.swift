@@ -18,7 +18,7 @@ open class Config {
     //アプリ起動時に位置情報を取得するインターバル（秒）
     let timeIntervalUpdatingLocation: TimeInterval = 60
     
-    //記事を取得する最低個数
+    //取得できれば満足する記事の個数
     let numberForGetArticles = 30
     
     //仮想ペルソナの生活圏データを表示するか否か

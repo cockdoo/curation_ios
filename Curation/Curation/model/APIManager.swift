@@ -41,7 +41,7 @@ class APIManager: NSObject {
         lngText = lngText.substring(to: lngText.index(lngText.startIndex, offsetBy: lngText.characters.count-1))
         
         let url = "http://taigasano.com/curation/api/?lat=\(latText)&lng=\(lngText)&num=\(num)"
-        print("画像を取得：\(url)")
+        print("記事を取得：\(url)")
         let encodeURL: String! = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         manager.get(encodeURL, parameters: nil,

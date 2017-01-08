@@ -33,8 +33,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     @IBOutlet weak var sidemenuButton: UIButton!
     
     var isFirstRefresh = false
-    
-    
+    var isGettingArticle = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +79,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         //位置情報履歴のデータベースを更新する（全てはここからはじまる）
         appDelegate.DBManager.addLocationDataToCityNameTable()
         
-        getArticles()
+        getArticles(num: Config().numberForGetArticles)
         
         refresher.tintColor = Colors().grayGreen
         refresher.addTarget(appDelegate.DBManager, action: #selector(appDelegate.DBManager.addLocationDataToCityNameTable), for: .valueChanged)
@@ -89,7 +88,6 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         
         Common().checkLocationAuthorize(target: self)
     }
-    
         
     func refreshEveryViewWillApper() {
         Common().trackingScreen(vc: self)
@@ -109,7 +107,8 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         }
     }
     
-    func getArticles() {
+    func getArticles(num: Int) {
+        isGettingArticle = true
         let livingAreaList = appDelegate.DBManager.getLivingAreaList()
         var locations = [AnyObject]()
         for area in livingAreaList {
@@ -120,7 +119,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
             locations.append(location as AnyObject)
         }
         if locations.count > 0 {
-            apiManager.getArticles(locations, num: Config().numberForGetArticles)
+            apiManager.getArticles(locations, num: num)
         }
     }
     
@@ -144,7 +143,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         print("DB更新完了")
         if refresher.isRefreshing || isFirstRefresh {
             isFirstRefresh = false
-            getArticles()
+            getArticles(num: Config().numberForGetArticles)
         }
     }
     
@@ -160,6 +159,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     func apiManager(didGetArticles articles: [AnyObject]) {
         print("記事取得完了")
+        isGettingArticle = false
         if refresher.isRefreshing {
             refresher.endRefreshing()
         }
@@ -173,6 +173,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     func apiManager(failedGetArticles messege: String?) {
         print("記事取得失敗")
+        isGettingArticle = false
         if refresher.isRefreshing {
             refresher.endRefreshing()
         }
@@ -249,6 +250,19 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
                 return cell
             }
             
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scroll = scrollView.contentOffset.y
+        let contentHeight = articleCollectionView.contentSize.height - articleCollectionView.frame.height
+        
+        print(scroll)
+        print(contentHeight)
+        if contentHeight - scroll < 3000 {
+            if !isGettingArticle {
+                getArticles(num: articles.count + 30)
+            }
         }
     }
     
