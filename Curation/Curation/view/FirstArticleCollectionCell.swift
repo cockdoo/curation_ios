@@ -15,6 +15,8 @@ class FirstArticleCollectionCell: UICollectionViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     
+    var blackView: UIView?
+    
     func setUpCell(_ title: String, imageUrl: String, mediaName: String, cityName: String, index: Int) {
         //テキスト反映&行間調整
         let attributedText = NSMutableAttributedString(string: title)
@@ -40,7 +42,12 @@ class FirstArticleCollectionCell: UICollectionViewCell {
         let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
         gradientLayer.frame = bgView.bounds
-        bgView.layer.insertSublayer(gradientLayer, at: 0)
+        if blackView != nil {
+            blackView?.removeFromSuperview()
+        }
+        blackView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: bgView.frame.width, height: bgView.frame.height))
+        blackView!.layer.insertSublayer(gradientLayer, at: 0)
+        bgView.addSubview(blackView!)
 //        bgView.backgroundColor = UIColor.red
         
         let r = CGFloat(arc4random() % 150) + 100
@@ -58,6 +65,5 @@ class FirstArticleCollectionCell: UICollectionViewCell {
             transition.duration = 0.2
             self.thumbView.layer.add(transition, forKey: nil)
         }, failure: nil)
-        
     }
 }
