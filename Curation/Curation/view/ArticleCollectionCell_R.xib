@@ -28,32 +28,32 @@
                     <rect key="frame" x="0.0" y="0.0" width="187" height="215"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルタイトルタイトルタイトルタイトルタイトルタイトル" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5n-he-m3U">
-                            <rect key="frame" x="10" y="124.5" width="167" height="42.5"/>
+                            <rect key="frame" x="11" y="137" width="165" height="42.5"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="14"/>
                             <color key="textColor" red="0.25882352941176467" green="0.25098039215686274" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-xm-m7Y">
-                            <rect key="frame" x="0.0" y="0.0" width="187" height="115.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="187" height="125"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="3bp-xm-m7Y" secondAttribute="height" multiplier="60:37" id="muV-Pf-Tga"/>
+                                <constraint firstAttribute="width" secondItem="3bp-xm-m7Y" secondAttribute="height" multiplier="60:40" id="muV-Pf-Tga"/>
                             </constraints>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin_gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="hzz-Wj-qGw">
-                            <rect key="frame" x="10" y="192" width="11" height="11"/>
+                            <rect key="frame" x="11" y="192" width="11" height="11"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="11" id="NiM-E9-STP"/>
                                 <constraint firstAttribute="width" constant="11" id="f3s-Yf-bBC"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcP-Ok-Ikd">
-                            <rect key="frame" x="24" y="193" width="20" height="10"/>
+                            <rect key="frame" x="25" y="193" width="20" height="10"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="10"/>
                             <color key="textColor" red="0.56078431370000004" green="0.54901960780000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メディア" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mao-XK-TPV">
-                            <rect key="frame" x="137" y="193" width="40" height="10"/>
+                            <rect key="frame" x="136" y="193" width="40" height="10"/>
                             <fontDescription key="fontDescription" name="GothamRounded-Light" family="Gotham Rounded" pointSize="10"/>
                             <color key="textColor" red="0.5607843137254902" green="0.5490196078431373" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -65,11 +65,11 @@
                         <constraint firstItem="3bp-xm-m7Y" firstAttribute="leading" secondItem="HkM-cv-DUy" secondAttribute="leading" id="G9u-De-vib"/>
                         <constraint firstItem="tcP-Ok-Ikd" firstAttribute="bottom" secondItem="hzz-Wj-qGw" secondAttribute="bottom" id="T85-ZD-Iln"/>
                         <constraint firstItem="Mao-XK-TPV" firstAttribute="trailing" secondItem="f5n-he-m3U" secondAttribute="trailing" id="T9f-c6-cd8"/>
-                        <constraint firstItem="f5n-he-m3U" firstAttribute="top" secondItem="3bp-xm-m7Y" secondAttribute="bottom" constant="9" id="U2o-Vv-F3H"/>
+                        <constraint firstItem="f5n-he-m3U" firstAttribute="top" secondItem="3bp-xm-m7Y" secondAttribute="bottom" constant="12" id="U2o-Vv-F3H"/>
                         <constraint firstAttribute="bottom" secondItem="hzz-Wj-qGw" secondAttribute="bottom" constant="12" id="c79-Rg-ZZc"/>
-                        <constraint firstItem="f5n-he-m3U" firstAttribute="leading" secondItem="HkM-cv-DUy" secondAttribute="leading" constant="10" id="ee2-PJ-Bfh"/>
+                        <constraint firstItem="f5n-he-m3U" firstAttribute="leading" secondItem="HkM-cv-DUy" secondAttribute="leading" constant="11" id="ee2-PJ-Bfh"/>
                         <constraint firstItem="Mao-XK-TPV" firstAttribute="bottom" secondItem="tcP-Ok-Ikd" secondAttribute="bottom" id="hHI-v0-kGq"/>
-                        <constraint firstAttribute="trailing" secondItem="f5n-he-m3U" secondAttribute="trailing" constant="10" id="kWW-Lm-EwF"/>
+                        <constraint firstAttribute="trailing" secondItem="f5n-he-m3U" secondAttribute="trailing" constant="11" id="kWW-Lm-EwF"/>
                         <constraint firstItem="hzz-Wj-qGw" firstAttribute="leading" secondItem="f5n-he-m3U" secondAttribute="leading" id="s6W-J7-KUw"/>
                         <constraint firstItem="3bp-xm-m7Y" firstAttribute="top" secondItem="HkM-cv-DUy" secondAttribute="top" id="uaG-zb-c6o"/>
                         <constraint firstItem="tcP-Ok-Ikd" firstAttribute="leading" secondItem="hzz-Wj-qGw" secondAttribute="trailing" constant="3" id="x6d-86-HcO"/>

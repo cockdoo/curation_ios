@@ -60,11 +60,11 @@ class SearchResultViewController: UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var size: CGSize
         if sw == 320 {
-            size = CGSize.init(width: sw/2, height: sw/2*1.25)
+            size = CGSize.init(width: sw/2, height: sw/2*1.33)
         }else if sw == 375 {
-            size = CGSize.init(width: sw/2, height: sw/2*1.18)
+            size = CGSize.init(width: sw/2, height: sw/2*1.24)
         }else {
-            size = CGSize.init(width: sw/2, height: sw/2*1.12)
+            size = CGSize.init(width: sw/2, height: sw/2*1.2)
         }
         return size
     }
