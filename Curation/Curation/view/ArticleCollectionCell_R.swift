@@ -15,7 +15,8 @@ class ArticleCollectionCell_R: UICollectionViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var clipView: UIView!
     
-    func setUpCell(_ title: String, imageUrl: String, mediaName: String, cityName: String, index: Int) {
+    @IBOutlet weak var newLabel: UIView!
+    func setUpCell(_ title: String, imageUrl: String, mediaName: String, cityName: String, index: Int, date: Date?) {
         
         //テキスト反映&行間調整
         let attributedText = NSMutableAttributedString(string: title)
@@ -28,10 +29,21 @@ class ArticleCollectionCell_R: UICollectionViewCell {
         titleLabel.layer.shadowOpacity = 0.3
         titleLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         titleLabel.layer.shadowRadius = 5
-        
         mediaLabel.text = mediaName
-        
         locationLabel.text = cityName
+        newLabel.transform = CGAffineTransform(rotationAngle: -CGFloat(M_PI/4))
+        newLabel.transform = CGAffineTransform(rotationAngle: -CGFloat(M_PI/4))
+        if let date = date {
+            let timeIntarval = Date().timeIntervalSince(date)
+            if timeIntarval < 5*24*60*60 {
+                newLabel.isHidden = false
+            }else {
+                newLabel.isHidden = true
+            }
+        }else {
+            newLabel.isHidden = true
+        }
+        
         
         
         let r = CGFloat(arc4random() % 150) + 100

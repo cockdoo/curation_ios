@@ -48,7 +48,7 @@ class APIManager: NSObject {
             escapeText = escapeText.substring(to: escapeText.index(escapeText.startIndex, offsetBy: escapeText.characters.count-1))
         }
         
-        let url = "http://taigasano.com/curation/api/test.php?lat=\(latText)&lng=\(lngText)&escapeids=\(escapeText)&min=\(min)&max=\(max)"
+        let url = Config().baseURL+"?lat=\(latText)&lng=\(lngText)&escapeids=\(escapeText)&min=\(min)&max=\(max)"
         print("記事を取得：\(url)")
         let encodeURL: String! = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
@@ -75,7 +75,7 @@ class APIManager: NSObject {
         let serializer:AFHTTPResponseSerializer = AFHTTPResponseSerializer()
         manager.responseSerializer = serializer
         
-        let url = "http://taigasano.com/curation/api/?lat=\(lat)&lng=\(lng)"
+        let url = Config().baseURL+"?lat=\(lat)&lng=\(lng)&escapeids=&min=1&max=1"
         let encodeURL: String! = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         manager.get(encodeURL, parameters: nil,
                     success: {(operation: AFHTTPRequestOperation!, responsobject: Any!) in

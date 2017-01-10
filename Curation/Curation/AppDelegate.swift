@@ -116,10 +116,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         //復帰したかどうか
-//        if let notification = launchOptions[UIApplicationLaunchOptionsKey.localNotification] as? UILocalNotification, let userInfo = notification.userInfo{
-//            application.applicationIconBadgeNumber = 0
+        
+//        if let notification = launchOptions?[UIApplicationLaunchOptionsKey.localNotification as NSObject] as? UILocalNotification, let _ = notification.userInfo{
+//            
 //            application.cancelLocalNotification(notification)
+//            
+//            let userInfo = notification.userInfo
+//            global.selectedArticle = userInfo as AnyObject!
+//            application.cancelLocalNotification(notification)
+//            
+//            let notification = NSNotification(
+//                name: NSNotification.Name(rawValue: "article_push"),
+//                object: nil
+//            )
+//            NotificationCenter.default.post(notification as Notification)
 //        }
+        
         ////////以下略(通知許可の)
         return true
     }

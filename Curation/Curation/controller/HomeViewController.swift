@@ -248,19 +248,23 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         let imageUrl: String = article["imageUrl"] as! String
         let imageName: String = article["media"] as! String
         let cityName: String = (article["locality"] as! String) + (article["sublocality"] as! String)
+        let dateStr: String = article["date"] as! String
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-DD"
+        let date = formatter.date(from: dateStr)
         
         if indexPath.section == 0 {
             let cell: FirstArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: firstCellIdentifer, for: indexPath) as! FirstArticleCollectionCell
-            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
+            cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index, date: date)
             return cell
         }else {
             if index % 2 != 0 {
                 let cell: ArticleCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer, for: indexPath) as! ArticleCollectionCell
-                cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
+                cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index, date: date)
                 return cell
             }else {
                 let cell: ArticleCollectionCell_R = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifer_R, for: indexPath) as! ArticleCollectionCell_R
-                cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index)
+                cell.setUpCell(title, imageUrl: imageUrl, mediaName: imageName, cityName: cityName, index: index, date: date)
                 return cell
             }
             

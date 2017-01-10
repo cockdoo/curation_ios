@@ -20,7 +20,7 @@ open class Config {
     
     //取得できれば満足する記事の個数
     let minGetArticlesNum = 30
-    let maxGetArticlesNum = 150
+    let maxGetArticlesNum = 120
     
     //仮想ペルソナの生活圏データを表示するか否か
     let isVirtualPersona: Bool = false
@@ -28,9 +28,11 @@ open class Config {
     //次の記事の通知を出す最低時間
     let hourPushInterval: TimeInterval = 8
     
-    let isTrackingAnalytics: Bool = false
+    let isTrackingAnalytics: Bool = true
     
     let anketURL: String = "https://docs.google.com/forms/d/1DSU7cL-tYr4ASLA40VJHGkdAoYbRA0v6sNqw8yHNgRY"
+    
+    let baseURL = "http://taigasano.com/curation/api/"
     
     //仮想ペルソナの生活圏
     let virtualLivingArea = [

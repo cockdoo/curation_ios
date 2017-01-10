@@ -15,9 +15,10 @@ class FirstArticleCollectionCell: UICollectionViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     
+    @IBOutlet weak var newLabel: UIView!
     var blackView: UIView?
     
-    func setUpCell(_ title: String, imageUrl: String, mediaName: String, cityName: String, index: Int) {
+    func setUpCell(_ title: String, imageUrl: String, mediaName: String, cityName: String, index: Int, date: Date?) {
         //テキスト反映&行間調整
         let attributedText = NSMutableAttributedString(string: title)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -29,6 +30,19 @@ class FirstArticleCollectionCell: UICollectionViewCell {
         titleLabel.layer.shadowOpacity = 0.3
         titleLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         titleLabel.layer.shadowRadius = 5
+        
+        newLabel.transform = CGAffineTransform(rotationAngle: -CGFloat(M_PI/4))
+        newLabel.transform = CGAffineTransform(rotationAngle: -CGFloat(M_PI/4))
+        if let date = date {
+            let timeIntarval = Date().timeIntervalSince(date)
+            if timeIntarval < 5*24*60*60 {
+                newLabel.isHidden = false
+            }else {
+                newLabel.isHidden = true
+            }
+        }else {
+            newLabel.isHidden = true
+        }
         
         mediaLabel.text = mediaName
         mediaLabel.font = UIFont.boldSystemFont(ofSize: mediaLabel.font.pointSize)
