@@ -19,7 +19,8 @@ open class Config {
     let timeIntervalUpdatingLocation: TimeInterval = 60
     
     //取得できれば満足する記事の個数
-    let numberForGetArticles = 30
+    let minGetArticlesNum = 30
+    let maxGetArticlesNum = 150
     
     //仮想ペルソナの生活圏データを表示するか否か
     let isVirtualPersona: Bool = false

@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
     
     var isFirstRefresh = false
     var isGettingArticle = false
+    var isAddingArticles = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +80,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         //位置情報履歴のデータベースを更新する（全てはここからはじまる）
         appDelegate.DBManager.addLocationDataToCityNameTable()
         
-        getArticles(num: Config().numberForGetArticles)
+        getArticles()
         
         refresher.tintColor = Colors().grayGreen
         refresher.addTarget(appDelegate.DBManager, action: #selector(appDelegate.DBManager.addLocationDataToCityNameTable), for: .valueChanged)
@@ -107,7 +108,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         }
     }
     
-    func getArticles(num: Int) {
+    func getArticles() {
         isGettingArticle = true
         let livingAreaList = appDelegate.DBManager.getLivingAreaList()
         var locations = [AnyObject]()
@@ -119,7 +120,13 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
             locations.append(location as AnyObject)
         }
         if locations.count > 0 {
-            apiManager.getArticles(locations, num: num)
+            var escapeIds = [String]()
+            if isAddingArticles {
+                for article in articles {
+                    escapeIds.append(article["id"] as! String)
+                }
+            }
+            apiManager.getArticles(locations, escapeIds: escapeIds, min: Config().minGetArticlesNum, max: Config().maxGetArticlesNum)
         }
     }
     
@@ -143,7 +150,8 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         print("DB更新完了")
         if refresher.isRefreshing || isFirstRefresh {
             isFirstRefresh = false
-            getArticles(num: Config().numberForGetArticles)
+            isAddingArticles = false
+            getArticles()
         }
     }
     
@@ -164,7 +172,13 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
             refresher.endRefreshing()
         }
         appDelegate.global.removeLoadingView()
-        self.articles = articles
+        if isAddingArticles {
+            self.articles = self.articles + articles
+            print("追加取得：\(articles.count)件追加 (計 \(self.articles.count)件)")
+        }else {
+            self.articles = articles
+            print("上書き取得：\(self.articles.count)件")
+        }
         if self.articles.count % 2 == 0 && self.articles.count > 0 {
             self.articles.removeLast()
         }
@@ -259,7 +273,8 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         
         if contentHeight - scroll < 3000 {
             if !isGettingArticle {
-                getArticles(num: articles.count + 20)
+                isAddingArticles = true
+                getArticles()
             }
         }
     }

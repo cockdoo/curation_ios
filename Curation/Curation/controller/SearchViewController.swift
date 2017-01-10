@@ -168,7 +168,7 @@ class SearchViewController: UIViewController, APIManagerDelegate, LocationManage
 
     func getArticlesWithLocation(lat: Double, lng: Double) {
         let locations = [["lat": "\(lat)", "lng": "\(lng)"]]
-        apiManager.getArticles(locations as [AnyObject], num: Config().numberForGetArticles)
+        apiManager.getArticles(locations as [AnyObject], escapeIds: [""], min: Config().minGetArticlesNum, max: Config().maxGetArticlesNum)
     }
     
     //MARK: Area Collection

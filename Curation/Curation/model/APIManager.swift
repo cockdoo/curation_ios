@@ -24,7 +24,7 @@ class APIManager: NSObject {
         super.init()
     }
 
-    func getArticles(_ locations: [AnyObject], num: Int) {
+    func getArticles(_ locations: [AnyObject], escapeIds: [String], min: Int, max: Int) {
         print("記事を取得")
         //リクエスト
         let manager:AFHTTPRequestOperationManager = AFHTTPRequestOperationManager()
@@ -40,14 +40,20 @@ class APIManager: NSObject {
         latText = latText.substring(to: latText.index(latText.startIndex, offsetBy: latText.characters.count-1))
         lngText = lngText.substring(to: lngText.index(lngText.startIndex, offsetBy: lngText.characters.count-1))
         
-        let url = "http://taigasano.com/curation/api/?lat=\(latText)&lng=\(lngText)&num=\(num)"
+        var escapeText = ""
+        for escapeId in escapeIds {
+            escapeText = escapeText + escapeId + ","
+        }
+        if escapeIds.count != 0 {
+            escapeText = escapeText.substring(to: escapeText.index(escapeText.startIndex, offsetBy: escapeText.characters.count-1))
+        }
+        
+        let url = "http://taigasano.com/curation/api/test.php?lat=\(latText)&lng=\(lngText)&escapeids=\(escapeText)&min=\(min)&max=\(max)"
         print("記事を取得：\(url)")
         let encodeURL: String! = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         manager.get(encodeURL, parameters: nil,
-            success: {(operation: AFHTTPRequestOperation!, responsobject: Any!) in
-                print("取得に成功")
-                
+            success: {(operation: AFHTTPRequestOperation!, responsobject: Any!) in                
                 let json = (try? JSONSerialization.jsonObject(with: responsobject as! Data, options: .mutableContainers)) as? NSArray
                 
                 //デリゲートメソッドを呼ぶ
