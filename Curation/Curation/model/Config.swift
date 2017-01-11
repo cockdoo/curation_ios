@@ -19,8 +19,8 @@ open class Config {
     let timeIntervalUpdatingLocation: TimeInterval = 60
     
     //取得できれば満足する記事の個数
-    let minGetArticlesNum = 30
-    let maxGetArticlesNum = 120
+    let minGetArticlesNum = 60
+    let maxGetArticlesNum = 150
     
     //仮想ペルソナの生活圏データを表示するか否か
     let isVirtualPersona: Bool = false
@@ -28,19 +28,33 @@ open class Config {
     //次の記事の通知を出す最低時間
     let hourPushInterval: TimeInterval = 8
     
-    let isTrackingAnalytics: Bool = true
+    let isTrackingAnalytics: Bool = false
     
     let anketURL: String = "https://docs.google.com/forms/d/1DSU7cL-tYr4ASLA40VJHGkdAoYbRA0v6sNqw8yHNgRY"
     
     let baseURL = "http://taigasano.com/curation/api/"
     
+    let fromDayIsNewArticle = 3
+    
     //仮想ペルソナの生活圏
     let virtualLivingArea = [
+        [
+            "cityName": "八王子市打越町",
+            "subLocality": "打越町",
+            "lat": 35.6404762,
+            "lng": 139.3434062
+        ],
         [
             "cityName": "鎌倉市大船", //自宅
             "subLocality": "大船",
             "lat": 35.317931,
             "lng": 139.499904
+        ],
+        [
+            "cityName": "渋谷区渋谷",
+            "subLocality": "渋谷",
+            "lat": 35.6581046,
+            "lng": 139.699553
         ],
         [
             "cityName": "鎌倉市津西", //勤務地

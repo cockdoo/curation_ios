@@ -84,19 +84,19 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
 //        print("webview did start load")
-        loadCount =  loadCount + 1
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//        loadCount =  loadCount + 1
+//        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
 //        print("webview did finish load")
-        loadCount =  loadCount - 1
-        if loadCount > 0 {
-            return;
-        }
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        print("finish all loading")
-        loadCount = 0
+//        loadCount =  loadCount - 1
+//        if loadCount > 0 {
+//            return;
+//        }
+//        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//        print("finish all loading")
+//        loadCount = 0
         appDelegate.global.removeLoadingView()
         setWebControlButton()
     }
