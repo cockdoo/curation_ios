@@ -1,11 +1,41 @@
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-xcodeproj 'Curation'
-use_frameworks!
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
 
-pod 'GoogleMaps'
-pod 'RealmSwift'
-pod 'AFNetworking', '~> 2.6.0'
-pod 'Google/Analytics'
+target 'Curation' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+  source 'https://github.com/CocoaPods/Specs.git'
+  pod 'GoogleMaps'
+  pod 'RealmSwift'
+  pod 'AFNetworking', '~> 2.6.0'
+  pod 'Google/Analytics'
+  pod 'PageMenu'
+  pod 'SwiftyGif'
+  pod 'SlideMenuControllerSwift'
+  pod 'SVProgressHUD'
+  pod 'Google/Analytics'
 
+  # Pods for Curation
 
+  target 'CurationTests' do
+    inherit! :search_paths
+    # Pods for testing
+	use_frameworks!
+  source 'https://github.com/CocoaPods/Specs.git'
+  pod 'GoogleMaps'
+  pod 'RealmSwift'
+  pod 'AFNetworking', '~> 2.6.0'
+  pod 'Google/Analytics'
+  pod 'PageMenu'
+  pod 'SwiftyGif'
+  pod 'SlideMenuControllerSwift'
+  pod 'SVProgressHUD'
+  pod 'Google/Analytics'
+  end
+
+  target 'CurationUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

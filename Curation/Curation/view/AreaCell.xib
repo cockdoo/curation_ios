@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="AreaCell" customModule="Curation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="172" height="106"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="unV-qp-oLK">
+                    <rect key="frame" x="10.5" y="105" width="161.5" height="1"/>
+                    <color key="backgroundColor" red="0.90057069059999995" green="0.90125507120000004" blue="0.90067666769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="qrF-Vx-J1q"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6RP-IS-jyG">
+                    <rect key="frame" x="0.0" y="0.0" width="172" height="106"/>
+                </imageView>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Utc-kx-d88">
+                    <rect key="frame" x="0.0" y="72" width="172" height="34"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="W1t-Qs-aXt"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZb-gE-KXS">
+                    <rect key="frame" x="0.0" y="72" width="172" height="34"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="東京都八王子市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJe-yd-fqD">
+                            <rect key="frame" x="27" y="8.5" width="139" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="area_pin.png" translatesAutoresizingMaskIntoConstraints="NO" id="l17-mp-cu0">
+                            <rect key="frame" x="8" y="6.5" width="15" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="l17-mp-cu0" secondAttribute="height" multiplier="8:11" id="4BC-Cu-9eB"/>
+                                <constraint firstAttribute="width" constant="15" id="TxF-bl-MNq"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="56Q-29-dcO"/>
+                        <constraint firstAttribute="trailing" secondItem="aJe-yd-fqD" secondAttribute="trailing" constant="6" id="ABb-rc-eoy"/>
+                        <constraint firstItem="l17-mp-cu0" firstAttribute="leading" secondItem="sZb-gE-KXS" secondAttribute="leading" constant="8" id="R5e-TU-rw6"/>
+                        <constraint firstItem="l17-mp-cu0" firstAttribute="centerY" secondItem="sZb-gE-KXS" secondAttribute="centerY" id="Vep-hT-ypI"/>
+                        <constraint firstItem="aJe-yd-fqD" firstAttribute="leading" secondItem="l17-mp-cu0" secondAttribute="trailing" constant="4" id="Zka-5q-fAf"/>
+                        <constraint firstItem="aJe-yd-fqD" firstAttribute="centerY" secondItem="sZb-gE-KXS" secondAttribute="centerY" id="ps5-vz-7HL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Utc-kx-d88" secondAttribute="bottom" id="42w-z5-YqN"/>
+                <constraint firstItem="Utc-kx-d88" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4OA-vQ-QOH"/>
+                <constraint firstItem="6RP-IS-jyG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8dI-aQ-Qeq"/>
+                <constraint firstAttribute="trailing" secondItem="6RP-IS-jyG" secondAttribute="trailing" id="YqJ-Ab-ZDD"/>
+                <constraint firstAttribute="bottom" secondItem="sZb-gE-KXS" secondAttribute="bottom" id="ZaZ-WH-aCb"/>
+                <constraint firstAttribute="bottom" secondItem="6RP-IS-jyG" secondAttribute="bottom" id="fTo-c6-wBy"/>
+                <constraint firstAttribute="bottom" secondItem="unV-qp-oLK" secondAttribute="bottom" id="fue-qz-oQa"/>
+                <constraint firstAttribute="trailing" secondItem="unV-qp-oLK" secondAttribute="trailing" id="jto-Pk-p8H"/>
+                <constraint firstAttribute="trailing" secondItem="sZb-gE-KXS" secondAttribute="trailing" id="kz9-Z3-6lY"/>
+                <constraint firstItem="sZb-gE-KXS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="m3H-qm-D8c"/>
+                <constraint firstItem="6RP-IS-jyG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ynY-sS-fOU"/>
+                <constraint firstAttribute="trailing" secondItem="Utc-kx-d88" secondAttribute="trailing" id="zZD-Nj-5Cc"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="areaImageView" destination="6RP-IS-jyG" id="PfT-qg-Avj"/>
+                <outlet property="areaNameLabel" destination="aJe-yd-fqD" id="8JB-6f-VVS"/>
+            </connections>
+            <point key="canvasLocation" x="114" y="114"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="area_pin.png" width="54" height="75"/>
+    </resources>
+</document>

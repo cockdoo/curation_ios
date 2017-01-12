@@ -10,14 +10,14 @@ import UIKit
 import CoreLocation
 
 @objc protocol LocationManagerDelegate {
-    optional func DeniedAuthorization()
-    optional func acceptAuthorization()
-    optional func didUpdatingLocation()
+    @objc optional func locationManager(deniedAuthorization message: String)
+    @objc optional func locationManager(acceptAuthorization message: String)
+    @objc optional func locationManager(didUpdatingLocation message: String)
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
-    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    let ud = NSUserDefaults.standardUserDefaults()
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let ud = UserDefaults.standard
     
     var delegate: LocationManagerDelegate!
 
@@ -45,7 +45,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func requestAuthorization() {
         print("位置情報許可のリクエスト")        
         let status = CLLocationManager.authorizationStatus()
-        if(status == CLAuthorizationStatus.NotDetermined) {
+        if(status == CLAuthorizationStatus.notDetermined) {
             if #available(iOS 8.0, *) {
                 locationManager.requestAlwaysAuthorization()
             } else {
@@ -64,87 +64,84 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         var statusStr = "";
         switch (status) {
-        case .NotDetermined:
+        case .notDetermined:
             statusStr = "NotDetermined"
             
-        case .Restricted:
+        case .restricted:
             statusStr = "Restricted"
             
-        case .Denied:
+        case .denied:
             statusStr = "Denied"
-            ud.setObject(false, forKey: "LOCATION_AUTHORIZED")
+            ud.set(false, forKey: "LOCATION_AUTHORIZED")
             ud.synchronize()
-            
             if  isTopView == false {
-                self.delegate.DeniedAuthorization!()
+                self.delegate.locationManager!(deniedAuthorization: "")
             }
             
-        case .AuthorizedAlways:
+        case .authorizedAlways:
             statusStr = "AuthorizedAlways"
-            ud.setObject(true, forKey: "LOCATION_AUTHORIZED")
+            ud.set(true, forKey: "LOCATION_AUTHORIZED")
             ud.synchronize()
-            
             if isTopView == false {
-                self.delegate.acceptAuthorization!()
+                self.delegate.locationManager!(acceptAuthorization: "")
             }
             
-        case .AuthorizedWhenInUse:
+        case .authorizedWhenInUse:
             statusStr = "AuthorizedWhenInUse"
         }
         print("位置情報許可認証状態(CLAuthorizationStatus): \(statusStr)")
     }
     
     // 位置情報が取得できたとき
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if locations.count > 0{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if locations.count > 0 {
             
-            if let currentLocation = (locations.last as? CLLocation?) {
-                lat = (currentLocation?.coordinate.latitude)!
-                lng = (currentLocation?.coordinate.longitude)!
-                print("緯度:\(lat) 経度:\(lng)")
+            if let currentLocation = locations.last {
+                lat = currentLocation.coordinate.latitude
+                lng = currentLocation.coordinate.longitude
+                //print("緯度:\(lat) 経度:\(lng)")
                 
-                //一度停止する
-                locationManager.stopUpdatingLocation()
-                
-                //一定時間後に再び取得する
-                /*
-                let updatingTimer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(Config().timeIntervalUpdatingLocation, target: self, selector: "restartUpdatingLocation", userInfo: nil, repeats: false)
-                */
+                if appDelegate.global.isNotification! {
+                    appDelegate.global.isNotification = false
+                    appDelegate.NManager.prepareGetArticle(lat: lat, lng: lng)
+                }
                 
                 //データベースに保存（緯度経度取得時 複数のデータが来るので1個だけ保存されるようにする）
                 if canInsertData == true {
                     //データベースに保存する
                     appDelegate.DBManager.insertLocationTable(lat, lng: lng)
                     
+                    //一旦停止する
+                    locationManager.stopMonitoringSignificantLocationChanges()
+                    
                     canInsertData = false
-                    let aroowInsertTimer: NSTimer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "arrowInsertData", userInfo: nil, repeats: false)
+                    
+                    //一定時間後に再び取得する
+                    Timer.scheduledTimer(timeInterval: Config().timeIntervalUpdatingLocation, target: self, selector: #selector(LocationManager.restartUpdatingLocation), userInfo: nil, repeats: false)
                     
                     //Topviewcontorollerに緯度経度を取得したことを知らせる
-                    self.delegate.didUpdatingLocation!()
+                    self.delegate.locationManager!(didUpdatingLocation: "")
                 }
             }
         }
+
     }
     
     func restartUpdatingLocation() {
+        canInsertData = true
         locationManager.startUpdatingLocation()
     }
     
-    func arrowInsertData() {
-        canInsertData = true
-    }
-    
-    
     // 位置情報取得に失敗したとき
-    func locationManager(manager: CLLocationManager,didFailWithError error: NSError){
+    func locationManager(_ manager: CLLocationManager,didFailWithError error: Error){
         print("locationManager error：", terminator: "")
     }
     
     //緯度経度から地名取得
-    func revGeocoding(lat: Double, lng: Double) {
+    func revGeocoding(_ lat: Double, lng: Double) {
         
         let location = CLLocation(latitude: lat, longitude: lng)
         
@@ -167,7 +164,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 //                print("Throughfare = \(placemark.thoroughfare)")
                 
                 locality = placemark.locality!
-                subLocality = placemark.subLocality!
+                if placemark.subLocality != nil {
+                    subLocality = placemark.subLocality!
+                }
                 
                 //取得した地名をDatabaseManagerの方で保存する
                 self.appDelegate.DBManager.insertCityNameTable(locality+subLocality, locality: locality, subLocality: subLocality, lat: lat, lng: lng)

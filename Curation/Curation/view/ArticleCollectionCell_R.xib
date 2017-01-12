@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamRounded-Light.otf">
+            <string>GothamRounded-Light</string>
+        </array>
+        <array key="GothamRounded_Bold.otf">
+            <string>GothamRounded-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="pRX-Yg-kfk" customClass="ArticleCollectionCell_R" customModule="Curation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="187" height="215"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkM-cv-DUy">
+                    <rect key="frame" x="0.0" y="0.0" width="187" height="215"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルタイトルタイトルタイトルタイトルタイトルタイトル" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5n-he-m3U">
+                            <rect key="frame" x="11" y="137" width="165" height="42.5"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="14"/>
+                            <color key="textColor" red="0.25882352941176467" green="0.25098039215686274" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-xm-m7Y">
+                            <rect key="frame" x="0.0" y="0.0" width="187" height="125"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="3bp-xm-m7Y" secondAttribute="height" multiplier="60:40" id="muV-Pf-Tga"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin_gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="hzz-Wj-qGw">
+                            <rect key="frame" x="11" y="192" width="11" height="11"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="11" id="NiM-E9-STP"/>
+                                <constraint firstAttribute="width" constant="11" id="f3s-Yf-bBC"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcP-Ok-Ikd">
+                            <rect key="frame" x="25" y="193" width="20" height="10"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="10"/>
+                            <color key="textColor" red="0.56078431370000004" green="0.54901960780000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メディア" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mao-XK-TPV">
+                            <rect key="frame" x="136" y="193" width="40" height="10"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Light" family="Gotham Rounded" pointSize="10"/>
+                            <color key="textColor" red="0.5607843137254902" green="0.5490196078431373" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJf-DJ-H3d">
+                            <rect key="frame" x="-28" y="-28" width="56" height="56"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vx-5i-0d2">
+                                    <rect key="frame" x="16" y="44" width="24" height="9"/>
+                                    <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="9"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.94117647059999998" green="0.5568627451" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="7vx-5i-0d2" firstAttribute="centerX" secondItem="RJf-DJ-H3d" secondAttribute="centerX" id="6jH-mz-K0p"/>
+                                <constraint firstAttribute="bottom" secondItem="7vx-5i-0d2" secondAttribute="bottom" constant="2.5" id="pEQ-HM-ho5"/>
+                                <constraint firstAttribute="width" constant="56" id="tC5-XO-PlR"/>
+                                <constraint firstAttribute="height" constant="56" id="w0o-CA-RFp"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="3bp-xm-m7Y" secondAttribute="trailing" id="0s7-wl-b6h"/>
+                        <constraint firstItem="3bp-xm-m7Y" firstAttribute="leading" secondItem="HkM-cv-DUy" secondAttribute="leading" id="G9u-De-vib"/>
+                        <constraint firstItem="tcP-Ok-Ikd" firstAttribute="bottom" secondItem="hzz-Wj-qGw" secondAttribute="bottom" id="T85-ZD-Iln"/>
+                        <constraint firstItem="Mao-XK-TPV" firstAttribute="trailing" secondItem="f5n-he-m3U" secondAttribute="trailing" id="T9f-c6-cd8"/>
+                        <constraint firstItem="f5n-he-m3U" firstAttribute="top" secondItem="3bp-xm-m7Y" secondAttribute="bottom" constant="12" id="U2o-Vv-F3H"/>
+                        <constraint firstItem="RJf-DJ-H3d" firstAttribute="top" secondItem="HkM-cv-DUy" secondAttribute="top" constant="-28" id="WjX-1u-Weg"/>
+                        <constraint firstAttribute="bottom" secondItem="hzz-Wj-qGw" secondAttribute="bottom" constant="12" id="c79-Rg-ZZc"/>
+                        <constraint firstItem="f5n-he-m3U" firstAttribute="leading" secondItem="HkM-cv-DUy" secondAttribute="leading" constant="11" id="ee2-PJ-Bfh"/>
+                        <constraint firstItem="Mao-XK-TPV" firstAttribute="bottom" secondItem="tcP-Ok-Ikd" secondAttribute="bottom" id="hHI-v0-kGq"/>
+                        <constraint firstAttribute="trailing" secondItem="f5n-he-m3U" secondAttribute="trailing" constant="11" id="kWW-Lm-EwF"/>
+                        <constraint firstItem="hzz-Wj-qGw" firstAttribute="leading" secondItem="f5n-he-m3U" secondAttribute="leading" id="s6W-J7-KUw"/>
+                        <constraint firstItem="3bp-xm-m7Y" firstAttribute="top" secondItem="HkM-cv-DUy" secondAttribute="top" id="uaG-zb-c6o"/>
+                        <constraint firstItem="tcP-Ok-Ikd" firstAttribute="leading" secondItem="hzz-Wj-qGw" secondAttribute="trailing" constant="3" id="x6d-86-HcO"/>
+                        <constraint firstItem="RJf-DJ-H3d" firstAttribute="leading" secondItem="HkM-cv-DUy" secondAttribute="leading" constant="-28" id="yl4-tr-FB0"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="HkM-cv-DUy" secondAttribute="bottom" id="GDa-6U-L9u"/>
+                <constraint firstAttribute="trailing" secondItem="HkM-cv-DUy" secondAttribute="trailing" id="nYT-T3-l2q"/>
+                <constraint firstItem="HkM-cv-DUy" firstAttribute="leading" secondItem="pRX-Yg-kfk" secondAttribute="leading" constant="0.5" id="oPA-yO-bWy"/>
+                <constraint firstItem="HkM-cv-DUy" firstAttribute="top" secondItem="pRX-Yg-kfk" secondAttribute="top" id="odf-4c-bQ8"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="clipView" destination="HkM-cv-DUy" id="Sko-UC-eNf"/>
+                <outlet property="locationLabel" destination="tcP-Ok-Ikd" id="xoG-d3-dNd"/>
+                <outlet property="mediaLabel" destination="Mao-XK-TPV" id="h0l-Fa-OV6"/>
+                <outlet property="newLabel" destination="RJf-DJ-H3d" id="aIf-M8-mch"/>
+                <outlet property="thumbView" destination="3bp-xm-m7Y" id="RRM-gt-JEU"/>
+                <outlet property="titleLabel" destination="f5n-he-m3U" id="I80-GV-uBl"/>
+            </connections>
+            <point key="canvasLocation" x="64.5" y="-182.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pin_gray.png" width="28" height="28"/>
+    </resources>
+</document>

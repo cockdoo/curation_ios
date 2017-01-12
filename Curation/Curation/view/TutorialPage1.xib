@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamRounded-Medium.otf">
+            <string>GothamRounded-Medium</string>
+        </array>
+        <array key="GothamRounded_Bold.otf">
+            <string>GothamRounded-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TutorialPage1" customModule="Curation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="532"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial_images.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4U3-rC-Fhl">
+                    <rect key="frame" x="0.0" y="-21" width="375" height="360"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="4U3-rC-Fhl" secondAttribute="height" multiplier="750:720" id="jVW-y4-04d"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGm-Tj-3Jd">
+                    <rect key="frame" x="0.0" y="339" width="375" height="193"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ようこそ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRU-lJ-BCA">
+                            <rect key="frame" x="144" y="47" width="88" height="22"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="22"/>
+                            <color key="textColor" red="0.25882352941176467" green="0.25098039215686274" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xn-Z5-cwK">
+                            <rect key="frame" x="44" y="81" width="288" height="32"/>
+                            <string key="text">Ékoccaは、あなたの移動スタイルに
+あわせたお出かけ情報をお届けします。</string>
+                            <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="16"/>
+                            <color key="textColor" red="0.5607843137254902" green="0.5490196078431373" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="VRU-lJ-BCA" firstAttribute="centerY" secondItem="nGm-Tj-3Jd" secondAttribute="centerY" multiplier="0.6" id="E9T-wp-ohU"/>
+                        <constraint firstItem="9Xn-Z5-cwK" firstAttribute="centerX" secondItem="nGm-Tj-3Jd" secondAttribute="centerX" id="Gen-pf-wZR"/>
+                        <constraint firstItem="9Xn-Z5-cwK" firstAttribute="top" secondItem="VRU-lJ-BCA" secondAttribute="bottom" constant="12" id="RvJ-DK-eR4"/>
+                        <constraint firstAttribute="width" secondItem="nGm-Tj-3Jd" secondAttribute="height" multiplier="375:193" id="cGf-H7-i3a"/>
+                        <constraint firstItem="VRU-lJ-BCA" firstAttribute="centerX" secondItem="nGm-Tj-3Jd" secondAttribute="centerX" id="jWb-hX-3P1"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.9882352941176471" green="0.98431372549019602" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="nGm-Tj-3Jd" secondAttribute="bottom" id="16n-M0-jqR"/>
+                <constraint firstItem="4U3-rC-Fhl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9fK-iY-fOV"/>
+                <constraint firstAttribute="trailing" secondItem="nGm-Tj-3Jd" secondAttribute="trailing" id="I2Z-8m-RR4"/>
+                <constraint firstItem="nGm-Tj-3Jd" firstAttribute="top" secondItem="4U3-rC-Fhl" secondAttribute="bottom" id="s4A-Jj-Tes"/>
+                <constraint firstAttribute="trailing" secondItem="4U3-rC-Fhl" secondAttribute="trailing" id="xUk-J7-M6N"/>
+                <constraint firstItem="nGm-Tj-3Jd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yxb-Vf-CpG"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="9Xn-Z5-cwK" id="BfM-bj-SiG"/>
+                <outlet property="yokosoLabel" destination="VRU-lJ-BCA" id="nE6-hv-5os"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="-18"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tutorial_images.jpg" width="750" height="720"/>
+    </resources>
+</document>

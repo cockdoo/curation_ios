@@ -8,46 +8,119 @@
 
 import UIKit
 
-class TutorialViewController: UIViewController, LocationManagerDelegate {
-    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
-    @IBOutlet weak var startButton: UIButton!
+class TutorialViewController: UIViewController, LocationManagerDelegate, UIScrollViewDelegate {
+    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    //アナリティクスのトラッカー
+    @IBOutlet weak var tutorialScrollView: UIScrollView!
+    @IBOutlet weak var pageControll: UIPageControl!
+    
+    @IBOutlet weak var mainButton: UIButton!
 //    let tracker = GAI.sharedInstance().defaultTracker
+    
+    var alreadySubview: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initialize()
+    }
+    
+    func initialize() {
+        alreadySubview = false
         appDelegate.LManager.delegate = self
+        tutorialScrollView.delegate = self
         
-        startButton.layer.cornerRadius = 4
-        startButton.titleLabel?.font = UIFont.boldSystemFontOfSize(18)
+        mainButton.layer.cornerRadius = 4
+        mainButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: (mainButton.titleLabel?.font.pointSize)!)
+        UIApplication.shared.setStatusBarHidden(true, with: .none)
     }
     
-    @IBAction func didTouchedStartButton(sender: AnyObject) {
-        print("スタート！")
+    override func viewDidLayoutSubviews() {
+        if alreadySubview! {
+            return
+        }
+        alreadySubview = true
+        let tw = tutorialScrollView.frame.width
+        let th = tutorialScrollView.frame.height
+        tutorialScrollView.contentSize = CGSize.init(width: tw * 3, height: th)
         
-        //位置情報許可の申請
-        appDelegate.LManager.requestAuthorization()
+        let page1 = TutorialPage1.instance()
+        let page2 = TutorialPage2.instance()
+        let page3 = TutorialPage3.instance()
+        page1.frame = CGRect.init(x: 0, y: 0, width: tw, height: th)
+        page2.frame = CGRect.init(x: tw, y: 0, width: tw, height: th)
+        page3.frame = CGRect.init(x: tw * 2, y: 0, width: tw, height: th)
+        tutorialScrollView.addSubview(page1)
+        tutorialScrollView.addSubview(page2)
+        tutorialScrollView.addSubview(page3)
     }
     
-    //ステータスバーを白くする
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
-    func acceptAuthorization() {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        let index: Int = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        setBottomViewStyle(index: index)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index: Int = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        setBottomViewStyle(index: index)
+    }
+    
+    func setBottomViewStyle(index: Int) {
+        pageControll.currentPage = index
+        if index == 2 {
+            mainButton.setTitle("はじめる", for: .normal)
+        }else {
+            mainButton.setTitle("次へ", for: .normal)
+        }
+    }
+    
+    @IBAction func changePage(_ sender: Any) {
+        print("changePage")
+//        let index = (sender as! UIPageControl).currentPage
+//        changeScrollViewPosition(index: index)
+    }
+    
+    @IBAction func touchedMainButton(_ sender: Any) {
+        changeScrollViewPosition(index: pageControll.currentPage)
+    }
+    
+    func changeScrollViewPosition(index: Int) {
+        if index == 0 {
+            tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width, y: 0), animated: true)
+        }else if index == 1 {
+            tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width * 2, y: 0), animated: true)
+        }else if index == 2 {
+            appDelegate.LManager.requestAuthorization()
+        }
+    }
+    
+    func touchedUseNotificaitonButton() {
+        appDelegate.NManager.registerUserNotificationSettings()
+        tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width * 2, y: 0), animated: true)
+    }
+    
+    func touchedNoUseNotificationButton() {
+        tutorialScrollView.setContentOffset(CGPoint.init(x: tutorialScrollView.frame.width * 2, y: 0), animated: true)
+    }
+    
+    func locationManager(acceptAuthorization message: String) {
         transitionToTopView()
     }
     
-    func DeniedAuthorization() {
+    
+    func locationManager(deniedAuthorization message: String) {
         transitionToTopView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         trackingScreen()
     }
+    
+    
+    
     
     //スクリーンをトラッキング
     func trackingScreen() {
@@ -58,15 +131,15 @@ class TutorialViewController: UIViewController, LocationManagerDelegate {
     
     //トップ画面へ遷移
     func transitionToTopView() {
-        let ud = NSUserDefaults.standardUserDefaults()
-        ud.setObject(false, forKey: "FIRST_LAUNCH")
+        let ud = UserDefaults.standard
+        ud.set(false, forKey: "FIRST_LAUNCH")
         ud.synchronize()
         
         print("トップ画面へ遷移")
         let storyboard = UIStoryboard(name: "Top", bundle: nil)
         let modalView: UIViewController! = storyboard.instantiateInitialViewController()
 //        self.navigationController?.pushViewController(nextView, animated: true)
-        self.presentViewController(modalView, animated: true, completion: nil)
+        self.present(modalView, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

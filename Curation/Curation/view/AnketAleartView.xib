@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamRounded-Medium.otf">
+            <string>GothamRounded-Medium</string>
+        </array>
+        <array key="GothamRounded_Bold.otf">
+            <string>GothamRounded-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AnketAleartView" customModule="Curation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="280" height="179"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGB-i3-Nt7">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="179"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgq-O1-id1">
+                            <rect key="frame" x="0.0" y="124" width="280" height="55"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vg-bU-jJH">
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="55"/>
+                                    <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="15"/>
+                                    <state key="normal" title="いいえ">
+                                        <color key="titleColor" red="0.56078431370000004" green="0.54901960780000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2j-XP-sd1">
+                                    <rect key="frame" x="140" y="0.0" width="140" height="55"/>
+                                    <color key="backgroundColor" red="0.94117647059999998" green="0.5568627451" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="17"/>
+                                    <state key="normal" title="OK">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.98823529409999999" green="0.98431372549999996" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="1vg-bU-jJH" firstAttribute="top" secondItem="Qgq-O1-id1" secondAttribute="top" id="90i-6Z-QBE"/>
+                                <constraint firstItem="G2j-XP-sd1" firstAttribute="leading" secondItem="1vg-bU-jJH" secondAttribute="trailing" id="BIL-Wt-d5h"/>
+                                <constraint firstAttribute="height" constant="55" id="Dmk-3k-c6p"/>
+                                <constraint firstItem="G2j-XP-sd1" firstAttribute="top" secondItem="Qgq-O1-id1" secondAttribute="top" id="Eph-sv-Zsm"/>
+                                <constraint firstAttribute="trailing" secondItem="G2j-XP-sd1" secondAttribute="trailing" id="UeA-ew-zwQ"/>
+                                <constraint firstAttribute="bottom" secondItem="1vg-bU-jJH" secondAttribute="bottom" id="Wp6-zC-2Mt"/>
+                                <constraint firstItem="G2j-XP-sd1" firstAttribute="width" secondItem="1vg-bU-jJH" secondAttribute="width" id="XZs-cl-lF8"/>
+                                <constraint firstItem="1vg-bU-jJH" firstAttribute="leading" secondItem="Qgq-O1-id1" secondAttribute="leading" id="eks-z5-8uL"/>
+                                <constraint firstAttribute="bottom" secondItem="G2j-XP-sd1" secondAttribute="bottom" id="wF1-6c-S9X"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8W-ak-GBf">
+                            <rect key="frame" x="10" y="63" width="260" height="39"/>
+                            <string key="text">アプリの精度、機能向上のため
+5分程度のアンケートのご協力を
+お願い致します。</string>
+                            <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アンケートのお願い" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHh-iQ-vBi">
+                            <rect key="frame" x="68" y="33" width="144" height="16"/>
+                            <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="YHh-iQ-vBi" firstAttribute="centerX" secondItem="qGB-i3-Nt7" secondAttribute="centerX" id="0SD-bC-RBd"/>
+                        <constraint firstItem="U8W-ak-GBf" firstAttribute="leading" secondItem="qGB-i3-Nt7" secondAttribute="leading" constant="10" id="20P-XP-MiL"/>
+                        <constraint firstItem="Qgq-O1-id1" firstAttribute="leading" secondItem="qGB-i3-Nt7" secondAttribute="leading" id="Gba-tR-KJ0"/>
+                        <constraint firstItem="U8W-ak-GBf" firstAttribute="top" secondItem="YHh-iQ-vBi" secondAttribute="bottom" constant="14" id="J7K-Od-q2V"/>
+                        <constraint firstAttribute="trailing" secondItem="Qgq-O1-id1" secondAttribute="trailing" id="SHV-12-rEk"/>
+                        <constraint firstAttribute="bottom" secondItem="Qgq-O1-id1" secondAttribute="bottom" id="TY9-cc-C5p"/>
+                        <constraint firstAttribute="trailing" secondItem="U8W-ak-GBf" secondAttribute="trailing" constant="10" id="wz3-zj-dVJ"/>
+                        <constraint firstItem="U8W-ak-GBf" firstAttribute="centerX" secondItem="qGB-i3-Nt7" secondAttribute="centerX" id="xI0-VY-cGK"/>
+                        <constraint firstItem="Qgq-O1-id1" firstAttribute="top" secondItem="U8W-ak-GBf" secondAttribute="bottom" constant="22" id="yGy-gV-BZB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="qGB-i3-Nt7" secondAttribute="bottom" id="NJ6-Gp-NJJ"/>
+                <constraint firstAttribute="trailing" secondItem="qGB-i3-Nt7" secondAttribute="trailing" id="hxC-8y-yJl"/>
+                <constraint firstItem="qGB-i3-Nt7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qV1-aM-mw2"/>
+                <constraint firstItem="qGB-i3-Nt7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zUU-4X-dGO"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="U8W-ak-GBf" id="V4e-Lt-rLt"/>
+                <outlet property="noButton" destination="1vg-bU-jJH" id="Sad-zV-6vm"/>
+                <outlet property="okButton" destination="G2j-XP-sd1" id="wac-mk-eIk"/>
+                <outlet property="titleLabel" destination="YHh-iQ-vBi" id="jTf-Iw-NP3"/>
+                <outlet property="wrapperView" destination="qGB-i3-Nt7" id="CLb-nF-ih9"/>
+            </connections>
+            <point key="canvasLocation" x="92" y="68.5"/>
+        </view>
+    </objects>
+</document>

@@ -7,21 +7,48 @@
 //
 
 import UIKit
-//import SVProgressHUD
+import SVProgressHUD
 
-public class Global: NSObject {
-    /*
-    //ローディング画面を表示
-    func showLoadingView(view: UIView, messege: String) {
-        blackBgView = BlackBgView.init(frame: view.frame)
-        view.addSubview(blackBgView)
-        SVProgressHUD.showWithStatus(messege)
+class Global: NSObject {
+    var selectedArticle: AnyObject!
+    var searchResultArticles: [AnyObject]!
+    var isBackFromSearchResultView: Bool!
+    var searchedPlaceName: String!
+    var isNotification: Bool!
+    
+    override init() {
+        super.init()
+        selectedArticle = () as AnyObject!
+        searchResultArticles = [AnyObject]()
+        isBackFromSearchResultView = false
+        searchedPlaceName = ""
+        isNotification = false
     }
     
-    //ローディング画面を削除
+    var blackView: UIView?
+    func showLoadingView(view: UIView, messege: String?) {
+        if blackView != nil {
+            return
+        }
+        let rect = CGRect.init(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        blackView = UIView.init(frame: rect)
+        blackView?.backgroundColor = UIColor.black
+        blackView?.alpha = 0.1
+        view.addSubview(blackView!)
+        
+        if messege != nil {
+            SVProgressHUD.show(withStatus: messege)
+        }else {
+            SVProgressHUD.show()
+        }
+    }
+    
     func removeLoadingView() {
-        blackBgView.removeFromSuperview()
+        if blackView != nil {
+            blackView?.removeFromSuperview()
+            blackView = nil
+        }
+        blackView?.removeFromSuperview()
         SVProgressHUD.dismiss()
     }
-    */
 }
