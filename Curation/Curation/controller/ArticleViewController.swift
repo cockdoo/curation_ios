@@ -84,13 +84,13 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidStartLoad(_ webView: UIWebView) {
 //        print("webview did start load")
-//        loadCount =  loadCount + 1
+        loadCount =  loadCount + 1
 //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
 //        print("webview did finish load")
-//        loadCount =  loadCount - 1
+        loadCount =  loadCount - 1
 //        if loadCount > 0 {
 //            return;
 //        }
@@ -123,8 +123,8 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         if loadCount > 0 {
             return
         }
-        appDelegate.global.removeLoadingView()
-        Common().showAlert(title: "", message: "読み込みエラー", target: self, popView: true)
+//        appDelegate.global.removeLoadingView()
+//        Common().showAlert(title: "", message: "読み込みエラー", target: self, popView: true)
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
