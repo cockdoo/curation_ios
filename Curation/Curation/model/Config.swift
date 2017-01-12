@@ -28,7 +28,7 @@ open class Config {
     //次の記事の通知を出す最低時間
     let hourPushInterval: TimeInterval = 8
     
-    let isTrackingAnalytics: Bool = 
+    let isTrackingAnalytics: Bool = false
     
     let anketURL: String = "https://docs.google.com/forms/d/1DSU7cL-tYr4ASLA40VJHGkdAoYbRA0v6sNqw8yHNgRY"
     

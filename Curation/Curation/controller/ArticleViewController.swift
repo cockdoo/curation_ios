@@ -71,6 +71,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             isFavorite = false
         }
         webView.delegate = self
+        webView.scalesPageToFit = true
         toggleFavotiteButtonTheme()
     }
     
