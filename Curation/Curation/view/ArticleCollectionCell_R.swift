@@ -51,10 +51,11 @@ class ArticleCollectionCell_R: UICollectionViewCell {
         let b = CGFloat(arc4random() % 150) + 100
         thumbView.backgroundColor = UIColor.init(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
         
+        
         //画像を非同期で読み込む
         let url: URL = URL(string: imageUrl)!
         let req: URLRequest = URLRequest(url: url)
-        
+
         thumbView.setImageWith(req, placeholderImage: nil, success: {(req, res, image) in
             self.thumbView.image = image
             let transition = CATransition.init()

@@ -275,7 +275,7 @@ class HomeViewController: UIViewController, LocationManagerDelegate, DatabaseMan
         let scroll = scrollView.contentOffset.y
         let contentHeight = articleCollectionView.contentSize.height - articleCollectionView.frame.height
         
-        if contentHeight - scroll < 3000 {
+        if contentHeight - scroll < 2500 {
             if !isGettingArticle {
                 isAddingArticles = true
                 getArticles()

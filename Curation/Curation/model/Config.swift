@@ -19,7 +19,7 @@ open class Config {
     let timeIntervalUpdatingLocation: TimeInterval = 60
     
     //取得できれば満足する記事の個数
-    let minGetArticlesNum = 60
+    let minGetArticlesNum = 40
     let maxGetArticlesNum = 150
     
     //仮想ペルソナの生活圏データを表示するか否か
@@ -28,7 +28,7 @@ open class Config {
     //次の記事の通知を出す最低時間
     let hourPushInterval: TimeInterval = 8
     
-    let isTrackingAnalytics: Bool = false
+    let isTrackingAnalytics: Bool = 
     
     let anketURL: String = "https://docs.google.com/forms/d/1DSU7cL-tYr4ASLA40VJHGkdAoYbRA0v6sNqw8yHNgRY"
     
